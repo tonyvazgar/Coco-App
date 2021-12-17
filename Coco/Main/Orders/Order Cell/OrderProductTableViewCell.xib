@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MyriadPro-Regular.otf">
+            <string>MyriadPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="KGk-i7-Jjw" customClass="OrderProductTableViewCell" customModule="Coco" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="425" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="425" height="49.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Producto" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tM5-R6-e6z">
+                        <rect key="frame" x="8" y="8" width="96.5" height="33.5"/>
+                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smC-UF-vmt">
+                        <rect key="frame" x="112.5" y="8" width="96" height="33.5"/>
+                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sub." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Qp-Bi-XPR">
+                        <rect key="frame" x="216.5" y="8" width="96.5" height="33.5"/>
+                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dr2-vs-6oy">
+                        <rect key="frame" x="321" y="8" width="96" height="33.5"/>
+                        <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="tM5-R6-e6z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="0cJ-tV-5mW"/>
+                    <constraint firstItem="smC-UF-vmt" firstAttribute="leading" secondItem="tM5-R6-e6z" secondAttribute="trailing" constant="8" id="0zh-1P-Zb4"/>
+                    <constraint firstItem="smC-UF-vmt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="9ns-WU-lTc"/>
+                    <constraint firstAttribute="trailing" secondItem="dr2-vs-6oy" secondAttribute="trailing" constant="8" id="EZm-ru-LSo"/>
+                    <constraint firstAttribute="bottom" secondItem="dr2-vs-6oy" secondAttribute="bottom" constant="8" id="GMV-Ce-L2G"/>
+                    <constraint firstItem="dr2-vs-6oy" firstAttribute="leading" secondItem="9Qp-Bi-XPR" secondAttribute="trailing" constant="8" id="LWs-55-6Vl"/>
+                    <constraint firstAttribute="bottom" secondItem="tM5-R6-e6z" secondAttribute="bottom" constant="8" id="MM6-sQ-wz8"/>
+                    <constraint firstItem="9Qp-Bi-XPR" firstAttribute="leading" secondItem="smC-UF-vmt" secondAttribute="trailing" constant="8" id="RTb-IP-G90"/>
+                    <constraint firstItem="9Qp-Bi-XPR" firstAttribute="leading" secondItem="smC-UF-vmt" secondAttribute="trailing" constant="8" id="TSU-9v-fWJ"/>
+                    <constraint firstItem="smC-UF-vmt" firstAttribute="leading" secondItem="tM5-R6-e6z" secondAttribute="trailing" constant="8" id="VH2-fs-BIG"/>
+                    <constraint firstItem="9Qp-Bi-XPR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="XHo-TR-HGN"/>
+                    <constraint firstItem="9Qp-Bi-XPR" firstAttribute="width" secondItem="tM5-R6-e6z" secondAttribute="width" id="Xj3-mx-3Mn"/>
+                    <constraint firstItem="smC-UF-vmt" firstAttribute="leading" secondItem="tM5-R6-e6z" secondAttribute="trailing" constant="8" id="Y3P-cD-4VN"/>
+                    <constraint firstAttribute="bottom" secondItem="smC-UF-vmt" secondAttribute="bottom" constant="8" id="dNp-fr-dy6"/>
+                    <constraint firstItem="tM5-R6-e6z" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="fDb-Kw-Zsa"/>
+                    <constraint firstItem="9Qp-Bi-XPR" firstAttribute="leading" secondItem="smC-UF-vmt" secondAttribute="trailing" constant="8" id="h4j-C7-iNj"/>
+                    <constraint firstItem="smC-UF-vmt" firstAttribute="leading" secondItem="tM5-R6-e6z" secondAttribute="trailing" constant="8" id="lkI-Yt-X5y"/>
+                    <constraint firstItem="dr2-vs-6oy" firstAttribute="leading" secondItem="9Qp-Bi-XPR" secondAttribute="trailing" constant="8" id="mgj-Oz-5Mx"/>
+                    <constraint firstItem="dr2-vs-6oy" firstAttribute="width" secondItem="tM5-R6-e6z" secondAttribute="width" id="ofx-NO-75Q"/>
+                    <constraint firstAttribute="bottom" secondItem="9Qp-Bi-XPR" secondAttribute="bottom" constant="8" id="vLg-Im-lUt"/>
+                    <constraint firstItem="smC-UF-vmt" firstAttribute="width" secondItem="tM5-R6-e6z" secondAttribute="width" id="xQG-hB-A5a"/>
+                    <constraint firstItem="dr2-vs-6oy" firstAttribute="leading" secondItem="9Qp-Bi-XPR" secondAttribute="trailing" constant="8" id="yKs-Rs-QJu"/>
+                    <constraint firstItem="dr2-vs-6oy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ya0-Ec-zEE"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="price" destination="9Qp-Bi-XPR" id="tem-84-wzi"/>
+                <outlet property="productName" destination="tM5-R6-e6z" id="FvW-NO-9a3"/>
+                <outlet property="quantity" destination="smC-UF-vmt" id="kSU-5h-UQd"/>
+                <outlet property="total" destination="dr2-vs-6oy" id="UsK-uo-Mzq"/>
+            </connections>
+            <point key="canvasLocation" x="61.594202898550726" y="154.6875"/>
+        </tableViewCell>
+    </objects>
+</document>

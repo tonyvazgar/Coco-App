@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MyriadPro-Bold.otf">
+            <string>MyriadPro-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BalanceVC" customModule="Coco" customModuleProvider="target">
+            <connections>
+                <outlet property="paymentFormsBtn" destination="146-0V-e7H" id="cxw-ua-WDa"/>
+                <outlet property="table" destination="aDf-DJ-Mf1" id="eZ8-mk-syV"/>
+                <outlet property="topBar" destination="Qcn-Zh-la7" id="Lfa-Gd-drU"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qcn-Zh-la7">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wB-Pt-tZ2">
+                            <rect key="frame" x="8" y="44" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Pu8-Rd-76Y"/>
+                                <constraint firstAttribute="width" constant="40" id="TX4-ZX-0W9"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                            <state key="normal" image="backnegro"/>
+                            <connections>
+                                <action selector="backBtn:" destination="-1" eventType="touchUpInside" id="B7F-Ox-vl6"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recargas de saldo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xb-sG-Jj4">
+                            <rect key="frame" x="48" y="55.5" width="125" height="17.5"/>
+                            <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="15"/>
+                            <color key="textColor" name="Black"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="0xb-sG-Jj4" firstAttribute="leading" secondItem="0wB-Pt-tZ2" secondAttribute="trailing" id="2UX-lD-Kc4"/>
+                        <constraint firstItem="0wB-Pt-tZ2" firstAttribute="leading" secondItem="Qcn-Zh-la7" secondAttribute="leading" constant="8" id="M3A-0Y-t1C"/>
+                        <constraint firstItem="0xb-sG-Jj4" firstAttribute="centerY" secondItem="0wB-Pt-tZ2" secondAttribute="centerY" id="VVa-wv-Wzs"/>
+                        <constraint firstAttribute="bottom" secondItem="0wB-Pt-tZ2" secondAttribute="bottom" id="m2m-H0-WJv"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aDf-DJ-Mf1">
+                    <rect key="frame" x="0.0" y="84" width="414" height="728"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="146-0V-e7H">
+                    <rect key="frame" x="64" y="822" width="286" height="35"/>
+                    <color key="backgroundColor" name="Green"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="R91-Mg-b25"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="14"/>
+                    <state key="normal" title="VER MIS FORMAS DE PAGO">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="paymentFormsAction:" destination="-1" eventType="touchUpInside" id="vnR-1z-yga"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="Qcn-Zh-la7" secondAttribute="bottom" constant="-40" id="CDj-IY-lqQ"/>
+                <constraint firstItem="Qcn-Zh-la7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LgU-aj-9xA"/>
+                <constraint firstItem="Qcn-Zh-la7" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="PFb-KU-B6J"/>
+                <constraint firstItem="aDf-DJ-Mf1" firstAttribute="top" secondItem="Qcn-Zh-la7" secondAttribute="bottom" id="QfF-6L-cFL"/>
+                <constraint firstItem="146-0V-e7H" firstAttribute="top" secondItem="aDf-DJ-Mf1" secondAttribute="bottom" constant="10" id="RAF-S6-ItK"/>
+                <constraint firstItem="aDf-DJ-Mf1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Wpr-Te-eTx"/>
+                <constraint firstItem="aDf-DJ-Mf1" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="g9N-wi-0Iu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="146-0V-e7H" secondAttribute="trailing" constant="64" id="lFI-b0-I0K"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aDf-DJ-Mf1" secondAttribute="bottom" constant="50" id="nNz-LS-DEp"/>
+                <constraint firstItem="Qcn-Zh-la7" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qqS-A6-Dj4"/>
+                <constraint firstItem="146-0V-e7H" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="64" id="uFK-Jy-TgR"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="153"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backnegro" width="64" height="64"/>
+        <namedColor name="Black">
+            <color red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Green">
+            <color red="0.0" green="0.61568627450980395" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

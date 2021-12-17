@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MyriadPro-Bold.otf">
+            <string>MyriadPro-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrdersVC" customModule="Coco" customModuleProvider="target">
+            <connections>
+                <outlet property="table" destination="mC6-xT-DSt" id="GRi-KX-Xup"/>
+                <outlet property="topBar" destination="pIh-3l-WNc" id="tcO-Sr-U72"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIh-3l-WNc">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anw-8o-b8c">
+                            <rect key="frame" x="8" y="44" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="qzj-p3-cp8"/>
+                                <constraint firstAttribute="height" constant="40" id="zxL-SK-fxs"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                            <state key="normal" image="backnegro"/>
+                            <connections>
+                                <action selector="closeBtn:" destination="-1" eventType="touchUpInside" id="0QQ-Ef-1f3"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pedidos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zD-EE-jMq">
+                            <rect key="frame" x="48" y="55.5" width="55.5" height="17.5"/>
+                            <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="15"/>
+                            <color key="textColor" name="Black"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="anw-8o-b8c" firstAttribute="leading" secondItem="pIh-3l-WNc" secondAttribute="leading" constant="8" id="ELQ-pV-YFy"/>
+                        <constraint firstItem="3zD-EE-jMq" firstAttribute="centerY" secondItem="anw-8o-b8c" secondAttribute="centerY" id="EqE-qh-NNq"/>
+                        <constraint firstAttribute="bottom" secondItem="anw-8o-b8c" secondAttribute="bottom" id="TP6-aI-MXL"/>
+                        <constraint firstItem="3zD-EE-jMq" firstAttribute="leading" secondItem="anw-8o-b8c" secondAttribute="trailing" id="qcL-XL-pp7"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mC6-xT-DSt">
+                    <rect key="frame" x="0.0" y="84" width="414" height="778"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="mC6-xT-DSt" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="0ec-Sg-MwO"/>
+                <constraint firstItem="mC6-xT-DSt" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="2dg-Va-tsK"/>
+                <constraint firstItem="mC6-xT-DSt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="3e3-3g-M3W"/>
+                <constraint firstItem="pIh-3l-WNc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="44Q-Wc-4bM"/>
+                <constraint firstItem="mC6-xT-DSt" firstAttribute="top" secondItem="pIh-3l-WNc" secondAttribute="bottom" id="Nn6-F1-kd5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="pIh-3l-WNc" secondAttribute="bottom" constant="-40" id="sKv-7H-Ww6"/>
+                <constraint firstItem="pIh-3l-WNc" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="sU2-E9-bxf"/>
+                <constraint firstItem="pIh-3l-WNc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xMR-ap-Jis"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="153"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backnegro" width="64" height="64"/>
+        <namedColor name="Black">
+            <color red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

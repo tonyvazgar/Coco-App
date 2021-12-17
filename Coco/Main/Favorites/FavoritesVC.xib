@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MyriadPro-Bold.otf">
+            <string>MyriadPro-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoritesVC" customModule="Coco" customModuleProvider="target">
+            <connections>
+                <outlet property="table" destination="f6N-Kq-ttq" id="KQB-uX-gWu"/>
+                <outlet property="topBar" destination="Rni-H1-zTd" id="6df-Y6-j8c"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rni-H1-zTd">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCk-kF-Gpn">
+                            <rect key="frame" x="8" y="44" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="pdI-6f-o1K"/>
+                                <constraint firstAttribute="height" constant="40" id="qnF-LF-rAy"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                            <state key="normal" image="backnegro"/>
+                            <connections>
+                                <action selector="closeBtn:" destination="-1" eventType="touchUpInside" id="Xak-zy-1a2"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favoritos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HzG-41-alC">
+                            <rect key="frame" x="48" y="55.5" width="62" height="17.5"/>
+                            <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="15"/>
+                            <color key="textColor" name="Black"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="HzG-41-alC" firstAttribute="leading" secondItem="cCk-kF-Gpn" secondAttribute="trailing" id="5XR-bm-eKt"/>
+                        <constraint firstItem="cCk-kF-Gpn" firstAttribute="leading" secondItem="Rni-H1-zTd" secondAttribute="leading" constant="8" id="FyS-Xy-o55"/>
+                        <constraint firstAttribute="bottom" secondItem="cCk-kF-Gpn" secondAttribute="bottom" id="Oua-Ng-X8M"/>
+                        <constraint firstItem="HzG-41-alC" firstAttribute="centerY" secondItem="cCk-kF-Gpn" secondAttribute="centerY" id="uPU-l3-o5f"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f6N-Kq-ttq">
+                    <rect key="frame" x="0.0" y="84" width="414" height="778"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Rni-H1-zTd" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="7BS-jo-dyJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="f6N-Kq-ttq" secondAttribute="trailing" id="BXh-CH-PoD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="f6N-Kq-ttq" secondAttribute="bottom" id="LmN-j9-cdU"/>
+                <constraint firstItem="Rni-H1-zTd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MWq-0z-tnK"/>
+                <constraint firstItem="f6N-Kq-ttq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="P9m-mc-ZV7"/>
+                <constraint firstItem="Rni-H1-zTd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="mwf-dk-9Ir"/>
+                <constraint firstItem="f6N-Kq-ttq" firstAttribute="top" secondItem="Rni-H1-zTd" secondAttribute="bottom" id="qEB-a9-K2C"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="Rni-H1-zTd" secondAttribute="bottom" constant="-40" id="zOj-QZ-5xI"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="153"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backnegro" width="64" height="64"/>
+        <namedColor name="Black">
+            <color red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="555" id="KGk-i7-Jjw" customClass="codeSharingTableViewCell" customModule="Coco" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="555"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="555"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4w-aR-snZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="555"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKw-iZ-AFW">
+                                <rect key="frame" x="8" y="8" width="359" height="245"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticketdorado" translatesAutoresizingMaskIntoConstraints="NO" id="HM5-97-D6f">
+                                        <rect key="frame" x="5" y="5" width="349" height="235"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Código Promocional - Referido" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBK-Bl-6sr">
+                                        <rect key="frame" x="42" y="44" width="275" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="CWy-pd-2Fl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bgs-GL-gig">
+                                        <rect key="frame" x="41" y="104" width="277" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="wH6-fo-3GL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkb-Zd-tIQ">
+                                        <rect key="frame" x="109" y="158" width="141" height="37"/>
+                                        <color key="backgroundColor" name="Green"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="37" id="Th6-eL-DQi"/>
+                                        </constraints>
+                                        <state key="normal" title="Canjear">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="exchangeCode:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="muQ-Sr-gBu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="HM5-97-D6f" firstAttribute="top" secondItem="hKw-iZ-AFW" secondAttribute="top" constant="5" id="075-Ow-11C"/>
+                                    <constraint firstAttribute="bottom" secondItem="HM5-97-D6f" secondAttribute="bottom" constant="5" id="G4h-IN-LVV"/>
+                                    <constraint firstAttribute="height" constant="245" id="Gcy-df-prY"/>
+                                    <constraint firstItem="FBK-Bl-6sr" firstAttribute="leading" secondItem="hKw-iZ-AFW" secondAttribute="leading" constant="42" id="JAx-ST-s7q"/>
+                                    <constraint firstItem="FBK-Bl-6sr" firstAttribute="top" secondItem="hKw-iZ-AFW" secondAttribute="top" constant="44" id="JVs-Qf-RIe"/>
+                                    <constraint firstAttribute="trailing" secondItem="HM5-97-D6f" secondAttribute="trailing" constant="5" id="MNP-Ov-QGk"/>
+                                    <constraint firstItem="Bgs-GL-gig" firstAttribute="leading" secondItem="hKw-iZ-AFW" secondAttribute="leading" constant="41" id="NJ6-em-l2H"/>
+                                    <constraint firstAttribute="trailing" secondItem="FBK-Bl-6sr" secondAttribute="trailing" constant="42" id="SAe-JQ-JbX"/>
+                                    <constraint firstItem="HM5-97-D6f" firstAttribute="leading" secondItem="hKw-iZ-AFW" secondAttribute="leading" constant="5" id="fG0-pG-cZp"/>
+                                    <constraint firstItem="bkb-Zd-tIQ" firstAttribute="top" secondItem="Bgs-GL-gig" secondAttribute="bottom" constant="19" id="fLF-e1-SBB"/>
+                                    <constraint firstItem="bkb-Zd-tIQ" firstAttribute="leading" secondItem="hKw-iZ-AFW" secondAttribute="leading" constant="109" id="jni-Ci-gTa"/>
+                                    <constraint firstItem="Bgs-GL-gig" firstAttribute="top" secondItem="FBK-Bl-6sr" secondAttribute="bottom" constant="39" id="lyL-rl-o3X"/>
+                                    <constraint firstAttribute="trailing" secondItem="bkb-Zd-tIQ" secondAttribute="trailing" constant="109" id="pVO-0G-JNE"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bgs-GL-gig" secondAttribute="trailing" constant="41" id="znc-gX-qbC"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hEm-XI-cUP" customClass="GradientView" customModule="Coco" customModuleProvider="target">
+                                <rect key="frame" x="5" y="261" width="365" height="201"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Comparte CocoApp!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="4" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vas-Lz-kUj">
+                                        <rect key="frame" x="20" y="27" width="231" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="231" id="2JL-mk-nmo"/>
+                                            <constraint firstAttribute="height" constant="34" id="nVW-j5-fzn"/>
+                                            <constraint firstAttribute="width" secondItem="vas-Lz-kUj" secondAttribute="height" multiplier="231:34" id="uZW-2Y-rnn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="money_verde" translatesAutoresizingMaskIntoConstraints="NO" id="ku2-gc-NIS">
+                                        <rect key="frame" x="271" y="17" width="86" height="55"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ku2-gc-NIS" secondAttribute="height" multiplier="86:55" id="JJ4-TN-qbK"/>
+                                            <constraint firstAttribute="width" constant="86" id="n5H-uV-upK"/>
+                                            <constraint firstAttribute="height" constant="55" id="sc9-MY-Uc7"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="giD-nt-RH2">
+                                        <rect key="frame" x="15" y="80" width="335" height="109"/>
+                                        <string key="text">¡Ahora compartir CocoApp te dará beneficios! Comparte tu codigo con tus amigos y recibe saldo de regalo en la primera recarga que realicen. </string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="ku2-gc-NIS" firstAttribute="top" secondItem="hEm-XI-cUP" secondAttribute="top" constant="17" id="4i3-eO-A2P"/>
+                                    <constraint firstItem="ku2-gc-NIS" firstAttribute="leading" secondItem="vas-Lz-kUj" secondAttribute="trailing" constant="20" id="BAS-5v-H3c"/>
+                                    <constraint firstItem="vas-Lz-kUj" firstAttribute="top" secondItem="hEm-XI-cUP" secondAttribute="top" constant="27" id="JD0-Tp-zyX"/>
+                                    <constraint firstAttribute="height" constant="201" id="PNe-lG-T42"/>
+                                    <constraint firstItem="giD-nt-RH2" firstAttribute="top" secondItem="ku2-gc-NIS" secondAttribute="bottom" constant="8" id="RCm-Op-Lig"/>
+                                    <constraint firstItem="giD-nt-RH2" firstAttribute="leading" secondItem="hEm-XI-cUP" secondAttribute="leading" constant="15" id="VSs-yR-OMq"/>
+                                    <constraint firstItem="vas-Lz-kUj" firstAttribute="leading" secondItem="hEm-XI-cUP" secondAttribute="leading" constant="20" id="dan-0I-ByV"/>
+                                    <constraint firstAttribute="trailing" secondItem="ku2-gc-NIS" secondAttribute="trailing" constant="8" id="i0o-K0-2Ps"/>
+                                    <constraint firstAttribute="bottom" secondItem="giD-nt-RH2" secondAttribute="bottom" constant="12" id="vhj-fQ-V31"/>
+                                    <constraint firstAttribute="trailing" secondItem="giD-nt-RH2" secondAttribute="trailing" constant="15" id="zD9-gw-2WF"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" red="0.73935598130000002" green="0.50758868459999995" blue="0.2892623842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="diagonalMode" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhi-kq-MTV">
+                                <rect key="frame" x="35" y="482" width="305" height="47"/>
+                                <color key="backgroundColor" name="Green"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="HND-hU-e8q"/>
+                                </constraints>
+                                <state key="normal" title="¡Compartir CocoApp!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="shareCoco:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="SQS-sj-cfP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hKw-iZ-AFW" secondAttribute="trailing" constant="8" id="Ifv-2Q-88A"/>
+                            <constraint firstAttribute="trailing" secondItem="Hhi-kq-MTV" secondAttribute="trailing" constant="35" id="N9M-vb-NO3"/>
+                            <constraint firstItem="Hhi-kq-MTV" firstAttribute="top" secondItem="hEm-XI-cUP" secondAttribute="bottom" constant="20" id="Pwv-9P-eKq"/>
+                            <constraint firstItem="hKw-iZ-AFW" firstAttribute="top" secondItem="K4w-aR-snZ" secondAttribute="top" constant="8" id="T4U-kV-cWx"/>
+                            <constraint firstItem="Hhi-kq-MTV" firstAttribute="leading" secondItem="K4w-aR-snZ" secondAttribute="leading" constant="35" id="TFj-wc-ilc"/>
+                            <constraint firstAttribute="trailing" secondItem="hEm-XI-cUP" secondAttribute="trailing" constant="5" id="VAh-0a-IiP"/>
+                            <constraint firstItem="hEm-XI-cUP" firstAttribute="leading" secondItem="K4w-aR-snZ" secondAttribute="leading" constant="5" id="ggz-sS-7X2"/>
+                            <constraint firstItem="hEm-XI-cUP" firstAttribute="top" secondItem="hKw-iZ-AFW" secondAttribute="bottom" constant="8" id="n0X-gC-W7d"/>
+                            <constraint firstItem="hKw-iZ-AFW" firstAttribute="leading" secondItem="K4w-aR-snZ" secondAttribute="leading" constant="8" id="zur-5W-1fc"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="K4w-aR-snZ" secondAttribute="bottom" id="8WL-QA-8DU"/>
+                    <constraint firstItem="K4w-aR-snZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Tnm-8e-Pgd"/>
+                    <constraint firstItem="K4w-aR-snZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bi5-CS-b7h"/>
+                    <constraint firstAttribute="trailing" secondItem="K4w-aR-snZ" secondAttribute="trailing" id="cZS-MX-VVJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="code" destination="Bgs-GL-gig" id="seG-Zo-mPh"/>
+                <outlet property="codeButton" destination="bkb-Zd-tIQ" id="Vbo-oF-PPX"/>
+                <outlet property="gradientBackground" destination="hEm-XI-cUP" id="aZA-A4-hHy"/>
+                <outlet property="shareButton" destination="Hhi-kq-MTV" id="Ym4-g4-mh2"/>
+            </connections>
+            <point key="canvasLocation" x="216.66666666666669" y="283.28804347826087"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="money_verde" width="256" height="256"/>
+        <image name="ticketdorado" width="1000" height="500"/>
+        <namedColor name="Green">
+            <color red="0.0" green="0.61568627450980395" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

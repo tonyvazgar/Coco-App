@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MyriadPro-Bold.otf">
+            <string>MyriadPro-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentFormsVC" customModule="Coco" customModuleProvider="target">
+            <connections>
+                <outlet property="addCardButton" destination="9t1-Vk-7sy" id="6uo-ru-6Bz"/>
+                <outlet property="table" destination="XXs-LM-lxQ" id="k41-Dt-UV4"/>
+                <outlet property="topBar" destination="aOZ-ym-yZa" id="AJg-MY-bL6"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOZ-ym-yZa">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbH-ba-HzW">
+                            <rect key="frame" x="8" y="44" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="bf7-dr-9Bm"/>
+                                <constraint firstAttribute="height" constant="40" id="y6o-eB-CKc"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                            <state key="normal" image="backnegro"/>
+                            <connections>
+                                <action selector="backBtn:" destination="-1" eventType="touchUpInside" id="EEB-lm-fCK"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mis formas de pago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0SU-dx-p0L">
+                            <rect key="frame" x="48" y="55.5" width="134" height="17.5"/>
+                            <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="15"/>
+                            <color key="textColor" name="Black"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="lbH-ba-HzW" firstAttribute="leading" secondItem="aOZ-ym-yZa" secondAttribute="leading" constant="8" id="3RD-gK-6oo"/>
+                        <constraint firstItem="0SU-dx-p0L" firstAttribute="centerY" secondItem="lbH-ba-HzW" secondAttribute="centerY" id="dgR-z3-bVj"/>
+                        <constraint firstItem="0SU-dx-p0L" firstAttribute="leading" secondItem="lbH-ba-HzW" secondAttribute="trailing" id="ksK-WH-snj"/>
+                        <constraint firstAttribute="bottom" secondItem="lbH-ba-HzW" secondAttribute="bottom" id="wkA-g9-MDW"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XXs-LM-lxQ">
+                    <rect key="frame" x="0.0" y="84" width="414" height="728"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9t1-Vk-7sy">
+                    <rect key="frame" x="64" y="822" width="286" height="35"/>
+                    <color key="backgroundColor" name="Green"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="IkQ-7V-Rcx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="14"/>
+                    <state key="normal" title="AGREGAR TARJETA">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="addCardAction:" destination="-1" eventType="touchUpInside" id="jtA-3t-2RY"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="9t1-Vk-7sy" firstAttribute="top" secondItem="XXs-LM-lxQ" secondAttribute="bottom" constant="10" id="FFI-Rt-BdO"/>
+                <constraint firstItem="XXs-LM-lxQ" firstAttribute="top" secondItem="aOZ-ym-yZa" secondAttribute="bottom" id="OU4-Sh-ACo"/>
+                <constraint firstItem="9t1-Vk-7sy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="64" id="Rgt-HJ-yAU"/>
+                <constraint firstItem="XXs-LM-lxQ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ccx-CQ-gVF"/>
+                <constraint firstItem="aOZ-ym-yZa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="mJS-CJ-mn8"/>
+                <constraint firstItem="aOZ-ym-yZa" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="sCt-G1-C93"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="aOZ-ym-yZa" secondAttribute="bottom" constant="-40" id="tHC-uZ-dGO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9t1-Vk-7sy" secondAttribute="trailing" constant="64" id="x6a-Dw-YS6"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="XXs-LM-lxQ" secondAttribute="bottom" constant="50" id="x7C-vi-jsV"/>
+                <constraint firstItem="aOZ-ym-yZa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="y3A-2X-xXT"/>
+                <constraint firstItem="XXs-LM-lxQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zLt-GI-7Zy"/>
+            </constraints>
+            <point key="canvasLocation" x="47.826086956521742" y="35.491071428571423"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="backnegro" width="64" height="64"/>
+        <namedColor name="Black">
+            <color red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Green">
+            <color red="0.0" green="0.61568627450980395" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Main Tab Bar Controller-->
+        <scene sceneID="Hph-lr-HlO">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="FMw-TM-7tM" customClass="MainTabBarController" customModule="Coco" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fDG-g6-Vth">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="CocoOrange"/>
+                        <color key="selectedImageTintColor" name="CocoOrange"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="d4d-Ei-Z7I" kind="relationship" relationship="viewControllers" id="hRF-3E-nzW"/>
+                        <segue destination="hak-3X-WVs" kind="relationship" relationship="viewControllers" id="ILE-KS-g9i"/>
+                        <segue destination="Dia-Vn-Hc8" kind="relationship" relationship="viewControllers" id="XY8-I1-jpW"/>
+                        <segue destination="tPD-gg-8hZ" kind="relationship" relationship="viewControllers" id="hnp-0d-UMh"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5rI-su-Vkr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-468" y="-249"/>
+        </scene>
+        <!--MainNavigation-->
+        <scene sceneID="lJQ-qS-hld">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="MainNavigation" id="d4d-Ei-Z7I" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="nFA-DE-TDR"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dHf-LH-FpG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1716" y="239"/>
+        </scene>
+        <!--Promos-->
+        <scene sceneID="h9g-UX-WdE">
+            <objects>
+                <viewController id="hak-3X-WVs" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rgZ-6f-AqI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Coco_Gradient_Background" translatesAutoresizingMaskIntoConstraints="NO" id="GTA-Yk-eVm">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Próximamente" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2T-Uh-rlH">
+                                <rect key="frame" x="129" y="434" width="156" height="28"/>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Sod-0e-wej"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="M2T-Uh-rlH" firstAttribute="centerY" secondItem="rgZ-6f-AqI" secondAttribute="centerY" id="5Eg-gI-SKC"/>
+                            <constraint firstItem="M2T-Uh-rlH" firstAttribute="centerX" secondItem="rgZ-6f-AqI" secondAttribute="centerX" id="6Hs-qe-jzG"/>
+                            <constraint firstItem="GTA-Yk-eVm" firstAttribute="top" secondItem="rgZ-6f-AqI" secondAttribute="top" id="6tF-Zd-9qF"/>
+                            <constraint firstItem="Sod-0e-wej" firstAttribute="trailing" secondItem="GTA-Yk-eVm" secondAttribute="trailing" id="g0T-cg-t3K"/>
+                            <constraint firstItem="GTA-Yk-eVm" firstAttribute="leading" secondItem="Sod-0e-wej" secondAttribute="leading" id="pyS-Ui-1zX"/>
+                            <constraint firstItem="Sod-0e-wej" firstAttribute="bottom" secondItem="GTA-Yk-eVm" secondAttribute="bottom" id="xPV-jf-2YY"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Promos" id="iZh-0a-bFQ" customClass="CocoTabBarItem" customModule="Coco" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="promos"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedIcon" value="promos_selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PV2-j2-F9n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-868" y="536"/>
+        </scene>
+        <!--Hijos-->
+        <scene sceneID="OT4-Ta-kgV">
+            <objects>
+                <viewController id="Dia-Vn-Hc8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gNd-wO-x5X">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Coco_Gradient_Background" translatesAutoresizingMaskIntoConstraints="NO" id="ajJ-LN-HEm">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Próximamente" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prN-UX-Ul3">
+                                <rect key="frame" x="129" y="434" width="156" height="28"/>
+                                <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KRk-lF-hre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ajJ-LN-HEm" firstAttribute="top" secondItem="gNd-wO-x5X" secondAttribute="top" id="5Dm-3d-ZGd"/>
+                            <constraint firstItem="ajJ-LN-HEm" firstAttribute="bottom" secondItem="KRk-lF-hre" secondAttribute="bottom" id="8ZO-ge-pjT"/>
+                            <constraint firstItem="ajJ-LN-HEm" firstAttribute="trailing" secondItem="KRk-lF-hre" secondAttribute="trailing" id="Htf-cc-bYb"/>
+                            <constraint firstItem="prN-UX-Ul3" firstAttribute="centerY" secondItem="gNd-wO-x5X" secondAttribute="centerY" id="JZw-Ar-aBO"/>
+                            <constraint firstItem="ajJ-LN-HEm" firstAttribute="leading" secondItem="KRk-lF-hre" secondAttribute="leading" id="rPC-xy-lMe"/>
+                            <constraint firstItem="prN-UX-Ul3" firstAttribute="centerX" secondItem="gNd-wO-x5X" secondAttribute="centerX" id="wER-Tq-hrT"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Hijos" id="4V5-Qr-ocM" customClass="CocoTabBarItem" customModule="Coco" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="sibilings"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedIcon" value="sibilings_selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fcy-Cs-X9G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-49" y="536"/>
+        </scene>
+        <!--Payments-->
+        <scene sceneID="QLo-UU-kJ2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Payments" id="tPD-gg-8hZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="o4b-eC-Glw"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aZD-E6-ycG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="888" y="238"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Coco_Gradient_Background" width="409" height="818"/>
+        <image name="promos" width="21.666666030883789" height="26"/>
+        <image name="promos_selected" width="21.666666030883789" height="26"/>
+        <image name="sibilings" width="23.333333969116211" height="23.333333969116211"/>
+        <image name="sibilings_selected" width="23.333333969116211" height="23.333333969116211"/>
+        <namedColor name="CocoOrange">
+            <color red="0.91764705882352937" green="0.46274509803921571" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

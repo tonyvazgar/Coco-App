@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Bold.ttf">
+            <string>Poppins-Bold</string>
+        </array>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Favorites Container View Controller-->
+        <scene sceneID="026-Jy-uth">
+            <objects>
+                <viewController storyboardIdentifier="FavoritesContainerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ugf-lI-jF3" customClass="FavoritesContainerViewController" customModule="Coco" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Px7-eU-dgn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9DL-J9-4hK">
+                                <rect key="frame" x="0.0" y="44" width="414" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuB-fn-DFL">
+                                        <rect key="frame" x="8" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="0RC-kL-rwp"/>
+                                            <constraint firstAttribute="height" constant="40" id="6bO-HM-Udf"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        <state key="normal" image="backnegro"/>
+                                        <connections>
+                                            <action selector="backButtonAction:" destination="Ugf-lI-jF3" eventType="touchUpInside" id="wql-Vb-M5K"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regresar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgj-ke-2KT">
+                                        <rect key="frame" x="48" y="13" width="48.5" height="14"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
+                                        <color key="textColor" name="Black"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Vgj-ke-2KT" firstAttribute="centerY" secondItem="9DL-J9-4hK" secondAttribute="centerY" id="Opv-7H-ESZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="MuB-fn-DFL" secondAttribute="bottom" id="PJL-ik-RsL"/>
+                                    <constraint firstItem="MuB-fn-DFL" firstAttribute="leading" secondItem="9DL-J9-4hK" secondAttribute="leading" constant="8" id="dty-L6-JG8"/>
+                                    <constraint firstItem="Vgj-ke-2KT" firstAttribute="leading" secondItem="MuB-fn-DFL" secondAttribute="trailing" id="giM-Xd-ayA"/>
+                                    <constraint firstItem="MuB-fn-DFL" firstAttribute="top" secondItem="9DL-J9-4hK" secondAttribute="top" id="ixv-aQ-7vS"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JzZ-fe-Quq">
+                                <rect key="frame" x="0.0" y="153" width="414" height="709"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKn-Ux-bzm">
+                                <rect key="frame" x="0.0" y="84" width="414" height="69"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mis Favoritos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOi-er-E7t">
+                                        <rect key="frame" x="16" y="32" width="382" height="21"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="18"/>
+                                        <color key="textColor" name="CocoOrange"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="bOi-er-E7t" firstAttribute="top" secondItem="dKn-Ux-bzm" secondAttribute="top" constant="32" id="1c5-8P-l8U"/>
+                                    <constraint firstAttribute="bottom" secondItem="bOi-er-E7t" secondAttribute="bottom" constant="16" id="3fk-1g-2Pe"/>
+                                    <constraint firstItem="bOi-er-E7t" firstAttribute="leading" secondItem="dKn-Ux-bzm" secondAttribute="leading" constant="16" id="ekZ-5u-N62"/>
+                                    <constraint firstAttribute="trailing" secondItem="bOi-er-E7t" secondAttribute="trailing" constant="16" id="yRc-Hp-tdh"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="APr-7K-kGg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="APr-7K-kGg" firstAttribute="bottom" secondItem="JzZ-fe-Quq" secondAttribute="bottom" id="6up-nE-Q97"/>
+                            <constraint firstItem="JzZ-fe-Quq" firstAttribute="top" secondItem="dKn-Ux-bzm" secondAttribute="bottom" id="8tu-AX-aRv"/>
+                            <constraint firstItem="APr-7K-kGg" firstAttribute="trailing" secondItem="dKn-Ux-bzm" secondAttribute="trailing" id="EQm-Of-sAO"/>
+                            <constraint firstItem="dKn-Ux-bzm" firstAttribute="top" secondItem="9DL-J9-4hK" secondAttribute="bottom" id="LfP-ZR-yIu"/>
+                            <constraint firstItem="APr-7K-kGg" firstAttribute="trailing" secondItem="JzZ-fe-Quq" secondAttribute="trailing" id="NeN-gZ-N6U"/>
+                            <constraint firstItem="9DL-J9-4hK" firstAttribute="trailing" secondItem="APr-7K-kGg" secondAttribute="trailing" id="U03-CI-hmB"/>
+                            <constraint firstItem="9DL-J9-4hK" firstAttribute="leading" secondItem="Px7-eU-dgn" secondAttribute="leading" id="ZhS-B9-8X8"/>
+                            <constraint firstItem="JzZ-fe-Quq" firstAttribute="leading" secondItem="APr-7K-kGg" secondAttribute="leading" id="cbt-rd-Rw8"/>
+                            <constraint firstItem="dKn-Ux-bzm" firstAttribute="leading" secondItem="APr-7K-kGg" secondAttribute="leading" id="gHZ-iG-OcC"/>
+                            <constraint firstItem="9DL-J9-4hK" firstAttribute="top" secondItem="APr-7K-kGg" secondAttribute="top" id="tn1-1D-HtQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="JzZ-fe-Quq" id="Mc5-A4-W4m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uvq-2b-9Oc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-875" y="1791"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backnegro" width="64" height="64"/>
+        <namedColor name="Black">
+            <color red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CocoOrange">
+            <color red="0.91764705882352937" green="0.46274509803921571" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

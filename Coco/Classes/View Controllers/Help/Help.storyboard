@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
+        </array>
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Help View Controller-->
+        <scene sceneID="u6S-CK-3Tf">
+            <objects>
+                <viewController storyboardIdentifier="HelpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="E5i-We-cj4" customClass="HelpViewController" customModule="Coco" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gok-hr-wqL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7o-r3-gqH">
+                                <rect key="frame" x="16" y="275" width="382" height="346"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_negro" translatesAutoresizingMaskIntoConstraints="NO" id="3gn-cD-Dt1">
+                                        <rect key="frame" x="101" y="59" width="180" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="4lv-Tg-TE1"/>
+                                            <constraint firstAttribute="width" constant="180" id="Qvv-vT-hGO"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZe-Pv-DvK">
+                                        <rect key="frame" x="331" y="16" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="6sE-et-o35"/>
+                                            <constraint firstAttribute="width" constant="35" id="mLf-d2-924"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                        <state key="normal" image="cerrar_negro"/>
+                                        <connections>
+                                            <action selector="closeButtonAction:" destination="E5i-We-cj4" eventType="touchUpInside" id="Ch6-xf-RD3"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VLS-8u-gko">
+                                        <rect key="frame" x="24" y="141" width="334" height="49"/>
+                                        <string key="text">CocoApp pone a tu disposición el servicio de atención a clientes vía telefónica o Whatsapp.
+Contáctanos y dinos como podemos ayudarte.</string>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCj-yE-0qW">
+                                        <rect key="frame" x="32" y="222" width="318" height="38"/>
+                                        <color key="backgroundColor" name="CocoSalmon"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="Owk-YM-rrq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
+                                        <state key="normal" title="¡Llamar!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="callButtonAction:" destination="E5i-We-cj4" eventType="touchUpInside" id="Lb5-ah-eR7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QE9-Zd-wZ8">
+                                        <rect key="frame" x="32" y="276" width="318" height="38"/>
+                                        <color key="backgroundColor" name="CocoGreen"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="Jzf-C7-NAI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="15"/>
+                                        <state key="normal" title="¡Enviar Whatsapp!">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="sendMessageButtonAction:" destination="E5i-We-cj4" eventType="touchUpInside" id="dHq-w6-ER5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="WCj-yE-0qW" secondAttribute="trailing" constant="32" id="1Nr-Ta-zGy"/>
+                                    <constraint firstItem="cZe-Pv-DvK" firstAttribute="top" secondItem="g7o-r3-gqH" secondAttribute="top" constant="16" id="2zV-zJ-oGw"/>
+                                    <constraint firstItem="VLS-8u-gko" firstAttribute="leading" secondItem="g7o-r3-gqH" secondAttribute="leading" constant="24" id="CxO-97-9rX"/>
+                                    <constraint firstAttribute="bottom" secondItem="QE9-Zd-wZ8" secondAttribute="bottom" constant="32" id="Ect-dw-vCb"/>
+                                    <constraint firstItem="3gn-cD-Dt1" firstAttribute="centerX" secondItem="g7o-r3-gqH" secondAttribute="centerX" id="F4s-sJ-ek8"/>
+                                    <constraint firstItem="QE9-Zd-wZ8" firstAttribute="leading" secondItem="g7o-r3-gqH" secondAttribute="leading" constant="32" id="GlG-zf-31t"/>
+                                    <constraint firstItem="WCj-yE-0qW" firstAttribute="leading" secondItem="g7o-r3-gqH" secondAttribute="leading" constant="32" id="JfS-BP-wEe"/>
+                                    <constraint firstItem="QE9-Zd-wZ8" firstAttribute="top" secondItem="WCj-yE-0qW" secondAttribute="bottom" constant="16" id="aLs-o6-2co"/>
+                                    <constraint firstItem="VLS-8u-gko" firstAttribute="top" secondItem="3gn-cD-Dt1" secondAttribute="bottom" constant="32" id="bAo-z0-WdX"/>
+                                    <constraint firstItem="3gn-cD-Dt1" firstAttribute="top" secondItem="cZe-Pv-DvK" secondAttribute="bottom" constant="8" id="eSA-WA-p8T"/>
+                                    <constraint firstAttribute="trailing" secondItem="QE9-Zd-wZ8" secondAttribute="trailing" constant="32" id="fLj-r0-bRq"/>
+                                    <constraint firstAttribute="trailing" secondItem="VLS-8u-gko" secondAttribute="trailing" constant="24" id="fcX-fd-doy"/>
+                                    <constraint firstItem="WCj-yE-0qW" firstAttribute="top" secondItem="VLS-8u-gko" secondAttribute="bottom" constant="32" id="ng2-G6-vU9"/>
+                                    <constraint firstAttribute="trailing" secondItem="cZe-Pv-DvK" secondAttribute="trailing" constant="16" id="sZ6-cs-C33"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hcK-kW-ZsC"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.49537136129999998" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="g7o-r3-gqH" firstAttribute="leading" secondItem="hcK-kW-ZsC" secondAttribute="leading" constant="16" id="KAj-dD-Ks4"/>
+                            <constraint firstItem="g7o-r3-gqH" firstAttribute="centerX" secondItem="gok-hr-wqL" secondAttribute="centerX" id="WDg-K9-96c"/>
+                            <constraint firstItem="g7o-r3-gqH" firstAttribute="centerY" secondItem="gok-hr-wqL" secondAttribute="centerY" id="aZf-bg-4a9"/>
+                            <constraint firstItem="hcK-kW-ZsC" firstAttribute="trailing" secondItem="g7o-r3-gqH" secondAttribute="trailing" constant="16" id="yw4-3X-lp1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backView" destination="g7o-r3-gqH" id="Nsi-ls-J23"/>
+                        <outlet property="callButton" destination="WCj-yE-0qW" id="OCe-3m-4EP"/>
+                        <outlet property="sendMessageButton" destination="QE9-Zd-wZ8" id="1vD-dj-RbO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BDd-Rx-889" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160.86956521739131" y="195.53571428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cerrar_negro" width="128" height="128"/>
+        <image name="logo_negro" width="976" height="293"/>
+        <namedColor name="CocoGreen">
+            <color red="0.32156862745098042" green="0.57647058823529407" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CocoSalmon">
+            <color red="0.93725490196078431" green="0.47843137254901963" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

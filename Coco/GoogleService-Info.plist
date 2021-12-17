@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>714020951503-spnt4tgnqle949tf5e2okdijr3ku9lap.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.714020951503-spnt4tgnqle949tf5e2okdijr3ku9lap</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCQqj_bzy6pbCoaQ1o1yeIraZu6W1W84rE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>714020951503</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Easycode.Coco</string>
+	<key>PROJECT_ID</key>
+	<string>coco-12de4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>coco-12de4.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:714020951503:ios:5cb3ef983f23d122</string>
+	<key>DATABASE_URL</key>
+	<string>https://coco-12de4.firebaseio.com</string>
+</dict>
+</plist>

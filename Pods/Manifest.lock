@@ -1,0 +1,181 @@
+PODS:
+  - Alamofire (4.8.2)
+  - AppAuth (1.4.0):
+    - AppAuth/Core (= 1.4.0)
+    - AppAuth/ExternalUserAgent (= 1.4.0)
+  - AppAuth/Core (1.4.0)
+  - AppAuth/ExternalUserAgent (1.4.0)
+  - DropDown (2.3.4)
+  - FBSDKCoreKit (5.15.1):
+    - FBSDKCoreKit/Basics (= 5.15.1)
+    - FBSDKCoreKit/Core (= 5.15.1)
+  - FBSDKCoreKit/Basics (5.15.1)
+  - FBSDKCoreKit/Core (5.15.1):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (5.15.1):
+    - FBSDKLoginKit/Login (= 5.15.1)
+  - FBSDKLoginKit/Login (5.15.1):
+    - FBSDKCoreKit (~> 5.0)
+  - Firebase (4.13.0):
+    - Firebase/Core (= 4.13.0)
+  - Firebase/Core (4.13.0):
+    - FirebaseAnalytics (= 4.2.0)
+    - FirebaseCore (= 4.0.20)
+  - Firebase/Messaging (4.13.0):
+    - Firebase/Core
+    - FirebaseMessaging (= 2.2.0)
+  - FirebaseAnalytics (4.2.0):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - nanopb (~> 0.3)
+  - FirebaseCore (4.0.20):
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+  - FirebaseInstanceID (2.0.10):
+    - FirebaseCore (~> 4.0)
+  - FirebaseMessaging (2.2.0):
+    - FirebaseAnalytics (~> 4.1)
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - Protobuf (~> 3.5)
+  - GoogleSignIn (6.0.2):
+    - AppAuth (~> 1.4)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleToolboxForMac/Defines (2.2.1)
+  - GoogleToolboxForMac/Logger (2.2.1):
+    - GoogleToolboxForMac/Defines (= 2.2.1)
+  - "GoogleToolboxForMac/NSData+zlib (2.2.1)":
+    - GoogleToolboxForMac/Defines (= 2.2.1)
+  - GTMAppAuth (1.2.2):
+    - AppAuth/Core (~> 1.4)
+    - GTMSessionFetcher/Core (~> 1.5)
+  - GTMSessionFetcher/Core (1.7.0)
+  - Hero (1.4.0)
+  - iOSDropDown (0.3.4)
+  - IQKeyboardManagerSwift (6.3.0)
+  - JWTDecode (2.4.1)
+  - Kingfisher (4.10.1)
+  - lottie-ios (3.0.6)
+  - M13Checkbox (3.4.0)
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
+  - Protobuf (3.7.0)
+  - PryntTrimmerView (4.0.2)
+  - SDWebImage (5.6.1):
+    - SDWebImage/Core (= 5.6.1)
+  - SDWebImage/Core (5.6.1)
+  - SkyFloatingLabelTextField (3.7.0)
+  - SnapKit (4.0.1)
+  - SPStorkController (1.6.5)
+  - SteviaLayout (4.7.3)
+  - StickyScrollView (0.1.6)
+  - SwiftyJSON (4.3.0)
+  - UIWindowTransitions (0.2.0)
+  - YPImagePicker (4.4.0):
+    - PryntTrimmerView (~> 4.0.2)
+    - SteviaLayout (~> 4.7.3)
+
+DEPENDENCIES:
+  - Alamofire
+  - DropDown (= 2.3.4)
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - Firebase (~> 4.0)
+  - Firebase/Core
+  - Firebase/Messaging
+  - GoogleSignIn
+  - Hero
+  - iOSDropDown
+  - IQKeyboardManagerSwift
+  - JWTDecode
+  - Kingfisher (~> 4.0)
+  - lottie-ios
+  - M13Checkbox
+  - SDWebImage
+  - SkyFloatingLabelTextField
+  - SnapKit (~> 4.0.0)
+  - SPStorkController
+  - StickyScrollView
+  - SwiftyJSON (~> 4.0)
+  - UIWindowTransitions
+  - YPImagePicker
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AppAuth
+    - DropDown
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - FirebaseMessaging
+    - GoogleSignIn
+    - GoogleToolboxForMac
+    - GTMAppAuth
+    - GTMSessionFetcher
+    - Hero
+    - iOSDropDown
+    - IQKeyboardManagerSwift
+    - JWTDecode
+    - Kingfisher
+    - lottie-ios
+    - M13Checkbox
+    - nanopb
+    - Protobuf
+    - PryntTrimmerView
+    - SDWebImage
+    - SkyFloatingLabelTextField
+    - SnapKit
+    - SPStorkController
+    - SteviaLayout
+    - StickyScrollView
+    - SwiftyJSON
+    - UIWindowTransitions
+    - YPImagePicker
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  DropDown: f225ff0fd09dde064d17aa03db7e4d4e4ff40b6b
+  FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
+  FBSDKLoginKit: f1ea8026a58b52d30c9f2e6a58ca7d813619fb83
+  Firebase: 5ec5e863d269d82d66b4bf56856726f8fb8f0fb3
+  FirebaseAnalytics: 7ef69e76a5142f643aeb47c780e1cdce4e23632e
+  FirebaseCore: 90cb1c53d69b556f112a1bf72b5fcfaad7650790
+  FirebaseInstanceID: 8d20d890d65c917f9f7d9950b6e10a760ad34321
+  FirebaseMessaging: 75cdb862e86c30e0913a2ff307e48d49357c5b73
+  GoogleSignIn: fd381840dbe7c1137aa6dc30849a5c3e070c034a
+  GoogleToolboxForMac: b3553629623a3b1bff17f555e736cd5a6d95ad55
+  GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
+  GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
+  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
+  iOSDropDown: c10a761f9a00c3f1cc9d3bce43ae504628e2f692
+  IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
+  JWTDecode: 4bd4da0cdf0f8154fd467fa48499f34ec057fb88
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  lottie-ios: d030b6cda141cfd8bbaa3db89264785e6fdf675a
+  M13Checkbox: 6f59404540ac98ba83a3d1afac335895a40c6a5d
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
+  PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
+  SDWebImage: 7edb9c3ea661e77a66661f7f044de8c1b55d1120
+  SkyFloatingLabelTextField: 4b46db0ab1ccde0919cded29c656e6b4805eda04
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SPStorkController: f74a60dbcd3c35180c996688873f6eadac839642
+  SteviaLayout: c2ecdcff57d44e38fd2f65e54ad52aeae28ca0c4
+  StickyScrollView: f5ab16318861a47cab1e6fe548d09e6f547b65ce
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  UIWindowTransitions: cb662e2ae9e2d1060fcdbe3eb3de9232bedb7612
+  YPImagePicker: 15aed8bcaa4dad976e11b6114126d731a2f9f3c9
+
+PODFILE CHECKSUM: da14e87de869f79fb378aea4f7ac6c3adb4b6212
+
+COCOAPODS: 1.11.2
