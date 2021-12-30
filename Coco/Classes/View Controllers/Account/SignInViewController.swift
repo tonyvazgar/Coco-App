@@ -198,8 +198,9 @@ private extension SignInViewController {
         configureTextFields()
         configurePasswordTextField()
         guard #available(iOS 13.0,*) else { return }
-        appleSignIn.isHidden = false
+        appleSignIn.isHidden = true
         facebookSignIn.isHidden = true
+        googleSignIn.isHidden = true
     }
     
     func configureButtons() {
