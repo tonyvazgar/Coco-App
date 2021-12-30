@@ -86,9 +86,9 @@ private extension BusinessesListViewController {
     }
     
     func configureTableHeaderView() {
-        let searchBar = SearchBarTableHeaderView.instantiate()
-        searchBar.delegate = self
-        tableView.tableHeaderView = searchBar
+//        let searchBar = SearchBarTableHeaderView.instantiate()
+//        searchBar.delegate = self
+//        tableView.tableHeaderView = searchBar
     }
 }
 

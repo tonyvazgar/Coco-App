@@ -8,8 +8,22 @@
 
 import UIKit
 
-final class LocationsListViewController: UITableViewController {
+final class LocationsListViewController: UITableViewController, SearchBarDelegate {
+    func textDidChange(_ text: String) {
+//        text.isEmpty ? clearResults() : filterResults(with: text)
+        if(text.isEmpty) {
+            clearResults()
+        }else{
+            filterResults(with: text)
+        }
+    }
+    
+    func textFieldShouldClear() {
+//        clearResults()
+    }
+    
     private(set) var locations: [LocationsDataModel] = []
+    private(set) var locations_copia: [LocationsDataModel] = []
     private var loader = LoaderVC()
     var businessId: String?
     
@@ -17,6 +31,18 @@ final class LocationsListViewController: UITableViewController {
         super.viewDidLoad()
         requestData()
         configureTableView()
+        configureTableHeaderView()
+    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        guard let headerView = tableView.tableHeaderView else { return }
+        let size = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        
+        if headerView.frame.size.height != size.height {
+            headerView.frame.size.height = size.height
+            tableView.tableHeaderView = headerView
+            tableView.layoutIfNeeded()
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -76,6 +102,11 @@ private extension LocationsListViewController {
         let nib = UINib(nibName: LocationsTableViewCell.cellIdentifier, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: LocationsTableViewCell.cellIdentifier)
     }
+    func configureTableHeaderView() {
+        let searchBar = SearchBarTableHeaderView.instantiate()
+        searchBar.delegate = self
+        tableView.tableHeaderView = searchBar
+    }
 }
 
 // MARK: - Fetch Businesses
@@ -91,8 +122,20 @@ private extension LocationsListViewController {
                 print(error)
             case .success(let locations):
                 self?.locations = locations
+                self?.locations_copia = locations
                 self?.tableView.reloadData()
             }
         }
+    }
+    func clearResults() {
+        locations = locations_copia
+        tableView.reloadData()
+    }
+    
+    func filterResults(with text: String){
+        locations = locations_copia.filter({
+            $0.name?.lowercased().contains(text.lowercased()) ?? false
+        })
+        tableView.reloadData()
     }
 }

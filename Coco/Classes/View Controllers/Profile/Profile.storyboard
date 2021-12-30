@@ -66,10 +66,10 @@
                                 <rect key="frame" x="0.0" y="84" width="414" height="778"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aE3-dC-gvs">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="533.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="560.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlQ-TU-lKb">
-                                                <rect key="frame" x="77" y="461.5" width="260" height="40"/>
+                                                <rect key="frame" x="77" y="488.5" width="260" height="40"/>
                                                 <color key="backgroundColor" name="CocoOrange"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="JlL-cp-7y5"/>
@@ -97,10 +97,10 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="IUW-85-dMQ">
-                                                <rect key="frame" x="16" y="221.5" width="382" height="208"/>
+                                                <rect key="frame" x="16" y="221.5" width="382" height="235"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CMd-I7-i38" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="40.5"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="given-name"/>
                                                         <userDefinedRuntimeAttributes>
@@ -121,7 +121,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wVr-x8-xFN" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                        <rect key="frame" x="0.0" y="58" width="382" height="34"/>
+                                                        <rect key="frame" x="0.0" y="64.5" width="382" height="41"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="family-name"/>
                                                         <userDefinedRuntimeAttributes>
@@ -142,7 +142,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A00-sY-95e" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                        <rect key="frame" x="0.0" y="116" width="382" height="34"/>
+                                                        <rect key="frame" x="0.0" y="129.5" width="382" height="40.5"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                                                         <userDefinedRuntimeAttributes>
@@ -163,7 +163,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uus-Cm-26q" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                        <rect key="frame" x="0.0" y="174" width="382" height="34"/>
+                                                        <rect key="frame" x="0.0" y="194" width="382" height="41"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="13"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                         <userDefinedRuntimeAttributes>
@@ -243,16 +243,16 @@
     </scenes>
     <designables>
         <designable name="A00-sY-95e">
-            <size key="intrinsicContentSize" width="84.5" height="34"/>
+            <size key="intrinsicContentSize" width="382" height="40.713671875000003"/>
         </designable>
         <designable name="CMd-I7-i38">
-            <size key="intrinsicContentSize" width="81.5" height="34"/>
+            <size key="intrinsicContentSize" width="382" height="40.713671875000003"/>
         </designable>
         <designable name="uus-Cm-26q">
-            <size key="intrinsicContentSize" width="165.5" height="34"/>
+            <size key="intrinsicContentSize" width="382" height="40.713671875000003"/>
         </designable>
         <designable name="wVr-x8-xFN">
-            <size key="intrinsicContentSize" width="88.5" height="34"/>
+            <size key="intrinsicContentSize" width="382" height="40.713671875000003"/>
         </designable>
     </designables>
     <resources>
