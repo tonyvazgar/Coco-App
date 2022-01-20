@@ -10,6 +10,7 @@ import UIKit
 
 extension UIColor {
     public class var cocoOrange: UIColor { UIColor(named: "CocoOrange")! }
+    public class var cocoOrangeNew: UIColor { UIColor(named: "CocoOrange2022")! }
     public class var cocoBrown: UIColor { UIColor(named: "CocoBrown")! }
     public class var cocoGreen: UIColor { UIColor(named: "CocoGreen")! }
     public class var cocoGray: UIColor { UIColor(named: "CocoGray")! }

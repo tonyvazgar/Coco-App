@@ -19,7 +19,7 @@ final class LocationsListViewController: UITableViewController, SearchBarDelegat
     }
     
     func textFieldShouldClear() {
-//        clearResults()
+        clearResults()
     }
     
     private(set) var locations: [LocationsDataModel] = []

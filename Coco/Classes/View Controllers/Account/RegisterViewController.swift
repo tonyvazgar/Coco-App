@@ -10,6 +10,7 @@ import UIKit
 import DropDown
 import M13Checkbox
 import SkyFloatingLabelTextField
+import SafariServices
 
 class RegisterViewController: UIViewController {
     
@@ -24,6 +25,7 @@ class RegisterViewController: UIViewController {
     @IBOutlet private var registerBtn: UIButton!
     @IBOutlet private var termsSwitch: UISwitch!
     @IBOutlet private var cityInputLabel: UILabel!
+    @IBOutlet weak var terminosYcondiciones: UILabel!
     
     private var cityDropDown: DropDown = DropDown()
     
@@ -299,6 +301,12 @@ private extension RegisterViewController {
     @objc func openDropdown() {
         cityDropDown.show()
     }
+    @objc func linktYc() {
+        if let url = URL(string: "http://cocosinfilas.com/TandC.pdf") {
+//            UIApplication.shared.open(url)
+            present(SFSafariViewController(url: url), animated: true)
+        }
+    }
 }
 
 // MARK: - Configure View
@@ -309,6 +317,9 @@ private extension RegisterViewController {
         configureTextFields()
         configurePasswordFields()
         cityInputLabel.addTap(#selector(openDropdown), tapHandler: self)
+        
+        terminosYcondiciones.addTap(#selector(linktYc), tapHandler: self)
+        
     }
     
     func configureTextFields() {

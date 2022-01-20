@@ -44,30 +44,109 @@ final class BusinessesListViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: BusinessesTableViewCell.cellIdentifier, for: indexPath) as? BusinessesTableViewCell else {
             return UITableViewCell()
         }
-        
-        let business = businesses[indexPath.row]
-        cell.businessName.text = business.name
-        cell.businessAddress.text = business.address
-        cell.businessDistanceLabel.text = business.distance
-        if let image = business.imgURL {
-            cell.businessImage.kf.setImage(with: URL(string: image),
-                                           placeholder: nil,
-                                           options: [.transition(.fade(0.4))],
-                                           progressBlock: nil,
-                                           completionHandler: nil)
+        switch indexPath.row {
+            case 0:
+//                cell.downImage.image = UIImage(named: "beginningRoute.png")
+                print("Soy la primera!")
+            
+                let business = businesses[indexPath.row]
+                cell.businessName.text = business.name
+                cell.businessAddress.text = "Próximamente"
+                if let image = business.imgURL {
+                    cell.businessImage.kf.setImage(with: URL(string: image),
+                                                   placeholder: nil,
+                                                   options: [.transition(.fade(0.4))],
+                                                   progressBlock: nil,
+                                                   completionHandler: nil)
+                }
+            
+            // here we set the current date
+
+                let date = NSDate()
+                let calendar = Calendar.current
+
+                let components = calendar.dateComponents([.hour, .minute, .month, .year, .day], from: date as Date)
+
+                let currentDate = calendar.date(from: components)
+
+                let userCalendar = Calendar.current
+
+                // here we set the due date. When the timer is supposed to finish
+                let competitionDate = NSDateComponents()
+                competitionDate.year = 2022
+                competitionDate.month = 2
+                competitionDate.day = 16
+                competitionDate.hour = 00
+                competitionDate.minute = 00
+                let competitionDay = userCalendar.date(from: competitionDate as DateComponents)!
+
+                //here we change the seconds to hours,minutes and days
+                let CompetitionDayDifference = calendar.dateComponents([.day, .hour, .minute], from: currentDate!, to: competitionDay)
+
+
+                //finally, here we set the variable to our remaining time
+                let daysLeft = CompetitionDayDifference.day
+                let hoursLeft = CompetitionDayDifference.hour
+                let minutesLeft = CompetitionDayDifference.minute
+
+                print("day:", daysLeft ?? "N/A", "hour:", hoursLeft ?? "N/A", "minute:", minutesLeft ?? "N/A")
+
+                //Set countdown label text
+                cell.businessDistanceLabel.text = "Faltan \(daysLeft ?? 0) días, \(hoursLeft ?? 0) horas y \(minutesLeft ?? 0) minutos!"
+//                countDownLabel.text = "\(daysLeft ?? 0) Days, \(hoursLeft ?? 0) Hours, \(minutesLeft ?? 0) Minutes"
+            
+
+            case self.tableView(tableView, numberOfRowsInSection: 0) - 1:
+//                cell.downImage.image = UIImage(named: "endRoute.png")
+                print("Soy la ultima!")
+            
+                let business = businesses[indexPath.row]
+                cell.businessName.text = business.name
+                cell.businessAddress.text = business.address
+                cell.businessDistanceLabel.text = business.distance
+                if let image = business.imgURL {
+                    cell.businessImage.kf.setImage(with: URL(string: image),
+                                                   placeholder: nil,
+                                                   options: [.transition(.fade(0.4))],
+                                                   progressBlock: nil,
+                                                   completionHandler: nil)
+                }
+
+            default:
+//                cell.downImage.image = nil
+                print("Soy la intermedia!")
+                
+                let business = businesses[indexPath.row]
+                cell.businessName.text = business.name
+                cell.businessAddress.text = business.address
+                cell.businessDistanceLabel.text = business.distance
+                if let image = business.imgURL {
+                    cell.businessImage.kf.setImage(with: URL(string: image),
+                                                   placeholder: nil,
+                                                   options: [.transition(.fade(0.4))],
+                                                   progressBlock: nil,
+                                                   completionHandler: nil)
+                }
         }
         return cell
+        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return UIScreen.main.bounds.width/2
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let business = businesses[indexPath.row]
-        let viewController = UIStoryboard.home.instantiate(LocationsContainerViewController.self)
-        viewController.businessId = business.id
-        navigationController?.pushViewController(viewController, animated: true)
+        if(indexPath.row != 0 ){
+            let business = businesses[indexPath.row]
+            let viewController = UIStoryboard.home.instantiate(LocationsContainerViewController.self)
+            viewController.businessId = business.id
+            navigationController?.pushViewController(viewController, animated: true)
+        }else{
+            let business = businesses[indexPath.row]
+            let viewController = UIStoryboard.home.instantiate(CounterViewController.self)
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
 

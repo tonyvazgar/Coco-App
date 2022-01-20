@@ -22,15 +22,16 @@ class BusinessesTableViewCell: UITableViewCell {
         
         // corner radius
         backView.layer.cornerRadius = 8
+        businessImage.layer.cornerRadius = businessImage.frame.height/2
 
         // border
         backView.layer.borderWidth = 0.5
         backView.layer.borderColor = UIColor.lightGray.cgColor
 
         // shadow
-        backView.layer.shadowColor = UIColor.black.cgColor
-        backView.layer.shadowOffset = .zero
-        backView.layer.shadowOpacity = 0.25
-        backView.layer.shadowRadius = 2
+//        backView.layer.shadowColor = UIColor.black.cgColor
+//        backView.layer.shadowOffset = .zero
+//        backView.layer.shadowOpacity = 0.25
+//        backView.layer.shadowRadius = 2
     }
 }

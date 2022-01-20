@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -759,10 +759,10 @@ Login</string>
                                                 <rect key="frame" x="0.0" y="4" width="51" height="31"/>
                                                 <color key="onTintColor" name="Black"/>
                                             </switch>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acepto Términos y Condiciones" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maq-MG-tVX">
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Acepto Términos y Condiciones" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maq-MG-tVX">
                                                 <rect key="frame" x="65" y="4" width="269" height="31"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="14"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" systemColor="linkColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
@@ -823,6 +823,7 @@ Login</string>
                         <outlet property="passwordField" destination="Vq1-MS-12G" id="Llz-dH-C7f"/>
                         <outlet property="phoneField" destination="s25-DQ-GVa" id="5Kp-h4-0U7"/>
                         <outlet property="registerBtn" destination="TdC-d8-Sc7" id="eve-oh-WAz"/>
+                        <outlet property="terminosYcondiciones" destination="maq-MG-tVX" id="H2V-Li-IpJ"/>
                         <outlet property="termsSwitch" destination="K4A-mx-tuH" id="UYB-gg-Vpj"/>
                         <outlet property="topBar" destination="X9v-UP-pvY" id="tFq-NV-Abr"/>
                     </connections>
@@ -969,13 +970,13 @@ contraseña.</string>
     </scenes>
     <designables>
         <designable name="9ab-ff-HE0">
-            <size key="intrinsicContentSize" width="350" height="38.513671875"/>
+            <size key="intrinsicContentSize" width="64.5" height="34"/>
         </designable>
         <designable name="dKN-RX-IZn">
-            <size key="intrinsicContentSize" width="350" height="38.513671875"/>
+            <size key="intrinsicContentSize" width="64.5" height="34"/>
         </designable>
         <designable name="oH2-K4-lqh">
-            <size key="intrinsicContentSize" width="350" height="38.513671875"/>
+            <size key="intrinsicContentSize" width="104" height="34"/>
         </designable>
     </designables>
     <color key="tintColor" red="0.97647058819999999" green="0.65098039220000004" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -998,6 +999,9 @@ contraseña.</string>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -311,6 +311,9 @@ private extension HomeViewController {
         locationView.layer.shadowOpacity = 0.25
         locationView.layer.shadowRadius = 2
         
+        balanceView.isHidden = true
+        cocopointsView.isHidden = true
+        
         locationView.addTap(#selector(openCityUpdate), tapHandler: self)
     }
     

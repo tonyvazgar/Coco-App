@@ -18,6 +18,11 @@ class CocoTabBarItem: UITabBarItem {
     @IBInspectable var selectedIcon: UIImage = UIImage() {
         didSet {
             self.selectedImage = selectedIcon.withRenderingMode(.alwaysOriginal)
+            if #available(iOS 13.0, *) {
+                self.selectedImage = selectedIcon.withTintColor(UIColor.cocoOrangeNew)
+            } else {
+                // Fallback on earlier versions
+            }
         }
     }
     
@@ -34,7 +39,7 @@ class CocoTabBarItem: UITabBarItem {
     private func configureTextColor() {
         
         setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
-        setTitleTextAttributes([.foregroundColor: UIColor.cocoOrange], for: .selected)
+        setTitleTextAttributes([.foregroundColor: UIColor.cocoOrangeNew], for: .selected)
     }
     
     

@@ -252,6 +252,9 @@
 		CFF0B6AE23EBC97800C30A6D /* rechargeCreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF0B6AC23EBC97800C30A6D /* rechargeCreditViewController.swift */; };
 		CFF0B6AF23EBC97800C30A6D /* rechargeCreditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF0B6AD23EBC97800C30A6D /* rechargeCreditViewController.xib */; };
 		D1768355637E940C0BEFEBD7 /* Pods_CocoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6546AE0874C25E7DDE23877 /* Pods_CocoTests.framework */; };
+		EF21E2812798BDF100A84382 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21E2802798BDF100A84382 /* CounterViewController.swift */; };
+		EF493C022793DC8F007048FE /* PromosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF493C012793DC8F007048FE /* PromosViewController.swift */; };
+		EF493C042793DC9F007048FE /* PedidosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF493C032793DC9F007048FE /* PedidosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -534,6 +537,9 @@
 		CFF0B6AD23EBC97800C30A6D /* rechargeCreditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = rechargeCreditViewController.xib; sourceTree = "<group>"; };
 		D130DF29F11E0E2FDD29E8B1 /* Pods-Coco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coco.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coco/Pods-Coco.debug.xcconfig"; sourceTree = "<group>"; };
 		E6546AE0874C25E7DDE23877 /* Pods_CocoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF21E2802798BDF100A84382 /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
+		EF493C012793DC8F007048FE /* PromosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromosViewController.swift; sourceTree = "<group>"; };
+		EF493C032793DC9F007048FE /* PedidosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedidosViewController.swift; sourceTree = "<group>"; };
 		F14347B74DDFE317E603C86A /* Pods_CocoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -872,6 +878,8 @@
 				C36553BF252D5E0C00733EEE /* MainTabBarController.swift */,
 				C36553C1252D5E4600733EEE /* CocoTabBarItem.swift */,
 				C36553C3252D5F1300733EEE /* TabBar.storyboard */,
+				EF493C012793DC8F007048FE /* PromosViewController.swift */,
+				EF493C032793DC9F007048FE /* PedidosViewController.swift */,
 			);
 			path = "Tab Bar";
 			sourceTree = "<group>";
@@ -886,6 +894,7 @@
 				C36553DC252ED85D00733EEE /* Businesses */,
 				C36553C6252D651600733EEE /* Home.storyboard */,
 				C36553D3252EC1E200733EEE /* HomeViewController.swift */,
+				EF21E2802798BDF100A84382 /* CounterViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1837,6 +1846,7 @@
 				C3EB42EC25E09CC00021BA85 /* CocoCardsViewController.swift in Sources */,
 				C329B72D22E2173C005F579D /* UITextFieldExtensions.swift in Sources */,
 				C3A1622122B9BBB300076DD8 /* UILabelExtensions.swift in Sources */,
+				EF21E2812798BDF100A84382 /* CounterViewController.swift in Sources */,
 				C3222BB222E04EAB00E63F38 /* ShoppingCartProductCellTableViewCell.swift in Sources */,
 				C36BE12B253D399B0058F3CE /* FavoritesContainerViewController.swift in Sources */,
 				C36BE130253D39B60058F3CE /* FavoritesListViewController.swift in Sources */,
@@ -1922,6 +1932,7 @@
 				CFF0B6AE23EBC97800C30A6D /* rechargeCreditViewController.swift in Sources */,
 				C3C0F36822D3B33700B03F62 /* Schools.swift in Sources */,
 				9D07DB052476E83B00907E39 /* promoViewController.swift in Sources */,
+				EF493C022793DC8F007048FE /* PromosViewController.swift in Sources */,
 				C348F15D22CBC94B000F185C /* PaymentFormsTableViewCell.swift in Sources */,
 				C355729722CA80B000FC5C89 /* LoaderVC.swift in Sources */,
 				C35FC6322574B50E0089560F /* CityUpdateViewController.swift in Sources */,
@@ -1965,6 +1976,7 @@
 				C3415F46253273A300D0CD2B /* ProductsFetcher.swift in Sources */,
 				C34466E022CAC3F600A11433 /* LoginVC.swift in Sources */,
 				C3415F3225302E0100D0CD2B /* CategoriesListViewController.swift in Sources */,
+				EF493C042793DC9F007048FE /* PedidosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2146,7 +2158,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Coco/Coco.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = CGP7LW6Y94;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Coco/Info.plist;
@@ -2175,7 +2187,7 @@
 				CODE_SIGN_ENTITLEMENTS = Coco/Coco.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = CGP7LW6Y94;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Coco/Info.plist;
