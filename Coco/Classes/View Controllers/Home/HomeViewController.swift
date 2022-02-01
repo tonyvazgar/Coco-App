@@ -324,7 +324,10 @@ private extension HomeViewController {
     }
     
     func configureTableView() {
-        let businessesList = BusinessesListViewController()
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.sectionInset = UIEdgeInsets(top: 16, left: 32, bottom: 0, right: 32)
+        flowLayout.itemSize = CGSize(width: 140, height: 150)
+        let businessesList = BusinessesListViewController(collectionViewLayout: flowLayout)
         businessesList.view.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(businessesList.view)
         addChild(businessesList)

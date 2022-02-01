@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Bold.ttf">
+            <string>Poppins-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="b8n-fX-WxL" customClass="BusinessesCollectionViewCell" customModule="Coco" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="140" height="153"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="140" height="153"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="miQ-Jb-aaU">
+                        <rect key="frame" x="0.0" y="0.0" width="140" height="153"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OsN-ky-ffa">
+                                <rect key="frame" x="8" y="48.5" width="124" height="99.5"/>
+                                <color key="backgroundColor" name="CocoLightGray"/>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3xs-S9-ZbN">
+                                <rect key="frame" x="28" y="10" width="84" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3xs-S9-ZbN" secondAttribute="height" multiplier="1:1" id="lEv-CV-e9T"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nxd-dm-Y1W">
+                                <rect key="frame" x="8" y="100" width="124" height="45"/>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="14"/>
+                                <color key="textColor" name="Black"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="OsN-ky-ffa" secondAttribute="bottom" constant="5" id="1Bo-9D-w6h"/>
+                            <constraint firstAttribute="bottom" secondItem="Nxd-dm-Y1W" secondAttribute="bottom" constant="8" id="4rF-V8-s0A"/>
+                            <constraint firstAttribute="trailing" secondItem="Nxd-dm-Y1W" secondAttribute="trailing" constant="8" id="Gev-eK-Pjt"/>
+                            <constraint firstItem="Nxd-dm-Y1W" firstAttribute="top" secondItem="3xs-S9-ZbN" secondAttribute="bottom" priority="750" constant="6" id="HV4-IL-tDZ"/>
+                            <constraint firstItem="OsN-ky-ffa" firstAttribute="leading" secondItem="miQ-Jb-aaU" secondAttribute="leading" constant="8" id="Jbd-fM-75D"/>
+                            <constraint firstAttribute="trailing" secondItem="OsN-ky-ffa" secondAttribute="trailing" constant="8" id="Lnc-ef-1Z1"/>
+                            <constraint firstItem="OsN-ky-ffa" firstAttribute="trailing" secondItem="3xs-S9-ZbN" secondAttribute="trailing" constant="20" id="NOd-UN-K1g"/>
+                            <constraint firstItem="OsN-ky-ffa" firstAttribute="centerX" secondItem="miQ-Jb-aaU" secondAttribute="centerX" id="QyD-Um-ZX9"/>
+                            <constraint firstItem="3xs-S9-ZbN" firstAttribute="leading" secondItem="OsN-ky-ffa" secondAttribute="leading" constant="20" id="VhK-Oy-VL4"/>
+                            <constraint firstItem="3xs-S9-ZbN" firstAttribute="centerX" secondItem="miQ-Jb-aaU" secondAttribute="centerX" id="W1n-ja-Q0f"/>
+                            <constraint firstItem="Nxd-dm-Y1W" firstAttribute="centerX" secondItem="miQ-Jb-aaU" secondAttribute="centerX" id="fhc-1w-9rV"/>
+                            <constraint firstItem="Nxd-dm-Y1W" firstAttribute="leading" secondItem="miQ-Jb-aaU" secondAttribute="leading" constant="8" id="fjx-rx-lw2"/>
+                            <constraint firstItem="OsN-ky-ffa" firstAttribute="height" secondItem="miQ-Jb-aaU" secondAttribute="height" multiplier="0.65" id="qlv-up-fmI"/>
+                            <constraint firstItem="3xs-S9-ZbN" firstAttribute="top" secondItem="miQ-Jb-aaU" secondAttribute="top" priority="750" constant="10" id="rUu-Wk-fJd"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="IdP-cP-DIY"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="miQ-Jb-aaU" secondAttribute="bottom" id="0HK-Db-mnr"/>
+                <constraint firstItem="miQ-Jb-aaU" firstAttribute="centerY" secondItem="b8n-fX-WxL" secondAttribute="centerY" id="Ak2-x0-2ke"/>
+                <constraint firstItem="miQ-Jb-aaU" firstAttribute="leading" secondItem="b8n-fX-WxL" secondAttribute="leading" id="TpK-ef-OHa"/>
+                <constraint firstItem="miQ-Jb-aaU" firstAttribute="centerX" secondItem="b8n-fX-WxL" secondAttribute="centerX" id="U8z-8A-pAO"/>
+                <constraint firstAttribute="trailing" secondItem="miQ-Jb-aaU" secondAttribute="trailing" id="eef-Ls-2gD"/>
+                <constraint firstItem="miQ-Jb-aaU" firstAttribute="top" secondItem="b8n-fX-WxL" secondAttribute="top" id="iu5-Yz-eTK"/>
+            </constraints>
+            <size key="customSize" width="140" height="153"/>
+            <connections>
+                <outlet property="backView" destination="miQ-Jb-aaU" id="R3i-ae-vqO"/>
+                <outlet property="categoryImage" destination="3xs-S9-ZbN" id="p4W-47-4cP"/>
+                <outlet property="categoryLabel" destination="Nxd-dm-Y1W" id="qGi-XB-g2s"/>
+                <outlet property="midView" destination="OsN-ky-ffa" id="VkQ-h2-EK5"/>
+            </connections>
+            <point key="canvasLocation" x="24.637681159420293" y="167.07589285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Black">
+            <color red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CocoLightGray">
+            <color red="0.96470588235294119" green="0.95686274509803926" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

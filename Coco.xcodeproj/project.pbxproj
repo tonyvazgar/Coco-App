@@ -253,8 +253,13 @@
 		CFF0B6AF23EBC97800C30A6D /* rechargeCreditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF0B6AD23EBC97800C30A6D /* rechargeCreditViewController.xib */; };
 		D1768355637E940C0BEFEBD7 /* Pods_CocoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6546AE0874C25E7DDE23877 /* Pods_CocoTests.framework */; };
 		EF21E2812798BDF100A84382 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21E2802798BDF100A84382 /* CounterViewController.swift */; };
+		EF36114D2799257300FE9335 /* BusinessesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF36114C2799257300FE9335 /* BusinessesCollectionViewCell.xib */; };
+		EF36114F2799271B00FE9335 /* BusinessesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF36114E2799271B00FE9335 /* BusinessesCollectionViewCell.swift */; };
 		EF493C022793DC8F007048FE /* PromosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF493C012793DC8F007048FE /* PromosViewController.swift */; };
 		EF493C042793DC9F007048FE /* PedidosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF493C032793DC9F007048FE /* PedidosViewController.swift */; };
+		EFB9CEE627A3C1A600B82A73 /* EdgeShadowLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB9CEE527A3C1A600B82A73 /* EdgeShadowLayer.swift */; };
+		EFDDF6C8279D09B600E5698F /* BannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDDF6C7279D09B600E5698F /* BannerViewController.swift */; };
+		EFDDF6CA279D09C900E5698F /* Banner.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDDF6C9279D09C900E5698F /* Banner.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -538,8 +543,13 @@
 		D130DF29F11E0E2FDD29E8B1 /* Pods-Coco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coco.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coco/Pods-Coco.debug.xcconfig"; sourceTree = "<group>"; };
 		E6546AE0874C25E7DDE23877 /* Pods_CocoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF21E2802798BDF100A84382 /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
+		EF36114C2799257300FE9335 /* BusinessesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessesCollectionViewCell.xib; sourceTree = "<group>"; };
+		EF36114E2799271B00FE9335 /* BusinessesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessesCollectionViewCell.swift; sourceTree = "<group>"; };
 		EF493C012793DC8F007048FE /* PromosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromosViewController.swift; sourceTree = "<group>"; };
 		EF493C032793DC9F007048FE /* PedidosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedidosViewController.swift; sourceTree = "<group>"; };
+		EFB9CEE527A3C1A600B82A73 /* EdgeShadowLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeShadowLayer.swift; sourceTree = "<group>"; };
+		EFDDF6C7279D09B600E5698F /* BannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewController.swift; sourceTree = "<group>"; };
+		EFDDF6C9279D09C900E5698F /* Banner.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Banner.storyboard; sourceTree = "<group>"; };
 		F14347B74DDFE317E603C86A /* Pods_CocoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -957,6 +967,9 @@
 			children = (
 				C36553E0252FA2B600733EEE /* BusinessesTableViewCell.swift */,
 				C36553E1252FA2B600733EEE /* BusinessesTableViewCell.xib */,
+				EF36114C2799257300FE9335 /* BusinessesCollectionViewCell.xib */,
+				EF36114E2799271B00FE9335 /* BusinessesCollectionViewCell.swift */,
+				EFB9CEE527A3C1A600B82A73 /* EdgeShadowLayer.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1116,6 +1129,7 @@
 				C36BE119253D34C90058F3CE /* Settings */,
 				C36BE10E253D1BC50058F3CE /* Profile */,
 				C3890C0825218B9C0055C7A3 /* Account */,
+				EFDDF6C6279D09A100E5698F /* Banner */,
 				C36553C5252D64FD00733EEE /* Home */,
 				C36BE0C8253BF06F0058F3CE /* Payments */,
 				C36553C8252D69AC00733EEE /* Side Menu */,
@@ -1507,6 +1521,15 @@
 			path = "2020 Features";
 			sourceTree = "<group>";
 		};
+		EFDDF6C6279D09A100E5698F /* Banner */ = {
+			isa = PBXGroup;
+			children = (
+				EFDDF6C7279D09B600E5698F /* BannerViewController.swift */,
+				EFDDF6C9279D09C900E5698F /* Banner.storyboard */,
+			);
+			path = Banner;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1680,11 +1703,13 @@
 				C3890C3C2521AA2B0055C7A3 /* Poppins-SemiBold.ttf in Resources */,
 				C35572BF22CAB7DD00FC5C89 /* BusinessTableViewCell.xib in Resources */,
 				C3890C372521AA2B0055C7A3 /* Poppins-Light.ttf in Resources */,
+				EF36114D2799257300FE9335 /* BusinessesCollectionViewCell.xib in Resources */,
 				C3DD1FC0255A3E6A002A5B5C /* Help.storyboard in Resources */,
 				CFBC53AB2407134300D4FF95 /* storedCardsViewController.xib in Resources */,
 				C3A1622D22B9BD4200076DD8 /* MyriadPro-Bold.otf in Resources */,
 				C329B73522E226D8005F579D /* OrderProductTableViewCell.xib in Resources */,
 				C3222BB122E04EAB00E63F38 /* ShoppingCartProductCellTableViewCell.xib in Resources */,
+				EFDDF6CA279D09C900E5698F /* Banner.storyboard in Resources */,
 				C3890C342521AA2B0055C7A3 /* Poppins-ExtraLight.ttf in Resources */,
 				C3C0F38322D3E6B900B03F62 /* AlertModal.xib in Resources */,
 				C3890C0D25218D6D0055C7A3 /* Account.storyboard in Resources */,
@@ -1884,10 +1909,13 @@
 				C36BE14E253D50210058F3CE /* ProductCartTableViewCell.swift in Sources */,
 				CFBC53A12406DC7500D4FF95 /* promoCodesTableViewCell.swift in Sources */,
 				9D07DB072476EE6B00907E39 /* promoModel.swift in Sources */,
+				EF36114F2799271B00FE9335 /* BusinessesCollectionViewCell.swift in Sources */,
 				C3890C122521986F0055C7A3 /* UserManagement.swift in Sources */,
 				C35572B122CA932700FC5C89 /* FavoritesVC.swift in Sources */,
+				EFB9CEE627A3C1A600B82A73 /* EdgeShadowLayer.swift in Sources */,
 				C36553CD252EBDF400733EEE /* SideMenuViewController.swift in Sources */,
 				C394ACA4253D71EF00066E96 /* OrderDetailViewController.swift in Sources */,
+				EFDDF6C8279D09B600E5698F /* BannerViewController.swift in Sources */,
 				C3C0F37E22D3D73400B03F62 /* Cards.swift in Sources */,
 				C355E54A253EA8E400DDE1DE /* AddPaymentMethodViewController.swift in Sources */,
 				C3A161E822B9B38A00076DD8 /* Coco.xcdatamodeld in Sources */,
@@ -2158,7 +2186,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Coco/Coco.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = CGP7LW6Y94;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Coco/Info.plist;
@@ -2167,7 +2195,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Easycode.Coco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2187,7 +2215,7 @@
 				CODE_SIGN_ENTITLEMENTS = Coco/Coco.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = CGP7LW6Y94;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Coco/Info.plist;
@@ -2196,7 +2224,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Easycode.Coco;
 				PRODUCT_NAME = "$(TARGET_NAME)";

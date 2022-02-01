@@ -151,8 +151,8 @@ class User: Decodable {
             "city": id_city] as [String : Any]
         
         Alamofire.request(General.endpoint, method: .post, parameters: data).responseData { (response) in
-//            print("--------------------------------------------")
-//            print(data)
+            print("--------------------------------------------")
+            print(data)
             
             guard let data = response.result.value else {
                 completion(.failure("Error de conexión"))

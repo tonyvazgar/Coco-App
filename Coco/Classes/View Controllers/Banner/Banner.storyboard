@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Banner View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="BannerViewController" id="Y6W-OH-hqX" customClass="BannerViewController" customModule="Coco" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_background" translatesAutoresizingMaskIntoConstraints="NO" id="i9J-0u-ibz">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="czw-bc-dau">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pk6-UQ-2XQ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="QHc-2F-Fau">
+                                <rect key="frame" x="149" y="836" width="116" height="26"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wY-b8-snE">
+                                <rect key="frame" x="329" y="815" width="75" height="31"/>
+                                <color key="tintColor" name="CocoLightGray"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="SALTAR">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" name="CocoOrange2022"/>
+                                    </backgroundConfiguration>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="saltarButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="DPl-Y4-TSC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Pk6-UQ-2XQ" firstAttribute="bottom" secondItem="czw-bc-dau" secondAttribute="bottom" id="0JK-AU-mNw"/>
+                            <constraint firstItem="Pk6-UQ-2XQ" firstAttribute="centerY" secondItem="czw-bc-dau" secondAttribute="centerY" id="5F3-yT-l9X"/>
+                            <constraint firstItem="i9J-0u-ibz" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="6o2-gt-hsz"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7wY-b8-snE" secondAttribute="trailing" constant="10" id="HVg-t8-UAH"/>
+                            <constraint firstItem="i9J-0u-ibz" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="PIV-oy-cYM"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="czw-bc-dau" secondAttribute="trailing" id="Ubj-h4-Pfz"/>
+                            <constraint firstItem="Pk6-UQ-2XQ" firstAttribute="trailing" secondItem="czw-bc-dau" secondAttribute="trailing" id="V65-a9-9j0"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="czw-bc-dau" secondAttribute="bottom" id="VVl-VR-jIv"/>
+                            <constraint firstItem="czw-bc-dau" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="X1H-6W-jhF"/>
+                            <constraint firstItem="Pk6-UQ-2XQ" firstAttribute="top" secondItem="czw-bc-dau" secondAttribute="top" id="cor-Qy-5er"/>
+                            <constraint firstItem="QHc-2F-Fau" firstAttribute="bottom" secondItem="czw-bc-dau" secondAttribute="bottom" id="esM-bg-hzb"/>
+                            <constraint firstAttribute="bottom" secondItem="i9J-0u-ibz" secondAttribute="bottom" id="jFD-ra-rWk"/>
+                            <constraint firstItem="Pk6-UQ-2XQ" firstAttribute="leading" secondItem="czw-bc-dau" secondAttribute="leading" id="ksU-4Q-GNq"/>
+                            <constraint firstItem="czw-bc-dau" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="qd8-Xa-l29"/>
+                            <constraint firstItem="Pk6-UQ-2XQ" firstAttribute="centerX" secondItem="czw-bc-dau" secondAttribute="centerX" id="qeQ-QU-QcC"/>
+                            <constraint firstAttribute="trailing" secondItem="i9J-0u-ibz" secondAttribute="trailing" id="ucF-ry-wrf"/>
+                            <constraint firstItem="QHc-2F-Fau" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="vch-pv-fO6"/>
+                            <constraint firstItem="QHc-2F-Fau" firstAttribute="top" secondItem="7wY-b8-snE" secondAttribute="bottom" constant="-10" id="ws3-Aj-bqN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="QHc-2F-Fau" id="fZ8-kg-21G"/>
+                        <outlet property="saltarButtonOutlet" destination="7wY-b8-snE" id="UqY-Ni-9p1"/>
+                        <outlet property="scrollView" destination="Pk6-UQ-2XQ" id="exk-JA-AP5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="banner_background" width="4501" height="8001"/>
+        <namedColor name="CocoLightGray">
+            <color red="0.96470588235294119" green="0.95686274509803926" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CocoOrange2022">
+            <color red="0.91764705882352937" green="0.50196078431372548" blue="0.12156862745098039" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

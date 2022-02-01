@@ -14,7 +14,7 @@ final class HelpViewController: UIViewController {
     @IBOutlet private var callButton: UIButton!
     @IBOutlet private var sendMessageButton: UIButton!
     
-    let phoneNumber = "522227092374"
+    let phoneNumber = "522215303752"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,5 +47,6 @@ private extension HelpViewController {
         backView.roundCorners(16)
         callButton.roundCorners(callButton.frame.height/2)
         sendMessageButton.roundCorners(sendMessageButton.frame.height/2)
+        callButton.isHidden = true
     }
 }

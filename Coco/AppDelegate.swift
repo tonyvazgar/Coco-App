@@ -28,11 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     IQKeyboardManager.shared.enable = true
     
     let initialViewController: UIViewController
-    
-    if let _ = UserManagement.shared.id_user {
-        initialViewController = UIStoryboard.tabBar.instantiate(MainTabBarController.self)
-    } else {
-        initialViewController = UIStoryboard.accounts.instantiate(SignInViewController.self)
+    let defaults = UserDefaults.standard
+
+    if defaults.object(forKey: "primeraVez") == nil {
+        defaults.set("No", forKey:"primeraVez")
+        initialViewController = UIStoryboard.banner.instantiate(BannerViewController.self)
+    }else{
+        if let _ = UserManagement.shared.id_user {
+            initialViewController = UIStoryboard.tabBar.instantiate(MainTabBarController.self)
+        } else {
+            initialViewController = UIStoryboard.accounts.instantiate(SignInViewController.self)
+        }
     }
     
     let navigationController = UINavigationController(rootViewController: initialViewController)

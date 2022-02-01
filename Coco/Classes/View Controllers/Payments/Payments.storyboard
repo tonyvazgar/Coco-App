@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nHq-NB-mFV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nHq-NB-mFV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,6 +18,9 @@
         </array>
         <array key="Poppins-Bold.ttf">
             <string>Poppins-Bold</string>
+        </array>
+        <array key="Poppins-Medium.ttf">
+            <string>Poppins-Medium</string>
         </array>
         <array key="Poppins-Regular.ttf">
             <string>Poppins-Regular</string>
@@ -35,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="8B3-W4-VLg" kind="relationship" relationship="rootViewController" id="zG3-Md-hp7"/>
+                        <segue destination="xJL-qy-tlS" kind="relationship" relationship="rootViewController" id="arn-dG-gCt"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5f4-jV-sWa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1168,8 +1171,66 @@
             </objects>
             <point key="canvasLocation" x="911.59420289855075" y="1543.5267857142856"/>
         </scene>
+        <!--Pagos-->
+        <scene sceneID="vDi-C6-Y0c">
+            <objects>
+                <viewController storyboardIdentifier="CounterViewController" id="xJL-qy-tlS" customClass="CounterViewController" customModule="Coco" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k7C-mc-Ny2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Coco_Gradient_Background" translatesAutoresizingMaskIntoConstraints="NO" id="4HA-OJ-V8x">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="V7M-Zf-Flv">
+                                <rect key="frame" x="75" y="406" width="264.5" height="84"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Próximamente" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuC-NJ-H1I">
+                                        <rect key="frame" x="0.0" y="0.0" width="264.5" height="42"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00d 00h 00m 00s" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQg-PB-0y6">
+                                        <rect key="frame" x="0.0" y="42" width="264.5" height="42"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="nOC-CU-gk1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="V7M-Zf-Flv" firstAttribute="centerX" secondItem="k7C-mc-Ny2" secondAttribute="centerX" id="13U-wv-zk3"/>
+                            <constraint firstItem="4HA-OJ-V8x" firstAttribute="bottom" secondItem="nOC-CU-gk1" secondAttribute="bottom" id="AoJ-Yt-0rn"/>
+                            <constraint firstItem="nOC-CU-gk1" firstAttribute="trailing" secondItem="4HA-OJ-V8x" secondAttribute="trailing" id="DE1-8x-NgE"/>
+                            <constraint firstItem="4HA-OJ-V8x" firstAttribute="centerX" secondItem="nOC-CU-gk1" secondAttribute="centerX" id="cZH-iS-lYh"/>
+                            <constraint firstItem="nOC-CU-gk1" firstAttribute="top" secondItem="4HA-OJ-V8x" secondAttribute="top" constant="44" id="vJh-mT-buH"/>
+                            <constraint firstItem="V7M-Zf-Flv" firstAttribute="centerY" secondItem="k7C-mc-Ny2" secondAttribute="centerY" id="xWB-04-f5f"/>
+                            <constraint firstItem="4HA-OJ-V8x" firstAttribute="top" secondItem="k7C-mc-Ny2" secondAttribute="top" id="yfF-PO-G49"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Pagos" id="PzP-Qd-Pzj" customClass="CocoTabBarItem" customModule="Coco" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="icon" value="payments"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedIcon" value="payments_selected"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="rhE-Gl-msU"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="countdown" destination="LQg-PB-0y6" id="goj-sM-cR9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yMa-7D-Oy5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1591" y="1758"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Coco_Gradient_Background" width="409" height="818"/>
         <image name="backnegro" width="64" height="64"/>
         <image name="icono_variastarjetasv2" width="433" height="139"/>
         <image name="iconotarjetacoco_v2" width="213" height="185"/>

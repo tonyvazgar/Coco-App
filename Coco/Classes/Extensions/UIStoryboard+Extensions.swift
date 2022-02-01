@@ -20,6 +20,7 @@ extension UIStoryboard {
     
     /** More menu */
     public static var accounts: UIStoryboard { UIStoryboard(name: "Account", bundle: nil) }
+    public static var banner: UIStoryboard { UIStoryboard(name: "Banner", bundle: nil) }
     public static var help: UIStoryboard { UIStoryboard(name: "Help", bundle: nil) }
     public static var deposits: UIStoryboard { UIStoryboard(name: "Deposits", bundle: nil) }
     public static var favorites: UIStoryboard { UIStoryboard(name: "Favorites", bundle: nil) }
