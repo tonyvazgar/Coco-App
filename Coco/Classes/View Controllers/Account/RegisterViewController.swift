@@ -198,9 +198,12 @@ class RegisterViewController: UIViewController {
     private func performSuccessRegister() {
         let alert = UIAlertController()
         alert.title = "Cuenta creada con éxito"
-        alert.message = "¡Favor de revisar su correo para validar su cuenta!"
+        alert.message = "¡Favor de revisar el siguiente SMS para validar su cuenta!"
         alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { [weak self] _ in
-            self?.navigationController?.popViewController(animated: true)
+            
+            let viewController = UIStoryboard.accounts.instantiate(VerifyTextMessage.self)
+            self?.navigationController?.present(viewController, animated: true, completion: nil)
+            
         })
         
         present(alert, animated: true)

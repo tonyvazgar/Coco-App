@@ -252,6 +252,7 @@
 		CFF0B6AE23EBC97800C30A6D /* rechargeCreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF0B6AC23EBC97800C30A6D /* rechargeCreditViewController.swift */; };
 		CFF0B6AF23EBC97800C30A6D /* rechargeCreditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF0B6AD23EBC97800C30A6D /* rechargeCreditViewController.xib */; };
 		D1768355637E940C0BEFEBD7 /* Pods_CocoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6546AE0874C25E7DDE23877 /* Pods_CocoTests.framework */; };
+		EF0CDB2E27AA22A900FE6952 /* VerifyTextMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0CDB2D27AA22A900FE6952 /* VerifyTextMessage.swift */; };
 		EF21E2812798BDF100A84382 /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF21E2802798BDF100A84382 /* CounterViewController.swift */; };
 		EF36114D2799257300FE9335 /* BusinessesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF36114C2799257300FE9335 /* BusinessesCollectionViewCell.xib */; };
 		EF36114F2799271B00FE9335 /* BusinessesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF36114E2799271B00FE9335 /* BusinessesCollectionViewCell.swift */; };
@@ -542,6 +543,7 @@
 		CFF0B6AD23EBC97800C30A6D /* rechargeCreditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = rechargeCreditViewController.xib; sourceTree = "<group>"; };
 		D130DF29F11E0E2FDD29E8B1 /* Pods-Coco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coco.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coco/Pods-Coco.debug.xcconfig"; sourceTree = "<group>"; };
 		E6546AE0874C25E7DDE23877 /* Pods_CocoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF0CDB2D27AA22A900FE6952 /* VerifyTextMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyTextMessage.swift; sourceTree = "<group>"; };
 		EF21E2802798BDF100A84382 /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
 		EF36114C2799257300FE9335 /* BusinessesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BusinessesCollectionViewCell.xib; sourceTree = "<group>"; };
 		EF36114E2799271B00FE9335 /* BusinessesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -1146,6 +1148,7 @@
 				C3890C0C25218D6D0055C7A3 /* Account.storyboard */,
 				C3890C0E252197E90055C7A3 /* SignInViewController.swift */,
 				C3890C402522CEC30055C7A3 /* RegisterViewController.swift */,
+				EF0CDB2D27AA22A900FE6952 /* VerifyTextMessage.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1911,6 +1914,7 @@
 				9D07DB072476EE6B00907E39 /* promoModel.swift in Sources */,
 				EF36114F2799271B00FE9335 /* BusinessesCollectionViewCell.swift in Sources */,
 				C3890C122521986F0055C7A3 /* UserManagement.swift in Sources */,
+				EF0CDB2E27AA22A900FE6952 /* VerifyTextMessage.swift in Sources */,
 				C35572B122CA932700FC5C89 /* FavoritesVC.swift in Sources */,
 				EFB9CEE627A3C1A600B82A73 /* EdgeShadowLayer.swift in Sources */,
 				C36553CD252EBDF400733EEE /* SideMenuViewController.swift in Sources */,

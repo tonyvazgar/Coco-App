@@ -53,5 +53,8 @@ struct Routes {
     static let adminFavorite = "adminFavorite"
     
     static let sendToken = "sendToken"
+    
+    /** 2022 */
+    static let getCodeVerification = "getCodeVerification"
 }
 

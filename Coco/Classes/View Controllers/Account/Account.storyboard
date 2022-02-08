@@ -750,7 +750,7 @@ Login</string>
                                             <constraint firstAttribute="width" constant="260" id="Utv-Hi-QGw"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="16"/>
-                                        <state key="normal" title="REGISTRARME">
+                                        <state key="normal" title="CONTINUAR">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -836,6 +836,82 @@ Login</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Xy-1N-MQt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="734.78260869565224" y="118.52678571428571"/>
+        </scene>
+        <!--Verify Text Message-->
+        <scene sceneID="1fv-fR-1rQ">
+            <objects>
+                <viewController storyboardIdentifier="VerifyTextMessage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0oI-2a-Gyv" customClass="VerifyTextMessage" customModule="Coco" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Of-m5-3gj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nuevo_logo_negro" translatesAutoresizingMaskIntoConstraints="NO" id="IE9-d2-e1t">
+                                <rect key="frame" x="68" y="61" width="278" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="WAX-ap-tbW"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingresa el mensaje de texto" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qkz-qg-XHv">
+                                <rect key="frame" x="32" y="179" width="350" height="34"/>
+                                <fontDescription key="fontDescription" name="Poppins-ExtraBold" family="Poppins" pointSize="24"/>
+                                <color key="textColor" name="CocoOrange"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="XXXX" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ta0-gp-5sM">
+                                <rect key="frame" x="32" y="426.5" width="350" height="43.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="zt4-b1-Dy2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="given-name"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcf-BK-8Zp">
+                                <rect key="frame" x="77" y="795" width="260" height="35"/>
+                                <color key="backgroundColor" name="CocoOrange"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="260" id="3O8-1e-LFJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="16"/>
+                                <state key="normal" title="VERIFICAR">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="registerBtnAction:" destination="KFg-mK-hOp" eventType="touchUpInside" id="dCU-K4-aA7"/>
+                                    <action selector="verifyButtonAction:" destination="0oI-2a-Gyv" eventType="touchUpInside" id="w9E-ZK-mTq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zfG-2V-fib"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qkz-qg-XHv" firstAttribute="leading" secondItem="zfG-2V-fib" secondAttribute="leading" constant="32" id="AIs-CW-bXn"/>
+                            <constraint firstItem="Ta0-gp-5sM" firstAttribute="leading" secondItem="zfG-2V-fib" secondAttribute="leading" constant="32" id="Kd3-Nw-cYW"/>
+                            <constraint firstItem="Ta0-gp-5sM" firstAttribute="centerX" secondItem="3Of-m5-3gj" secondAttribute="centerX" id="Lbf-zd-zn8"/>
+                            <constraint firstItem="Ta0-gp-5sM" firstAttribute="centerY" secondItem="3Of-m5-3gj" secondAttribute="centerY" id="O1S-sn-TfM"/>
+                            <constraint firstItem="IE9-d2-e1t" firstAttribute="top" secondItem="zfG-2V-fib" secondAttribute="top" constant="17" id="Rhp-At-1Py"/>
+                            <constraint firstItem="zfG-2V-fib" firstAttribute="trailing" secondItem="Ta0-gp-5sM" secondAttribute="trailing" constant="32" id="YJi-8P-MNm"/>
+                            <constraint firstItem="zfG-2V-fib" firstAttribute="bottom" secondItem="Qcf-BK-8Zp" secondAttribute="bottom" constant="32" id="YsZ-EA-ZPo"/>
+                            <constraint firstItem="zfG-2V-fib" firstAttribute="trailing" secondItem="qkz-qg-XHv" secondAttribute="trailing" constant="32" id="bhX-O3-WRR"/>
+                            <constraint firstItem="IE9-d2-e1t" firstAttribute="leading" secondItem="3Of-m5-3gj" secondAttribute="leading" constant="68" id="gKA-No-2bZ"/>
+                            <constraint firstAttribute="trailing" secondItem="IE9-d2-e1t" secondAttribute="trailing" constant="68" id="iAO-ju-2Lz"/>
+                            <constraint firstItem="IE9-d2-e1t" firstAttribute="centerX" secondItem="3Of-m5-3gj" secondAttribute="centerX" id="nnT-5e-eiQ"/>
+                            <constraint firstItem="Qcf-BK-8Zp" firstAttribute="centerX" secondItem="3Of-m5-3gj" secondAttribute="centerX" id="pmZ-JH-l6y"/>
+                            <constraint firstItem="qkz-qg-XHv" firstAttribute="top" secondItem="IE9-d2-e1t" secondAttribute="bottom" constant="48" id="vbV-sz-yw8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textMessageField" destination="Ta0-gp-5sM" id="yDX-je-XM8"/>
+                        <outlet property="verifyButtonOutlet" destination="Qcf-BK-8Zp" id="Jbe-JJ-SOq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eWR-fD-c4p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2009" y="130"/>
         </scene>
         <!--Forgot PasswordVC-->
         <scene sceneID="cRK-jJ-6wJ">

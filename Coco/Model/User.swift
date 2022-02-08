@@ -151,8 +151,7 @@ class User: Decodable {
             "city": id_city] as [String : Any]
         
         Alamofire.request(General.endpoint, method: .post, parameters: data).responseData { (response) in
-            print("--------------------------------------------")
-            print(data)
+            
             
             guard let data = response.result.value else {
                 completion(.failure("Error de conexión"))
@@ -169,23 +168,81 @@ class User: Decodable {
                 return
             }
             
-            guard let dataDictionary = dictionary["data"],
-                  let object = try? dataDictionary.rawData(),
-                  let decoded = try? JSONDecoder().decode(User.self, from: object) else {
+            
+            guard let dataDictionary = dictionary["data"] else {
                 completion(.failure("Error al leer los datos"))
                 return
             }
             
             print("--------------------------------------------")
-            print(String(describing: decoded))
-            print("--------------------------------------------")
-            self.id = decoded.id
-            self.email = decoded.email
-            self.name = decoded.name
-            self.last_name = decoded.last_name
+//            print(String(describing: decoded))
+//            print("--------------------------------------------")
+//            self.id = decoded.id
+//            self.email = decoded.email
+//            self.name = decoded.name
+//            self.last_name = decoded.last_name
             completion(.success(nil))
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    func verifyTextMessage(textMessage: String = "", completion: @escaping(Result) -> Void) {
+        let data = [
+            "funcion": Routes.getCodeVerification,
+            "codigo": textMessage
+            ] as [String : Any]
+        
+        Alamofire.request(General.endpoint, method: .post, parameters: data).responseData { (response) in
+            
+            
+            guard let data = response.result.value else {
+                completion(.failure("Error de conexión"))
+                return
+            }
+            
+            guard let dictionary = JSON(data).dictionary else {
+                completion(.failure("Error al obtener los datos"))
+                return
+            }
+            
+            if dictionary["state"] != "200" {
+                completion(.failure(dictionary["status_msg"]?.string ?? ""))
+                return
+            }
+            
+            
+            guard let dataDictionary = dictionary["data"] else {
+                completion(.failure("Error al leer los datos"))
+                return
+            }
+            
+            print("--------------------------------------------")
+//            print(String(describing: decoded))
+//            print("--------------------------------------------")
+//            self.id = decoded.id
+//            self.email = decoded.email
+//            self.name = decoded.name
+//            self.last_name = decoded.last_name
+            completion(.success(nil))
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     func newUserRequest2(completion: @escaping(Result) -> Void) {
         let data = [
