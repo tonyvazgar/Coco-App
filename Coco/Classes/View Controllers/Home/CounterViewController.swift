@@ -33,7 +33,7 @@ final class CounterViewController: UIViewController {
         
         eventDateComponents.year = 2022
         eventDateComponents.month = 02
-        eventDateComponents.day = 16
+        eventDateComponents.day = 28
         eventDateComponents.hour = 00
         eventDateComponents.minute = 00
         eventDateComponents.second = 00

@@ -12,6 +12,8 @@ final class LocationsContainerViewController: UIViewController {
     @IBOutlet private var sectionTitleLabel: UILabel!
     @IBOutlet private var containerView: UIView!
     
+    var textoSeccion = "";
+    
     var businessId: String?
     
     @IBAction private func backButtonAction(_ sender: Any) {
@@ -36,5 +38,6 @@ final class LocationsContainerViewController: UIViewController {
             viewController.view.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             viewController.view.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
         ])
+        sectionTitleLabel.text = textoSeccion
     }
 }
