@@ -27,9 +27,9 @@ class BusinessesCollectionViewCell: UICollectionViewCell {
         midView.layer.shadowOffset = CGSize(width: 0.5, height: 4.0)
         midView.layer.shadowOpacity = 0.5
         
-        categoryImage.layer.cornerRadius = (categoryImage.frame.size.width)/2
+        categoryImage.layer.cornerRadius = 45
         categoryImage.clipsToBounds = true
-        categoryImage.layer.masksToBounds = true
+        //categoryImage.layer.masksToBounds = true
 //        
 //        let topShadow = EdgeShadowLayer(forView: categoryImage, edge: .Top)
 //        categoryImage.layer.addSublayer(topShadow)
