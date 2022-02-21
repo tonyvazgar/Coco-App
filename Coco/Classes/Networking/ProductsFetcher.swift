@@ -10,6 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 final class ProductsFetcher {
+    
     static func fetchProducts(locationId: String, categoryId: String, completion: @escaping (Swift.Result<[Product],Error>) -> Void) {
         let data = [
             "funcion": Routes.getProducts,
@@ -21,6 +22,8 @@ final class ProductsFetcher {
         print(data)
         
         Alamofire.request(General.endpoint, method: .post, parameters: data).responseJSON { (response) in
+            
+            print(response.debugDescription)
             guard let data = response.result.value else {
                 completion(.failure(FetcherErrors.invalidResponse))
                 return
@@ -46,6 +49,8 @@ final class ProductsFetcher {
             completion(.success(decoded))
         }
     }
+    
+    
     
     static func fetchProductDetail(productId: String, completion: @escaping (Swift.Result<Product,Error>) -> Void) {
         let data = [
@@ -139,6 +144,32 @@ final class ProductsFetcher {
             }
             
             completion(.success([]))
+        }
+    }
+    
+    static func getProducts(locationId: String, categoryId: String, completion: @escaping (ProducListresponse) -> Void) {
+        let data = [
+            "funcion": Routes.getProducts,
+            "id_user": UserManagement.shared.id_user!,
+            "id_store": locationId,
+            "id_category": categoryId
+        ]
+        
+        print(data)
+        
+        Alamofire.request(General.endpoint, method: .post, parameters: data).responseData { (response) in
+            
+            print(response.debugDescription)
+            switch response.result {
+            case .success:
+                if let jsonResponse = response.data {
+                    let response : ProducListresponse = try! JSONDecoder().decode(ProducListresponse.self, from: jsonResponse)
+                    completion(response)
+                }
+            case .failure(let error) :
+                completion(ProducListresponse(mensaje: error.localizedDescription))
+                
+            }
         }
     }
 }

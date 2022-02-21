@@ -78,18 +78,28 @@ final class BusinessesListViewController: UICollectionViewController, UICollecti
 //    }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        /*
         let business = businesses[indexPath.row]
         let viewController = UIStoryboard.home.instantiate(LocationsContainerViewController.self)
         viewController.businessId = business.id
         viewController.textoSeccion = business.name!
         navigationController?.pushViewController(viewController, animated: true)
+        */
         
-//        let business = businesses[indexPath.row]
-//        let viewController = UIStoryboard.home.instantiate(CounterViewController.self)
-//
-//        navigationController?.present(viewController, animated: true, completion: nil)
-//        navigationController?.pushViewController(viewController, animated: true)
+        /*
+        let business = businesses[indexPath.row]
+        let viewController = UIStoryboard.home.instantiate(CounterViewController.self)
+
+        navigationController?.present(viewController, animated: true, completion: nil)
+        */
         
+        
+        
+        let business = businesses[indexPath.row]
+                 let viewController = UIStoryboard.home.instantiate(CounterViewController.self)
+
+                 navigationController?.present(viewController, animated: true, completion: nil)
+         
     }
 }
 

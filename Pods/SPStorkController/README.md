@@ -1,12 +1,19 @@
 # SPStorkController
 
-Very similar to the modal **controller displayed in Apple Music, Podcasts and Mail** apps. Customizable height of view. Check scroll's bounce for more interactive. Simple adding close button and centering arrow indicator. You can download example [Debts - Spending tracker](https://itunes.apple.com/app/id1446635818) or [Code - Learn Swift & Design](https://itunes.apple.com/app/id1453325619) apps from AppStore. If you like the project, do not forget to **put star ★**
+<a href="https://itunes.apple.com/app/id1446635818" target="_blank"><img align="left" src="https://github.com/ivanvorobei/SPStorkController/blob/master/Resources/Preview.gif" width="400"/></a>
 
-### Preview
+### About
+Controller **as in Apple Music, Podcasts and Mail** apps. Simple adding close button and centering arrow indicator. Customizable height. Using custom `TransitionDelegate`. Alert you can find in [SPAlert](https://github.com/IvanVorobei/SPAlert) project. 
 
-<img src="https://github.com/IvanVorobei/SPStorkController/blob/master/Resources/Preview.gif" width="440">
+You can download example [Debts - Spending tracker](https://itunes.apple.com/app/id1446635818) app from AppStore. For **buy source code** of app in preview, go to:
 
-Alert you can find in [SPAlert](https://github.com/IvanVorobei/SPAlert) project. If you want to **buy source code** of app in preview, please, go to [xcode-shop.com](https://xcode-shop.com).
+[![xcode-shop.com](https://github.com/ivanvorobei/SPPermission/blob/master/Resources/Buttons/Xcode%20Shop%20Button%20-%203.svg)](https://xcode-shop.com)
+
+If you like the project, do not forget to `put star ★` or follow me in twitter:
+
+[![https://twitter.com/varabeis](https://github.com/ivanvorobei/SPPermission/blob/master/Resources/Buttons/Twitter-2.svg)](https://twitter.com/varabeis)
+
+See project's backers in [Sponsors](https://github.com/ivanvorobei/SPStorkController#sponsors) section.
 
 ## Navigate
 
@@ -26,18 +33,19 @@ Alert you can find in [SPAlert](https://github.com/IvanVorobei/SPAlert) project.
     - [Working with UIScrollView](#working-with-uiscrollview)
     - [UITableView & UICollectionView](#working-with-uitableview--uicollectionview)
     - [Delegate](#delegate)
-- [Video Tutorial](#video-tutorial)
-- [Other Projects (+gif)](#my-projects)
+    - [Storyboard](#storyboard)
+- [Sheets in iOS 13](#sheets-in-ios-13)
+- [Sponsors](#sponsors)
+- [Other Projects +gif](#my-projects)
     - [SPAlert](#spalert)
     - [SPLarkController](#splarkcontroller)
     - [SPPermission](#sppermission)
-    - [Xcode Shop](#xcode-shop)
+    - [Awesome iOS UI](https://github.com/ivanvorobei/awesome-ios-ui)
 - [License](#license)
-- [Contact or Order Develop](#contact)
 
 ## Requirements
 
-Swift 4.2 & **5.0**. Ready for use on iOS 10+
+Swift `4.2` & `5.0`. Ready for use on iOS 10+
 
 ## Installation
 
@@ -54,7 +62,17 @@ pod 'SPStorkController'
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks. To integrate `SPStorkController` into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "IvanVorobei/SPStorkController"
+github "ivanvorobei/SPStorkController"
+```
+
+### Swift Package Manager
+
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for managing the distribution of Swift code. It’s integrated with the Swift build system to automate the process of downloading, compiling, and linking dependencies.
+
+To integrate `SPStorkController` into your Xcode project using Xcode 11, specify it in `Project > Swift Packages`:
+
+```ogdl
+https://github.com/ivanvorobei/SPStorkController
 ```
 
 ### Manually
@@ -227,9 +245,9 @@ class ModalController: UIViewController {
 
 You only need to add a navigation bar to the main view, it will automatically layout. Use style `.stork` in init of `SPFakeBarView`. Here is visual preview with Navigation Bar and without it:
 
-<img src="https://github.com/IvanVorobei/SPStorkController/blob/master/Resources/Navigation%20Bar.jpg"/>
+<img src="https://github.com/ivanvorobei/SPStorkController/blob/master/Resources/Navigation%20Bar.jpg"/>
 
-To use it, you need to install [SPFakeBar](https://github.com/IvanVorobei/SPFakeBar) pod: 
+To use it, you need to install [SPFakeBar](https://github.com/ivanvorobei/SPFakeBar) pod: 
 
 ```ruby
 pod 'SPFakeBar'
@@ -277,9 +295,31 @@ protocol SPStorkControllerDelegate: class {
 }
 ```
 
+### Storyboard
+
+If need using `SPStorkController` with storyboard, set class `SPStorkSegue` for transition setting in storyboard file. I will give the class code so that you understand what it does:
+
+```swift
+import UIKit
+
+class SPStorkSegue: UIStoryboardSegue {
+    
+    public var transitioningDelegate: SPStorkTransitioningDelegate?
+    
+    override func perform() {
+        transitioningDelegate = transitioningDelegate ?? SPStorkTransitioningDelegate()
+        destination.transitioningDelegate = transitioningDelegate
+        destination.modalPresentationStyle = .custom
+        super.perform()
+    }
+}
+```
+
+Open your storyboard, choose transition and open right menu. Open `Attributes Inspector` and in Class section insert `SPStorkSegue`.
+
 ### Modal presentation of other controller
 
-If you want to present modal controller on SPStorkController, please set:
+If you want to present modal controller on `SPStorkController`, please set:
 
 ```swift
 controller.modalPresentationStyle = .custom
@@ -287,46 +327,60 @@ controller.modalPresentationStyle = .custom
 
 It’s needed for correct presentation and dismissal of all modal controllers.
 
-## Video Tutorial
+### Stop scroll
 
-You can see how to use `SPStorkController` and how to customize it [in this video](https://youtu.be/wOTNGswT2-0). For English speakers I’ve added subtitles, don’t forget to turn them on:
+`SPStorkController` use snapshots. If the parent controller scrollings and you try to show `SPStorkController`, you will see how it froze, and in a second its final position is updated. I recommend to stop scrolling force:
 
-[![Tutorial on YouTube](https://github.com/IvanVorobei/SPStorkController/blob/master/Resources/YouTube.jpg)](https://youtu.be/wOTNGswT2-0)
+```swift 
+scrollView.setContentOffset(self.contentOffset, animated: false)
+```
+
+## Sheets in iOS 13
+
+Apple present in `WWDC 2019` new modal presentation style - `Sheets`. It ready use Support interactive dismiss and work with navigations bars. Available since iOS 13. I will add more information when I study this in more detail. You can see presentation [here](https://developer.apple.com/videos/play/wwdc2019/224/).
+
+<a href="https://developer.apple.com/videos/play/wwdc2019/224/" target="_blank"><img align="center" src="https://github.com/ivanvorobei/SPStorkController/blob/master/Resources/Sheets.png"/></a>
+
+## Sponsors
+
+Support me with a monthly donation and help me continue activities. After payment I add you to list of sponsor **in my all projects** with link to your profile. [Become a sponsors](https://www.patreon.com/ivanvorobei)
+
+<a href="https://github.com/zubara21/" target="_blank"><img src="https://github.api.ivanvorobei.by/sponsors/zubara21.jpg" width="100"></a>
+<a href="https://github.com/sparrowganz/" target="_blank"><img src="https://github.api.ivanvorobei.by/sponsors/sparrowganz.jpg" width="100"></a>
+<a href="https://github.com/shatk0vskiy/" target="_blank"><img src="https://github.api.ivanvorobei.by/sponsors/shatk0vskiy.jpg" width="100"></a>
+<a href="https://www.patreon.com/ivanvorobei" target="_blank"><img src="https://github.api.ivanvorobei.by/sponsors/add.jpg" width="100"></a>
 
 ## My projects
 
+<img align="left" src="https://github.com/ivanvorobei/SPAlert/blob/master/Resources/Preview-Done.gif" width="220"/>
+
 ### SPAlert
 
-Native popup [SPAlert](https://github.com/IvanVorobei/SPAlert) is **similar to Apple Music or Feedback in AppStore** app. Support animations. I tried to repeat Apple alert as much as possible. 
+[SPAlert](https://github.com/ivanvorobei/SPAlert) is **popup from Apple Music & Feedback in AppStore**. Contains `Done` & `Heart` presets. `Done` present with draw path animation. I clone Apple's alerts as much as possible.  
+You can find this alerts in AppStore after feedback, after added song to library in Apple Music. I am also add alert without icon, as simple message.
 
-<p float="left">
-    <img src="https://github.com/IvanVorobei/SPAlert/blob/master/Resources/Preview-Done.gif" width="250">
-    <img src="https://github.com/IvanVorobei/SPAlert/blob/master/Resources/Preview-Heart.gif" width="250">
-    <img src="https://github.com/IvanVorobei/SPAlert/blob/master/Resources/Preview-Message.gif" width="250">
-</p>
+You can download example [Debts - Spending tracker](https://itunes.apple.com/app/id1446635818) app from AppStore. If you want to **buy source code** of app in preview, please, go to [xcode-shop.com](https://xcode-shop.com).
 
-You can download example app [Debts - Spending tracker](https://itunes.apple.com/app/id1446635818) from AppStore. If you want to **buy source code** of example apps, please, go to [xcode-shop.com](https://xcode-shop.com).
+---
+
+<img align="left" src="https://github.com/ivanvorobei/SPLarkController/blob/master/Resources/Preview.gif" width="220"/>
 
 ### SPLarkController
 
-[SPLarkController](https://github.com/IvanVorobei/SPLarkController) make **settings screen** for your application. You can add **buttons and switches**. The amount cells is not limited. You can start using project with just two lines of code and easy customisation.
+[SPLarkController](https://github.com/ivanvorobei/SPLarkController) transition between controllers. Translate to top. Make **settings screen** for application. You can add **buttons and switches**. The amount cells is not limited. You can start using project with just two lines of code and easy customisation. For implement settings as in preiew, see section [Settings Controller](https://github.com/ivanvorobei/SPLarkController#settings-controller).
 
-<img src="https://github.com/IvanVorobei/SPLarkController/blob/master/Resources/Preview.gif" width="440">
+You can download example app [Code - Learn Swift & Design](https://itunes.apple.com/app/id1453325619) from AppStore. If you want to **buy source code** of app this app, please, go to [xcode-shop.com](https://xcode-shop.com).
 
-You can download [Code - Learn Swift & Design](https://itunes.apple.com/app/id1453325619) app, which uses `SPLarkController`. Also you can **buy source code** of this app on [xcode-shop.com](https://xcode-shop.com).
+---
+
+<img align="left" src="https://github.com/ivanvorobei/SPPermission/blob/master/Resources/Preview.gif" width="220"/>
 
 ### SPPermission
 
-[SPPermission](https://github.com/IvanVorobei/SPPermission) allow request permissions **with native dialog** UI and interactive animations. Also you can request permissions without dialog. Check state any permission. You can start using this project with just two lines of code and easy customisation. 
+[SPPermission](https://github.com/ivanvorobei/SPPermission) allow request permissions **with native dialog** UI and interactive animations. Also you can request permissions without dialog. Check state any permission. You can start using this project with just two lines of code and easy customisation.
 
-<img src="https://github.com/IvanVorobei/SPPermission/blob/master/Resources/Preview.gif" width="500">
-
-### Xcode Shop
-
-If you want **buy apps with source code**, you can visit my [xcode-shop.com](https://xcode-shop.com). Here I am sale apps, modules, 3D elements and other. In applications you can find many cool UI that will be useful for your projects. Also by buying, **you support me** and my free GitHub development.
+You can buy example Dialog & Dinamic animations in [xcode-shop.com](https://xcode-shop.com/ui-elements), see [preview](https://xcode-shop.com/assets/preview/dinamic-alert.mov).
 
 ## License
-`SPStorkController` is released under the MIT license. Check `LICENSE.md` for details.
 
-## Contact
-If you need any application or UI to be developed, message me at hello@ivanvorobei.by or via [telegram](https://t.me/ivanvorobei). I develop iOS apps and designs. I use `swift` for development. To request more functionality, you should create a new issue. You can see my [apps in AppStore](https://itunes.apple.com/developer/id1446635817).
+`SPStorkController` is released under the MIT license. Check `LICENSE.md` for details.

@@ -20,6 +20,7 @@ final class LocationsFetcher {
         ]
         
         Alamofire.request(General.endpoint, method: .post, parameters: data).responseJSON { (response) in
+            print("resultado categoria: \(response.debugDescription)")
             guard let data = response.result.value else {
                 completion(.failure(FetcherErrors.invalidResponse))
                 return
@@ -39,6 +40,7 @@ final class LocationsFetcher {
             guard let dataDictionary = dictionary["data"],
               let object = try? dataDictionary.rawData(),
               let decoded = try? JSONDecoder().decode([LocationsDataModel].self, from: object) else {
+                  
                 completion(.failure(FetcherErrors.jsonDecode))
                 return
             }

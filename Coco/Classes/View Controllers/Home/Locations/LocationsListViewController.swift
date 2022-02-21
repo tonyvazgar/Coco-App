@@ -60,7 +60,7 @@ final class LocationsListViewController: UITableViewController, SearchBarDelegat
         
         let location = locations[indexPath.row]
         cell.locationName.text = location.name
-        cell.locationAddress.text = location.address
+        //cell.locationAddress.text = location.address
         cell.locationDistanceLabel.text = location.distance
         cell.locationScheduleLabel.text = location.schedule
         cell.locationRatingLabel.text = location.rating
@@ -81,11 +81,18 @@ final class LocationsListViewController: UITableViewController, SearchBarDelegat
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let location = locations[indexPath.row]
+        
+        /*
         let viewController = UIStoryboard.home.instantiate(CategoriesContainerViewController.self)
         viewController.businessId = businessId
         viewController.locationId = location.id
         viewController.location = location
         navigationController?.pushViewController(viewController, animated: true)
+        */
+        
+        let viewController = UIStoryboard.home.instantiate(CategoriesV2ViewController.self)
+        navigationController?.pushViewController(viewController, animated: true)
+         
     }
 }
 

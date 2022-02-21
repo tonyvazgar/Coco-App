@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FBSDKLoginKit
+import FBSDKCoreKit
 import AuthenticationServices
 import JWTDecode
 
@@ -56,6 +56,7 @@ class AccountVC: UIViewController {
     }
     
     @IBAction private func facebookLoginAction(_ sender: Any) {
+        /*
         let loginManager = LoginManager()
         loginManager.logIn(permissions: ["public_profile", "email"], from: self) { (result, error) in
             GraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, email"]).start(completionHandler:
@@ -72,6 +73,7 @@ class AccountVC: UIViewController {
                     self.performFBLogin(email: email, name: first_name, last_name: last_name, fb_id: fb_id)
             })
         }
+         */
     }
     
     private func performSuccessLogin() {

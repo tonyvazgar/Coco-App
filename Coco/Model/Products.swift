@@ -76,7 +76,7 @@ final class Product: Codable {
     public var favorite: String?
     public var business: String?
     public var quantity: String?
-    public var cocopoints: Int?
+    public var cocopoints: Double?
     public var tiempoEstimado: Int?
     public var cocopointsOtorgados: String?
     
@@ -88,7 +88,7 @@ final class Product: Codable {
                 id_store: String = "",
                 favorite: String = "",
                 business: String = "",
-                cocopoints: Int = 0,
+                cocopoints: Double = 0,
                 tiempoEstimado: Int = 0,
                 quantity: String = "",
                 cocopointsOtorgados: String = "") {
@@ -200,5 +200,65 @@ final class Product: Codable {
                             
                             completion(.success([]))
         }
+    }
+}
+
+
+struct ProducListresponse : Codable {
+    let state : String?
+    let status_msg : String?
+    let data : [ProducItem]?
+    
+    enum Keys : String, CodingKey {
+        case state = "state"
+        case status_msg = "status_msg"
+        case data = "data"
+    }
+    
+    init(from decoder : Decoder) throws{
+        let value = try decoder.container(keyedBy: Keys.self)
+        state = try value.decodeIfPresent(String.self, forKey: .state)
+        status_msg = try value.decodeIfPresent(String.self, forKey: .status_msg)
+        if let lista = try value.decodeIfPresent([ProducItem].self, forKey: .data){
+            data = lista
+        }
+        else {
+            data = [ProducItem]()
+        }
+    }
+    init(mensaje : String){
+        state = ""
+        status_msg = mensaje
+        data = []
+    }
+}
+struct ProducItem : Codable {
+    public var id: String?
+   // public var cocopoints: Int?
+    public var description: String?
+    public var id_store: String?
+    public var imageURL: String?
+    public var name: String?
+    public var price: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "Id"
+        //case cocopoints = "cocopoints"
+        case description = "descripcion"
+        case id_store = "id_store"
+        case imageURL = "imagen"
+        case name = "nombre"
+        case price = "precio"
+    }
+    
+    init(from decoder:Decoder) throws {
+        let value = try decoder.container(keyedBy: CodingKeys.self)
+        id = try value.decodeIfPresent(String.self, forKey: .id) ?? ""
+        //cocopoints = try value.decodeIfPresent(Int.self, forKey: .cocopoints) ?? 0
+        description = try value.decodeIfPresent(String.self, forKey: .description) ?? ""
+        id_store = try value.decodeIfPresent(String.self, forKey: .id_store) ?? ""
+        imageURL = try value.decodeIfPresent(String.self, forKey: .imageURL) ?? ""
+        name = try value.decodeIfPresent(String.self, forKey: .name) ?? ""
+        price = try value.decodeIfPresent(String.self, forKey: .price) ?? ""
     }
 }

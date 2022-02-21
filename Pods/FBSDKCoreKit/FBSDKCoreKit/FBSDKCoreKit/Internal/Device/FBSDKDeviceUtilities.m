@@ -20,14 +20,14 @@
 
 #if TARGET_OS_TV
 
-#import "FBSDKDeviceUtilities.h"
+ #import "FBSDKDeviceUtilities.h"
 
 @implementation FBSDKDeviceUtilities
 
 + (UIImage *)buildQRCodeWithAuthorizationCode:(NSString *)authorizationCode
 {
   NSString *authorizationUri = @"https://facebook.com/device";
-  if ([authorizationUri length] > 0) {
+  if ([authorizationCode length] > 0) {
     authorizationUri = [NSString stringWithFormat:@"https://facebook.com/device?user_code=%@&qr=1", authorizationCode];
   }
   NSData *qrCodeData = [authorizationUri dataUsingEncoding:NSISOLatin1StringEncoding];
@@ -41,8 +41,10 @@
   CGSize qrOutputSize = CGSizeMake(200, 200);
 
   CIImage *resizedImage =
-  [qrCodeImage imageByApplyingTransform: CGAffineTransformMakeScale(qrOutputSize.width / CGRectGetWidth(qrImageSize),
-                                                                    qrOutputSize.height / CGRectGetHeight(qrImageSize))];
+  [qrCodeImage imageByApplyingTransform:CGAffineTransformMakeScale(
+    qrOutputSize.width / CGRectGetWidth(qrImageSize),
+    qrOutputSize.height / CGRectGetHeight(qrImageSize)
+   )];
 
   return [UIImage imageWithCIImage:resizedImage];
 }

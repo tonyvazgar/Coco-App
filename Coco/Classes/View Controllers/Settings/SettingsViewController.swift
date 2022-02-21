@@ -112,12 +112,15 @@ extension UIApplication {
     }
   
     class func appBuild() -> String {
-        return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as! String
+        
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String? ?? "x"
+    
     }
   
     class func versionBuild() -> String {
         let version = appVersion(), build = appBuild()
       
-        return version == build ? "\(version)" : "\(version)(\(build))"
+        return version == build ? "\(version)" : "\(version)"
     }
 }
+

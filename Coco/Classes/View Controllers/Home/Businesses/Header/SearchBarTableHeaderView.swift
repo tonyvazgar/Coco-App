@@ -44,7 +44,7 @@ final class SearchBarTableHeaderView: UIView {
     
     private func configureView() {
         backView.roundCorners(18)
-        backView.addBorder(thickness: 1, color: .cocoGrayBorder)
+        backView.addBorder(thickness: 0, color: .cocoGrayBorder)
     }
 }
 

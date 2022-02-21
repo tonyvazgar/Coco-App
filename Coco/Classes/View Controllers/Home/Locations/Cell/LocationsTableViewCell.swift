@@ -12,7 +12,6 @@ final class LocationsTableViewCell: UITableViewCell {
     @IBOutlet var backView: UIView!
     @IBOutlet var locationImage: UIImageView!
     @IBOutlet var locationName: UILabel!
-    @IBOutlet var locationAddress: UILabel!
     @IBOutlet var locationDistanceLabel: UILabel!
     @IBOutlet var locationScheduleLabel: UILabel!
     @IBOutlet var locationRatingLabel: UILabel!
@@ -23,16 +22,16 @@ final class LocationsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         // corner radius
-        backView.layer.cornerRadius = 8
+        backView.layer.cornerRadius = 18
 
         // border
-        backView.layer.borderWidth = 0.5
+        backView.layer.borderWidth = 0
         backView.layer.borderColor = UIColor.lightGray.cgColor
 
         // shadow
-        backView.layer.shadowColor = UIColor.black.cgColor
-        backView.layer.shadowOffset = .zero
-        backView.layer.shadowOpacity = 0.25
-        backView.layer.shadowRadius = 2
+        backView.layer.shadowColor = UIColor.gray.cgColor
+        backView.layer.shadowOffset = CGSize(width: 5, height: 5)
+        backView.layer.shadowOpacity = 0.2
+        backView.layer.shadowRadius = 50
     }
 }

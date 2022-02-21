@@ -9,7 +9,7 @@
 import UIKit
 
 final class ProductsListViewController: UITableViewController {
-    private(set) var products: [Product] = []
+    private(set) var products: [ProducItem] = []
     private var loader = LoaderVC()
     var location: LocationsDataModel?
     var businessId: String?
@@ -118,7 +118,7 @@ private extension ProductsListViewController {
 extension ProductsListViewController: ProductCellDelegate {
     func didAddProduct(index: Int) {
         let product = products[index]
-        if CartManager.instance.addToCart(location: location, product: product, quantity: 1) { }
+      //  if CartManager.instance.addToCart(location: location, product: product, quantity: 1) { }
     }
 }
 
@@ -128,6 +128,21 @@ private extension ProductsListViewController {
     func requestData() {
         guard let locationId = locationId, let categoryId = categoryId else { return }
         loader.showInView(aView: view, animated: true)
+        
+        
+        ProductsFetcher.getProducts(locationId: locationId, categoryId: categoryId) { [weak self] result in
+            self?.loader.removeAnimate()
+            if result.state == "200" {
+                self?.products = result.data ?? []
+                self?.tableView.reloadData()
+            }
+            else {
+                print(result.status_msg ?? "")
+            }
+        }
+        
+        
+        /*
         ProductsFetcher.fetchProducts(locationId: locationId, categoryId: categoryId) { [weak self] result in
             self?.loader.removeAnimate()
             switch result {
@@ -135,8 +150,11 @@ private extension ProductsListViewController {
                 print(error)
             case .success(let products):
                 self?.products = products
+                print("numero de productor rescuperados:\(self?.products.count)")
                 self?.tableView.reloadData()
             }
         }
+         */
+         
     }
 }

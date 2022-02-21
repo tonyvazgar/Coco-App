@@ -30,7 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
 // targets, it still needs to be able to compile. Hence we need to declare it here.
 //
 // The way to fix this is to remove extensions of ObjC types in Swift.
-// This will be be done in the next major release (6.0)
 
 @class LoginManagerLoginResult;
 
@@ -97,33 +96,6 @@ typedef NS_ENUM(NSUInteger, FBSDKDefaultAudience)
 } NS_SWIFT_NAME(DefaultAudience);
 
 /**
- FBSDKLoginBehavior enum
-
-  Passed to the \c FBSDKLoginManager to indicate how Facebook Login should be attempted.
-
-
-
- Facebook Login authorizes the application to act on behalf of the user, using the user's
- Facebook account. Usually a Facebook Login will rely on an account maintained outside of
- the application, by the native Facebook application, the browser, or perhaps the device
- itself. This avoids the need for a user to enter their username and password directly, and
- provides the most secure and lowest friction way for a user to authorize the application to
- interact with Facebook.
-
- The \c FBSDKLoginBehavior enum specifies which log-in methods may be used. The SDK
-  will determine the best behavior based on the current device (such as iOS version).
- */
-typedef NS_ENUM(NSUInteger, FBSDKLoginBehavior)
-{
-  /**
-    This is the default behavior, and indicates logging in via ASWebAuthenticationSession (iOS 12+) or SFAuthenticationSession (iOS 11),
-    which present specialized SafariViewControllers. Falls back to plain SFSafariViewController (iOS 9 and 10) or Safari (iOS 8).
-   */
-  FBSDKLoginBehaviorBrowser = 0,
-} NS_SWIFT_NAME(LoginBehavior)
-DEPRECATED_MSG_ATTRIBUTE("All login flows utilize the browser. This will be removed in the next major release");
-
-/**
   `FBSDKLoginManager` provides methods for logging the user in and out.
 
  `FBSDKLoginManager` works directly with `[FBSDKAccessToken currentAccessToken]` and
@@ -150,12 +122,6 @@ NS_SWIFT_NAME(LoginManager)
 @property (assign, nonatomic) FBSDKDefaultAudience defaultAudience;
 
 /**
-  the login behavior
- */
-@property (assign, nonatomic) FBSDKLoginBehavior loginBehavior
-DEPRECATED_MSG_ATTRIBUTE("All login flows utilize the browser. This will be removed in the next major release");
-
-/**
  Logs the user in or authorizes additional permissions.
  @param permissions the optional array of permissions. Note this is converted to NSSet and is only
  an NSArray for the convenience of literal syntax.
@@ -177,6 +143,17 @@ DEPRECATED_MSG_ATTRIBUTE("All login flows utilize the browser. This will be remo
               fromViewController:(nullable UIViewController *)fromViewController
                          handler:(nullable FBSDKLoginManagerLoginResultBlock)handler
 NS_SWIFT_NAME(logIn(permissions:from:handler:));
+
+/**
+ Logs the user in with the given deep link url. Will only log user in if the given url contains valid login data.
+ @param url the deep link url
+ @param handler the callback.
+
+ This method should be called with the url from the openURL method.
+ */
+- (void)logInWithURL:(NSURL *)url
+             handler:(nullable FBSDKLoginManagerLoginResultBlock)handler
+NS_SWIFT_NAME(logIn(url:handler:));
 
 /**
   Requests user's permission to reathorize application's data access, after it has expired due to inactivity.

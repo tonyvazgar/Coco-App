@@ -9,6 +9,8 @@
 import UIKit
 import SnapKit
 import Hero
+import Firebase
+import FBSDKCoreKit
 
 final class HomeViewController: UIViewController, UIPopoverPresentationControllerDelegate, SideMenuDelegate {
     @IBOutlet weak var logo: UIImageView!
@@ -39,6 +41,7 @@ final class HomeViewController: UIViewController, UIPopoverPresentationControlle
         requestInitialData()
         mainData = Main()
 //        getGiftState()
+        AppEvents.logEvent(.viewedContent)
         let pushManager = PushNotificationManager()
         pushManager.registerForPushNotifications()
         NotificationCenter.default.addObserver(self, selector: #selector(updateLabels), name: Notification.Name(rawValue: "reloadBalance"), object: nil)
@@ -50,6 +53,7 @@ final class HomeViewController: UIViewController, UIPopoverPresentationControlle
         LocationManager.shared.requestLocation { [weak self] _ in
             self?.configureTableView()
         }
+       
     }
     
     func gotCocos() {

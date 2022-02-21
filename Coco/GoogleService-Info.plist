@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>714020951503-spnt4tgnqle949tf5e2okdijr3ku9lap.apps.googleusercontent.com</string>
+	<string>4899968219-am0plvgd6192puee9utapsqd7c3cpbmu.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.714020951503-spnt4tgnqle949tf5e2okdijr3ku9lap</string>
+	<string>com.googleusercontent.apps.4899968219-am0plvgd6192puee9utapsqd7c3cpbmu</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>4899968219-pc0hvl05bh0j3g8ia4ljm6h2e05sn8mt.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCQqj_bzy6pbCoaQ1o1yeIraZu6W1W84rE</string>
+	<string>AIzaSyDDSYPay1yDDpT9Bp4_Nhjc8D6xHEzYZDw</string>
 	<key>GCM_SENDER_ID</key>
-	<string>714020951503</string>
+	<string>4899968219</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.Easycode.Coco</string>
 	<key>PROJECT_ID</key>
-	<string>coco-12de4</string>
+	<string>cocoapp-fdb5b</string>
 	<key>STORAGE_BUCKET</key>
-	<string>coco-12de4.appspot.com</string>
+	<string>cocoapp-fdb5b.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +31,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:714020951503:ios:5cb3ef983f23d122</string>
-	<key>DATABASE_URL</key>
-	<string>https://coco-12de4.firebaseio.com</string>
+	<string>1:4899968219:ios:df7eeec53e9ded1116e8fe</string>
 </dict>
 </plist>
