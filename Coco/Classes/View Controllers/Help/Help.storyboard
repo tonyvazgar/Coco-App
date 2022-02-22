@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7o-r3-gqH">
-                                <rect key="frame" x="16" y="260" width="382" height="376"/>
+                                <rect key="frame" x="16" y="265" width="382" height="366"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nuevo_logo_negro" translatesAutoresizingMaskIntoConstraints="NO" id="3gn-cD-Dt1">
                                         <rect key="frame" x="101" y="59" width="180" height="70"/>
@@ -49,7 +49,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VLS-8u-gko">
-                                        <rect key="frame" x="24" y="161" width="334" height="59"/>
+                                        <rect key="frame" x="24" y="161" width="334" height="49"/>
                                         <string key="text">CocoApp pone a tu disposición el servicio de atención a clientes vía telefónica o Whatsapp.
 Contáctanos y dinos como podemos ayudarte.</string>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
@@ -57,7 +57,7 @@ Contáctanos y dinos como podemos ayudarte.</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCj-yE-0qW">
-                                        <rect key="frame" x="32" y="252" width="318" height="38"/>
+                                        <rect key="frame" x="32" y="242" width="318" height="38"/>
                                         <color key="backgroundColor" name="CocoSalmon"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="Owk-YM-rrq"/>
@@ -71,7 +71,7 @@ Contáctanos y dinos como podemos ayudarte.</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QE9-Zd-wZ8">
-                                        <rect key="frame" x="32" y="306" width="318" height="38"/>
+                                        <rect key="frame" x="32" y="296" width="318" height="38"/>
                                         <color key="backgroundColor" name="CocoGreen"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="Jzf-C7-NAI"/>

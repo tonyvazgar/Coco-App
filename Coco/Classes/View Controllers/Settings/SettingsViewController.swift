@@ -112,7 +112,6 @@ extension UIApplication {
     }
   
     class func appBuild() -> String {
-        
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String? ?? "x"
     
     }
