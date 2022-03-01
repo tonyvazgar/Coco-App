@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -35,22 +35,22 @@
                     <rect key="frame" x="128" y="16" width="270" height="87"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZV-Sc-ED2">
-                            <rect key="frame" x="0.0" y="0.0" width="270" height="45"/>
+                            <rect key="frame" x="0.0" y="0.0" width="270" height="39.666666666666664"/>
                             <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="14"/>
                             <color key="textColor" name="Black"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x4h-uF-7Ac">
-                            <rect key="frame" x="0.0" y="45" width="270" height="21"/>
+                            <rect key="frame" x="0.0" y="39.666666666666664" width="270" height="23.666666666666664"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eL1-LF-xaH">
-                                    <rect key="frame" x="31" y="4" width="239" height="13"/>
+                                    <rect key="frame" x="31" y="3.9999999999999991" width="239" height="15.666666666666664"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
                                     <color key="textColor" name="Black"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location_icon" translatesAutoresizingMaskIntoConstraints="NO" id="uO9-TO-lXO">
-                                    <rect key="frame" x="0.0" y="3" width="15" height="15"/>
+                                    <rect key="frame" x="0.0" y="4.3333333333333357" width="15" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="15" id="iPS-Xu-zOq"/>
                                         <constraint firstAttribute="height" constant="15" id="uev-7V-NVT"/>
@@ -68,16 +68,16 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9X3-F1-39p">
-                            <rect key="frame" x="0.0" y="66" width="270" height="21"/>
+                            <rect key="frame" x="0.0" y="63.333333333333321" width="270" height="23.666666666666664"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bG0-33-8nc">
-                                    <rect key="frame" x="31" y="4" width="239" height="13"/>
+                                    <rect key="frame" x="31" y="3.9999999999999991" width="239" height="15.666666666666664"/>
                                     <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
                                     <color key="textColor" name="Black"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rating_icon" translatesAutoresizingMaskIntoConstraints="NO" id="SWT-Iw-Zjk">
-                                    <rect key="frame" x="0.0" y="3" width="15" height="15"/>
+                                    <rect key="frame" x="0.0" y="4.3333333333333428" width="15" height="15"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="15" id="Xg0-vA-F6D"/>
                                         <constraint firstAttribute="width" constant="15" id="jdW-kP-RSA"/>

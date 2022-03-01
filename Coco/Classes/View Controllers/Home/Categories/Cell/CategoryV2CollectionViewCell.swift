@@ -14,6 +14,8 @@ class CategoryV2CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var vistaSombra: UIView!
     
+    @IBOutlet weak var ancho: NSLayoutConstraint!
+    @IBOutlet weak var alto: NSLayoutConstraint!
     @IBOutlet weak var viewImage: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,10 +24,10 @@ class CategoryV2CollectionViewCell: UICollectionViewCell {
         //imgCategory.layer.cornerRadius = 63
         //viewImage.layer.cornerRadius = 63
         
-        imgCategory.layer.cornerRadius = self.imgCategory.layer.frame.width / 2
-        viewImage.layer.cornerRadius = self.viewImage.layer.frame.width / 2
-        imgCategory.layer.masksToBounds = false
-        imgCategory.clipsToBounds = true
+        //imgCategory.layer.cornerRadius = self.imgCategory.layer.frame.width / 2
+        
+        //imgCategory.layer.masksToBounds = false
+        //imgCategory.clipsToBounds = true
         
         vistaSombra.backgroundColor = .white
         vistaSombra.layer.cornerRadius = 30
@@ -41,7 +43,16 @@ class CategoryV2CollectionViewCell: UICollectionViewCell {
         viewImage.layer.shadowOffset = CGSize(width: 0, height: 6)
         viewImage.layer.shadowOpacity = 0.4
         viewImage.layer.shadowRadius = 6
-         
+        
+        print("ancho : \(self.frame.size.width)")
+        print("alto : \(self.frame.size.height)")
+        
+        
+        alto.constant = self.frame.size.width - 65
+        ancho.constant = self.frame.size.width - 65
+        viewImage.layer.cornerRadius = (self.frame.size.width - 65) / 2
+        imgCategory.layer.cornerRadius = (self.frame.size.width - 65) / 2
+        imgCategory.clipsToBounds = true
     }
 
 }

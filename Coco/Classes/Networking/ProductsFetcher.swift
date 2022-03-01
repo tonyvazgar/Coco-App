@@ -8,6 +8,7 @@
 
 import Alamofire
 import SwiftyJSON
+import Foundation
 
 final class ProductsFetcher {
     
@@ -60,6 +61,7 @@ final class ProductsFetcher {
         ]
         
         Alamofire.request(General.endpoint, method: .post, parameters: data).responseJSON { (response) in
+            print(response.debugDescription)
             guard let data = response.result.value else {
                 completion(.failure(FetcherErrors.invalidResponse))
                 return
@@ -169,6 +171,40 @@ final class ProductsFetcher {
             case .failure(let error) :
                 completion(ProducListresponse(mensaje: error.localizedDescription))
                 
+            }
+        }
+    }
+    
+    static func fetchProductDetailV2(productId: String, completion: @escaping (Swift.Result<ProducDetailResponse,Error>) -> Void) {
+        let data = [
+            "funcion": Routes.getProductDetail,
+            "id_user": UserManagement.shared.id_user!,
+            "id_product": productId
+        ]
+        
+        Alamofire.request(General.endpoint, method: .post, parameters: data).responseData { (response) in
+            print("Response product detail")
+            print(response.debugDescription)
+            
+            guard let data = response.result.value else {
+                completion(.failure(FetcherErrors.invalidResponse))
+                return
+            }
+            
+            guard let dictionary = JSON(data).dictionary else {
+                completion(.failure(FetcherErrors.jsonMapping))
+                return
+            }
+            
+            guard dictionary["state"] == "200" else {
+                let error = dictionary["status_msg"]?.string
+                completion(.failure(FetcherErrors.statusCode(error)))
+                return
+            }
+            
+            if let json = response.data {
+                let respuesta = try! JSONDecoder().decode(ProducDetailResponse.self, from: json)
+                completion(.success(respuesta))
             }
         }
     }

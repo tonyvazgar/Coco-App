@@ -91,6 +91,9 @@ final class LocationsListViewController: UITableViewController, SearchBarDelegat
         */
         
         let viewController = UIStoryboard.home.instantiate(CategoriesV2ViewController.self)
+        viewController.businessId = businessId
+        viewController.locationId = location.id
+        viewController.location = location
         navigationController?.pushViewController(viewController, animated: true)
          
     }

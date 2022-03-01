@@ -149,10 +149,11 @@ class User: Decodable {
             "password": password ?? "",
             "facebook_login": facebook_login ?? false,
             "city": id_city] as [String : Any]
-        
+        print(data)
         Alamofire.request(General.endpoint, method: .post, parameters: data).responseData { (response) in
             
-            
+            print(response.debugDescription)
+            print(response.result.value)
             guard let data = response.result.value else {
                 completion(.failure("Error de conexión"))
                 return
@@ -162,7 +163,7 @@ class User: Decodable {
                 completion(.failure("Error al obtener los datos"))
                 return
             }
-            
+            print(dictionary.debugDescription)
             if dictionary["state"] != "200" {
                 completion(.failure(dictionary["status_msg"]?.string ?? ""))
                 return

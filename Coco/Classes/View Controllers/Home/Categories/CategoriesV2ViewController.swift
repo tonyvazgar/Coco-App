@@ -14,6 +14,17 @@ class CategoriesV2ViewController: UIViewController {
     
     @IBOutlet weak var roundView: UIView!
     @IBOutlet weak var imgBaner: UIImageView!
+    @IBOutlet weak var lblCategoryName: UILabel!
+    
+    @IBOutlet weak var vistaLogo: UIView!
+    @IBOutlet weak var lblDate: UILabel!
+    @IBOutlet weak var lblLocation: UILabel!
+    private(set) var categories: [Category] = []
+    private var loader = LoaderVC()
+    var businessId: String?
+    var locationId: String?
+    var location: LocationsDataModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,28 +45,103 @@ class CategoriesV2ViewController: UIViewController {
         roundView.layer.shadowOpacity = 0.4
         roundView.layer.shadowRadius = 2
         
-        imgBaner.layer.cornerRadius = self.imgBaner.layer.frame.width / 2
         
+        
+        
+        
+        
+        
+        lblCategoryName.text = location?.name
+        lblDate.text = location?.schedule
+        lblLocation.text = location?.distance ?? ""
+        
+        if let image = location?.imgURL {
+            imgBaner.kf.setImage(with: URL(string: image),
+                                      placeholder: nil,
+                                      options: [.transition(.fade(0.4))],
+                                      progressBlock: nil,
+                                      completionHandler: nil)
+        }
+        
+        imgBaner.addShadow()
+        imgBaner.layer.cornerRadius = self.imgBaner.frame.size.width / 2
+        imgBaner.clipsToBounds = true
+        
+        vistaLogo.layer.cornerRadius = self.vistaLogo.frame.size.width / 2
+        vistaLogo.layer.shadowColor = UIColor.gray.cgColor
+        vistaLogo.layer.shadowOffset = CGSize(width: 0, height: 6)
+        vistaLogo.layer.shadowOpacity = 0.4
+        vistaLogo.layer.shadowRadius = 6
+        
+        
+        requestData()
     }
     
 
     @IBAction func backAction(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
-
+    
+    func requestData() {
+        guard let locationId = locationId else { return }
+        print(locationId)
+        loader.showInView(aView: view, animated: true)
+        CategoriesFetcher.fetchCategories(locationId: locationId) { [weak self] result in
+            self?.loader.removeAnimate()
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let categories):
+                self?.categories = categories
+                self?.collectionView.reloadData()
+            }
+        }
+    }
 }
 
 extension CategoriesV2ViewController : UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 19
+        return categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CategoryV2CollectionViewCell
-        cell.imgCategory.layer.cornerRadius = cell.imgCategory.layer.frame.width / 2
+        let category = categories[indexPath.row]
+        
+        /*cell.imgCategory.layer.cornerRadius = cell.imgCategory.layer.frame.width / 2
         cell.imgCategory.layer.masksToBounds = false
-        cell.imgCategory.clipsToBounds = true
+        cell.imgCategory.clipsToBounds = true*/
+        
+        cell.lblName.text = category.name
+        if let image = category.imageURL {
+            cell.imgCategory.kf.setImage(with: URL(string: image),
+                                           placeholder: nil,
+                                           options: [.transition(.fade(0.4))],
+                                           progressBlock: nil,
+                                           completionHandler: nil)
+        }
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let category = categories[indexPath.row]
+        /*
+        let viewController = UIStoryboard.products.instantiate(ProductsContainerViewController.self)
+        viewController.businessId = businessId
+        viewController.locationId = locationId
+        viewController.categoryId = category.id
+        viewController.location = location
+        navigationController?.pushViewController(viewController, animated: true)*/
+        
+        let viewController = UIStoryboard.products.instantiate(ProductosV2ViewController.self)
+        viewController.businessId = businessId
+        viewController.locationId = locationId
+        viewController.categoryId = category.id
+        viewController.location = location
+        viewController.locationName = category.name ?? ""
+        navigationController?.pushViewController(viewController, animated: true)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -64,7 +150,22 @@ extension CategoriesV2ViewController : UICollectionViewDataSource, UICollectionV
             
         return CGSize(width:widthPerItem, height:224)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
+}
+
+extension UIView {
+func dropShadow(color: UIColor, opacity: Float = 0.5, offSet: CGSize, radius: CGFloat = 1, scale: Bool = true) {
+    layer.masksToBounds = false
+    layer.shadowColor = color.cgColor
+    layer.shadowOpacity = opacity
+    layer.shadowOffset = offSet
+    layer.shadowRadius = radius
+
+    layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+    layer.shouldRasterize = true
+    layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+  }
 }

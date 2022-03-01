@@ -8,6 +8,7 @@
 
 import Alamofire
 import SwiftyJSON
+import Foundation
 
 class Products: Decodable {
     public var products: [Product] = []
@@ -192,12 +193,11 @@ final class Product: Codable {
                                 completion(.failure("Error al obtener los datos"))
                                 return
                             }
-                            
+            
                             if dictionary["state"] != "200" {
                                 completion(.failure(dictionary["status_msg"]?.string ?? ""))
                                 return
                             }
-                            
                             completion(.success([]))
         }
     }
@@ -232,33 +232,226 @@ struct ProducListresponse : Codable {
         data = []
     }
 }
+
 struct ProducItem : Codable {
     public var id: String?
-   // public var cocopoints: Int?
+    public var cocopoints: Double?
     public var description: String?
     public var id_store: String?
     public var imageURL: String?
     public var name: String?
     public var price: String?
+    public var proveedor : String?
+    public var favorite : String?
+    
     
     enum CodingKeys: String, CodingKey {
         case id = "Id"
-        //case cocopoints = "cocopoints"
+        case cocopoints = "cocopoints"
         case description = "descripcion"
         case id_store = "id_store"
         case imageURL = "imagen"
         case name = "nombre"
         case price = "precio"
+        case proveedor = "proveedor"
+        case favorite = "favorite"
     }
     
     init(from decoder:Decoder) throws {
         let value = try decoder.container(keyedBy: CodingKeys.self)
         id = try value.decodeIfPresent(String.self, forKey: .id) ?? ""
-        //cocopoints = try value.decodeIfPresent(Int.self, forKey: .cocopoints) ?? 0
+        cocopoints = try value.decodeIfPresent(Double.self, forKey: .cocopoints) ?? 0
         description = try value.decodeIfPresent(String.self, forKey: .description) ?? ""
         id_store = try value.decodeIfPresent(String.self, forKey: .id_store) ?? ""
         imageURL = try value.decodeIfPresent(String.self, forKey: .imageURL) ?? ""
         name = try value.decodeIfPresent(String.self, forKey: .name) ?? ""
         price = try value.decodeIfPresent(String.self, forKey: .price) ?? ""
+        favorite = try value.decodeIfPresent(String.self, forKey: .favorite) ?? ""
+    }
+}
+
+//_-------------------------
+
+
+struct DataItem : Codable {
+    var info : ProducItem?
+    var ingredients : [IngredienteItem]?
+    var extras : [extraItem]?
+    var options_1 : [OptionItem]?
+    var number_options_1 : [numberOption1Item]?
+    
+    var options_2 : [OptionItem]?
+    var number_options_2 : [numberOption2Item]?
+    
+    enum keys: String, CodingKey {
+        case info = "info"
+        case ingredients = "ingredients"
+        case extras = "extras"
+        case options_1 = "options_1"
+        case number_options_1 = "number_options_1"
+        case options_2 = "options_2"
+        case number_options_2 = "number_options_2"
+    }
+    
+    init(from decoder : Decoder) throws {
+        let value = try decoder.container(keyedBy: keys.self)
+        info = try value.decodeIfPresent(ProducItem.self, forKey: keys.info)
+        if let lista = try value.decodeIfPresent([IngredienteItem].self, forKey: keys.ingredients) {
+            ingredients = lista
+        }
+        else{
+            ingredients = [IngredienteItem]()
+        }
+        
+        if let listaExtras = try value.decodeIfPresent([extraItem].self, forKey: keys.extras) {
+            extras = listaExtras
+        }
+        else{
+            extras = [extraItem]()
+        }
+        if let listaOpcion1 = try value.decodeIfPresent([OptionItem].self, forKey: keys.options_1) {
+            options_1 = listaOpcion1
+        }
+        else{
+            options_1 = [OptionItem]()
+        }
+        
+        if let numberOpcion1 = try value.decodeIfPresent([numberOption1Item].self, forKey: keys.number_options_1) {
+            number_options_1 = numberOpcion1
+        }
+        else{
+            number_options_1 = [numberOption1Item]()
+        }
+        if let listaOpcion2 = try value.decodeIfPresent([OptionItem].self, forKey: keys.options_2) {
+            options_2 = listaOpcion2
+        }
+        else{
+            options_2 = [OptionItem]()
+        }
+        if let numberOpcion2 = try value.decodeIfPresent([numberOption2Item].self, forKey: keys.number_options_2) {
+            number_options_2 = numberOpcion2
+        }
+        else{
+            number_options_2 = [numberOption2Item]()
+        }
+    }
+    
+    
+}
+
+struct numberOption2Item : Codable {
+    var selectable_options_2 : String?
+    var etiqueta : String?
+    
+    enum keys: String, CodingKey {
+        case selectable_options_2 = "selectable_options_2"
+        case etiqueta = "etiqueta"
+    }
+    init(from decoder : Decoder) throws {
+        let value = try decoder.container(keyedBy: keys.self)
+        selectable_options_2 = try value.decodeIfPresent(String.self, forKey: keys.selectable_options_2)
+        etiqueta = try value.decodeIfPresent(String.self, forKey: keys.etiqueta)
+    }
+}
+
+struct numberOption1Item : Codable {
+    var selectable_options_1 : String?
+    var etiqueta : String?
+    
+    enum keys: String, CodingKey {
+        case selectable_options_1 = "selectable_options_1"
+        case etiqueta = "etiqueta"
+    }
+    init(from decoder : Decoder) throws {
+        let value = try decoder.container(keyedBy: keys.self)
+        selectable_options_1 = try value.decodeIfPresent(String.self, forKey: keys.selectable_options_1)
+        etiqueta = try value.decodeIfPresent(String.self, forKey: keys.etiqueta)
+    }
+}
+
+struct OptionItem : Codable{
+    var id_options : String?
+    var name : String?
+    var price : String?
+    
+    enum keys: String, CodingKey {
+        case id_options = "id_options"
+        case name = "name"
+        case price = "price"
+    }
+    
+    init(from decoder : Decoder) throws {
+        let value = try decoder.container(keyedBy: keys.self)
+        id_options = try value.decodeIfPresent(String.self, forKey: keys.id_options)
+        name = try value.decodeIfPresent(String.self, forKey: keys.name)
+        price = try value.decodeIfPresent(String.self, forKey: keys.price)
+    }
+}
+
+struct extraItem : Codable {
+    var id_extra : String?
+    var name : String?
+    var price : String?
+    
+    enum keys: String, CodingKey {
+        case id_extra = "id_extra"
+        case name = "name"
+        case price = "price"
+    }
+    
+    init(from decoder : Decoder) throws {
+        let value = try decoder.container(keyedBy: keys.self)
+        id_extra = try value.decodeIfPresent(String.self, forKey: keys.id_extra)
+        name = try value.decodeIfPresent(String.self, forKey: keys.name)
+        price = try value.decodeIfPresent(String.self, forKey: keys.price)
+    }
+    
+}
+
+struct IngredienteItem : Codable {
+    var id_ingredient : String?
+    var name : String?
+    
+    enum keys: String, CodingKey {
+        case id_ingredient = "id_ingredient"
+        case name = "name"
+    }
+    
+    init(from decoder : Decoder) throws {
+        let value = try decoder.container(keyedBy: keys.self)
+        id_ingredient = try value.decodeIfPresent(String.self, forKey: keys.id_ingredient)
+        name = try value.decodeIfPresent(String.self, forKey: keys.name)
+    }
+}
+
+struct ProducDetailResponse : Codable {
+    let state : String?
+    let status_msg : String?
+    let data : DataItem?
+    
+    enum Keys : String, CodingKey {
+        case state = "state"
+        case status_msg = "status_msg"
+        case data = "data"
+    }
+    
+    init(from decoder : Decoder) throws{
+        let value = try decoder.container(keyedBy: Keys.self)
+        state = try value.decodeIfPresent(String.self, forKey: .state)
+        status_msg = try value.decodeIfPresent(String.self, forKey: .status_msg)
+        data = try value.decodeIfPresent(DataItem.self, forKey: .data)
+        /*
+        if let lista = try value.decodeIfPresent([ProducItem].self, forKey: .data){
+            data = lista
+        }
+        else {
+            data = [ProducItem]()
+        }*/
+    }
+    
+    init(mensaje : String) {
+        state = ""
+        status_msg = mensaje
+        data = nil
     }
 }

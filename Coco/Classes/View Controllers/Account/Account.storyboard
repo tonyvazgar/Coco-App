@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -355,7 +355,7 @@ Login</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regresar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBo-Mu-GkG">
-                                        <rect key="frame" x="48" y="56.5" width="59.5" height="15"/>
+                                        <rect key="frame" x="48" y="55.5" width="60.5" height="17.5"/>
                                         <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="15"/>
                                         <color key="textColor" name="Black"/>
                                         <nil key="highlightedColor"/>
@@ -937,7 +937,7 @@ Login</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regresar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vC-4w-u7x">
-                                        <rect key="frame" x="48" y="56.5" width="59.5" height="15"/>
+                                        <rect key="frame" x="48" y="55.5" width="60.5" height="17.5"/>
                                         <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="15"/>
                                         <color key="textColor" name="Black"/>
                                         <nil key="highlightedColor"/>
@@ -958,7 +958,7 @@ Login</string>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9ab-ff-HE0" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="32" y="375" width="350" height="45"/>
+                                <rect key="frame" x="32" y="359" width="350" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Ka7-7s-9zx"/>
                                 </constraints>
@@ -985,7 +985,7 @@ Login</string>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSJ-T1-AKd">
-                                <rect key="frame" x="64" y="484" width="286" height="40"/>
+                                <rect key="frame" x="64" y="468" width="286" height="40"/>
                                 <color key="backgroundColor" name="CocoOrange"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="jeX-sW-MEJ"/>
@@ -999,13 +999,13 @@ Login</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recordar contraseña" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ji-aN-sXy">
-                                <rect key="frame" x="16" y="218" width="382" height="34"/>
+                                <rect key="frame" x="16" y="218" width="382" height="28"/>
                                 <fontDescription key="fontDescription" name="Poppins-ExtraBold" family="Poppins" pointSize="24"/>
                                 <color key="textColor" name="CocoOrange"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wj9-jd-RoP">
-                                <rect key="frame" x="32" y="284" width="350" height="59"/>
+                                <rect key="frame" x="32" y="278" width="350" height="49"/>
                                 <string key="text">Por favor escribe tu correo electrónico donde
 recibirás un enlace para reestablecer tu nueva
 contraseña.</string>
@@ -1051,13 +1051,13 @@ contraseña.</string>
     </scenes>
     <designables>
         <designable name="9ab-ff-HE0">
-            <size key="intrinsicContentSize" width="350" height="38.513671875"/>
+            <size key="intrinsicContentSize" width="350" height="41.153671875000001"/>
         </designable>
         <designable name="dKN-RX-IZn">
-            <size key="intrinsicContentSize" width="350" height="38.513671875"/>
+            <size key="intrinsicContentSize" width="350" height="41.153671875000001"/>
         </designable>
         <designable name="oH2-K4-lqh">
-            <size key="intrinsicContentSize" width="350" height="38.513671875"/>
+            <size key="intrinsicContentSize" width="350" height="41.153671875000001"/>
         </designable>
     </designables>
     <color key="tintColor" red="0.97647058819999999" green="0.65098039220000004" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -19,6 +19,11 @@ final class BusinessesFetcher {
         ]
         
         Alamofire.request(General.endpoint, method: .post, parameters: data).responseJSON { (response) in
+            
+            print("request")
+            print(data.debugDescription)
+            
+            print(response.debugDescription)
             guard let data = response.result.value else {
                 completion(.failure(FetcherErrors.invalidResponse))
                 return

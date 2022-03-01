@@ -10,6 +10,19 @@
 		3F70D7C3F4D6293AE3D5BAAC /* Pods_CocoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14347B74DDFE317E603C86A /* Pods_CocoUITests.framework */; };
 		7CABECC927C1127800C6FFF9 /* CategoriesV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CABECC827C1127800C6FFF9 /* CategoriesV2ViewController.swift */; };
 		7CABECCB27C37C0500C6FFF9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CABECCA27C37C0500C6FFF9 /* GoogleService-Info.plist */; };
+		7CCAB78B27C63ADA00DC9961 /* ProductosV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAB78A27C63AD900DC9961 /* ProductosV2ViewController.swift */; };
+		7CCAB78E27C6423500DC9961 /* ProductV2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAB78C27C6423500DC9961 /* ProductV2TableViewCell.swift */; };
+		7CCAB78F27C6423500DC9961 /* ProductV2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CCAB78D27C6423500DC9961 /* ProductV2TableViewCell.xib */; };
+		7CCAB79127C7B1C200DC9961 /* ProducDetailV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAB79027C7B1C200DC9961 /* ProducDetailV2ViewController.swift */; };
+		7CCAB79427C7BE3800DC9961 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAB79327C7BE3800DC9961 /* Checkbox.swift */; };
+		7CCAB79727C7BEB100DC9961 /* ProductCheckBoxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAB79527C7BEB100DC9961 /* ProductCheckBoxTableViewCell.swift */; };
+		7CCAB79827C7BEB100DC9961 /* ProductCheckBoxTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CCAB79627C7BEB100DC9961 /* ProductCheckBoxTableViewCell.xib */; };
+		7CCAB79B27C7C6D800DC9961 /* ProductStepperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAB79927C7C6D800DC9961 /* ProductStepperTableViewCell.swift */; };
+		7CCAB79C27C7C6D800DC9961 /* ProductStepperTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CCAB79A27C7C6D800DC9961 /* ProductStepperTableViewCell.xib */; };
+		7CCAB79E27CCC22700DC9961 /* ShoppingCartV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAB79D27CCC22300DC9961 /* ShoppingCartV2ViewController.swift */; };
+		7CCAB7A127CCC96A00DC9961 /* ProductCartV2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAB79F27CCC96A00DC9961 /* ProductCartV2TableViewCell.swift */; };
+		7CCAB7A227CCC96A00DC9961 /* ProductCartV2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CCAB7A027CCC96A00DC9961 /* ProductCartV2TableViewCell.xib */; };
+		7CCAB7A427CD907C00DC9961 /* DetallePedidoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAB7A327CD907B00DC9961 /* DetallePedidoViewController.swift */; };
 		7CE5362B27BF1CD100C52F85 /* PaymentsCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE5362A27BF1CD100C52F85 /* PaymentsCounterViewController.swift */; };
 		7CE5362E27C10D7A00C52F85 /* CategoryV2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE5362C27C10D7900C52F85 /* CategoryV2CollectionViewCell.swift */; };
 		7CE5362F27C10D7A00C52F85 /* CategoryV2CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE5362D27C10D7A00C52F85 /* CategoryV2CollectionViewCell.xib */; };
@@ -292,6 +305,19 @@
 		79B3EAF956F1B8B3139D70DA /* Pods-CocoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CocoTests/Pods-CocoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7CABECC827C1127800C6FFF9 /* CategoriesV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesV2ViewController.swift; sourceTree = "<group>"; };
 		7CABECCA27C37C0500C6FFF9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7CCAB78A27C63AD900DC9961 /* ProductosV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductosV2ViewController.swift; sourceTree = "<group>"; };
+		7CCAB78C27C6423500DC9961 /* ProductV2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductV2TableViewCell.swift; sourceTree = "<group>"; };
+		7CCAB78D27C6423500DC9961 /* ProductV2TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductV2TableViewCell.xib; sourceTree = "<group>"; };
+		7CCAB79027C7B1C200DC9961 /* ProducDetailV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProducDetailV2ViewController.swift; sourceTree = "<group>"; };
+		7CCAB79327C7BE3800DC9961 /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
+		7CCAB79527C7BEB100DC9961 /* ProductCheckBoxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCheckBoxTableViewCell.swift; sourceTree = "<group>"; };
+		7CCAB79627C7BEB100DC9961 /* ProductCheckBoxTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCheckBoxTableViewCell.xib; sourceTree = "<group>"; };
+		7CCAB79927C7C6D800DC9961 /* ProductStepperTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductStepperTableViewCell.swift; sourceTree = "<group>"; };
+		7CCAB79A27C7C6D800DC9961 /* ProductStepperTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductStepperTableViewCell.xib; sourceTree = "<group>"; };
+		7CCAB79D27CCC22300DC9961 /* ShoppingCartV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartV2ViewController.swift; sourceTree = "<group>"; };
+		7CCAB79F27CCC96A00DC9961 /* ProductCartV2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCartV2TableViewCell.swift; sourceTree = "<group>"; };
+		7CCAB7A027CCC96A00DC9961 /* ProductCartV2TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCartV2TableViewCell.xib; sourceTree = "<group>"; };
+		7CCAB7A327CD907B00DC9961 /* DetallePedidoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetallePedidoViewController.swift; sourceTree = "<group>"; };
 		7CE5362A27BF1CD100C52F85 /* PaymentsCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsCounterViewController.swift; sourceTree = "<group>"; };
 		7CE5362C27C10D7900C52F85 /* CategoryV2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryV2CollectionViewCell.swift; sourceTree = "<group>"; };
 		7CE5362D27C10D7A00C52F85 /* CategoryV2CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryV2CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -604,6 +630,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7CCAB79227C7BDEB00DC9961 /* ExternalsLibs */ = {
+			isa = PBXGroup;
+			children = (
+				7CCAB79327C7BE3800DC9961 /* Checkbox.swift */,
+			);
+			path = ExternalsLibs;
+			sourceTree = "<group>";
+		};
 		9D1769A62484DA9E00EE1E52 /* newModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -706,6 +740,8 @@
 				C3415F3C25302E9500D0CD2B /* ProductsListViewController.swift */,
 				C3415F4D2532D29300D0CD2B /* ProductDetailViewControlller.swift */,
 				C3415F4F2532D2A200D0CD2B /* Products.storyboard */,
+				7CCAB78A27C63AD900DC9961 /* ProductosV2ViewController.swift */,
+				7CCAB79027C7B1C200DC9961 /* ProducDetailV2ViewController.swift */,
 			);
 			path = Products;
 			sourceTree = "<group>";
@@ -715,6 +751,12 @@
 			children = (
 				C3415F3F25302EAF00D0CD2B /* ProductTableViewCell.swift */,
 				C3415F4025302EAF00D0CD2B /* ProductTableViewCell.xib */,
+				7CCAB78C27C6423500DC9961 /* ProductV2TableViewCell.swift */,
+				7CCAB78D27C6423500DC9961 /* ProductV2TableViewCell.xib */,
+				7CCAB79527C7BEB100DC9961 /* ProductCheckBoxTableViewCell.swift */,
+				7CCAB79627C7BEB100DC9961 /* ProductCheckBoxTableViewCell.xib */,
+				7CCAB79927C7C6D800DC9961 /* ProductStepperTableViewCell.swift */,
+				7CCAB79A27C7C6D800DC9961 /* ProductStepperTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1075,6 +1117,8 @@
 				C36BE148253D500D0058F3CE /* Cell */,
 				C36BE13E253D4F9C0058F3CE /* ShoppingCart.storyboard */,
 				C36BE143253D4FC40058F3CE /* ShoppingCartViewController.swift */,
+				7CCAB79D27CCC22300DC9961 /* ShoppingCartV2ViewController.swift */,
+				7CCAB7A327CD907B00DC9961 /* DetallePedidoViewController.swift */,
 			);
 			path = "Shopping Cart";
 			sourceTree = "<group>";
@@ -1084,6 +1128,8 @@
 			children = (
 				C36BE14C253D50210058F3CE /* ProductCartTableViewCell.swift */,
 				C36BE14D253D50210058F3CE /* ProductCartTableViewCell.xib */,
+				7CCAB79F27CCC96A00DC9961 /* ProductCartV2TableViewCell.swift */,
+				7CCAB7A027CCC96A00DC9961 /* ProductCartV2TableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1340,6 +1386,7 @@
 		C3A1621322B9B91200076DD8 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				7CCAB79227C7BDEB00DC9961 /* ExternalsLibs */,
 				C3A1623122BA71DF00076DD8 /* Menu */,
 				C3A1622822B9BD2200076DD8 /* Loader */,
 				C3A1622722B9BD1B00076DD8 /* Animations */,
@@ -1676,6 +1723,7 @@
 				C36BE0CA253BF0FF0058F3CE /* Payments.storyboard in Resources */,
 				C36BE11B253D34D70058F3CE /* Settings.storyboard in Resources */,
 				CFBC53A62406EADC00D4FF95 /* addNewPromoCodeViewController.xib in Resources */,
+				7CCAB79C27C7C6D800DC9961 /* ProductStepperTableViewCell.xib in Resources */,
 				CFD9D35A23ECBD0400DACF9E /* checkmark.mp4 in Resources */,
 				C3A161ED22B9B38C00076DD8 /* LaunchScreen.storyboard in Resources */,
 				C34CF08C25ACDB4400C9E99B /* 4964-check-mark-success-animation.json in Resources */,
@@ -1684,6 +1732,7 @@
 				C3890C362521AA2B0055C7A3 /* Poppins-Italic.ttf in Resources */,
 				C3A1622E22B9BD4200076DD8 /* MyriadPro-Regular.otf in Resources */,
 				C3890C3D2521AA2B0055C7A3 /* Poppins-SemiBoldItalic.ttf in Resources */,
+				7CCAB78F27C6423500DC9961 /* ProductV2TableViewCell.xib in Resources */,
 				C348F14022CB8790000F185C /* BalanceTableViewCell.xib in Resources */,
 				C36553D2252EC04300733EEE /* SideMenuTableViewCell.xib in Resources */,
 				C3890C3E2521AA2B0055C7A3 /* Poppins-Thin.ttf in Resources */,
@@ -1691,6 +1740,7 @@
 				C35572B222CA932700FC5C89 /* FavoritesVC.xib in Resources */,
 				C3415F4225302EAF00D0CD2B /* ProductTableViewCell.xib in Resources */,
 				C38696A8253D693D006FE5C1 /* Orders.storyboard in Resources */,
+				7CCAB7A227CCC96A00DC9961 /* ProductCartV2TableViewCell.xib in Resources */,
 				C3867010256F695000C967CB /* SearchBarTableHeaderView.xib in Resources */,
 				C36BE14F253D50210058F3CE /* ProductCartTableViewCell.xib in Resources */,
 				C36BE13F253D4F9C0058F3CE /* ShoppingCart.storyboard in Resources */,
@@ -1745,6 +1795,7 @@
 				9DFFF89724A1E65200AC32EA /* animationPopUpViewController.xib in Resources */,
 				C3890C312521AA2B0055C7A3 /* Poppins-BoldItalic.ttf in Resources */,
 				C355729A22CA80C200FC5C89 /* loader.json in Resources */,
+				7CCAB79827C7BEB100DC9961 /* ProductCheckBoxTableViewCell.xib in Resources */,
 				9DD30B27249983FE009C7FD0 /* giftsViewController.xib in Resources */,
 				9D9EB1D0242D787B00FE1E2C /* codeSharingTableViewCell.xib in Resources */,
 				C3890C3B2521AA2B0055C7A3 /* Poppins-Regular.ttf in Resources */,
@@ -1891,6 +1942,7 @@
 				C3222BB222E04EAB00E63F38 /* ShoppingCartProductCellTableViewCell.swift in Sources */,
 				C36BE12B253D399B0058F3CE /* FavoritesContainerViewController.swift in Sources */,
 				C36BE130253D39B60058F3CE /* FavoritesListViewController.swift in Sources */,
+				7CCAB7A127CCC96A00DC9961 /* ProductCartV2TableViewCell.swift in Sources */,
 				C3EB42F625E0A0260021BA85 /* MyCocoCardsTableViewCell.swift in Sources */,
 				C35572B522CA93C000FC5C89 /* OrdersVC.swift in Sources */,
 				C3DD1FE5255A6FC9002A5B5C /* CityDataModel.swift in Sources */,
@@ -1910,10 +1962,12 @@
 				C35572A022CA81B900FC5C89 /* MenuTableViewCell.swift in Sources */,
 				C3415F442530B02900D0CD2B /* CategoriesFetcher.swift in Sources */,
 				C3DD1FEB255A701C002A5B5C /* CitiesFetcher.swift in Sources */,
+				7CCAB79727C7BEB100DC9961 /* ProductCheckBoxTableViewCell.swift in Sources */,
 				C3C0F37B22D3D4B000B03F62 /* Connection.m in Sources */,
 				C3415F3D25302E9500D0CD2B /* ProductsListViewController.swift in Sources */,
 				9DF017F8249BF95B003F14BF /* giftDetailViewController.swift in Sources */,
 				C3415F4E2532D29300D0CD2B /* ProductDetailViewControlller.swift in Sources */,
+				7CCAB79B27C7C6D800DC9961 /* ProductStepperTableViewCell.swift in Sources */,
 				9D9EB1CF242D787B00FE1E2C /* codeSharingTableViewCell.swift in Sources */,
 				C36553D1252EC04300733EEE /* SideMenuTableViewCell.swift in Sources */,
 				C34466ED22CAE65400A11433 /* FavoritesTableViewCell.swift in Sources */,
@@ -1932,6 +1986,7 @@
 				C35572B122CA932700FC5C89 /* FavoritesVC.swift in Sources */,
 				EFB9CEE627A3C1A600B82A73 /* EdgeShadowLayer.swift in Sources */,
 				C36553CD252EBDF400733EEE /* SideMenuViewController.swift in Sources */,
+				7CCAB79127C7B1C200DC9961 /* ProducDetailV2ViewController.swift in Sources */,
 				C394ACA4253D71EF00066E96 /* OrderDetailViewController.swift in Sources */,
 				EFDDF6C8279D09B600E5698F /* BannerViewController.swift in Sources */,
 				C3C0F37E22D3D73400B03F62 /* Cards.swift in Sources */,
@@ -1945,7 +2000,9 @@
 				9DFFF89A24A1EBFF00AC32EA /* productImagesTableViewCell.swift in Sources */,
 				C3C0F37A22D3D4B000B03F62 /* Card.m in Sources */,
 				C3A1621B22B9BB8400076DD8 /* UIViewControllerExtensions.swift in Sources */,
+				7CCAB79E27CCC22700DC9961 /* ShoppingCartV2ViewController.swift in Sources */,
 				9DA878D2240472C9001F8FAF /* popUpViewController.swift in Sources */,
+				7CCAB7A427CD907C00DC9961 /* DetallePedidoViewController.swift in Sources */,
 				C348F15322CB99AE000F185C /* Products.swift in Sources */,
 				C348F16422CBD61A000F185C /* AddCardVC.swift in Sources */,
 				C36553E2252FA2B600733EEE /* BusinessesTableViewCell.swift in Sources */,
@@ -1955,6 +2012,7 @@
 				9D8DF17724A19AAE00774361 /* giftDetailImagesTableViewCell.swift in Sources */,
 				C3C0F36C22D3C1EE00B03F62 /* SchoolModal.swift in Sources */,
 				9DA878D424048428001F8FAF /* newCodeViewController.swift in Sources */,
+				7CCAB79427C7BE3800DC9961 /* Checkbox.swift in Sources */,
 				C3C0F37C22D3D4B000B03F62 /* Conekta.m in Sources */,
 				C3415F3B25302E8500D0CD2B /* ProductsContainerViewController.swift in Sources */,
 				C36553D8252ECE2C00733EEE /* HomeFetcher.swift in Sources */,
@@ -1974,6 +2032,7 @@
 				CFBC53AA2407134300D4FF95 /* storedCardsViewController.swift in Sources */,
 				9D17FEA42488D214007A91F2 /* newUserMain.swift in Sources */,
 				C3890C0F252197E90055C7A3 /* SignInViewController.swift in Sources */,
+				7CCAB78B27C63ADA00DC9961 /* ProductosV2ViewController.swift in Sources */,
 				C36553DE252ED88100733EEE /* BusinessesListViewController.swift in Sources */,
 				CF7202E2242549B8008425CD /* Extensions.swift in Sources */,
 				CFF0B6AE23EBC97800C30A6D /* rechargeCreditViewController.swift in Sources */,
@@ -2001,6 +2060,7 @@
 				C348F14C22CB9277000F185C /* CategoriesCollectionViewCell.swift in Sources */,
 				C36553E5252FADD000733EEE /* BusinessesFetcher.swift in Sources */,
 				C36BE0E1253BF56B0058F3CE /* MyPaymentsTableViewCell.swift in Sources */,
+				7CCAB78E27C6423500DC9961 /* ProductV2TableViewCell.swift in Sources */,
 				C36BE115253D1BE60058F3CE /* ProfileViewController.swift in Sources */,
 				7CABECC927C1127800C6FFF9 /* CategoriesV2ViewController.swift in Sources */,
 				C3A161E022B9B38900076DD8 /* AppDelegate.swift in Sources */,
@@ -2209,7 +2269,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Coco/Coco.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = CGP7LW6Y94;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Coco/Info.plist;
@@ -2240,7 +2300,7 @@
 				CODE_SIGN_ENTITLEMENTS = Coco/Coco.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = CGP7LW6Y94;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Coco/Info.plist;
