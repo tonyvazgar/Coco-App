@@ -68,11 +68,11 @@ class Cards: Decodable {
       "auto": self.auto ?? "0",
       "amount": self.amount ?? "0"
     ]
-    
+    print(data)
     Alamofire.request(General.endpoint,
                       method: .post,
-                      parameters: data).responseJSON { (response) in
-
+                      parameters: data).responseString { (response) in
+                        print(response.debugDescription)
       guard let data = response.result.value else {
         completion(.failure("Error de conexión"))
         return

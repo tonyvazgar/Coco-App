@@ -24,18 +24,32 @@ class ProducDetailV2ViewController: UIViewController {
     @IBOutlet weak var lblPoints: UILabel!
     @IBOutlet weak var lblDescripcion: UILabel!
     
+    @IBOutlet weak var lblSubTotal: UILabel!
+    
+    @IBOutlet weak var lblNumeroProductos: UILabel!
+    @IBOutlet weak var txtComentarios: UITextView!
+    
+    @IBOutlet weak var btnVerCanasta: UIButton!
+    
+    
     
     
     private var loader: LoaderVC!
     var productId: String?
     var location: LocationsDataModel?
     private var product: ProducItem?
-    
+    var categoryId: String?
     var arrDetalle : [detalleItem] = [detalleItem]()
+    var seccionSeleccionada : Int = 0
+    var numeroProductos : Int = 1
+    
+    
+    
+    
     
     enum tipoSeccion : String {
         case extras = "extras"
-        case igrediente = "igrediente"
+        case ingrediente = "ingrediente"
         case opcion1 = "opcion1"
         case opcion2 = "opcion2"
     }
@@ -49,7 +63,7 @@ class ProducDetailV2ViewController: UIViewController {
         viewProduct.layer.shadowOffset = CGSize(width: 0, height: 4)
         viewProduct.layer.shadowOpacity = 0.4
         viewProduct.layer.shadowRadius = 2
-        
+        lblNumeroProductos.text = "\(self.numeroProductos)"
         vistaComentario.layer.cornerRadius = 30
         vistaComentario.layer.shadowColor = UIColor.black.cgColor
         vistaComentario.layer.shadowOffset = CGSize(width: 0, height: 30)
@@ -58,12 +72,14 @@ class ProducDetailV2ViewController: UIViewController {
             
         vistaStepper.layer.cornerRadius = 10
         btnAgregar.layer.cornerRadius = 20
+        btnVerCanasta.layer.cornerRadius = 20
+        btnVerCanasta.clipsToBounds = true
         
         tableView.register(UINib(nibName: "ProductCheckBoxTableViewCell", bundle: nil), forCellReuseIdentifier: "CellCheckBox")
         tableView.register(UINib(nibName: "ProductStepperTableViewCell", bundle: nil), forCellReuseIdentifier: "CellStepper")
         
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
-        
+        btnVerCanasta.visibility = .gone
         requestData()
         
     }
@@ -81,6 +97,21 @@ class ProducDetailV2ViewController: UIViewController {
     
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    @IBAction func sumaProductosAction(_ sender: UIButton) {
+        self.numeroProductos = self.numeroProductos + 1
+        self.lblNumeroProductos.text = "\(self.numeroProductos)"
+        calcularTotal()
+    }
+    
+    @IBAction func restaNumeroProductos(_ sender: UIButton) {
+        if self.numeroProductos > 1 {
+            self.numeroProductos = self.numeroProductos - 1
+            self.lblNumeroProductos.text = "\(self.numeroProductos)"
+        }
+        calcularTotal()
     }
     
     func requestData() {
@@ -103,11 +134,11 @@ class ProducDetailV2ViewController: UIViewController {
                 if ingredientes.count > 0 {
                     var arrRows : [rowItem] = [rowItem]()
                     for i in ingredientes {
-                        let row = rowItem(nombre: i.name!, id: i.id_ingredient!, seleccionado: false, tipo: "igrediente", precio: "0")
+                        let row = rowItem(nombre: i.name!, id: i.id_ingredient!, seleccionado: false, tipo: "ingrediente", precio: "0", cantidad: 0)
                         arrRows.append(row)
                     }
                     
-                    let item = detalleItem(titulo: "Especifica tu producto", valores: arrRows, totalSeleccionar: 100, tituloTotal: "", tipo: "igrediente")
+                    let item = detalleItem(titulo: "Especifica tu producto", valores: arrRows, totalSeleccionar: 100, tituloTotal: "", tipo: "ingrediente")
                     
                     self?.arrDetalle.append(item)
                 }
@@ -117,7 +148,7 @@ class ProducDetailV2ViewController: UIViewController {
                 if opciones1.count > 0 {
                     var arrRows : [rowItem] = [rowItem]()
                     for i in opciones1 {
-                        let row = rowItem(nombre: i.name!, id: i.id_options!, seleccionado: false, tipo: "opcion1", precio: i.price!)
+                        let row = rowItem(nombre: i.name!, id: i.id_options!, seleccionado: false, tipo: "opcion1", precio: i.price!, cantidad: 0)
                         arrRows.append(row)
                     }
                     
@@ -136,7 +167,7 @@ class ProducDetailV2ViewController: UIViewController {
                 if opciones2.count > 0 {
                     var arrRows : [rowItem] = [rowItem]()
                     for i in opciones2 {
-                        let row = rowItem(nombre: i.name!, id: i.id_options!, seleccionado: false, tipo: "opcion2", precio: i.price!)
+                        let row = rowItem(nombre: i.name!, id: i.id_options!, seleccionado: false, tipo: "opcion2", precio: i.price!, cantidad: 0)
                         arrRows.append(row)
                     }
                     
@@ -155,7 +186,7 @@ class ProducDetailV2ViewController: UIViewController {
                 if extras.count > 0 {
                     var arrRows : [rowItem] = [rowItem]()
                     for i in extras {
-                        let row = rowItem(nombre: "\(i.name!) ($\(i.price!) extra)", id: i.id_extra!, seleccionado: false, tipo: "extras", precio: i.price ?? "0")
+                        let row = rowItem(nombre: "\(i.name!) ($\(i.price!) extra)", id: i.id_extra!, seleccionado: false, tipo: "extras", precio: i.price ?? "0", cantidad: 0)
                         arrRows.append(row)
                     }
                     
@@ -163,7 +194,7 @@ class ProducDetailV2ViewController: UIViewController {
                     
                     self?.arrDetalle.append(item)
                 }
-                
+                self?.calcularTotal()
                 self?.tableView.reloadData()
                 self?.fillInfo()
             }
@@ -184,6 +215,21 @@ class ProducDetailV2ViewController: UIViewController {
         }
     }
     
+    @IBAction func verCanastaAction(_ sender: UIButton) {
+        let viewController = UIStoryboard.shoppingCart.instantiate(ShoppingCartV2ViewController.self)
+        viewController.categoryId = self.categoryId
+        viewController.location = self.location
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    
+    @IBAction func irAcanastaAction(_ sender: UIButton) {
+        let viewController = UIStoryboard.shoppingCart.instantiate(ShoppingCartV2ViewController.self)
+        viewController.categoryId = self.categoryId
+        viewController.location = self.location
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     @IBAction func btnAgregarAction(_ sender: UIButton) {
         /*
         let vc = UIStoryboard.shoppingCart.instantiate(ShoppingCartV2ViewController.self)
@@ -191,9 +237,69 @@ class ProducDetailV2ViewController: UIViewController {
         present(vc, animated: true)
         */
         
+        let pedido : pedidoObject = pedidoObject(cantidad: self.numeroProductos, producto: self.product!, Configuracion: self.arrDetalle, negocioId: Int(self.categoryId!)!, comentario: txtComentarios.text!)
+        
+        var data = Constatns.LocalData.canasta
+        if data != nil {
+            do {
+                // Create JSON Decoder
+                let decoder = JSONDecoder()
+
+                // Decode Note
+                var canasta = try decoder.decode([pedidoObject].self, from: data!)
+                
+                canasta.append(pedido)
+                
+                
+                //actualizamos el userdefault
+                
+                do {
+                    // Create JSON Encoder
+                    let encoder = JSONEncoder()
+
+                    // Encode Note
+                    let dataCanasta = try encoder.encode(canasta)
+
+                    // Write/Set Data
+                    Constatns.LocalData.canasta = dataCanasta
+                    print("pedido agregado")
+                    self.btnVerCanasta.visibility = .visible
+                } catch {
+                    print("Unable to Encode Array of canasta (\(error))")
+                }
+
+            } catch {
+                print("Unable to Decode pedido (\(error))")
+            }
+        }
+        else {
+            var canasta : [pedidoObject] = [pedidoObject]()
+            canasta.append(pedido)
+            
+            do {
+                // Create JSON Encoder
+                let encoder = JSONEncoder()
+
+                // Encode Note
+                let dataCanasta = try encoder.encode(canasta)
+
+                // Write/Set Data
+                Constatns.LocalData.canasta = dataCanasta
+                self.btnVerCanasta.visibility = .visible
+                print("producto agregado")
+
+            } catch {
+                print("Unable to Encode Array of canasta (\(error))")
+            }
+        }
+            
+        
+        
+        /*
         let viewController = UIStoryboard.shoppingCart.instantiate(ShoppingCartV2ViewController.self)
         
         navigationController?.pushViewController(viewController, animated: true)
+         */
     }
     
 }
@@ -212,7 +318,7 @@ extension ProducDetailV2ViewController : UITableViewDataSource, UITableViewDeleg
         let sectionItem = self.arrDetalle[indexPath.section]
         
         switch sectionItem.tipo {
-        case "igrediente":
+        case "ingrediente":
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellCheckBox", for: indexPath) as! ProductCheckBoxTableViewCell
             cell.checkBox.borderStyle = .square
             cell.checkBox.checkmarkColor = .orange
@@ -221,6 +327,12 @@ extension ProducDetailV2ViewController : UITableViewDataSource, UITableViewDeleg
             cell.checkBox.borderLineWidth = 0
             
             cell.lblTitulo.text = sectionItem.valores[indexPath.row].nombre
+            cell.checkBox.tag = indexPath.row
+            cell.seccionSeleccionado = indexPath.section
+            cell.delegate = self
+            
+            cell.checkBox.isChecked = sectionItem.valores[indexPath.row].seleccionado
+            
             return cell
         case "opcion1":
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellCheckBox", for: indexPath) as! ProductCheckBoxTableViewCell
@@ -231,6 +343,10 @@ extension ProducDetailV2ViewController : UITableViewDataSource, UITableViewDeleg
             cell.checkBox.checkmarkSize = 0.8
             cell.vistaCheck.layer.cornerRadius = 15
             cell.lblTitulo.text = sectionItem.valores[indexPath.row].nombre
+            cell.checkBox.tag = indexPath.row
+            cell.seccionSeleccionado = indexPath.section
+            cell.checkBox.isChecked = sectionItem.valores[indexPath.row].seleccionado
+            cell.delegate = self
             return cell
         
         case "opcion2":
@@ -238,6 +354,7 @@ extension ProducDetailV2ViewController : UITableViewDataSource, UITableViewDeleg
             cell.checkBox.borderStyle = .circle
             cell.checkBox.checkmarkColor = .orange
             cell.checkBox.checkmarkStyle = .circle
+            cell.checkBox.isChecked = sectionItem.valores[indexPath.row].seleccionado
             cell.checkBox.borderLineWidth = 0
             cell.checkBox.checkmarkSize = 0.8
             cell.vistaCheck.layer.cornerRadius = 15
@@ -247,6 +364,11 @@ extension ProducDetailV2ViewController : UITableViewDataSource, UITableViewDeleg
         case "extras":
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellStepper", for: indexPath) as! ProductStepperTableViewCell
             cell.lblTitulo.text = sectionItem.valores[indexPath.row].nombre
+            cell.btnSuma.tag = indexPath.row
+            cell.seccionSeleccionada = indexPath.section
+            cell.btnPlus.tag = indexPath.row
+            cell.btnResta.tag = indexPath.row
+            cell.delegate = self
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellCheckBox", for: indexPath) as! ProductCheckBoxTableViewCell
@@ -267,7 +389,7 @@ extension ProducDetailV2ViewController : UITableViewDataSource, UITableViewDeleg
         label.font = UIFont.systemFont(ofSize: 18)
         label.text = self.arrDetalle[section].titulo
         view.addSubview(label)
-        let label2 = UILabel(frame: CGRect(x: 20, y: 25, width: self.view.frame.width - 40, height: 10))
+        let label2 = UILabel(frame: CGRect(x: 20, y: 22, width: self.view.frame.width - 40, height: 10))
         label2.font = UIFont.systemFont(ofSize: 12)
         label2.textColor = UIColor(red: 123/255, green: 123/255, blue: 123/255, alpha: 1)
         label2.text = self.arrDetalle[section].tituloTotal
@@ -298,17 +420,113 @@ extension ProducDetailV2ViewController : UITableViewDataSource, UITableViewDeleg
     }
 }
 
+extension ProducDetailV2ViewController : OpcionProductDelegate {
+    func seleccionoOpcion(index: Int, status: Bool, seccion: Int) {
+        print("Index: \(index) status: \(status) seccion: \(seccion)")
+        
+        var tipo = arrDetalle[seccion].tipo
+        switch tipo {
+        case "opcion1":
+            print("opcion 1")
+            
+            if status == false {
+                self.arrDetalle[seccion].valores[index].seleccionado = false
+                tableView.reloadData()
+            }
+            else {
+                let numeroMaximo = self.arrDetalle[seccion].totalSeleccionar
+                var totalSeleccionados = 0
+                for item in self.arrDetalle[seccion].valores {
+                    if item.seleccionado == true {
+                        totalSeleccionados = totalSeleccionados + 1
+                    }
+                }
+                if totalSeleccionados >= numeroMaximo {
+                    tableView.reloadData()
+                }
+                else {
+                    self.arrDetalle[seccion].valores[index].seleccionado = true
+                    tableView.reloadData()
+                }
+            }
+            calcularTotal()
+            break
+        case "opcion2":
+            print("opcion 2")
+            if status == false {
+                self.arrDetalle[seccion].valores[index].seleccionado = false
+                tableView.reloadData()
+            }
+            else {
+                let numeroMaximo = self.arrDetalle[seccion].totalSeleccionar
+                var totalSeleccionados = 0
+                for item in self.arrDetalle[seccion].valores {
+                    if item.seleccionado == true {
+                        totalSeleccionados = totalSeleccionados + 1
+                    }
+                }
+                if totalSeleccionados >= numeroMaximo {
+                    tableView.reloadData()
+                }
+                else {
+                    self.arrDetalle[seccion].valores[index].seleccionado = true
+                    tableView.reloadData()
+                }
+            }
+            calcularTotal()
+            break
+        case "ingrediente":
+            self.arrDetalle[seccion].valores[index].seleccionado = status
+            tableView.reloadData()
+            print("ingrediente")
+            break
+        default:
+            break
+        }
+    }
+    
+    
+    func calcularTotal(){
+        var tS = self.product!.price ?? "0"
+        var total : Double = Double(tS)!
+        
+        for item in self.arrDetalle {
+            for producto in item.valores {
+                if producto.tipo == "extras" {
+                    total = total + (Double(producto.cantidad) * (Double(producto.precio) ?? 0))
+                }
+                else {
+                    if producto.seleccionado == true {
+                        total = total + Double(producto.precio)!
+                    }
+                }
+            }
+        }
+        total = total * Double(numeroProductos)
+        lblSubTotal.text = "$\(total)"
+    }
+}
 
-struct rowItem {
+extension ProducDetailV2ViewController : ExtrasDelegate {
+    func seleccionoExtras(seccion: Int, index: Int, cantidad: Int) {
+        print("Seccion:\(seccion) index :\(index) cantidad:\(cantidad)")
+        self.arrDetalle[seccion].valores[index].cantidad = cantidad
+        
+        calcularTotal()
+    }
+}
+
+struct rowItem : Codable {
     
     var nombre : String
     var id : String
     var seleccionado : Bool
     var tipo : String
     var precio : String
+    var cantidad : Int
 }
 
-struct detalleItem {
+struct detalleItem : Codable {
     var titulo : String
     var valores : [rowItem]
     var totalSeleccionar : Int
@@ -317,3 +535,15 @@ struct detalleItem {
 }
 
 
+
+struct pedidoObject : Codable {
+    var cantidad : Int
+    var producto : ProducItem
+    var Configuracion : [detalleItem]
+    var negocioId : Int
+    var comentario : String
+}
+
+struct canasta : Codable {
+    var pedidos : [pedidoObject]
+}

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -58,6 +58,9 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="+"/>
+                                        <connections>
+                                            <action selector="aumentarAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="FM4-L5-UBG"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQB-Vx-WZo">
                                         <rect key="frame" x="5" y="2" width="25" height="25"/>
@@ -70,6 +73,9 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="-"/>
+                                        <connections>
+                                            <action selector="restarAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="e6v-uB-9fB"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tK-iR-Vy6">
                                         <rect key="frame" x="30" y="4" width="30" height="21"/>
@@ -104,16 +110,29 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vio-2b-zyh">
+                                <rect key="frame" x="16" y="105" width="70" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="OPO-RW-Acn"/>
+                                    <constraint firstAttribute="height" constant="16" id="ido-uB-LWy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="K3H-nD-9n2" firstAttribute="top" secondItem="t8s-W3-d5T" secondAttribute="top" constant="25" id="2zE-MQ-oRA"/>
                             <constraint firstItem="K3H-nD-9n2" firstAttribute="leading" secondItem="QwX-cN-UL6" secondAttribute="trailing" constant="8" id="6ZQ-Sp-2sp"/>
                             <constraint firstItem="QwX-cN-UL6" firstAttribute="leading" secondItem="86y-du-6jW" secondAttribute="trailing" constant="10" id="8iv-xq-cLx"/>
+                            <constraint firstItem="Vio-2b-zyh" firstAttribute="top" secondItem="86y-du-6jW" secondAttribute="bottom" constant="5" id="9yu-ff-JHY"/>
+                            <constraint firstAttribute="trailing" secondItem="Vio-2b-zyh" secondAttribute="trailing" constant="239" id="DsA-qc-lVx"/>
                             <constraint firstAttribute="trailing" secondItem="K3H-nD-9n2" secondAttribute="trailing" constant="15" id="JJY-LV-LAl"/>
                             <constraint firstAttribute="trailing" secondItem="gXF-qJ-usn" secondAttribute="trailing" constant="15" id="QO0-gZ-nfP"/>
                             <constraint firstItem="QwX-cN-UL6" firstAttribute="top" secondItem="t8s-W3-d5T" secondAttribute="top" constant="30" id="SQ0-PB-umv"/>
                             <constraint firstAttribute="bottom" secondItem="gXF-qJ-usn" secondAttribute="bottom" constant="20" symbolic="YES" id="Tgx-Fy-CLS"/>
+                            <constraint firstItem="Vio-2b-zyh" firstAttribute="leading" secondItem="t8s-W3-d5T" secondAttribute="leading" constant="16" id="Zbj-Qu-yt8"/>
                             <constraint firstItem="gXF-qJ-usn" firstAttribute="top" secondItem="K3H-nD-9n2" secondAttribute="bottom" constant="10" id="lDa-rz-Zgr"/>
                             <constraint firstItem="86y-du-6jW" firstAttribute="top" secondItem="t8s-W3-d5T" secondAttribute="top" constant="30" id="mzC-o8-REd"/>
                             <constraint firstItem="86y-du-6jW" firstAttribute="leading" secondItem="t8s-W3-d5T" secondAttribute="leading" constant="15" id="p7x-rJ-KYM"/>
@@ -130,14 +149,18 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnAumentar" destination="XI8-td-x1K" id="axs-Jw-iNL"/>
+                <outlet property="btnRestar" destination="TQB-Vx-WZo" id="2cY-tE-379"/>
                 <outlet property="imgProducto" destination="bR1-mG-KY2" id="EjB-lz-0QT"/>
+                <outlet property="lblCantidad" destination="9tK-iR-Vy6" id="MdC-Ym-myP"/>
                 <outlet property="lblDescripcion" destination="gXF-qJ-usn" id="MPM-f3-WUv"/>
                 <outlet property="lblNombre" destination="QwX-cN-UL6" id="L3s-bp-400"/>
+                <outlet property="lblTotal" destination="Vio-2b-zyh" id="zoJ-kr-eBw"/>
                 <outlet property="vistaImagen" destination="86y-du-6jW" id="8cK-Po-YWU"/>
                 <outlet property="vistaStepper" destination="K3H-nD-9n2" id="Bc7-WQ-Ilh"/>
                 <outlet property="vistaTarjeta" destination="t8s-W3-d5T" id="BRY-GX-L8z"/>
             </connections>
-            <point key="canvasLocation" x="138.40579710144928" y="178.79464285714286"/>
+            <point key="canvasLocation" x="138.40579710144928" y="178.45982142857142"/>
         </tableViewCell>
     </objects>
     <resources>

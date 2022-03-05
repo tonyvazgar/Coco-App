@@ -32,6 +32,7 @@ extension UIStoryboard {
     
     /** Shopping Cart */
     public static var shoppingCart: UIStoryboard { UIStoryboard(name: "ShoppingCart", bundle: nil) }
+    public static var pickups: UIStoryboard { UIStoryboard(name: "Pickups", bundle: nil) }
     
     public static var orders: UIStoryboard { UIStoryboard(name: "Orders", bundle: nil) }
     

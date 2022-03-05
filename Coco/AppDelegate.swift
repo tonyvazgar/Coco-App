@@ -28,7 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     FirebaseApp.configure()
       Settings.isAdvertiserIDCollectionEnabled = true
-      
+    Settings.isAutoLogAppEventsEnabled = true
+    Settings.setAdvertiserTrackingEnabled(true)
+    Settings.isAdvertiserIDCollectionEnabled = true
     Messaging.messaging().delegate = self
     
       if #available(iOS 10.0, *) {

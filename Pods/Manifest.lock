@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
+  - AnimatedCardInput (0.3.0)
   - AppAuth (1.4.0):
     - AppAuth/Core (= 1.4.0)
     - AppAuth/ExternalUserAgent (= 1.4.0)
@@ -86,6 +87,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.2)
+  - AnimatedCardInput
   - DropDown (= 2.3.4)
   - FBSDKCoreKit (~> 8.0.0)
   - FBSDKLoginKit (~> 8.0.0)
@@ -113,6 +115,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AnimatedCardInput
     - AppAuth
     - DropDown
     - FBSDKCoreKit
@@ -149,6 +152,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  AnimatedCardInput: c4753212807397578085c6812b4ed6ddca7ebf0a
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   DropDown: f225ff0fd09dde064d17aa03db7e4d4e4ff40b6b
   FBSDKCoreKit: 9d27fe97a2fa2abe5eeefea8240e837623ab88e0
@@ -183,6 +187,6 @@ SPEC CHECKSUMS:
   UIWindowTransitions: cb662e2ae9e2d1060fcdbe3eb3de9232bedb7612
   YPImagePicker: 15aed8bcaa4dad976e11b6114126d731a2f9f3c9
 
-PODFILE CHECKSUM: b92e210d39c1ad4b84194161c70d391122cc6783
+PODFILE CHECKSUM: 73411c63996e6d32981070287a8f391f47eb78b9
 
 COCOAPODS: 1.11.2

@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		3F70D7C3F4D6293AE3D5BAAC /* Pods_CocoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14347B74DDFE317E603C86A /* Pods_CocoUITests.framework */; };
+		7C0A090C27D3A6AC0092E89A /* PedidoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A090A27D3A6AC0092E89A /* PedidoItemTableViewCell.swift */; };
+		7C0A090D27D3A6AC0092E89A /* PedidoItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A090B27D3A6AC0092E89A /* PedidoItemTableViewCell.xib */; };
+		7C32F4C427CE71FD00C3A33C /* FinPedidoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4C327CE71FD00C3A33C /* FinPedidoViewController.swift */; };
+		7C32F4C727D030B300C3A33C /* ListaTarjetasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4C627D030B300C3A33C /* ListaTarjetasViewController.swift */; };
+		7C32F4C927D030C000C3A33C /* AgregarTarjetaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4C827D030C000C3A33C /* AgregarTarjetaViewController.swift */; };
+		7C32F4CB27D11C7100C3A33C /* Constatns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4CA27D11C7100C3A33C /* Constatns.swift */; };
+		7C32F4CE27D155FB00C3A33C /* OrdenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4CD27D155FB00C3A33C /* OrdenRequest.swift */; };
+		7C32F4D027D1862300C3A33C /* Wrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4CF27D1862300C3A33C /* Wrap.swift */; };
+		7C32F4D227D3A23F00C3A33C /* ListaPedidosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4D127D3A23F00C3A33C /* ListaPedidosViewController.swift */; };
 		7CABECC927C1127800C6FFF9 /* CategoriesV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CABECC827C1127800C6FFF9 /* CategoriesV2ViewController.swift */; };
 		7CABECCB27C37C0500C6FFF9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CABECCA27C37C0500C6FFF9 /* GoogleService-Info.plist */; };
 		7CCAB78B27C63ADA00DC9961 /* ProductosV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAB78A27C63AD900DC9961 /* ProductosV2ViewController.swift */; };
@@ -26,6 +35,11 @@
 		7CE5362B27BF1CD100C52F85 /* PaymentsCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE5362A27BF1CD100C52F85 /* PaymentsCounterViewController.swift */; };
 		7CE5362E27C10D7A00C52F85 /* CategoryV2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE5362C27C10D7900C52F85 /* CategoryV2CollectionViewCell.swift */; };
 		7CE5362F27C10D7A00C52F85 /* CategoryV2CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE5362D27C10D7A00C52F85 /* CategoryV2CollectionViewCell.xib */; };
+		7CF7B72E27CE55A800323E1F /* PickUpListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF7B72D27CE55A800323E1F /* PickUpListViewController.swift */; };
+		7CF7B73027CE55BA00323E1F /* Pickups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF7B72F27CE55BA00323E1F /* Pickups.storyboard */; };
+		7CF7B73227CE592C00323E1F /* RestaurantePickupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF7B73127CE592C00323E1F /* RestaurantePickupViewController.swift */; };
+		7CF7B73427CE593900323E1F /* AutoPickupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF7B73327CE593900323E1F /* AutoPickupViewController.swift */; };
+		7CF7B73627CE594B00323E1F /* LugarPickupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF7B73527CE594B00323E1F /* LugarPickupViewController.swift */; };
 		9D07DB052476E83B00907E39 /* promoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07DB042476E83B00907E39 /* promoViewController.swift */; };
 		9D07DB072476EE6B00907E39 /* promoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D07DB062476EE6B00907E39 /* promoModel.swift */; };
 		9D1769A824852E6300EE1E52 /* orderEstimatedTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1769A724852E6300EE1E52 /* orderEstimatedTime.swift */; };
@@ -303,6 +317,15 @@
 		6461A7046F27B15CD6770900 /* Pods-CocoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CocoUITests/Pods-CocoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6E4915966DA5C2608206AE0A /* Pods_Coco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B3EAF956F1B8B3139D70DA /* Pods-CocoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CocoTests/Pods-CocoTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7C0A090A27D3A6AC0092E89A /* PedidoItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedidoItemTableViewCell.swift; sourceTree = "<group>"; };
+		7C0A090B27D3A6AC0092E89A /* PedidoItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PedidoItemTableViewCell.xib; sourceTree = "<group>"; };
+		7C32F4C327CE71FD00C3A33C /* FinPedidoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinPedidoViewController.swift; sourceTree = "<group>"; };
+		7C32F4C627D030B300C3A33C /* ListaTarjetasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTarjetasViewController.swift; sourceTree = "<group>"; };
+		7C32F4C827D030C000C3A33C /* AgregarTarjetaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarTarjetaViewController.swift; sourceTree = "<group>"; };
+		7C32F4CA27D11C7100C3A33C /* Constatns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constatns.swift; sourceTree = "<group>"; };
+		7C32F4CD27D155FB00C3A33C /* OrdenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdenRequest.swift; sourceTree = "<group>"; };
+		7C32F4CF27D1862300C3A33C /* Wrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wrap.swift; sourceTree = "<group>"; };
+		7C32F4D127D3A23F00C3A33C /* ListaPedidosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaPedidosViewController.swift; sourceTree = "<group>"; };
 		7CABECC827C1127800C6FFF9 /* CategoriesV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesV2ViewController.swift; sourceTree = "<group>"; };
 		7CABECCA27C37C0500C6FFF9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7CCAB78A27C63AD900DC9961 /* ProductosV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductosV2ViewController.swift; sourceTree = "<group>"; };
@@ -321,6 +344,11 @@
 		7CE5362A27BF1CD100C52F85 /* PaymentsCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsCounterViewController.swift; sourceTree = "<group>"; };
 		7CE5362C27C10D7900C52F85 /* CategoryV2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryV2CollectionViewCell.swift; sourceTree = "<group>"; };
 		7CE5362D27C10D7A00C52F85 /* CategoryV2CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryV2CollectionViewCell.xib; sourceTree = "<group>"; };
+		7CF7B72D27CE55A800323E1F /* PickUpListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickUpListViewController.swift; sourceTree = "<group>"; };
+		7CF7B72F27CE55BA00323E1F /* Pickups.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pickups.storyboard; sourceTree = "<group>"; };
+		7CF7B73127CE592C00323E1F /* RestaurantePickupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantePickupViewController.swift; sourceTree = "<group>"; };
+		7CF7B73327CE593900323E1F /* AutoPickupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoPickupViewController.swift; sourceTree = "<group>"; };
+		7CF7B73527CE594B00323E1F /* LugarPickupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LugarPickupViewController.swift; sourceTree = "<group>"; };
 		8224668FFF2D9C032908D0EF /* Pods-Coco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coco.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coco/Pods-Coco.release.xcconfig"; sourceTree = "<group>"; };
 		9D07DB042476E83B00907E39 /* promoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = promoViewController.swift; sourceTree = "<group>"; };
 		9D07DB062476EE6B00907E39 /* promoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = promoModel.swift; sourceTree = "<group>"; };
@@ -630,12 +658,40 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7C32F4C527CEB7B700C3A33C /* MetodosPago */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MetodosPago;
+			sourceTree = "<group>";
+		};
+		7C32F4CC27D155E500C3A33C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7C32F4CD27D155FB00C3A33C /* OrdenRequest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		7CCAB79227C7BDEB00DC9961 /* ExternalsLibs */ = {
 			isa = PBXGroup;
 			children = (
+				7C32F4CF27D1862300C3A33C /* Wrap.swift */,
 				7CCAB79327C7BE3800DC9961 /* Checkbox.swift */,
 			);
 			path = ExternalsLibs;
+			sourceTree = "<group>";
+		};
+		7CF7B72C27CE558200323E1F /* Pickup */ = {
+			isa = PBXGroup;
+			children = (
+				7CF7B72D27CE55A800323E1F /* PickUpListViewController.swift */,
+				7CF7B72F27CE55BA00323E1F /* Pickups.storyboard */,
+				7CF7B73127CE592C00323E1F /* RestaurantePickupViewController.swift */,
+				7CF7B73327CE593900323E1F /* AutoPickupViewController.swift */,
+				7CF7B73527CE594B00323E1F /* LugarPickupViewController.swift */,
+			);
+			path = Pickup;
 			sourceTree = "<group>";
 		};
 		9D1769A62484DA9E00EE1E52 /* newModels */ = {
@@ -1058,6 +1114,8 @@
 				C36BE0D6253BF1750058F3CE /* PaymentsContainerViewController.swift */,
 				C3EB42EB25E09CC00021BA85 /* CocoCardsViewController.swift */,
 				7CE5362A27BF1CD100C52F85 /* PaymentsCounterViewController.swift */,
+				7C32F4C627D030B300C3A33C /* ListaTarjetasViewController.swift */,
+				7C32F4C827D030C000C3A33C /* AgregarTarjetaViewController.swift */,
 			);
 			path = Payments;
 			sourceTree = "<group>";
@@ -1114,11 +1172,13 @@
 		C36BE13C253D4F7E0058F3CE /* Shopping Cart */ = {
 			isa = PBXGroup;
 			children = (
+				7C32F4CC27D155E500C3A33C /* Models */,
 				C36BE148253D500D0058F3CE /* Cell */,
 				C36BE13E253D4F9C0058F3CE /* ShoppingCart.storyboard */,
 				C36BE143253D4FC40058F3CE /* ShoppingCartViewController.swift */,
 				7CCAB79D27CCC22300DC9961 /* ShoppingCartV2ViewController.swift */,
 				7CCAB7A327CD907B00DC9961 /* DetallePedidoViewController.swift */,
+				7C32F4C327CE71FD00C3A33C /* FinPedidoViewController.swift */,
 			);
 			path = "Shopping Cart";
 			sourceTree = "<group>";
@@ -1151,6 +1211,7 @@
 				C38696AC253D694E006FE5C1 /* OrdersContainerViewController.swift */,
 				C38696B1253D6959006FE5C1 /* OrderListViewController.swift */,
 				C394ACA3253D71EF00066E96 /* OrderDetailViewController.swift */,
+				7C32F4D127D3A23F00C3A33C /* ListaPedidosViewController.swift */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -1162,6 +1223,8 @@
 				C348F13522CB7F76000F185C /* OrderTableViewCell.xib */,
 				C394ACA8253D7A7E00066E96 /* OrderDetailProductTableViewCell.swift */,
 				C394ACA9253D7A7E00066E96 /* OrderDetailProductTableViewCell.xib */,
+				7C0A090A27D3A6AC0092E89A /* PedidoItemTableViewCell.swift */,
+				7C0A090B27D3A6AC0092E89A /* PedidoItemTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1181,6 +1244,8 @@
 		C3890C0725218B8C0055C7A3 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7C32F4C527CEB7B700C3A33C /* MetodosPago */,
+				7CF7B72C27CE558200323E1F /* Pickup */,
 				C3DD1FC4255A5470002A5B5C /* Deposits */,
 				C3DD1FB1255A3E0F002A5B5C /* Help */,
 				C38696A6253D6932006FE5C1 /* Orders */,
@@ -1394,6 +1459,7 @@
 				C3A1622222B9BC4700076DD8 /* General.swift */,
 				C3A1622422B9BC8B00076DD8 /* Routes.swift */,
 				C3B06FE523032CF400E03EC2 /* PushNotificationManager.swift */,
+				7C32F4CA27D11C7100C3A33C /* Constatns.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -1744,6 +1810,7 @@
 				C3867010256F695000C967CB /* SearchBarTableHeaderView.xib in Resources */,
 				C36BE14F253D50210058F3CE /* ProductCartTableViewCell.xib in Resources */,
 				C36BE13F253D4F9C0058F3CE /* ShoppingCart.storyboard in Resources */,
+				7C0A090D27D3A6AC0092E89A /* PedidoItemTableViewCell.xib in Resources */,
 				C3A161EA22B9B38C00076DD8 /* Assets.xcassets in Resources */,
 				CFBC53B324071B5000D4FF95 /* addNewCocoCardViewController.xib in Resources */,
 				9DFFF89B24A1EBFF00AC32EA /* productImagesTableViewCell.xib in Resources */,
@@ -1792,6 +1859,7 @@
 				C334339422D5304E0014A254 /* ShoppingCartVC.xib in Resources */,
 				CFBC53A22406DC7500D4FF95 /* promoCodesTableViewCell.xib in Resources */,
 				C348F15122CB991D000F185C /* ProductsVC.xib in Resources */,
+				7CF7B73027CE55BA00323E1F /* Pickups.storyboard in Resources */,
 				9DFFF89724A1E65200AC32EA /* animationPopUpViewController.xib in Resources */,
 				C3890C312521AA2B0055C7A3 /* Poppins-BoldItalic.ttf in Resources */,
 				C355729A22CA80C200FC5C89 /* loader.json in Resources */,
@@ -1924,17 +1992,22 @@
 				C35572C822CAC2E600FC5C89 /* AccountVC.swift in Sources */,
 				C3DD1FF3255A7617002A5B5C /* CartManager.swift in Sources */,
 				C34466E822CAE63B00A11433 /* ProductsTableViewCell.swift in Sources */,
+				7C32F4CB27D11C7100C3A33C /* Constatns.swift in Sources */,
+				7CF7B73227CE592C00323E1F /* RestaurantePickupViewController.swift in Sources */,
 				C36553C2252D5E4600733EEE /* CocoTabBarItem.swift in Sources */,
 				9DD8DE0E2485C4AE0016F3AA /* popover1ViewController.swift in Sources */,
+				7C32F4C727D030B300C3A33C /* ListaTarjetasViewController.swift in Sources */,
 				C36BE144253D4FC40058F3CE /* ShoppingCartViewController.swift in Sources */,
 				C3EB430025E0A5C60021BA85 /* AddCocoCardViewController.swift in Sources */,
 				C3415F3725302E3700D0CD2B /* CategoryCollectionViewCell.swift in Sources */,
+				7C32F4D227D3A23F00C3A33C /* ListaPedidosViewController.swift in Sources */,
 				C3B06FE823032D8900E03EC2 /* Notifications.swift in Sources */,
 				C329B73422E226D8005F579D /* OrderProductTableViewCell.swift in Sources */,
 				C36553F6253026FA00733EEE /* LocationsContainerViewController.swift in Sources */,
 				C36553ED2530182100733EEE /* LocationsTableViewCell.swift in Sources */,
 				C35572B922CA946D00FC5C89 /* SettingsVC.swift in Sources */,
 				CFD9D35523EC949C00DACF9E /* doneModalViewController.swift in Sources */,
+				7C32F4D027D1862300C3A33C /* Wrap.swift in Sources */,
 				C3EB42EC25E09CC00021BA85 /* CocoCardsViewController.swift in Sources */,
 				C329B72D22E2173C005F579D /* UITextFieldExtensions.swift in Sources */,
 				C3A1622122B9BBB300076DD8 /* UILabelExtensions.swift in Sources */,
@@ -1984,6 +2057,7 @@
 				C3890C122521986F0055C7A3 /* UserManagement.swift in Sources */,
 				EF0CDB2E27AA22A900FE6952 /* VerifyTextMessage.swift in Sources */,
 				C35572B122CA932700FC5C89 /* FavoritesVC.swift in Sources */,
+				7CF7B73627CE594B00323E1F /* LugarPickupViewController.swift in Sources */,
 				EFB9CEE627A3C1A600B82A73 /* EdgeShadowLayer.swift in Sources */,
 				C36553CD252EBDF400733EEE /* SideMenuViewController.swift in Sources */,
 				7CCAB79127C7B1C200DC9961 /* ProducDetailV2ViewController.swift in Sources */,
@@ -1992,6 +2066,7 @@
 				C3C0F37E22D3D73400B03F62 /* Cards.swift in Sources */,
 				C355E54A253EA8E400DDE1DE /* AddPaymentMethodViewController.swift in Sources */,
 				C3A161E822B9B38A00076DD8 /* Coco.xcdatamodeld in Sources */,
+				7CF7B72E27CE55A800323E1F /* PickUpListViewController.swift in Sources */,
 				9DD30B26249983FE009C7FD0 /* giftsViewController.swift in Sources */,
 				7CE5362E27C10D7A00C52F85 /* CategoryV2CollectionViewCell.swift in Sources */,
 				9DF017FB249C05C0003F14BF /* giftDetailModel.swift in Sources */,
@@ -2017,6 +2092,7 @@
 				C3415F3B25302E8500D0CD2B /* ProductsContainerViewController.swift in Sources */,
 				C36553D8252ECE2C00733EEE /* HomeFetcher.swift in Sources */,
 				9DFFF89624A1E65200AC32EA /* animationPopUpViewController.swift in Sources */,
+				7C32F4C427CE71FD00C3A33C /* FinPedidoViewController.swift in Sources */,
 				9D60BAB02484C49800CA00FE /* estimatedModel.swift in Sources */,
 				C348F15522CBB4B0000F185C /* ProductDetailVC.swift in Sources */,
 				C348F14422CB90B0000F185C /* Categories.swift in Sources */,
@@ -2042,6 +2118,7 @@
 				C348F15D22CBC94B000F185C /* PaymentFormsTableViewCell.swift in Sources */,
 				C355729722CA80B000FC5C89 /* LoaderVC.swift in Sources */,
 				C35FC6322574B50E0089560F /* CityUpdateViewController.swift in Sources */,
+				7C32F4C927D030C000C3A33C /* AgregarTarjetaViewController.swift in Sources */,
 				C3A1622522B9BC8B00076DD8 /* Routes.swift in Sources */,
 				C36553DB252ECFB000733EEE /* FetcherErrors.swift in Sources */,
 				C348F13222CB7CE3000F185C /* Orders.swift in Sources */,
@@ -2050,10 +2127,12 @@
 				C36BE0D7253BF1750058F3CE /* PaymentsContainerViewController.swift in Sources */,
 				CFBC53AE2407182F00D4FF95 /* cardsTableViewCell.swift in Sources */,
 				C334339322D5304E0014A254 /* ShoppingCartVC.swift in Sources */,
+				7C32F4CE27D155FB00C3A33C /* OrdenRequest.swift in Sources */,
 				C3A1621D22B9BB9200076DD8 /* UIImageViewExtensions.swift in Sources */,
 				9DD30B2A2499862D009C7FD0 /* giftsTableViewCell.swift in Sources */,
 				C36BE10A253C02630058F3CE /* PaymentMethodsFetcher.swift in Sources */,
 				C3DD1FD5255A54C9002A5B5C /* DepositsTableViewCell.swift in Sources */,
+				7CF7B73427CE593900323E1F /* AutoPickupViewController.swift in Sources */,
 				C348F13622CB7F76000F185C /* OrderTableViewCell.swift in Sources */,
 				C329B73122E21875005F579D /* OrderDetail.swift in Sources */,
 				C35572A422CA8EDE00FC5C89 /* MainController.swift in Sources */,
@@ -2069,6 +2148,7 @@
 				C38696BB253D6A8A006FE5C1 /* OrdersFetcher.swift in Sources */,
 				C3EB42E725E09B440021BA85 /* CocoCard.swift in Sources */,
 				C3890C412522CEC30055C7A3 /* RegisterViewController.swift in Sources */,
+				7C0A090C27D3A6AC0092E89A /* PedidoItemTableViewCell.swift in Sources */,
 				C36BE0D2253BF1440058F3CE /* PaymentListViewController.swift in Sources */,
 				C3B06FE623032CF400E03EC2 /* PushNotificationManager.swift in Sources */,
 				C394ACAA253D7A7E00066E96 /* OrderDetailProductTableViewCell.swift in Sources */,

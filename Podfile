@@ -36,7 +36,7 @@ pod 'FBSDKShareKit', '~> 8.0.0'
   pod 'iOSDropDown'
   pod 'JWTDecode', '~> 2.4.1'
   pod 'GoogleSignIn', '~> 6.0.2'
-
+pod 'AnimatedCardInput'
   target 'CocoUITests' do
     inherit! :search_paths
     # Pods for testing

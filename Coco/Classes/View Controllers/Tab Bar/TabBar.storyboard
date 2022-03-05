@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -29,8 +30,8 @@
                     <connections>
                         <segue destination="d4d-Ei-Z7I" kind="relationship" relationship="viewControllers" id="hRF-3E-nzW"/>
                         <segue destination="hak-3X-WVs" kind="relationship" relationship="viewControllers" id="ILE-KS-g9i"/>
-                        <segue destination="Dia-Vn-Hc8" kind="relationship" relationship="viewControllers" id="XY8-I1-jpW"/>
                         <segue destination="tPD-gg-8hZ" kind="relationship" relationship="viewControllers" id="hnp-0d-UMh"/>
+                        <segue destination="K6x-ym-qmq" kind="relationship" relationship="viewControllers" id="DuB-Qf-G9t"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5rI-su-Vkr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -59,16 +60,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xyl-Py-Jyo">
-                                <rect key="frame" x="75" y="406" width="264.5" height="84"/>
+                                <rect key="frame" x="90" y="413" width="234" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Próximamente" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhc-7p-jnU">
-                                        <rect key="frame" x="0.0" y="0.0" width="264.5" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="234" height="35"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00d 00h 00m 00s" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2T-Uh-rlH">
-                                        <rect key="frame" x="0.0" y="42" width="264.5" height="42"/>
+                                        <rect key="frame" x="0.0" y="35" width="234" height="35"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -110,19 +111,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Coco_Gradient_Background" translatesAutoresizingMaskIntoConstraints="NO" id="ajJ-LN-HEm">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4YF-Pz-820">
-                                <rect key="frame" x="75" y="406" width="264.5" height="84"/>
+                                <rect key="frame" x="90" y="413" width="234" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Próximamente" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYi-oW-BR0">
-                                        <rect key="frame" x="0.0" y="0.0" width="264.5" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="234" height="35"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00d 00h 00m 00s" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prN-UX-Ul3">
-                                        <rect key="frame" x="0.0" y="42" width="264.5" height="42"/>
+                                        <rect key="frame" x="0.0" y="35" width="234" height="35"/>
                                         <fontDescription key="fontDescription" name="Poppins-Medium" family="Poppins" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -154,6 +155,19 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcy-Cs-X9G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-49" y="536"/>
+        </scene>
+        <!--Orders-->
+        <scene sceneID="fLB-LP-KbJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Orders" id="K6x-ym-qmq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pedidos" id="jpf-cn-vBJ">
+                        <imageReference key="image" image="clock.fill" catalog="system" renderingMode="original"/>
+                        <imageReference key="selectedImage" image="clock" catalog="system" renderingMode="original"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xrv-ex-JIK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="486" y="269"/>
         </scene>
         <!--Payments-->
         <scene sceneID="QLo-UU-kJ2">

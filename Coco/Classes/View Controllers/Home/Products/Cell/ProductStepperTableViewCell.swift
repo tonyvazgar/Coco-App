@@ -8,6 +8,10 @@
 
 import UIKit
 
+
+protocol ExtrasDelegate {
+    func seleccionoExtras(seccion : Int, index : Int, cantidad : Int)
+}
 class ProductStepperTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lblCantidad: UILabel!
@@ -17,7 +21,12 @@ class ProductStepperTableViewCell: UITableViewCell {
     @IBOutlet weak var anchoMas: NSLayoutConstraint!//30
     var cantidad : Int = 0
     
+    @IBOutlet weak var btnResta: UIButton!
+    @IBOutlet weak var btnSuma: UIButton!
+    @IBOutlet weak var btnPlus: UIButton!
     @IBOutlet weak var lblTitulo: UILabel!
+    var delegate : ExtrasDelegate?
+    var seccionSeleccionada : Int = 0
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -38,6 +47,7 @@ class ProductStepperTableViewCell: UITableViewCell {
         lblCantidad.text = "\(cantidad)"
         anchoMas.constant = 0
         anchoStepper.constant = 89
+        self.delegate?.seleccionoExtras(seccion: seccionSeleccionada, index: sender.tag, cantidad: cantidad)
     }
     
     @IBAction func aumentarAction(_ sender: UIButton) {
@@ -45,6 +55,7 @@ class ProductStepperTableViewCell: UITableViewCell {
             cantidad = cantidad + 1
             lblCantidad.text = "\(cantidad)"
         }
+        self.delegate?.seleccionoExtras(seccion: seccionSeleccionada, index: sender.tag, cantidad: cantidad)
         
         
     }
@@ -62,5 +73,6 @@ class ProductStepperTableViewCell: UITableViewCell {
             anchoMas.constant = 30
             anchoStepper.constant = 0
         }
+        self.delegate?.seleccionoExtras(seccion: seccionSeleccionada, index: sender.tag, cantidad: cantidad)
     }
 }

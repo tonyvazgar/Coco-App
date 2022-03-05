@@ -48,7 +48,7 @@ struct Routes {
     static let getSaucerDetail = "getSaucerDetail"
     
     static let getOrdersDetail = "getOrderDetail"
-    static let saveOrder = "saveOrder"
+    static let saveOrder = "saveOrderNew"
     static let saveOrderCocopoints = "saveOrderCocopoints"
     static let adminFavorite = "adminFavorite"
     

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol ProductoCanastaDelegate {
+    func aumentarCantidad(index : Int)
+    func restarCantidad(index : Int)
+}
 class ProductCartV2TableViewCell: UITableViewCell {
 
     @IBOutlet weak var vistaImagen: UIView!
@@ -16,13 +20,18 @@ class ProductCartV2TableViewCell: UITableViewCell {
     @IBOutlet weak var lblDescripcion: UILabel!
     @IBOutlet weak var imgProducto: UIImageView!
     @IBOutlet weak var vistaStepper: UIView!
+    
+    @IBOutlet weak var lblCantidad: UILabel!
+    
+    @IBOutlet weak var btnAumentar: UIButton!
+    @IBOutlet weak var btnRestar: UIButton!
+    @IBOutlet weak var lblTotal: UILabel!
+    
+    var delegate : ProductoCanastaDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
         imgProducto.layer.cornerRadius = 70/2
         vistaImagen.layer.cornerRadius = 70/2
         vistaStepper.layer.cornerRadius = 10
@@ -43,5 +52,18 @@ class ProductCartV2TableViewCell: UITableViewCell {
         vistaImagen.layer.shadowOpacity = 0.5
         vistaImagen.layer.shadowRadius = 3
     }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+    }
     
+    
+    @IBAction func aumentarAction(_ sender: UIButton) {
+        delegate?.aumentarCantidad(index: sender.tag)
+    }
+    
+    @IBAction func restarAction(_ sender: UIButton) {
+        delegate?.restarCantidad(index: sender.tag)
+    }
 }

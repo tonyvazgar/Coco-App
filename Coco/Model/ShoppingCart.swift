@@ -10,6 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 class ShoppingCart: Codable {
+    
     public var sub_amount: String?
     public var percentage_service: String?
     public var amount_service: String?
@@ -94,6 +95,45 @@ class ShoppingCart: Codable {
         Alamofire.request(General.endpoint, method: .post, parameters: data).responseJSON { (response) in
             print("Product bought wih money")
             print(data)
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)")
+                let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+                
+                if let dictionary = json as? Dictionary<String, AnyObject> {
+                    if let info = dictionary["data"] as? Dictionary<String, Any> {
+                        print(info)
+                        let tiempoEstimado = info["TiempoEstimado"]
+                        let cocosOtorgados = info["Cocopoints"]
+                        UserDefaults.standard.set(tiempoEstimado, forKey: "estimatedValue")
+                        UserDefaults.standard.set(cocosOtorgados, forKey: "cocosOtorgados")
+                    }
+                }
+                
+                UserDefaults.standard.set(true, forKey: "gotCocos")
+            }
+            
+            guard let data = response.result.value else {
+                completion(.failure("Error de conexión"))
+                return
+            }
+            
+            guard let dictionary = JSON(data).dictionary else {
+                completion(.failure("Error al obtener los datos"))
+                return
+            }
+            
+            if dictionary["state"] != "200" {
+                completion(.failure(dictionary["status_msg"]?.string ?? ""))
+                return
+            }
+            completion(.success([]))
+        }
+    }
+    
+    func saveOrderNew(parameters: [String: Any], completion: @escaping(Result) -> Void){
+       
+        Alamofire.request(General.endpoint, method: .post, parameters: parameters).responseJSON { (response) in
+            print("Product bought wih money")
             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                 print("Data: \(utf8Text)")
                 let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)

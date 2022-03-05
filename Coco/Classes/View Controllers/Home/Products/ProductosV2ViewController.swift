@@ -28,6 +28,8 @@ class ProductosV2ViewController: UIViewController {
     
     @IBOutlet weak var roundView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -146,6 +148,7 @@ extension ProductosV2ViewController : UITableViewDataSource, UITableViewDelegate
         let viewController = UIStoryboard.products.instantiate(ProducDetailV2ViewController.self)
         viewController.productId = product.id
         viewController.location = location
+        viewController.categoryId = self.categoryId!
         navigationController?.pushViewController(viewController, animated: true)
     }
     

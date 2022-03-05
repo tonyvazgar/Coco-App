@@ -227,10 +227,13 @@ private extension ShoppingCartViewController {
 
 private extension ShoppingCartViewController {
     private func payWithMoney() {
+        
+        
         guard let shoppingCart = shoppingCart else { return }
         let tip = tipSelectedIndex != nil ? (tipSelectedIndex! + 1) * 5 : 0
         shoppingCart.setService(percentage: tip)
         shoppingCart.comments = orderDescriptionTextView.text
+        
         guard let dict = try? shoppingCart.asDictionary() else {
             return
         }
@@ -250,7 +253,7 @@ private extension ShoppingCartViewController {
             }
             products.append(temp)
         }
-        
+    
         if let theJSONData = try? JSONSerialization.data(
             withJSONObject: products,
             options: .prettyPrinted
