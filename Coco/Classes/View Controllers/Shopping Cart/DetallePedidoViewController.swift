@@ -51,7 +51,7 @@ class DetallePedidoViewController: UIViewController {
     var arrCanasta : [pedidoObject] = [pedidoObject]()
     var subTotal : Double = 0
     
-    var tipoPago : Int = 3 //3=saldo
+    var tipoPago : Int = 2 //3=saldo 2 = nueva tarjeta 1 = tarjeta guardada
     var pickUp : Int = 1
     var porcentagePropina : Int = 5
     var propina : Double = 0
@@ -252,7 +252,7 @@ class DetallePedidoViewController: UIViewController {
         let card : new_cardCanasta = new_cardCanasta(nombre: "", card_number: "", date_expiration: "", cvv: "")
         arrNewCard.append(card)
         
-        let paimnetC : paymentCanasta = paymentCanasta(forma_pago: "\(self.tipoPago)", token_cliente: UserManagement.shared.token!, token_card: "", new_card: arrNewCard)
+        let paimnetC : paymentCanasta = paymentCanasta(forma_pago: "\(self.tipoPago)", token_cliente: "", token_card: "",token_id: "\(Constatns.LocalData.tokenTarjeta)")
         let pickCa  : pickupCanasta = pickupCanasta(id: "\(self.pickUp)", marca: "", color: "", placas: "")
         
         let request : OrdenRequest = OrdenRequest(funcion: Routes.saveOrder, id_user: UserManagement.shared.id_user!, sub_amount: "\(self.subTotal)", percentage_service: "\(self.porcentagePropina)", amount_service: "\(self.propina)", amount_final: "\(self.total)", id_store: self.location!.id!, products: arrProductosCanasta, comments: txtComentarios.text!, pickup: pickCa, payment: paimnetC)

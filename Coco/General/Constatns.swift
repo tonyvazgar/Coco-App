@@ -20,5 +20,17 @@ struct Constatns {
                 UserDefaults.standard.synchronize()
             }
         }
+        
+        static var tokenTarjeta : String {
+            get {
+                return UserDefaults.standard.string(forKey: "tokenTarjeta") ?? ""
+            }
+            set(token){
+                UserDefaults.standard.set(token, forKey: "tokenTarjeta")
+                UserDefaults.standard.synchronize()
+            }
+        }
     }
+    
+    
 }

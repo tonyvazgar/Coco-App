@@ -154,6 +154,11 @@ class AgregarTarjetaViewController: UIViewController, CreditCardDataDelegate {
           
           let newCard = Cards(name: nombreTarjeta, address: "ddfsdf", second_address: "sdfsd", zip: "2222", number: "22222222", digits: String(numeroTarjeta.suffix(4)), type: type, token: "\(id)", auto: "0", amount: "0")
           
+            Constatns.LocalData.tokenTarjeta = "\(id)"
+            self.navigationController?.popViewController(animated: true)
+            
+            
+            /*
           newCard.addCard(completion: { (result) in
             switch result {
             case .failure(let errorMssg):
@@ -163,6 +168,9 @@ class AgregarTarjetaViewController: UIViewController, CreditCardDataDelegate {
                 self.navigationController?.popViewController(animated: true)
             }
           })
+            
+            */
+            
         }, andError: { (error) -> Void in
             print(error)
           self.loader.removeAnimate()
