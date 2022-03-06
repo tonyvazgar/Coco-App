@@ -14,12 +14,18 @@ class PaymentForm: Decodable {
   public var digits: String?
   public var type: String?
   public var methodCustomer: String?
-  
+  public var customer_id : String?
+  public var banco : String?
+  public var token_card : String?
+    
   enum CodingKeys: String, CodingKey {
     case id = "Id"
     case digits = "digits"
     case type = "type"
     case methodCustomer = "method_customer"
+    case customer_id = "customer_id"
+    case banco = "banco"
+    case token_card = "token_card"
   }
   
   func removePaymentForm(completion: @escaping(Result) -> Void){

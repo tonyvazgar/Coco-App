@@ -239,6 +239,19 @@ class ProducDetailV2ViewController: UIViewController {
         
         let pedido : pedidoObject = pedidoObject(cantidad: self.numeroProductos, producto: self.product!, Configuracion: self.arrDetalle, negocioId: Int(self.categoryId!)!, comentario: txtComentarios.text!)
         
+        
+        print("json de lo que se va agregar a la canasta")
+        do {
+        print("json de lo que se va agregar a la canasta")
+        let dictionary: [String : Any] = try wrap(pedido)
+        print(dictionary)
+        } catch {
+            print("Unable to Encode request (\(error))")
+        }
+        
+        
+        
+        Constatns.LocalData.comentarios = txtComentarios.text!
         var data = Constatns.LocalData.canasta
         if data != nil {
             do {
@@ -359,6 +372,9 @@ extension ProducDetailV2ViewController : UITableViewDataSource, UITableViewDeleg
             cell.checkBox.checkmarkSize = 0.8
             cell.vistaCheck.layer.cornerRadius = 15
             cell.lblTitulo.text = sectionItem.valores[indexPath.row].nombre
+            cell.checkBox.tag = indexPath.row
+            cell.seccionSeleccionado = indexPath.section
+            cell.delegate = self
             return cell
         
         case "extras":

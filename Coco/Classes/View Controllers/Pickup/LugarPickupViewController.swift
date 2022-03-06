@@ -49,4 +49,13 @@ class LugarPickupViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func confirmarAction(_ sender: UIButton) {
+        Constatns.LocalData.metodoPickup = 3
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers
+        for aViewController in viewControllers {
+            if aViewController is DetallePedidoViewController {
+                self.navigationController!.popToViewController(aViewController, animated: true)
+            }
+        }
+    }
 }

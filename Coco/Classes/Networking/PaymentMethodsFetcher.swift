@@ -17,6 +17,7 @@ final class PaymentMethodsFetcher {
         ]
         
         Alamofire.request(General.endpoint, method: .post, parameters: data).responseJSON { (response) in
+            print(response.debugDescription)
             guard let data = response.result.value else {
                 completion(.failure(FetcherErrors.invalidResponse))
                 return

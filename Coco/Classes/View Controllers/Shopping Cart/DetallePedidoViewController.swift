@@ -23,8 +23,7 @@ class DetallePedidoViewController: UIViewController {
     
     @IBOutlet weak var vistaOtrosMetodosPago: UIView!
     @IBOutlet weak var vistaCocoPoints: UIView!
-    @IBOutlet weak var vistaCupones: UIView!
-    @IBOutlet weak var vistaValorCupon: UIView!
+    
     
     @IBOutlet weak var vistaMetodoPickup: UIView!
     @IBOutlet weak var vistaIconoPickup: UIView!
@@ -45,15 +44,28 @@ class DetallePedidoViewController: UIViewController {
     @IBOutlet weak var lblTotal: UILabel!
     
     @IBOutlet weak var txtComentarios: UITextView!
+    @IBOutlet weak var lblPropina1: UILabel!
+    @IBOutlet weak var lblPropina2: UILabel!
+    @IBOutlet weak var lblPropina3: UILabel!
+    @IBOutlet weak var lblPickupSeleccionado: UILabel!
+    
+    
+    
+    @IBOutlet weak var lblnombreTarjeta: UILabel!
+    @IBOutlet weak var lblNUmerotarjeta: UILabel!
+    @IBOutlet weak var imgtarjeta: UIImageView!
+    @IBOutlet weak var lblTituloPago: UILabel!
+    @IBOutlet weak var lblCocoPoints: UILabel!
+    
     
     var categoryId: String?
     var location: LocationsDataModel?
     var arrCanasta : [pedidoObject] = [pedidoObject]()
     var subTotal : Double = 0
     
-    var tipoPago : Int = 3 //3=saldo
+    var tipoPago : Int = 2 //3=saldo 2 = nueva tarjeta 1 = tarjeta guardada
     var pickUp : Int = 1
-    var porcentagePropina : Int = 5
+    var porcentagePropina : Int = 0
     var propina : Double = 0
     var total : Double = 0
     override func viewDidLoad() {
@@ -117,17 +129,7 @@ class DetallePedidoViewController: UIViewController {
         vistaCocoPoints.layer.shadowOpacity = 0.5
         vistaCocoPoints.layer.shadowRadius = 3
         
-        vistaCupones.layer.cornerRadius = 94/2
-        vistaCupones.layer.shadowColor = UIColor.gray.cgColor
-        vistaCupones.layer.shadowOffset = CGSize(width: 3, height: 3)
-        vistaCupones.layer.shadowOpacity = 0.5
-        vistaCupones.layer.shadowRadius = 3
         
-        vistaValorCupon.layer.cornerRadius = 10
-        vistaValorCupon.layer.shadowColor = UIColor.gray.cgColor
-        vistaValorCupon.layer.shadowOffset = CGSize(width: 0, height: 0)
-        vistaValorCupon.layer.shadowOpacity = 0.5
-        vistaValorCupon.layer.shadowRadius = 3
         
         vistaMetodoPickup.layer.cornerRadius = 30
         vistaMetodoPickup.backgroundColor = .white
@@ -173,6 +175,87 @@ class DetallePedidoViewController: UIViewController {
         self.total = propina + subTotal
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard let user = UserManagement.shared.user else { return }
+        lblCocoPoints.text = "\(user.cocopoints_balance ?? "--")"
+        switch Constatns.LocalData.metodoPickup {
+        case 0:
+            lblPickupSeleccionado.text = "Seleccionar"
+            lblPickupSeleccionado.textColor = #colorLiteral(red: 0.2117647059, green: 0.2117647059, blue: 0.2117647059, alpha: 1)
+            pickUp = 0
+            break
+        case 1:
+            lblPickupSeleccionado.text = "Para llevar"
+            lblPickupSeleccionado.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            pickUp = 1
+            break
+        case 2:
+            lblPickupSeleccionado.text = "En auto"
+            lblPickupSeleccionado.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            pickUp = 2
+            break
+        case 3:
+            lblPickupSeleccionado.text = "Comer en tienda"
+            lblPickupSeleccionado.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            pickUp = 3
+            break
+        default:
+            break
+        }
+        
+        
+        if Constatns.LocalData.paymentCanasta.forma_pago != 0 {
+            lblnombreTarjeta.text = Constatns.LocalData.paymentCanasta.tipoTarjeta
+            
+            lblNUmerotarjeta.text = "**  \(Constatns.LocalData.paymentCanasta.numeroTarjeta)"
+            lblTituloPago.text = "Pago predeterminado"
+            
+            vistaOtrosMetodosPago.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            vistaCocoPoints.layer.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            
+            switch  Constatns.LocalData.paymentCanasta.tipoTarjeta {
+            case "visa":
+                imgtarjeta.image = #imageLiteral(resourceName: "visa_sola")
+                break
+            case "mastercard":
+                imgtarjeta.image = #imageLiteral(resourceName: "mastercard")
+                
+                break
+            case "amex":
+                imgtarjeta.image = #imageLiteral(resourceName: "amex")
+                break
+            case "oxxo":
+                imgtarjeta.image = #imageLiteral(resourceName: "imageoxxo")
+                lblNUmerotarjeta.text = "Saldo:  $\(Constatns.LocalData.paymentCanasta.numeroTarjeta)"
+                break
+            case "cocopoints":
+                lblTituloPago.text = "Pago por coco points"
+                imgtarjeta.image = #imageLiteral(resourceName: "iconotarjetacoco_v2")
+                lblnombreTarjeta.text = ""
+                lblNUmerotarjeta.text = ""
+                
+                vistaOtrosMetodosPago.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+                vistaCocoPoints.layer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                break
+            default:
+                break
+            }
+            
+            
+            
+        }
+        else {
+            vistaOtrosMetodosPago.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            vistaCocoPoints.layer.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            
+            
+            lblTituloPago.text = "Selecciona método pago"
+            lblnombreTarjeta.text = ""
+            lblNUmerotarjeta.text = ""
+        }
+    }
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -191,9 +274,82 @@ class DetallePedidoViewController: UIViewController {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
+    @IBAction func selectCocopoints(_ sender: UIButton) {
+        lblTituloPago.text = "Pago por coco points"
+        lblnombreTarjeta.text = ""
+        lblNUmerotarjeta.text = ""
+        imgtarjeta.image = #imageLiteral(resourceName: "iconotarjetacoco_v2")
+        
+        vistaOtrosMetodosPago.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+        vistaCocoPoints.layer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        
+        Constatns.LocalData.paymentCanasta.tipoTarjeta = "cocopoints"
+        //Nuevatarjeta
+        Constatns.LocalData.paymentCanasta.forma_pago = 4
+        Constatns.LocalData.paymentCanasta.token_id = ""
+        Constatns.LocalData.paymentCanasta.token_cliente = ""
+        Constatns.LocalData.paymentCanasta.token_card = ""
+        Constatns.LocalData.paymentCanasta.numeroTarjeta = ""
+    }
+    
+    
+    @IBAction func setPropinaCincoAction(_ sender: UIButton) {
+        vistaPropina1.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+        lblPropina1.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        vistaPropina2.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+        lblPropina2.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+        
+        vistaPropina3.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+        lblPropina3.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+        porcentagePropina = 5
+        recalcularTotal()
+        
+    }
+    func recalcularTotal(){
+        lblSubTotal.text = "$\(self.subTotal)"
+        propina = (Double(self.porcentagePropina) * self.subTotal) / 100
+        lblPropina.text = "$\(propina)"
+        lblTotal.text = "$\(propina + subTotal)"
+        self.total = propina + subTotal
+    }
+    @IBAction func setPropina10Action(_ sender: UIButton) {
+        vistaPropina2.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+        lblPropina2.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        vistaPropina1.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+        lblPropina1.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+        
+        vistaPropina3.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+        lblPropina3.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+        porcentagePropina = 10
+        recalcularTotal()
+    }
+    
+    @IBAction func setPropina15Action(_ sender: UIButton) {
+        vistaPropina3.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+        lblPropina3.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        vistaPropina2.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+        lblPropina2.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+        
+        vistaPropina1.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+        lblPropina1.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+        porcentagePropina = 15
+        recalcularTotal()
+    }
+    
     @IBAction func hacerPedidoAction(_ sender: UIButton) {
         
+        if Constatns.LocalData.paymentCanasta.forma_pago == 0 {
+            throwError(str: "Selecciona el método de pago")
+            return
+        }
         
+        if Constatns.LocalData.metodoPickup == 0 {
+            throwError(str: "Selecciona el método de Pickup")
+            return
+        }
         
         var arrProductosCanasta : [ProductoCanasta] = [ProductoCanasta]()
         for item in arrCanasta {
@@ -202,12 +358,15 @@ class DetallePedidoViewController: UIViewController {
             var arrextras : [ExtraCanasta] = [ExtraCanasta]()
             var arrOpcion1 : [options_1Canasta] = [options_1Canasta]()
             var arrOpcion2 : [options_1Canasta] = [options_1Canasta]()
+            
             for a in item.Configuracion {
                 switch a.tipo {
                 case "ingrediente":
                     for b in a.valores {
-                        let ingrediente : IngredienteCanasta = IngredienteCanasta(id_ingredient: b.id)
-                        arrIngredientes.append(ingrediente)
+                        if b.seleccionado == true{
+                            let ingrediente : IngredienteCanasta = IngredienteCanasta(id_ingredient: b.id)
+                            arrIngredientes.append(ingrediente)
+                        }
                     }
                     break
                 case  "extras":
@@ -248,12 +407,10 @@ class DetallePedidoViewController: UIViewController {
             arrProductosCanasta.append(productoCanasta)
         }
         
-        var arrNewCard : [new_cardCanasta] = [new_cardCanasta]()
-        let card : new_cardCanasta = new_cardCanasta(nombre: "", card_number: "", date_expiration: "", cvv: "")
-        arrNewCard.append(card)
         
-        let paimnetC : paymentCanasta = paymentCanasta(forma_pago: "\(self.tipoPago)", token_cliente: UserManagement.shared.token!, token_card: "", new_card: arrNewCard)
-        let pickCa  : pickupCanasta = pickupCanasta(id: "\(self.pickUp)", marca: "", color: "", placas: "")
+        
+        let paimnetC : paymentCanasta = paymentCanasta(forma_pago: "\(Constatns.LocalData.paymentCanasta.forma_pago)", token_cliente: "\(Constatns.LocalData.paymentCanasta.token_cliente)", token_card: "\(Constatns.LocalData.paymentCanasta.token_card)",token_id: "\(Constatns.LocalData.paymentCanasta.token_id)")
+        let pickCa  : pickupCanasta = pickupCanasta(id: "\(self.pickUp)", marca: "\(Constatns.LocalData.marcaCarro)", color: "\(Constatns.LocalData.colorCarro)", placas: "\(Constatns.LocalData.placasCarro)")
         
         let request : OrdenRequest = OrdenRequest(funcion: Routes.saveOrder, id_user: UserManagement.shared.id_user!, sub_amount: "\(self.subTotal)", percentage_service: "\(self.porcentagePropina)", amount_service: "\(self.propina)", amount_final: "\(self.total)", id_store: self.location!.id!, products: arrProductosCanasta, comments: txtComentarios.text!, pickup: pickCa, payment: paimnetC)
         
@@ -362,29 +519,41 @@ class DetallePedidoViewController: UIViewController {
                         jsonTextPickUps = theJSONText
                     }
                     
-                    saveOrderNew(obj: request, request: dictionary, parameters: dict,productos: productosString,percentage_service: request.percentage_service,id_store: request.id_store,payment: paymentString,
-                                 sub_amount: request.sub_amount,
-                                 comments: request.comments,
-                                 amount_service: request.amount_service,
-                                 amount_final: request.amount_final,
-                                 id_user: request.id_user,
-                                 pickup: pickUpString,
-                                 completion: { result in
-                        self.loader.removeAnimate()
-                        switch result {
-                        case .failure(let errorMssg):
-                            self.throwError(str: errorMssg)
-                            return
-                        case .success(_):
+                    
+                    
+                    
+                     saveOrderNew(obj: request, request: dictionary, parameters: dict,productos: productosString,percentage_service: request.percentage_service,id_store: request.id_store,payment: paymentString,
+                                  sub_amount: request.sub_amount,
+                                  comments: request.comments,
+                                  amount_service: request.amount_service,
+                                  amount_final: request.amount_final,
+                                  id_user: request.id_user,
+                                  pickup: pickUpString,
+                                  completion: { result in
+                         self.loader.removeAnimate()
+                         switch result {
+                         case .failure(let errorMssg):
+                             self.throwError(str: errorMssg)
+                             return
+                         case .success(_):
                             
-                            // Register Nib
-                            let newViewController = doneModalViewController(nibName: "doneModalViewController", bundle: nil)
-                            newViewController.modalPresentationStyle = .fullScreen
+                            
+                            /*
+                             // Register Nib
+                             let newViewController = FinPedidoViewController(nibName: "FinPedidoViewController", bundle: nil)
+                             newViewController.modalPresentationStyle = .fullScreen
 
-                            // Present View "Modally"
-                            self.present(newViewController, animated: true, completion: nil)
-                        }
-                    })
+                             // Present View "Modally"
+                             self.present(newViewController, animated: true, completion: nil)*/
+                         
+                            let viewController = UIStoryboard.shoppingCart.instantiate(FinPedidoViewController.self)
+                            
+                            self.navigationController?.pushViewController(viewController, animated: true)
+                         }
+                     })
+                     
+                    
+                    
                     
                     
                     
@@ -485,13 +654,13 @@ class DetallePedidoViewController: UIViewController {
         
         
        
-        Alamofire.request(General.endpoint, method: .post, parameters: data2).responseString { (response) in
+        Alamofire.request(General.endpoint, method: .post, parameters: data2).responseJSON { (response) in
              print("Product bought wih money")
              print(data2)
              print(response.debugDescription)
             
              
-             /*
+             
              if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
                  print("Data: \(utf8Text)")
                  let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
@@ -523,7 +692,7 @@ class DetallePedidoViewController: UIViewController {
                  completion(.failure(dictionary["status_msg"]?.string ?? ""))
                  return
              }
-             completion(.success([]))*/
+             completion(.success([]))
          }
         
         

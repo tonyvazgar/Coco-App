@@ -10,6 +10,10 @@
 		3F70D7C3F4D6293AE3D5BAAC /* Pods_CocoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F14347B74DDFE317E603C86A /* Pods_CocoUITests.framework */; };
 		7C0A090C27D3A6AC0092E89A /* PedidoItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A090A27D3A6AC0092E89A /* PedidoItemTableViewCell.swift */; };
 		7C0A090D27D3A6AC0092E89A /* PedidoItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A090B27D3A6AC0092E89A /* PedidoItemTableViewCell.xib */; };
+		7C0A091027D41D530092E89A /* TarjetaNuevaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A090E27D41D530092E89A /* TarjetaNuevaTableViewCell.swift */; };
+		7C0A091127D41D530092E89A /* TarjetaNuevaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A090F27D41D530092E89A /* TarjetaNuevaTableViewCell.xib */; };
+		7C0A091427D44C2E0092E89A /* TarjetaOxxoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A091227D44C2E0092E89A /* TarjetaOxxoTableViewCell.swift */; };
+		7C0A091527D44C2E0092E89A /* TarjetaOxxoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A091327D44C2E0092E89A /* TarjetaOxxoTableViewCell.xib */; };
 		7C32F4C427CE71FD00C3A33C /* FinPedidoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4C327CE71FD00C3A33C /* FinPedidoViewController.swift */; };
 		7C32F4C727D030B300C3A33C /* ListaTarjetasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4C627D030B300C3A33C /* ListaTarjetasViewController.swift */; };
 		7C32F4C927D030C000C3A33C /* AgregarTarjetaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4C827D030C000C3A33C /* AgregarTarjetaViewController.swift */; };
@@ -319,6 +323,10 @@
 		79B3EAF956F1B8B3139D70DA /* Pods-CocoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CocoTests/Pods-CocoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7C0A090A27D3A6AC0092E89A /* PedidoItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedidoItemTableViewCell.swift; sourceTree = "<group>"; };
 		7C0A090B27D3A6AC0092E89A /* PedidoItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PedidoItemTableViewCell.xib; sourceTree = "<group>"; };
+		7C0A090E27D41D530092E89A /* TarjetaNuevaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarjetaNuevaTableViewCell.swift; sourceTree = "<group>"; };
+		7C0A090F27D41D530092E89A /* TarjetaNuevaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TarjetaNuevaTableViewCell.xib; sourceTree = "<group>"; };
+		7C0A091227D44C2E0092E89A /* TarjetaOxxoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarjetaOxxoTableViewCell.swift; sourceTree = "<group>"; };
+		7C0A091327D44C2E0092E89A /* TarjetaOxxoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TarjetaOxxoTableViewCell.xib; sourceTree = "<group>"; };
 		7C32F4C327CE71FD00C3A33C /* FinPedidoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinPedidoViewController.swift; sourceTree = "<group>"; };
 		7C32F4C627D030B300C3A33C /* ListaTarjetasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTarjetasViewController.swift; sourceTree = "<group>"; };
 		7C32F4C827D030C000C3A33C /* AgregarTarjetaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarTarjetaViewController.swift; sourceTree = "<group>"; };
@@ -1127,6 +1135,10 @@
 				C36BE0E0253BF56B0058F3CE /* MyPaymentsTableViewCell.xib */,
 				C3EB42F425E0A0260021BA85 /* MyCocoCardsTableViewCell.swift */,
 				C3EB42F525E0A0260021BA85 /* MyCocoCardsTableViewCell.xib */,
+				7C0A090E27D41D530092E89A /* TarjetaNuevaTableViewCell.swift */,
+				7C0A090F27D41D530092E89A /* TarjetaNuevaTableViewCell.xib */,
+				7C0A091227D44C2E0092E89A /* TarjetaOxxoTableViewCell.swift */,
+				7C0A091327D44C2E0092E89A /* TarjetaOxxoTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1822,6 +1834,7 @@
 				C3890C2E2521AA2B0055C7A3 /* Poppins-Black.ttf in Resources */,
 				C34466EE22CAE65400A11433 /* FavoritesTableViewCell.xib in Resources */,
 				C35572A122CA81B900FC5C89 /* MenuTableViewCell.xib in Resources */,
+				7C0A091527D44C2E0092E89A /* TarjetaOxxoTableViewCell.xib in Resources */,
 				C348F13B22CB863A000F185C /* BalanceVC.xib in Resources */,
 				C3890C352521AA2B0055C7A3 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				C348F15A22CBC938000F185C /* PaymentFormsVC.xib in Resources */,
@@ -1831,6 +1844,7 @@
 				C3890C332521AA2B0055C7A3 /* Poppins-ExtraBoldItalic.ttf in Resources */,
 				C35572BA22CA946D00FC5C89 /* SettingsVC.xib in Resources */,
 				C348F13722CB7F76000F185C /* OrderTableViewCell.xib in Resources */,
+				7C0A091127D41D530092E89A /* TarjetaNuevaTableViewCell.xib in Resources */,
 				9D8DF17824A19AAE00774361 /* giftDetailImagesTableViewCell.xib in Resources */,
 				C3890C3C2521AA2B0055C7A3 /* Poppins-SemiBold.ttf in Resources */,
 				C35572BF22CAB7DD00FC5C89 /* BusinessTableViewCell.xib in Resources */,
@@ -2048,6 +2062,7 @@
 				C34466E222CAC4BA00A11433 /* RegisterVC.swift in Sources */,
 				C3890C2D2521A7D80055C7A3 /* UIStoryboard+Extensions.swift in Sources */,
 				CFBC53A52406EADB00D4FF95 /* addNewPromoCodeViewController.swift in Sources */,
+				7C0A091027D41D530092E89A /* TarjetaNuevaTableViewCell.swift in Sources */,
 				C3133F1825AC903000220CB1 /* LocationManager.swift in Sources */,
 				C36BE14E253D50210058F3CE /* ProductCartTableViewCell.swift in Sources */,
 				CFBC53A12406DC7500D4FF95 /* promoCodesTableViewCell.swift in Sources */,
@@ -2163,6 +2178,7 @@
 				C36553E82530158900733EEE /* LocationsListViewController.swift in Sources */,
 				C3415F46253273A300D0CD2B /* ProductsFetcher.swift in Sources */,
 				C34466E022CAC3F600A11433 /* LoginVC.swift in Sources */,
+				7C0A091427D44C2E0092E89A /* TarjetaOxxoTableViewCell.swift in Sources */,
 				C3415F3225302E0100D0CD2B /* CategoriesListViewController.swift in Sources */,
 				EF493C042793DC9F007048FE /* PedidosViewController.swift in Sources */,
 			);

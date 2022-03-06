@@ -45,10 +45,21 @@ class RestaurantePickupViewController: UIViewController {
         vistaProducto.layer.shadowRadius = 3
         
         btnConfirmar.layer.cornerRadius = 20
+        
+        
     }
     
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func confirmarAction(_ sender: UIButton) {
+        Constatns.LocalData.metodoPickup = 1
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers
+        for aViewController in viewControllers {
+            if aViewController is DetallePedidoViewController {
+                self.navigationController!.popToViewController(aViewController, animated: true)
+            }
+        }
+    }
 }

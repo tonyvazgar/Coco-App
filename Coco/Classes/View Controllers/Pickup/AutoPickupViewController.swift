@@ -14,6 +14,12 @@ class AutoPickupViewController: UIViewController {
     @IBOutlet weak var vistaTarjeta: UIView!
     @IBOutlet weak var vistaHeader: UIView!
     
+    @IBOutlet weak var txtMarca: UITextField!
+    @IBOutlet weak var txtColor: UITextField!
+    
+    @IBOutlet weak var placas: UITextField!
+    @IBOutlet weak var txtPlacas: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,7 +42,9 @@ class AutoPickupViewController: UIViewController {
         vistaHeader.layer.shadowOpacity = 0.7
         vistaHeader.layer.shadowRadius = 15
         
-        
+        txtMarca.text = Constatns.LocalData.marcaCarro
+        txtColor.text = Constatns.LocalData.colorCarro
+        txtPlacas.text = Constatns.LocalData.placasCarro
     }
     
 
@@ -44,4 +52,31 @@ class AutoPickupViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func confirmarAction(_ sender: UIButton) {
+        if txtMarca.text!.isEmpty {
+            throwError(str: "Escibe la marca del carro")
+            return
+        }
+        
+        if txtColor.text!.isEmpty {
+            throwError(str: "Escibe el color carro")
+            return
+        }
+        
+        Constatns.LocalData.metodoPickup = 2
+        
+        Constatns.LocalData.marcaCarro = txtMarca.text!
+        Constatns.LocalData.colorCarro = txtColor.text!
+        Constatns.LocalData.placasCarro = txtPlacas.text!
+        
+        
+        let viewControllers: [UIViewController] = self.navigationController!.viewControllers
+        for aViewController in viewControllers {
+            if aViewController is DetallePedidoViewController {
+                self.navigationController!.popToViewController(aViewController, animated: true)
+            }
+        }
+        
+        
+    }
 }

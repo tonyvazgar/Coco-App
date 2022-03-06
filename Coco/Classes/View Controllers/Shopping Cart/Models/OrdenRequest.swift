@@ -43,7 +43,7 @@ struct paymentCanasta : Codable {
     var forma_pago : String
     var token_cliente : String
     var token_card : String
-    var new_card : [new_cardCanasta]
+    var token_id : String
 }
 
 struct  new_cardCanasta : Codable {

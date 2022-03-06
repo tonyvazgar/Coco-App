@@ -182,7 +182,7 @@ final class ProductsFetcher {
             "id_product": productId
         ]
         
-        Alamofire.request(General.endpoint, method: .post, parameters: data).responseData { (response) in
+        Alamofire.request(General.endpoint, method: .post, parameters: data).responseJSON { (response) in
             print("Response product detail")
             print(response.debugDescription)
             

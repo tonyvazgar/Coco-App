@@ -399,6 +399,9 @@
                                 <state key="normal" title="Confirmar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="confirmarAction:" destination="We6-YR-tN3" eventType="touchUpInside" id="5pD-0Z-JO5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="W7i-MX-LuO"/>
@@ -538,7 +541,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Tg-59-aqv">
                                                         <rect key="frame" x="20" y="266" width="324" height="78"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marca de auto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDn-eV-Fci">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color de auto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDn-eV-Fci">
                                                                 <rect key="frame" x="0.0" y="0.0" width="324" height="21"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="21" id="opt-xo-GYo"/>
@@ -581,7 +584,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qOR-b1-1Gx">
                                                         <rect key="frame" x="20" y="359" width="324" height="78"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marca de auto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lz2-Ea-r2q">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placas (opcional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lz2-Ea-r2q">
                                                                 <rect key="frame" x="0.0" y="0.0" width="324" height="21"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="21" id="04Y-or-jIV"/>
@@ -654,6 +657,9 @@
                                                 <state key="normal" title="Confirmar">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="confirmarAction:" destination="jQP-JB-r58" eventType="touchUpInside" id="w0Q-01-48B"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -726,6 +732,10 @@
                     </view>
                     <connections>
                         <outlet property="btnConfirmar" destination="izY-B9-oZ7" id="aRt-Db-7zc"/>
+                        <outlet property="placas" destination="Xzw-Hx-Mxl" id="PP1-gY-iXs"/>
+                        <outlet property="txtColor" destination="TtC-9m-IIY" id="5G2-Er-bTo"/>
+                        <outlet property="txtMarca" destination="TDb-14-d94" id="X3e-HP-6r1"/>
+                        <outlet property="txtPlacas" destination="Xzw-Hx-Mxl" id="Xev-yo-i6T"/>
                         <outlet property="vistaHeader" destination="QUd-Rz-m8U" id="EY9-C4-7ys"/>
                         <outlet property="vistaTarjeta" destination="9Oe-Ot-oxF" id="gUS-Qx-8AX"/>
                     </connections>
@@ -919,6 +929,9 @@
                                 <state key="normal" title="Confirmar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="confirmarAction:" destination="qVh-fb-xPC" eventType="touchUpInside" id="kyO-U5-9i0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9Js-Se-WIv"/>
