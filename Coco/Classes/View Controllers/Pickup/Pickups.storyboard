@@ -323,7 +323,7 @@
                                                     <constraint firstItem="XIP-pw-1qO" firstAttribute="leading" secondItem="nVt-Pl-cqQ" secondAttribute="leading" id="kP5-oz-QXJ"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shirushi Cholula" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrp-D9-a3S">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shirushi Cholula" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="yrp-D9-a3S">
                                                 <rect key="frame" x="115" y="12" width="217" height="22"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -424,6 +424,10 @@
                     <connections>
                         <outlet property="btnConfirmar" destination="R0a-1q-YlW" id="LI1-HG-esz"/>
                         <outlet property="imgProducto" destination="XIP-pw-1qO" id="888-Rf-tZx"/>
+                        <outlet property="imgRestaurante" destination="XIP-pw-1qO" id="Qgg-H4-toG"/>
+                        <outlet property="lblDireccionLocation" destination="fRO-yj-FUp" id="Fdu-As-RIJ"/>
+                        <outlet property="lblHorarioLocation" destination="hnD-d5-shv" id="VI0-B1-AJa"/>
+                        <outlet property="lblNombreLocation" destination="yrp-D9-a3S" id="eFz-9l-ZiC"/>
                         <outlet property="vistaHeader" destination="mIE-wb-ra9" id="lhd-ca-ppN"/>
                         <outlet property="vistaProducto" destination="nVt-Pl-cqQ" id="jF2-e8-PlJ"/>
                         <outlet property="vistaTarjeta" destination="BT7-QH-gLG" id="35e-fM-pbv"/>
@@ -853,7 +857,7 @@
                                                     <constraint firstItem="Amp-pS-ZWm" firstAttribute="leading" secondItem="PYk-IF-mPB" secondAttribute="leading" id="X5d-U0-wsY"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shirushi Cholula" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-ft-BAF">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shirushi Cholula" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-ft-BAF">
                                                 <rect key="frame" x="115" y="12" width="217" height="22"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -954,6 +958,10 @@
                     <connections>
                         <outlet property="btnConfirmar" destination="WGS-T7-FX3" id="99U-mj-RYN"/>
                         <outlet property="imgProducto" destination="Amp-pS-ZWm" id="hvX-eY-K8N"/>
+                        <outlet property="imgRestaurante" destination="Amp-pS-ZWm" id="67i-Fn-hoc"/>
+                        <outlet property="lblDireccionLocation" destination="D7P-zt-VMn" id="PQ0-7c-GB6"/>
+                        <outlet property="lblHorarioLocation" destination="XIb-33-qc7" id="XRI-Iv-Kqm"/>
+                        <outlet property="lblNombreLocation" destination="ovB-ft-BAF" id="03u-7o-X55"/>
                         <outlet property="vistaHeader" destination="9e8-sq-1kP" id="r6t-uL-5xZ"/>
                         <outlet property="vistaProducto" destination="PYk-IF-mPB" id="vfX-Hf-6Eu"/>
                         <outlet property="vistaTarjeta" destination="GXk-mr-l4F" id="Fsz-Bz-qjW"/>

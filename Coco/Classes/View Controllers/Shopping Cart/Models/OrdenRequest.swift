@@ -21,7 +21,7 @@ struct OrdenRequest : Codable {
     var comments : String
     var pickup : pickupCanasta
     var payment : paymentCanasta
-    
+    var amount_cocopoints : Double
     
     func asDictionary() throws -> [String: Any] {
         let data = try JSONEncoder().encode(self)

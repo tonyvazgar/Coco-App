@@ -22,7 +22,7 @@ final class ProductsFetcher {
         
         print(data)
         
-        Alamofire.request(General.endpoint, method: .post, parameters: data).responseJSON { (response) in
+        Alamofire.request(General.endpoint, method: .post, parameters: data).responseData { (response) in
             
             print(response.debugDescription)
             guard let data = response.result.value else {
@@ -181,27 +181,28 @@ final class ProductsFetcher {
             "id_user": UserManagement.shared.id_user!,
             "id_product": productId
         ]
-        
-        Alamofire.request(General.endpoint, method: .post, parameters: data).responseJSON { (response) in
+        print("Request:\(data)")
+        Alamofire.request(General.endpoint, method: .post, parameters: data).responseData { (response) in
             print("Response product detail")
             print(response.debugDescription)
             
+            print("1")
             guard let data = response.result.value else {
                 completion(.failure(FetcherErrors.invalidResponse))
                 return
             }
-            
+            print("2")
             guard let dictionary = JSON(data).dictionary else {
                 completion(.failure(FetcherErrors.jsonMapping))
                 return
             }
-            
+            print("3")
             guard dictionary["state"] == "200" else {
                 let error = dictionary["status_msg"]?.string
                 completion(.failure(FetcherErrors.statusCode(error)))
                 return
             }
-            
+            print("4")
             if let json = response.data {
                 let respuesta = try! JSONDecoder().decode(ProducDetailResponse.self, from: json)
                 completion(.success(respuesta))

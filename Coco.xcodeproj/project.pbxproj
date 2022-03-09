@@ -14,6 +14,13 @@
 		7C0A091127D41D530092E89A /* TarjetaNuevaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A090F27D41D530092E89A /* TarjetaNuevaTableViewCell.xib */; };
 		7C0A091427D44C2E0092E89A /* TarjetaOxxoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A091227D44C2E0092E89A /* TarjetaOxxoTableViewCell.swift */; };
 		7C0A091527D44C2E0092E89A /* TarjetaOxxoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A091327D44C2E0092E89A /* TarjetaOxxoTableViewCell.xib */; };
+		7C0A091827D721E20092E89A /* PedidoPreparacionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A091627D721E20092E89A /* PedidoPreparacionTableViewCell.swift */; };
+		7C0A091927D721E20092E89A /* PedidoPreparacionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A091727D721E20092E89A /* PedidoPreparacionTableViewCell.xib */; };
+		7C0A091C27D72CBA0092E89A /* PedidoListoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A091A27D72CBA0092E89A /* PedidoListoTableViewCell.swift */; };
+		7C0A091D27D72CBA0092E89A /* PedidoListoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A091B27D72CBA0092E89A /* PedidoListoTableViewCell.xib */; };
+		7C0A092027D7B97B0092E89A /* PedidoEntregadoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A091E27D7B97B0092E89A /* PedidoEntregadoTableViewCell.swift */; };
+		7C0A092127D7B97B0092E89A /* PedidoEntregadoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A091F27D7B97B0092E89A /* PedidoEntregadoTableViewCell.xib */; };
+		7C0A092727D833D00092E89A /* lf30_editor_xv20qsja.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A092627D833CF0092E89A /* lf30_editor_xv20qsja.json */; };
 		7C32F4C427CE71FD00C3A33C /* FinPedidoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4C327CE71FD00C3A33C /* FinPedidoViewController.swift */; };
 		7C32F4C727D030B300C3A33C /* ListaTarjetasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4C627D030B300C3A33C /* ListaTarjetasViewController.swift */; };
 		7C32F4C927D030C000C3A33C /* AgregarTarjetaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4C827D030C000C3A33C /* AgregarTarjetaViewController.swift */; };
@@ -327,6 +334,13 @@
 		7C0A090F27D41D530092E89A /* TarjetaNuevaTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TarjetaNuevaTableViewCell.xib; sourceTree = "<group>"; };
 		7C0A091227D44C2E0092E89A /* TarjetaOxxoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarjetaOxxoTableViewCell.swift; sourceTree = "<group>"; };
 		7C0A091327D44C2E0092E89A /* TarjetaOxxoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TarjetaOxxoTableViewCell.xib; sourceTree = "<group>"; };
+		7C0A091627D721E20092E89A /* PedidoPreparacionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedidoPreparacionTableViewCell.swift; sourceTree = "<group>"; };
+		7C0A091727D721E20092E89A /* PedidoPreparacionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PedidoPreparacionTableViewCell.xib; sourceTree = "<group>"; };
+		7C0A091A27D72CBA0092E89A /* PedidoListoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedidoListoTableViewCell.swift; sourceTree = "<group>"; };
+		7C0A091B27D72CBA0092E89A /* PedidoListoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PedidoListoTableViewCell.xib; sourceTree = "<group>"; };
+		7C0A091E27D7B97B0092E89A /* PedidoEntregadoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedidoEntregadoTableViewCell.swift; sourceTree = "<group>"; };
+		7C0A091F27D7B97B0092E89A /* PedidoEntregadoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PedidoEntregadoTableViewCell.xib; sourceTree = "<group>"; };
+		7C0A092627D833CF0092E89A /* lf30_editor_xv20qsja.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lf30_editor_xv20qsja.json; sourceTree = "<group>"; };
 		7C32F4C327CE71FD00C3A33C /* FinPedidoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinPedidoViewController.swift; sourceTree = "<group>"; };
 		7C32F4C627D030B300C3A33C /* ListaTarjetasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTarjetasViewController.swift; sourceTree = "<group>"; };
 		7C32F4C827D030C000C3A33C /* AgregarTarjetaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarTarjetaViewController.swift; sourceTree = "<group>"; };
@@ -1237,6 +1251,12 @@
 				C394ACA9253D7A7E00066E96 /* OrderDetailProductTableViewCell.xib */,
 				7C0A090A27D3A6AC0092E89A /* PedidoItemTableViewCell.swift */,
 				7C0A090B27D3A6AC0092E89A /* PedidoItemTableViewCell.xib */,
+				7C0A091627D721E20092E89A /* PedidoPreparacionTableViewCell.swift */,
+				7C0A091727D721E20092E89A /* PedidoPreparacionTableViewCell.xib */,
+				7C0A091A27D72CBA0092E89A /* PedidoListoTableViewCell.swift */,
+				7C0A091B27D72CBA0092E89A /* PedidoListoTableViewCell.xib */,
+				7C0A091E27D7B97B0092E89A /* PedidoEntregadoTableViewCell.swift */,
+				7C0A091F27D7B97B0092E89A /* PedidoEntregadoTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1370,6 +1390,7 @@
 			isa = PBXGroup;
 			children = (
 				C34CF08B25ACDB4400C9E99B /* 4964-check-mark-success-animation.json */,
+				7C0A092627D833CF0092E89A /* lf30_editor_xv20qsja.json */,
 				CFD9D35923ECBD0300DACF9E /* checkmark.mp4 */,
 				9DF017FC249D0D1B003F14BF /* gift.mp4 */,
 				C3A161DE22B9B38900076DD8 /* Coco */,
@@ -1791,6 +1812,7 @@
 				CFD9D35623EC949C00DACF9E /* doneModalViewController.xib in Resources */,
 				C3A1623022B9BD4200076DD8 /* MyriadPro-BlackSemiCn.otf in Resources */,
 				C35572B622CA93C000FC5C89 /* OrdersVC.xib in Resources */,
+				7C0A092727D833D00092E89A /* lf30_editor_xv20qsja.json in Resources */,
 				7CE5362F27C10D7A00C52F85 /* CategoryV2CollectionViewCell.xib in Resources */,
 				C36553CB252D69BF00733EEE /* SideMenu.storyboard in Resources */,
 				C348F14922CB9258000F185C /* CategoriesVC.xib in Resources */,
@@ -1804,6 +1826,7 @@
 				7CCAB79C27C7C6D800DC9961 /* ProductStepperTableViewCell.xib in Resources */,
 				CFD9D35A23ECBD0400DACF9E /* checkmark.mp4 in Resources */,
 				C3A161ED22B9B38C00076DD8 /* LaunchScreen.storyboard in Resources */,
+				7C0A092127D7B97B0092E89A /* PedidoEntregadoTableViewCell.xib in Resources */,
 				C34CF08C25ACDB4400C9E99B /* 4964-check-mark-success-animation.json in Resources */,
 				C3DD1FCE255A548A002A5B5C /* Deposits.storyboard in Resources */,
 				9DD30B2B2499862D009C7FD0 /* giftsTableViewCell.xib in Resources */,
@@ -1815,6 +1838,7 @@
 				C36553D2252EC04300733EEE /* SideMenuTableViewCell.xib in Resources */,
 				C3890C3E2521AA2B0055C7A3 /* Poppins-Thin.ttf in Resources */,
 				C3DD1FE0255A58CF002A5B5C /* DepositsTableViewCell.xib in Resources */,
+				7C0A091D27D72CBA0092E89A /* PedidoListoTableViewCell.xib in Resources */,
 				C35572B222CA932700FC5C89 /* FavoritesVC.xib in Resources */,
 				C3415F4225302EAF00D0CD2B /* ProductTableViewCell.xib in Resources */,
 				C38696A8253D693D006FE5C1 /* Orders.storyboard in Resources */,
@@ -1841,6 +1865,7 @@
 				C36553C4252D5F1300733EEE /* TabBar.storyboard in Resources */,
 				C34466E922CAE63B00A11433 /* ProductsTableViewCell.xib in Resources */,
 				C36553C7252D651600733EEE /* Home.storyboard in Resources */,
+				7C0A091927D721E20092E89A /* PedidoPreparacionTableViewCell.xib in Resources */,
 				C3890C332521AA2B0055C7A3 /* Poppins-ExtraBoldItalic.ttf in Resources */,
 				C35572BA22CA946D00FC5C89 /* SettingsVC.xib in Resources */,
 				C348F13722CB7F76000F185C /* OrderTableViewCell.xib in Resources */,
@@ -2039,6 +2064,7 @@
 				C35572AD22CA910600FC5C89 /* ProfileVC.swift in Sources */,
 				C3B06FEA23033B8200E03EC2 /* ForgotPasswordVC.swift in Sources */,
 				C35572BE22CAB7DD00FC5C89 /* BusinessTableViewCell.swift in Sources */,
+				7C0A092027D7B97B0092E89A /* PedidoEntregadoTableViewCell.swift in Sources */,
 				C386700B256F694500C967CB /* SearchBarTableHeaderView.swift in Sources */,
 				C348F16022CBCBD5000F185C /* PaymentForms.swift in Sources */,
 				C348F15022CB991D000F185C /* ProductsVC.swift in Sources */,
@@ -2103,6 +2129,7 @@
 				C3C0F36C22D3C1EE00B03F62 /* SchoolModal.swift in Sources */,
 				9DA878D424048428001F8FAF /* newCodeViewController.swift in Sources */,
 				7CCAB79427C7BE3800DC9961 /* Checkbox.swift in Sources */,
+				7C0A091827D721E20092E89A /* PedidoPreparacionTableViewCell.swift in Sources */,
 				C3C0F37C22D3D4B000B03F62 /* Conekta.m in Sources */,
 				C3415F3B25302E8500D0CD2B /* ProductsContainerViewController.swift in Sources */,
 				C36553D8252ECE2C00733EEE /* HomeFetcher.swift in Sources */,
@@ -2166,6 +2193,7 @@
 				7C0A090C27D3A6AC0092E89A /* PedidoItemTableViewCell.swift in Sources */,
 				C36BE0D2253BF1440058F3CE /* PaymentListViewController.swift in Sources */,
 				C3B06FE623032CF400E03EC2 /* PushNotificationManager.swift in Sources */,
+				7C0A091C27D72CBA0092E89A /* PedidoListoTableViewCell.swift in Sources */,
 				C394ACAA253D7A7E00066E96 /* OrderDetailProductTableViewCell.swift in Sources */,
 				9D1769A824852E6300EE1E52 /* orderEstimatedTime.swift in Sources */,
 				C348F14822CB9258000F185C /* CategoriesVC.swift in Sources */,
@@ -2365,7 +2393,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Coco/Coco.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = CGP7LW6Y94;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Coco/Info.plist;
@@ -2396,7 +2424,7 @@
 				CODE_SIGN_ENTITLEMENTS = Coco/Coco.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 13;
 				DEVELOPMENT_TEAM = CGP7LW6Y94;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Coco/Info.plist;

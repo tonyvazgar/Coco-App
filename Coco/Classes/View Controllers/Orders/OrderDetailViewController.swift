@@ -95,7 +95,7 @@ private extension OrderDetailViewController {
         locationLabel.text = "\(orderDetail.order.business ?? "--")"
 
         orderTotalLabel.text = orderDetail.order.total
-        orderDescriptionLabel.text = orderDetail.order.comments
+       // orderDescriptionLabel.text = orderDetail.order.comments
         guard let tipPercentage = orderDetail.order.tipPercentage else {
             tipLabel.text = "0 %"
           return

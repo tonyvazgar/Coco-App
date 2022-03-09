@@ -13,7 +13,7 @@ class PickUpListViewController: UIViewController {
     @IBOutlet weak var vistaRestaurante: UIView!
     @IBOutlet weak var vistaAuto: UIView!
     @IBOutlet weak var vistaLugar: UIView!
-    
+    var location: LocationsDataModel?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,7 +48,7 @@ class PickUpListViewController: UIViewController {
     
     @IBAction func restauranteAction(_ sender: UIButton) {
         let viewController = UIStoryboard.pickups.instantiate(RestaurantePickupViewController.self)
-        
+        viewController.location = self.location
         navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -60,7 +60,7 @@ class PickUpListViewController: UIViewController {
     
     @IBAction func lugarAction(_ sender: UIButton) {
         let viewController = UIStoryboard.pickups.instantiate(LugarPickupViewController.self)
-        
+        viewController.location = self.location
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

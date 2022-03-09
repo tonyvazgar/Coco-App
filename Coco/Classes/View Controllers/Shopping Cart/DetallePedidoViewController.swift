@@ -24,6 +24,7 @@ class DetallePedidoViewController: UIViewController {
     @IBOutlet weak var vistaOtrosMetodosPago: UIView!
     @IBOutlet weak var vistaCocoPoints: UIView!
     
+    @IBOutlet weak var imgPickUp: UIImageView!
     
     @IBOutlet weak var vistaMetodoPickup: UIView!
     @IBOutlet weak var vistaIconoPickup: UIView!
@@ -48,6 +49,7 @@ class DetallePedidoViewController: UIViewController {
     @IBOutlet weak var lblPropina2: UILabel!
     @IBOutlet weak var lblPropina3: UILabel!
     @IBOutlet weak var lblPickupSeleccionado: UILabel!
+    @IBOutlet weak var lblTitlePropina: UILabel!
     
     
     
@@ -58,7 +60,7 @@ class DetallePedidoViewController: UIViewController {
     @IBOutlet weak var lblCocoPoints: UILabel!
     
     
-    var categoryId: String?
+    
     var location: LocationsDataModel?
     var arrCanasta : [pedidoObject] = [pedidoObject]()
     var subTotal : Double = 0
@@ -171,8 +173,19 @@ class DetallePedidoViewController: UIViewController {
         lblSubTotal.text = "$\(self.subTotal)"
         propina = (Double(self.porcentagePropina) * self.subTotal) / 100
         lblPropina.text = "$\(propina)"
-        lblTotal.text = "$\(propina + subTotal)"
-        self.total = propina + subTotal
+        
+        let totalNORound  = propina + subTotal
+        let totalRound = round(totalNORound * 100) / 100.0
+        lblTotal.text = "$\(totalRound)"
+        self.total = totalRound
+        
+        
+        if Constatns.LocalData.aceptaPropina == "false" {
+            self.vistaPropina1.visibility = .gone
+            self.vistaPropina2.visibility = .gone
+            self.vistaPropina3.visibility = .gone
+            lblTitlePropina.visibility = .gone
+        }
     }
     
     
@@ -189,16 +202,19 @@ class DetallePedidoViewController: UIViewController {
         case 1:
             lblPickupSeleccionado.text = "Para llevar"
             lblPickupSeleccionado.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            imgPickUp.image = #imageLiteral(resourceName: "VectorpickupIcon")
             pickUp = 1
             break
         case 2:
             lblPickupSeleccionado.text = "En auto"
             lblPickupSeleccionado.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            imgPickUp.image = #imageLiteral(resourceName: "VectorautoIcon")
             pickUp = 2
             break
         case 3:
             lblPickupSeleccionado.text = "Comer en tienda"
             lblPickupSeleccionado.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            imgPickUp.image = #imageLiteral(resourceName: "VectorlugarIcon")
             pickUp = 3
             break
         default:
@@ -216,14 +232,14 @@ class DetallePedidoViewController: UIViewController {
             vistaCocoPoints.layer.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
             
             switch  Constatns.LocalData.paymentCanasta.tipoTarjeta {
-            case "visa":
+            case "visa","Visa"://mayuscula o minuscula
                 imgtarjeta.image = #imageLiteral(resourceName: "visa_sola")
                 break
-            case "mastercard":
+            case "mastercard","MasterCard":
                 imgtarjeta.image = #imageLiteral(resourceName: "mastercard")
                 
                 break
-            case "amex":
+            case "american_express","American Express":
                 imgtarjeta.image = #imageLiteral(resourceName: "amex")
                 break
             case "oxxo":
@@ -264,79 +280,154 @@ class DetallePedidoViewController: UIViewController {
     @IBAction func selectPickupAction(_ sender: UIButton) {
         
         let viewController = UIStoryboard.pickups.instantiate(PickUpListViewController.self)
-        
+        viewController.location = self.location
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     @IBAction func selectPaymentMethodAction(_ sender: UIButton){
         let viewController = UIStoryboard.payments.instantiate(ListaTarjetasViewController.self)
-    
+        viewController.isFromOrder = true
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     @IBAction func selectCocopoints(_ sender: UIButton) {
-        lblTituloPago.text = "Pago por coco points"
-        lblnombreTarjeta.text = ""
-        lblNUmerotarjeta.text = ""
-        imgtarjeta.image = #imageLiteral(resourceName: "iconotarjetacoco_v2")
+        if Constatns.LocalData.paymentCanasta.forma_pago == 4 {
+            vistaOtrosMetodosPago.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            vistaCocoPoints.layer.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            
+            
+            lblTituloPago.text = "Selecciona método pago"
+            lblnombreTarjeta.text = ""
+            lblNUmerotarjeta.text = ""
+            imgtarjeta.image = #imageLiteral(resourceName: "iconotarjetacoco_v2")
+            
+            Constatns.LocalData.paymentCanasta.tipoTarjeta = ""
+            //Nuevatarjeta
+            Constatns.LocalData.paymentCanasta.forma_pago = 0
+            Constatns.LocalData.paymentCanasta.token_id = ""
+            Constatns.LocalData.paymentCanasta.token_cliente = ""
+            Constatns.LocalData.paymentCanasta.token_card = ""
+            Constatns.LocalData.paymentCanasta.numeroTarjeta = ""
+        }
+        else {
+            lblTituloPago.text = "Pago por coco points"
+            lblnombreTarjeta.text = ""
+            lblNUmerotarjeta.text = ""
+            imgtarjeta.image = #imageLiteral(resourceName: "iconotarjetacoco_v2")
+            
+            vistaOtrosMetodosPago.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            vistaCocoPoints.layer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            
+            Constatns.LocalData.paymentCanasta.tipoTarjeta = "cocopoints"
+            //Nuevatarjeta
+            Constatns.LocalData.paymentCanasta.forma_pago = 4
+            Constatns.LocalData.paymentCanasta.token_id = ""
+            Constatns.LocalData.paymentCanasta.token_cliente = ""
+            Constatns.LocalData.paymentCanasta.token_card = ""
+            Constatns.LocalData.paymentCanasta.numeroTarjeta = ""
+        }
         
-        vistaOtrosMetodosPago.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
-        vistaCocoPoints.layer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        
-        Constatns.LocalData.paymentCanasta.tipoTarjeta = "cocopoints"
-        //Nuevatarjeta
-        Constatns.LocalData.paymentCanasta.forma_pago = 4
-        Constatns.LocalData.paymentCanasta.token_id = ""
-        Constatns.LocalData.paymentCanasta.token_cliente = ""
-        Constatns.LocalData.paymentCanasta.token_card = ""
-        Constatns.LocalData.paymentCanasta.numeroTarjeta = ""
     }
     
     
     @IBAction func setPropinaCincoAction(_ sender: UIButton) {
-        vistaPropina1.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
-        lblPropina1.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        if porcentagePropina == 5 {
+            vistaPropina1.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+            lblPropina1.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            
+            vistaPropina2.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+            lblPropina2.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            
+            vistaPropina3.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+            lblPropina3.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            porcentagePropina = 0
+            recalcularTotal()
+        }
+        else {
+            vistaPropina1.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            lblPropina1.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            
+            vistaPropina2.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+            lblPropina2.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            
+            vistaPropina3.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+            lblPropina3.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            porcentagePropina = 5
+            recalcularTotal()
+        }
         
-        vistaPropina2.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
-        lblPropina2.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
-        
-        vistaPropina3.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
-        lblPropina3.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
-        porcentagePropina = 5
-        recalcularTotal()
         
     }
     func recalcularTotal(){
+        
+        let subTotalRound = round(self.subTotal * 100) / 100.0
+        self.subTotal = subTotalRound
         lblSubTotal.text = "$\(self.subTotal)"
-        propina = (Double(self.porcentagePropina) * self.subTotal) / 100
+        
+        let propinaCalc = (Double(self.porcentagePropina) * self.subTotal) / 100
+        let propinaRound = round(propinaCalc * 100) / 100.0
+        propina = propinaRound
         lblPropina.text = "$\(propina)"
-        lblTotal.text = "$\(propina + subTotal)"
-        self.total = propina + subTotal
+        
+        let totalCal = propina + subTotal
+        let totalRound = round(totalCal * 100) / 100.0
+        lblTotal.text = "$\(totalRound)"
+        self.total = totalRound
     }
     @IBAction func setPropina10Action(_ sender: UIButton) {
-        vistaPropina2.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
-        lblPropina2.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        if porcentagePropina == 10 {
+            vistaPropina1.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+            lblPropina1.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            
+            vistaPropina2.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+            lblPropina2.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            
+            vistaPropina3.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+            lblPropina3.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            porcentagePropina = 0
+            recalcularTotal()
+        }
+        else {
+            vistaPropina2.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            lblPropina2.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            
+            vistaPropina1.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+            lblPropina1.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            
+            vistaPropina3.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+            lblPropina3.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            porcentagePropina = 10
+            recalcularTotal()
+        }
         
-        vistaPropina1.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
-        lblPropina1.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
-        
-        vistaPropina3.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
-        lblPropina3.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
-        porcentagePropina = 10
-        recalcularTotal()
     }
     
     @IBAction func setPropina15Action(_ sender: UIButton) {
-        vistaPropina3.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
-        lblPropina3.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        if porcentagePropina == 15 {
+            vistaPropina1.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+            lblPropina1.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            
+            vistaPropina2.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+            lblPropina2.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            
+            vistaPropina3.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+            lblPropina3.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            porcentagePropina = 0
+            recalcularTotal()
+        }
+        else {
+            vistaPropina3.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            lblPropina3.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            
+            vistaPropina2.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+            lblPropina2.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            
+            vistaPropina1.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
+            lblPropina1.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
+            porcentagePropina = 15
+            recalcularTotal()
+        }
         
-        vistaPropina2.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
-        lblPropina2.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
-        
-        vistaPropina1.backgroundColor = #colorLiteral(red: 0.9647058824, green: 0.9647058824, blue: 0.9647058824, alpha: 1)
-        lblPropina1.textColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
-        porcentagePropina = 15
-        recalcularTotal()
     }
     
     @IBAction func hacerPedidoAction(_ sender: UIButton) {
@@ -411,8 +502,10 @@ class DetallePedidoViewController: UIViewController {
         
         let paimnetC : paymentCanasta = paymentCanasta(forma_pago: "\(Constatns.LocalData.paymentCanasta.forma_pago)", token_cliente: "\(Constatns.LocalData.paymentCanasta.token_cliente)", token_card: "\(Constatns.LocalData.paymentCanasta.token_card)",token_id: "\(Constatns.LocalData.paymentCanasta.token_id)")
         let pickCa  : pickupCanasta = pickupCanasta(id: "\(self.pickUp)", marca: "\(Constatns.LocalData.marcaCarro)", color: "\(Constatns.LocalData.colorCarro)", placas: "\(Constatns.LocalData.placasCarro)")
-        
-        let request : OrdenRequest = OrdenRequest(funcion: Routes.saveOrder, id_user: UserManagement.shared.id_user!, sub_amount: "\(self.subTotal)", percentage_service: "\(self.porcentagePropina)", amount_service: "\(self.propina)", amount_final: "\(self.total)", id_store: self.location!.id!, products: arrProductosCanasta, comments: txtComentarios.text!, pickup: pickCa, payment: paimnetC)
+        guard let user = UserManagement.shared.user else { return }
+        let cocoS = user.cocopoints_balance ?? "0"
+        let cocoDouble = Double(cocoS)!
+        let request : OrdenRequest = OrdenRequest(funcion: Routes.saveOrder, id_user: UserManagement.shared.id_user!, sub_amount: "\(self.subTotal)", percentage_service: "\(self.porcentagePropina)", amount_service: "\(self.propina)", amount_final: "\(self.total)", id_store: self.location!.id!, products: arrProductosCanasta, comments: txtComentarios.text!, pickup: pickCa, payment: paimnetC, amount_cocopoints: (total * 1000))
         
         do {
             // Create JSON Encoder
@@ -546,9 +639,16 @@ class DetallePedidoViewController: UIViewController {
                              // Present View "Modally"
                              self.present(newViewController, animated: true, completion: nil)*/
                          
+                            
+                            /*
                             let viewController = UIStoryboard.shoppingCart.instantiate(FinPedidoViewController.self)
                             
                             self.navigationController?.pushViewController(viewController, animated: true)
+                          */
+                            
+                            let nextViewController = UIStoryboard.shoppingCart.instantiate(FinPedidoViewController.self)
+                            nextViewController.modalPresentationStyle = .fullScreen
+                            self.present(nextViewController, animated:true, completion:nil)
                          }
                      })
                      
@@ -646,7 +746,8 @@ class DetallePedidoViewController: UIViewController {
             "products" : productos,
             "comments" : comments,
             "pickup" : pickup,
-            "payment" : payment
+            "payment" : payment,
+            "amount_cocopoints":"\(obj.amount_cocopoints)"
         ]
         
         let headers:HTTPHeaders=[
@@ -654,7 +755,7 @@ class DetallePedidoViewController: UIViewController {
         
         
        
-        Alamofire.request(General.endpoint, method: .post, parameters: data2).responseJSON { (response) in
+        Alamofire.request(General.endpoint, method: .post, parameters: data2).responseData { (response) in
              print("Product bought wih money")
              print(data2)
              print(response.debugDescription)

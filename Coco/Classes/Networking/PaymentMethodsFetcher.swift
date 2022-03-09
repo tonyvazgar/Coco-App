@@ -137,5 +137,33 @@ final class PaymentMethodsFetcher {
             completion(.success(()))
         }
     }
+    
+    static func deleteCard(token_cliente: String, token_card : String, completion: @escaping (Swift.Result<Void,Error>) -> Void) {
+        let data = [
+            "funcion": Routes.deleteCard,
+            "token_cliente": token_cliente,
+            "token_card": token_card
+        ]
+        
+        Alamofire.request(General.endpoint, method: .post, parameters: data).responseJSON { (response) in
+            guard let data = response.result.value else {
+                completion(.failure(FetcherErrors.invalidResponse))
+                return
+            }
+            
+            guard let dictionary = JSON(data).dictionary else {
+                completion(.failure(FetcherErrors.jsonMapping))
+                return
+            }
+            
+            guard dictionary["state"] == "200" else {
+                let error = dictionary["status_msg"]?.string
+                completion(.failure(FetcherErrors.statusCode(error)))
+                return
+            }
+            
+            completion(.success(()))
+        }
+    }
 }
 

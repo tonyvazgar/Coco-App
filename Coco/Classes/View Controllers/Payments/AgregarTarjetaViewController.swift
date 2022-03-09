@@ -8,7 +8,8 @@
 
 import UIKit
 import AnimatedCardInput
-
+import Alamofire
+import SwiftyJSON
 class AgregarTarjetaViewController: UIViewController, CreditCardDataDelegate {
     func beganEditing(in textFieldType: TextFieldType) {
         
@@ -37,6 +38,7 @@ class AgregarTarjetaViewController: UIViewController, CreditCardDataDelegate {
     
     var cardView : CardView?
     var loader: LoaderVC!
+    var isFromOrder : Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,12 +47,13 @@ class AgregarTarjetaViewController: UIViewController, CreditCardDataDelegate {
         cardView = CardView(
             cardNumberDigitsLimit: 16,
             cardNumberChunkLengths: [4, 4, 4, 4],
-            CVVNumberDigitsLimit: 3
+            CVVNumberDigitsLimit: 4
         )
         
         cardView!.cardholderNameTitle = "Nombre"
         cardView!.cardholderNamePlaceholder = "Nombre completo"
         cardView!.validityDateTitle = "Fecha"
+        //cardView!.CVVNumberEmptyCharacter
         vistaTarjeta.addSubview(cardView!)
         cardView!.creditCardDataDelegate = self
         NSLayoutConstraint.activate([
@@ -66,7 +69,7 @@ class AgregarTarjetaViewController: UIViewController, CreditCardDataDelegate {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
+  
     @IBAction func registrarTarjetaActipn(_ sender: UIButton) {
         let data = cardView!.creditCardData
         print("Nombre proveedor: \(data.cardProvider?.name ?? "")")
@@ -130,7 +133,7 @@ class AgregarTarjetaViewController: UIViewController, CreditCardDataDelegate {
         let conekta = Conekta()
         
         conekta.delegate = self
-        conekta.publicKey = "key_CLYZkCgpss3hHwqp1k5XfCw"
+        conekta.publicKey = Constatns.Conekta.publickKeyDevelop
         conekta.collectDevice()
         guard let card = conekta.card(), let token = conekta.token() else {
           throwError(str: "No se pudo procesar la tarjeta.")
@@ -140,7 +143,7 @@ class AgregarTarjetaViewController: UIViewController, CreditCardDataDelegate {
         card.setNumber(numeroTarjeta, name: nombreTarjeta, cvc: cvv, expMonth: mes, expYear: ano)
         token.card = card
         
-        token.create(success: { (data) -> Void in
+        token.create(success: { [self] (data) -> Void in
             
         print(data)
           guard let dataCard = data,
@@ -157,21 +160,40 @@ class AgregarTarjetaViewController: UIViewController, CreditCardDataDelegate {
             
             
             
-            Constatns.LocalData.paymentCanasta.tipoTarjeta = type
-            //Nuevatarjeta
-            Constatns.LocalData.paymentCanasta.forma_pago = 2
-            Constatns.LocalData.paymentCanasta.token_id = "\(id)"
-            Constatns.LocalData.paymentCanasta.token_cliente = ""
-            Constatns.LocalData.paymentCanasta.token_card = ""
-            Constatns.LocalData.paymentCanasta.numeroTarjeta = "\( String(numeroTarjeta.suffix(4)))"
             
             
-            let viewControllers: [UIViewController] = self.navigationController!.viewControllers
-            for aViewController in viewControllers {
-                if aViewController is DetallePedidoViewController {
-                    self.navigationController!.popToViewController(aViewController, animated: true)
+            
+            if isFromOrder == true {
+                Constatns.LocalData.paymentCanasta.tipoTarjeta = type
+                //Nuevatarjeta
+                Constatns.LocalData.paymentCanasta.forma_pago = 2
+                Constatns.LocalData.paymentCanasta.token_id = "\(id)"
+                Constatns.LocalData.paymentCanasta.token_cliente = ""
+                Constatns.LocalData.paymentCanasta.token_card = ""
+                Constatns.LocalData.paymentCanasta.numeroTarjeta = "\( String(numeroTarjeta.suffix(4)))"
+                
+                let viewControllers: [UIViewController] = self.navigationController!.viewControllers
+                for aViewController in viewControllers {
+                    if aViewController is DetallePedidoViewController {
+                        self.navigationController!.popToViewController(aViewController, animated: true)
+                    }
                 }
             }
+            else {
+                self.addNewCard(token_id: "\(id)", id_user: UserManagement.shared.id_user!, completion: { (result) in
+                    switch result {
+                    case .failure(let errorMssg):
+                      self.loader.removeAnimate()
+                      self.throwError(str: errorMssg)
+                    case .success(_):
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                })
+            }
+           
+            
+            
+            
             
             
             //self.navigationController?.popViewController(animated: true)
@@ -200,6 +222,53 @@ class AgregarTarjetaViewController: UIViewController, CreditCardDataDelegate {
 }
 
 extension AgregarTarjetaViewController  {
-    
+    func addNewCard(token_id :String , id_user: String,
+                      completion: @escaping(Result) -> Void){
+        
+       
+        var data2  : Parameters = [
+            "funcion" : Routes.addCardV2,
+            "token_id" : token_id,
+            "id_user" : "\(id_user)"
+        ]
+        
+        Alamofire.request(General.endpoint, method: .post, parameters: data2).responseData { (response) in
+             print("add card response")
+             print(data2)
+             print(response.debugDescription)
+            
+             if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                 print("Data: \(utf8Text)")
+                 let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+                 
+                 if let dictionary = json as? Dictionary<String, AnyObject> {
+                     if let info = dictionary["data"] as? Dictionary<String, Any> {
+                         print(info)
+                         
+                     }
+                 }
+                 
+             }
+             
+             guard let data = response.result.value else {
+                 completion(.failure("Error de conexión"))
+                 return
+             }
+             
+             guard let dictionary = JSON(data).dictionary else {
+                 completion(.failure("Error al obtener los datos"))
+                 return
+             }
+             
+             if dictionary["state"] != "200" {
+                 completion(.failure(dictionary["status_msg"]?.string ?? ""))
+                 return
+             }
+             completion(.success([]))
+         }
+        
+        
+         
+    }
     
 }

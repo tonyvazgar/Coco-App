@@ -8,6 +8,10 @@
 
 import UIKit
 
+
+protocol PedidoPendienteDelegate {
+    func comoLLegarPendiente(index : Int)
+}
 class PedidoItemTableViewCell: UITableViewCell {
 
     @IBOutlet weak var vistaTarjeta: UIView!
@@ -18,6 +22,9 @@ class PedidoItemTableViewCell: UITableViewCell {
     @IBOutlet weak var imgStatus: UIImageView!
     @IBOutlet weak var lblStatus: UILabel!
     @IBOutlet weak var btnOCmoLLegar: UIButton!
+    
+    
+    var delegate : PedidoPendienteDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -55,4 +62,7 @@ class PedidoItemTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func comoLlegarAction(_ sender: UIButton) {
+        delegate?.comoLLegarPendiente(index: sender.tag)
+    }
 }

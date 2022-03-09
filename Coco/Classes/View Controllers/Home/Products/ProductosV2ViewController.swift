@@ -30,6 +30,11 @@ class ProductosV2ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
+    @IBOutlet weak var imgCanasta: UIImageView!
+    @IBOutlet weak var vistaCanasta: UIView!
+    @IBOutlet weak var btnCanasta: UIButton!
+    @IBOutlet weak var lblProductosCanasta: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -62,13 +67,76 @@ class ProductosV2ViewController: UIViewController {
         viewProduct.layer.shadowOpacity = 0.4
         viewProduct.layer.shadowRadius = 6
         
+        //--Canasta
+        vistaCanasta.layer.cornerRadius = 15
+        btnCanasta.layer.cornerRadius = 15
+        btnCanasta.clipsToBounds = true
+        
+        
+        vistaCanasta.layer.shadowColor = UIColor.gray.cgColor
+        vistaCanasta.layer.shadowOffset = CGSize(width: 0, height: 3)
+        vistaCanasta.layer.shadowOpacity = 0.4
+        vistaCanasta.layer.shadowRadius = 2
+        lblProductosCanasta.layer.cornerRadius = 15/2
+        lblProductosCanasta.clipsToBounds = true
+        //________
+        
         tableView.register(UINib(nibName: "ProductV2TableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        vistaCanasta.visibility = .gone
         requestData()
     }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        getProductosCanasta()
+    }
+    
     @IBAction func backAction(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func irACanastaAction(_ sender: UIButton) {
+        let viewController = UIStoryboard.shoppingCart.instantiate(ShoppingCartV2ViewController.self)
+       
+        viewController.location = self.location
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func getProductosCanasta(){
+        var data = Constatns.LocalData.canasta
+        if data != nil {
+            do {
+                // Create JSON Decoder
+                let decoder = JSONDecoder()
+
+                // Decode Note
+                var canasta = try decoder.decode([pedidoObject].self, from: data!)
+                
+                var idcategoriaInt = Int(self.location?.id ?? "0")!
+                
+               
+                var arrProductosEncanasta : [pedidoObject] = [pedidoObject]()
+                for item in canasta {
+                    if item.negocioId == idcategoriaInt {
+                        arrProductosEncanasta.append(item)
+                    }
+                }
+                print("numero de productos: \(arrProductosEncanasta.count)")
+                if arrProductosEncanasta.count == 0 {
+                    self.vistaCanasta.visibility = .gone
+                }
+                else {
+                    self.vistaCanasta.visibility = .visible
+                    self.lblProductosCanasta.text = "\(arrProductosEncanasta.count)"
+                }
+
+            } catch {
+                print("Unable to Decode pedido (\(error))")
+            }
+        }
+        else {
+            print("no hay produictos en la canasta")
+        }
     }
     
     func requestData() {
@@ -149,6 +217,8 @@ extension ProductosV2ViewController : UITableViewDataSource, UITableViewDelegate
         viewController.productId = product.id
         viewController.location = location
         viewController.categoryId = self.categoryId!
+        
+        print("Id producto que se envia:\(product.id)")
         navigationController?.pushViewController(viewController, animated: true)
     }
     

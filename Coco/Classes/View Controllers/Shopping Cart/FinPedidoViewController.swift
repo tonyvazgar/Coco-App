@@ -7,12 +7,16 @@
 //
 
 import UIKit
-
+import Lottie
 class FinPedidoViewController: UIViewController {
     weak var parentView: UIViewController?
+    
+    @IBOutlet weak var doneCheckVideo: UIView!
+    private var loaderAnimation: AnimationView!
     override func viewDidLoad() {
         super.viewDidLoad()
         Constatns.LocalData.canasta = nil
+        initializeVideoPlayerWithVideo()
         // Do any additional setup after loading the view.
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
             guard let navController = self.parentView?.navigationController else {
@@ -31,6 +35,27 @@ class FinPedidoViewController: UIViewController {
         }
     }
     
-
+    func initializeVideoPlayerWithVideo() {
+        doneCheckVideo.clipsToBounds = true
+        
+        loaderAnimation = AnimationView(name: "lf30_editor_xv20qsja")
+        loaderAnimation.frame = CGRect(origin: .zero, size: doneCheckVideo.frame.size)
+        loaderAnimation.backgroundColor = .clear
+        loaderAnimation.loopMode = .playOnce
+        loaderAnimation.animationSpeed = 0.5
+        doneCheckVideo.addSubview(loaderAnimation)
+        
+        loaderAnimation.play()
+        
+//        let videoString:String? = Bundle.main.path(forResource: "checkmark", ofType: "mp4")
+//        guard let unwrappedVideoPath = videoString else {return}
+//        let videoUrl = URL(fileURLWithPath: unwrappedVideoPath)
+//        self.player = AVPlayer(url: videoUrl)
+//        let layer: AVPlayerLayer = AVPlayerLayer(player: player)
+//        layer.frame = doneCheckVideo!.bounds
+//        layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+//        layer.cornerRadius = 30
+//        doneCheckVideo?.layer.addSublayer(layer)
+    }
 
 }

@@ -43,7 +43,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recargas de saldo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xb-sG-Jj4">
-                            <rect key="frame" x="48" y="56.5" width="119.5" height="15"/>
+                            <rect key="frame" x="48" y="55.5" width="125" height="17.5"/>
                             <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="15"/>
                             <color key="textColor" name="Black"/>
                             <nil key="highlightedColor"/>

@@ -285,6 +285,7 @@ private extension HomeViewController {
         balanceLabel.text = "Saldo: \n$ \(data.info?.current_balance ?? "--")"
         cocopointsBalance.text = "Cocopoints: \n\(data.info?.cocopoints_balance ?? "--")"
         
+        /*
         if let lastOrder = data.ultimo_pedido, let orderTiming = Int(lastOrder) {
             let minutes = orderTiming.msToSeconds.minute + 1
             let seconds = orderTiming.msToSeconds.second
@@ -293,7 +294,7 @@ private extension HomeViewController {
             estimatedTimeText.text = "\(minutes) Minutos"
             countDownTest(minutes: minutes, seconds: seconds)
         }
-        
+        */
         guard let user = data.info else { return }
         let name = (user.name ?? "") + " " + (user.last_name ?? "")
         userNameLabel.text = name

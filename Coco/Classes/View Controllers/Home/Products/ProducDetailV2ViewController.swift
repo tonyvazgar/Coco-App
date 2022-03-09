@@ -34,6 +34,12 @@ class ProducDetailV2ViewController: UIViewController {
     
     
     
+    @IBOutlet weak var imgCanasta: UIImageView!
+    @IBOutlet weak var vistaCanasta: UIView!
+    @IBOutlet weak var btnCanasta: UIButton!
+    @IBOutlet weak var lblProductosCanasta: UILabel!
+    
+    
     private var loader: LoaderVC!
     var productId: String?
     var location: LocationsDataModel?
@@ -80,10 +86,69 @@ class ProducDetailV2ViewController: UIViewController {
         
         tableView.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         btnVerCanasta.visibility = .gone
+        
+        //--Canasta
+        vistaCanasta.layer.cornerRadius = 15
+        btnCanasta.layer.cornerRadius = 15
+        btnCanasta.clipsToBounds = true
+        
+        
+        vistaCanasta.layer.shadowColor = UIColor.gray.cgColor
+        vistaCanasta.layer.shadowOffset = CGSize(width: 0, height: 3)
+        vistaCanasta.layer.shadowOpacity = 0.4
+        vistaCanasta.layer.shadowRadius = 2
+        lblProductosCanasta.layer.cornerRadius = 15/2
+        lblProductosCanasta.clipsToBounds = true
+        vistaCanasta.visibility = .gone
+        //________
+        
         requestData()
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        getProductosCanasta()
+    }
+    
+    func getProductosCanasta(){
+        var data = Constatns.LocalData.canasta
+        if data != nil {
+            do {
+                // Create JSON Decoder
+                let decoder = JSONDecoder()
 
+                // Decode Note
+                var canasta = try decoder.decode([pedidoObject].self, from: data!)
+                
+                var idcategoriaInt = Int(self.location?.id ?? "0")!
+                
+               
+                var arrProductosEncanasta : [pedidoObject] = [pedidoObject]()
+                for item in canasta {
+                    if item.negocioId == idcategoriaInt {
+                        arrProductosEncanasta.append(item)
+                    }
+                }
+                print("numero de productosssss: \(arrProductosEncanasta.count)")
+                if arrProductosEncanasta.count == 0 {
+                    self.vistaCanasta.visibility = .gone
+                }
+                else {
+                    self.vistaCanasta.visibility = .visible
+                    self.lblProductosCanasta.text = "\(arrProductosEncanasta.count)"
+                    self.btnVerCanasta.setTitle("(\(arrProductosEncanasta.count)) Ver canasta", for: .normal)
+                }
+
+            } catch {
+                print("Unable to Decode pedido (\(error))")
+            }
+        }
+        else {
+            print("no hay produictos en la canasta")
+        }
+    }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentSize"{
             if object is UITableView{
@@ -114,10 +179,30 @@ class ProducDetailV2ViewController: UIViewController {
         calcularTotal()
     }
     
-    func requestData() {
-        guard let productId = productId else { return }
+    func requestInitialData() {
         showLoader(&loader, view: view)
-        ProductsFetcher.fetchProductDetailV2(productId: productId) { [weak self] result in
+        HomeFetcher.fetchMain { [weak self] result in
+            self?.loader.removeAnimate()
+            switch result {
+            case .failure(let error):
+                self?.throwError(str: error.localizedDescription)
+            case .success(let data):
+                DispatchQueue.main.async {
+                    //self?.populateContent(with: data)
+                    UserManagement.shared.user = data.info
+                    
+                    if Constatns.LocalData.paymentCanasta.forma_pago == 3{
+                        Constatns.LocalData.paymentCanasta.numeroTarjeta = data.info?.current_balance ?? "0"
+                    }
+                }
+            }
+        }
+    }
+    
+    func requestData() {
+        
+        showLoader(&loader, view: view)
+        ProductsFetcher.fetchProductDetailV2(productId: self.productId!) { [weak self] result in
             self?.loader.removeAnimate()
             switch result {
             case .failure(let error):
@@ -197,6 +282,7 @@ class ProducDetailV2ViewController: UIViewController {
                 self?.calcularTotal()
                 self?.tableView.reloadData()
                 self?.fillInfo()
+                self?.requestInitialData()
             }
         }
     }
@@ -209,15 +295,21 @@ class ProducDetailV2ViewController: UIViewController {
             imgProduct.setImageKf(str: image)
             
             lblNombre.text = self.product!.name ?? ""
-            lblPrecio.text = "$\(self.product!.price ?? "")"
-            lblPoints.text = "\(self.product!.cocopoints ?? 0)"
+            
+            let pc = Double(self.product!.price ?? "0")!
+            let precioRound = round(pc * 100) / 100.0
+            lblPrecio.text = "$\(precioRound)"
+            
+            let poin = self.product!.cocopoints ?? 0
+            let pontRound = round(poin * 100) / 100.0
+            lblPoints.text = "\(pontRound)"
             lblDescripcion.text = "\(self.product!.description ?? "")"
         }
     }
     
     @IBAction func verCanastaAction(_ sender: UIButton) {
         let viewController = UIStoryboard.shoppingCart.instantiate(ShoppingCartV2ViewController.self)
-        viewController.categoryId = self.categoryId
+        
         viewController.location = self.location
         navigationController?.pushViewController(viewController, animated: true)
     }
@@ -225,7 +317,7 @@ class ProducDetailV2ViewController: UIViewController {
     
     @IBAction func irAcanastaAction(_ sender: UIButton) {
         let viewController = UIStoryboard.shoppingCart.instantiate(ShoppingCartV2ViewController.self)
-        viewController.categoryId = self.categoryId
+        
         viewController.location = self.location
         navigationController?.pushViewController(viewController, animated: true)
     }
@@ -237,7 +329,7 @@ class ProducDetailV2ViewController: UIViewController {
         present(vc, animated: true)
         */
         
-        let pedido : pedidoObject = pedidoObject(cantidad: self.numeroProductos, producto: self.product!, Configuracion: self.arrDetalle, negocioId: Int(self.categoryId!)!, comentario: txtComentarios.text!)
+        let pedido : pedidoObject = pedidoObject(cantidad: self.numeroProductos, producto: self.product!, Configuracion: self.arrDetalle, negocioId: Int((self.location?.id!)!)!, comentario: txtComentarios.text!)
         
         
         print("json de lo que se va agregar a la canasta")
@@ -276,6 +368,7 @@ class ProducDetailV2ViewController: UIViewController {
                     // Write/Set Data
                     Constatns.LocalData.canasta = dataCanasta
                     print("pedido agregado")
+                    self.getProductosCanasta()
                     self.btnVerCanasta.visibility = .visible
                 } catch {
                     print("Unable to Encode Array of canasta (\(error))")
@@ -298,7 +391,9 @@ class ProducDetailV2ViewController: UIViewController {
 
                 // Write/Set Data
                 Constatns.LocalData.canasta = dataCanasta
+                self.getProductosCanasta()
                 self.btnVerCanasta.visibility = .visible
+               
                 print("producto agregado")
 
             } catch {
@@ -519,7 +614,8 @@ extension ProducDetailV2ViewController : OpcionProductDelegate {
             }
         }
         total = total * Double(numeroProductos)
-        lblSubTotal.text = "$\(total)"
+        let toralRound = round(total * 100) / 100.0
+        lblSubTotal.text = "$\(toralRound)"
     }
 }
 

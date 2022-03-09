@@ -23,10 +23,11 @@ class ShoppingCartV2ViewController: UIViewController {
     @IBOutlet weak var lblPrecioCocoPoints: UILabel!
     
     
-    var categoryId: String?
+   
     var location: LocationsDataModel?
-    
     var arrCanasta : [pedidoObject] = [pedidoObject]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -64,7 +65,12 @@ class ShoppingCartV2ViewController: UIViewController {
                 // Decode Note
                 var canasta = try decoder.decode([pedidoObject].self, from: data!)
                 
-                var idcategoriaInt = Int(self.categoryId!)!
+                var idcategoriaInt = Int(self.location?.id ?? "0")!
+                print("totakl canasta todos : \(canasta.count)")
+                for i in canasta {
+                    print(i.negocioId)
+                }
+                print("Id tienda : \(idcategoriaInt)")
                 for item in canasta {
                     if item.negocioId == idcategoriaInt {
                         self.arrCanasta.append(item)
@@ -74,7 +80,8 @@ class ShoppingCartV2ViewController: UIViewController {
                 let subT : Double = calcularSubtotal()
                 lblSubTotal.text = "$\(subT)"
                 let points = subT * 1000
-                lblPrecioCocoPoints.text = "\(points)"
+                let pointRound = round(points * 100) / 100.0
+                lblPrecioCocoPoints.text = "\(pointRound)"
                 tableView.reloadData()
 
             } catch {
@@ -93,7 +100,6 @@ class ShoppingCartV2ViewController: UIViewController {
     @IBAction func pagarAction(_ sender: UIButton) {
         let viewController = UIStoryboard.shoppingCart.instantiate(DetallePedidoViewController.self)
         viewController.location = self.location
-        viewController.categoryId = categoryId
         viewController.arrCanasta = arrCanasta
         viewController.subTotal = calcularSubtotal()
         navigationController?.pushViewController(viewController, animated: true)
@@ -110,12 +116,48 @@ extension ShoppingCartV2ViewController : UITableViewDataSource, UITableViewDeleg
         let item = self.arrCanasta[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ProductCartV2TableViewCell
         cell.lblNombre.text = item.producto.name ?? ""
-        cell.lblDescripcion.text = item.producto.description ?? ""
+        
         cell.btnRestar.tag = indexPath.row
         cell.btnAumentar.tag = indexPath.row
         cell.lblCantidad.text = "\(item.cantidad)"
         cell.lblTotal.text = "$\(calcularTotalPedido(pedido: item))"
+        var seleccion : [String] = [String]()
+        for item in item.Configuracion {
+            for val in item.valores {
+                print("tipo:\(val.tipo)")
+                if val.tipo == "extras" {
+                    if val.cantidad > 0 {
+                        seleccion.append("\(val.cantidad) \(val.nombre)")
+                    }
+                }else {
+                    if val.seleccionado == true {
+                        seleccion.append(val.nombre)
+                    }
+                }
+            }
+            
+        }
+        
+        var cadena = ""
+        if seleccion.count == 0 {
+            cadena = ""
+        }
+        else {
+            cadena = seleccion.joined(separator: ",")
+        }
+        
+        
+        
+        cell.lblDescripcion.text = cadena
         cell.delegate = self
+        
+        if let image = item.producto.imageURL {
+            cell.imgProducto.kf.setImage(with: URL(string: image),
+                                      placeholder: nil,
+                                      options: [.transition(.fade(0.4))],
+                                      progressBlock: nil,
+                                      completionHandler: nil)
+        }
         return cell
     }
     
@@ -130,19 +172,70 @@ extension ShoppingCartV2ViewController : ProductoCanastaDelegate {
         let subT : Double = calcularSubtotal()
         lblSubTotal.text = "$\(subT)"
         let points = subT * 1000
-        lblPrecioCocoPoints.text = "\(points)"
+        let pointsRound = round(points * 100) / 100.0
+        lblPrecioCocoPoints.text = "\(pointsRound)"
     }
     
     func restarCantidad(index: Int) {
         let cantidad = self.arrCanasta[index].cantidad
-        if cantidad > 1 {
-            self.arrCanasta[index].cantidad = self.arrCanasta[index].cantidad - 1
+        
+        self.arrCanasta[index].cantidad = self.arrCanasta[index].cantidad - 1
+        if self.arrCanasta[index].cantidad == 0 {
+            self.arrCanasta.remove(at: index)
+            tableView.reloadData()
+            let subT : Double = calcularSubtotal()
+            lblSubTotal.text = "$\(subT)"
+            let points = subT * 1000
+            let pointsRound = round(points * 100) / 100.0
+            lblPrecioCocoPoints.text = "\(pointsRound)"
+            var data = Constatns.LocalData.canasta
+            if data != nil {
+                do{
+                    // Create JSON Decoder
+                    let decoder = JSONDecoder()
+                    // Decode Note
+                    var canasta = try decoder.decode([pedidoObject].self, from: data!)
+                    
+                    var arrCanastaSinEstePedido : [pedidoObject] = [pedidoObject]()
+                    for a in canasta {
+                        if a.negocioId != Int((self.location?.id!)!)! {
+                            arrCanastaSinEstePedido.append(a)
+                        }
+                    }
+                    //le agregamos lo que queda de este pedido sin el pedido eliminado
+                    for b in arrCanasta {
+                        arrCanastaSinEstePedido.append(b)
+                    }
+                    
+                    do {
+                        // Create JSON Encoder
+                        let encoder = JSONEncoder()
+
+                        // Encode Note
+                        let dataCanasta = try encoder.encode(arrCanastaSinEstePedido)
+
+                        // Write/Set Data
+                        Constatns.LocalData.canasta = dataCanasta
+                        print("canasta actualizada")
+                       
+                    } catch {
+                        print("Unable to Encode Array of canasta (\(error))")
+                    }
+                    
+                }
+                catch {
+                    print("Unable to Decode pedido (\(error))")
+                }
+            }
         }
-        tableView.reloadData()
-        let subT : Double = calcularSubtotal()
-        lblSubTotal.text = "$\(subT)"
-        let points = subT * 1000
-        lblPrecioCocoPoints.text = "\(points)"
+        else {
+            tableView.reloadData()
+            let subT : Double = calcularSubtotal()
+            lblSubTotal.text = "$\(subT)"
+            let points = subT * 1000
+            let pointsRound = round(points * 100) / 100.0
+            lblPrecioCocoPoints.text = "\(pointsRound)"
+        }
     }
     
     func calcularTotalPedido(pedido : pedidoObject) -> Double{
@@ -170,7 +263,8 @@ extension ShoppingCartV2ViewController : ProductoCanastaDelegate {
         for item in self.arrCanasta {
            total = total + calcularTotalPedido(pedido: item)
         }
-        return total
+        let totalRoun = round(total * 100) / 100.0
+        return totalRoun
     }
     
 }

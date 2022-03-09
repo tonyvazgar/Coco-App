@@ -15,6 +15,11 @@ class LugarPickupViewController: UIViewController {
     @IBOutlet weak var btnConfirmar: UIButton!
     @IBOutlet weak var vistaProducto: UIView!
     @IBOutlet weak var imgProducto: UIImageView!
+    @IBOutlet weak var lblNombreLocation: UILabel!
+    @IBOutlet weak var lblHorarioLocation: UILabel!
+    @IBOutlet weak var lblDireccionLocation: UILabel!
+    @IBOutlet weak var imgRestaurante: UIImageView!
+    var location: LocationsDataModel?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,6 +48,18 @@ class LugarPickupViewController: UIViewController {
         vistaProducto.layer.shadowRadius = 3
         
         btnConfirmar.layer.cornerRadius = 20
+        
+        lblNombreLocation.text = location?.name ?? ""
+        lblHorarioLocation.text = location?.schedule ?? ""
+        lblDireccionLocation.text = location?.address ?? ""
+        
+        if let image = location?.imgURL {
+            imgRestaurante.kf.setImage(with: URL(string: image),
+                                      placeholder: nil,
+                                      options: [.transition(.fade(0.4))],
+                                      progressBlock: nil,
+                                      completionHandler: nil)
+        }
     }
     
     @IBAction func backAction(_ sender: UIButton) {

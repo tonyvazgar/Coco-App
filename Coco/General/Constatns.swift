@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 struct Constatns {
+    struct Conekta {
+        static let publickKeyProductive = "key_WiYPtYGfzTwZFWV7yVXm6qA"
+        static let publickKeyDevelop = "key_CLYZkCgpss3hHwqp1k5XfCw"
+    }
     struct LocalData {
         
         struct paymentCanasta {
@@ -127,6 +131,16 @@ struct Constatns {
             }
             set(token){
                 UserDefaults.standard.set(token, forKey: "comentarios")
+                UserDefaults.standard.synchronize()
+            }
+        }
+        
+        static var aceptaPropina : String {
+            get {
+                return UserDefaults.standard.string(forKey: "aceptaPropina") ?? "true"
+            }
+            set(propina){
+                UserDefaults.standard.set(propina, forKey: "aceptaPropina")
                 UserDefaults.standard.synchronize()
             }
         }

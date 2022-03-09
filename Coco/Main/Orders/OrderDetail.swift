@@ -57,7 +57,7 @@ class OrderDetail: UIViewController {
     businessName.text = ordersDetail.order.business
     amount.text = ordersDetail.order.total
     cocopoints.text = order.totalCocopoints
-    orderDescription.text = ordersDetail.order.comments
+    //orderDescription.text = ordersDetail.order.comments
     guard let tipPercentage = ordersDetail.order.tipPercentage else {
       tip.setTitle("0 %", for: .normal)
       return

@@ -105,6 +105,9 @@
                                 <state key="normal" title="Como llegar">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="comoLlegarAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="fH3-JC-QpA"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

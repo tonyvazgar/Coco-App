@@ -45,19 +45,19 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regresar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N3O-wv-emz">
-                                        <rect key="frame" x="48" y="13" width="48.333333333333343" height="14"/>
+                                        <rect key="frame" x="48" y="11.666666666666664" width="53.666666666666657" height="17"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                         <color key="textColor" name="Black"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="axq-ON-Xa8">
-                                        <rect key="frame" x="165.66666666666663" y="0.0" width="208.33333333333337" height="40"/>
+                                        <rect key="frame" x="159" y="0.0" width="215" height="40"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1m-4S-tcy">
-                                                <rect key="frame" x="0.0" y="0.0" width="89" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="95.666666666666671" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Saldo: $ --" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yo-CD-h7c">
-                                                        <rect key="frame" x="16" y="13" width="57" height="14"/>
+                                                        <rect key="frame" x="15.999999999999996" y="11.666666666666664" width="63.666666666666657" height="17"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="12"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -71,10 +71,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="98G-Ag-s00">
-                                                <rect key="frame" x="105.00000000000003" y="0.0" width="103.33333333333334" height="40"/>
+                                                <rect key="frame" x="111.66666666666669" y="0.0" width="103.33333333333331" height="40"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Cocopoints:  $ --" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUl-MV-aKf">
-                                                        <rect key="frame" x="8" y="7.3333333333333375" width="87.333333333333329" height="25.666666666666671"/>
+                                                        <rect key="frame" x="8" y="4.6666666666666643" width="87.333333333333329" height="31"/>
                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="11"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -170,13 +170,13 @@
                                                         <rect key="frame" x="8" y="8" width="374" height="240"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Canasta de Compras" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnS-uO-eiv">
-                                                                <rect key="frame" x="120.33333333333333" y="15.999999999999998" width="133.33333333333337" height="16.333333333333329"/>
+                                                                <rect key="frame" x="110.33333333333333" y="16" width="153.66666666666669" height="19.666666666666671"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="14"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rFT-hc-BxG">
-                                                                <rect key="frame" x="8" y="48.3333333333333" width="358" height="183.66666666666663"/>
+                                                                <rect key="frame" x="8" y="51.6666666666667" width="358" height="180.33333333333337"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </tableView>
                                                         </subviews>
@@ -195,13 +195,13 @@
                                                         <rect key="frame" x="16" y="264" width="358" height="50"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precio en Cocopoints:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WrL-oo-YXa">
-                                                                <rect key="frame" x="8" y="17" width="139" height="16.333333333333329"/>
+                                                                <rect key="frame" x="8" y="15.333333333333373" width="155.33333333333334" height="19.666666666666671"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="14"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HX1-IO-jWh">
-                                                                <rect key="frame" x="314" y="12" width="12" height="26"/>
+                                                                <rect key="frame" x="309.33333333333331" y="12" width="16.666666666666686" height="26"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                                 <color key="textColor" name="CocoOrange"/>
                                                                 <nil key="highlightedColor"/>
@@ -221,13 +221,13 @@
                                                         <rect key="frame" x="16" y="330" width="358" height="50"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total de la orden:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pzh-xG-ybh">
-                                                                <rect key="frame" x="8" y="17" width="107.66666666666667" height="16.333333333333329"/>
+                                                                <rect key="frame" x="8.0000000000000071" y="15.333333333333373" width="123.66666666666669" height="19.666666666666671"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="14"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVH-1F-GWz">
-                                                                <rect key="frame" x="314" y="12" width="12" height="26"/>
+                                                                <rect key="frame" x="309.33333333333331" y="12" width="16.666666666666686" height="26"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                                 <color key="textColor" name="CocoGreen"/>
                                                                 <nil key="highlightedColor"/>
@@ -509,7 +509,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vectorcart" translatesAutoresizingMaskIntoConstraints="NO" id="SXd-fN-un4">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icono_canastanaranjav2" translatesAutoresizingMaskIntoConstraints="NO" id="SXd-fN-un4">
                                         <rect key="frame" x="100.99999999999999" y="6" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="DeZ-9o-egP"/>
@@ -681,7 +681,7 @@
                                 <rect key="frame" x="0.0" y="84" width="390" height="1482"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbB-fQ-fhj">
-                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1482"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1382"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tu pedido" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLw-fU-xAp">
                                                 <rect key="frame" x="25" y="23" width="340" height="27"/>
@@ -787,10 +787,10 @@
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconotarjetacoco_v2" translatesAutoresizingMaskIntoConstraints="NO" id="Zfw-iA-fmz">
                                                                 <rect key="frame" x="15" y="15" width="64" height="64"/>
-                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </imageView>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstItem="Zfw-iA-fmz" firstAttribute="top" secondItem="Jzl-hj-UFE" secondAttribute="top" constant="15" id="7si-Rm-eNX"/>
                                                             <constraint firstAttribute="width" constant="94" id="BCW-Hr-21I"/>
@@ -1298,8 +1298,8 @@
                                             <constraint firstItem="UHC-ys-Y3t" firstAttribute="leading" secondItem="0Oi-tt-Hi8" secondAttribute="trailing" constant="10" id="RFe-GG-oKc"/>
                                             <constraint firstItem="VpM-9d-f0c" firstAttribute="leading" secondItem="sbB-fQ-fhj" secondAttribute="leading" constant="25" id="RFh-VJ-J3x"/>
                                             <constraint firstAttribute="trailing" secondItem="KJn-TM-LFB" secondAttribute="trailing" constant="25" id="RlW-FM-ppT"/>
+                                            <constraint firstAttribute="bottom" secondItem="fNM-kx-AZY" secondAttribute="bottom" constant="100" id="SVw-7U-9nH"/>
                                             <constraint firstItem="XQG-gg-02J" firstAttribute="top" secondItem="MI5-yj-hbB" secondAttribute="bottom" constant="15" id="T0A-Xh-nDo"/>
-                                            <constraint firstAttribute="height" constant="1482" id="Tkx-jW-Hd5"/>
                                             <constraint firstItem="hqC-dl-IUc" firstAttribute="leading" secondItem="sbB-fQ-fhj" secondAttribute="leading" constant="25" id="Tqd-yb-dd5"/>
                                             <constraint firstItem="FFb-kF-Amj" firstAttribute="leading" secondItem="sbB-fQ-fhj" secondAttribute="leading" constant="25" id="UXl-Au-kxV"/>
                                             <constraint firstItem="SIK-QE-kvf" firstAttribute="leading" secondItem="sbB-fQ-fhj" secondAttribute="leading" constant="25" id="UbW-EE-m4A"/>
@@ -1383,6 +1383,7 @@
                     <size key="freeformSize" width="390" height="1600"/>
                     <connections>
                         <outlet property="btnPagar" destination="fNM-kx-AZY" id="2Gk-1p-Qro"/>
+                        <outlet property="imgPickUp" destination="Req-3U-8Qb" id="9Mf-CY-gmT"/>
                         <outlet property="imgRestaurante" destination="nkI-j9-7Cp" id="Svo-ZA-Vav"/>
                         <outlet property="imgtarjeta" destination="Zfw-iA-fmz" id="gs3-Oa-12d"/>
                         <outlet property="lblCocoPoints" destination="ylu-Wy-Tbc" id="86c-u4-8Xt"/>
@@ -1396,6 +1397,7 @@
                         <outlet property="lblPropina2" destination="X4q-pJ-QY9" id="kdo-Oa-Dbt"/>
                         <outlet property="lblPropina3" destination="8TL-4n-WlP" id="DNM-Q1-wvV"/>
                         <outlet property="lblSubTotal" destination="aPw-Bq-5qR" id="7r8-DQ-W5I"/>
+                        <outlet property="lblTitlePropina" destination="MI5-yj-hbB" id="1X3-TP-h1b"/>
                         <outlet property="lblTituloPago" destination="MpC-Pk-p0K" id="QLP-ki-KTd"/>
                         <outlet property="lblTotal" destination="4Yy-GC-bZy" id="1af-y4-vwR"/>
                         <outlet property="lblnombreTarjeta" destination="67F-zl-0Ga" id="LKv-um-voY"/>
@@ -1426,14 +1428,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hb2-nC-dXf">
-                                <rect key="frame" x="100" y="204" width="190" height="188.66666666666669"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="190" id="U8d-af-Krc"/>
-                                    <constraint firstAttribute="width" constant="190" id="Vly-3n-tNT"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¡Listo! Tu pedido fue enviado" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VI0-yy-AJN">
                                 <rect key="frame" x="25" y="418" width="340" height="67"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
@@ -1447,19 +1441,30 @@
                                     <constraint firstAttribute="width" constant="193" id="rgL-yc-8Wc"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aak-NF-gjP">
+                                <rect key="frame" x="95" y="167" width="200" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="6aL-39-4yz"/>
+                                    <constraint firstAttribute="height" constant="200" id="sJb-IN-M6Z"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9tP-WX-gRS"/>
                         <color key="backgroundColor" red="0.24684515600000001" green="0.55832135679999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9tP-WX-gRS" firstAttribute="bottom" secondItem="bU2-fu-v1u" secondAttribute="bottom" constant="25" id="2bg-Ft-QTS"/>
-                            <constraint firstItem="VI0-yy-AJN" firstAttribute="top" secondItem="hb2-nC-dXf" secondAttribute="bottom" constant="25" id="8Er-BT-HJN"/>
-                            <constraint firstItem="hb2-nC-dXf" firstAttribute="top" secondItem="9tP-WX-gRS" secondAttribute="top" constant="159" id="RpO-SI-1hl"/>
-                            <constraint firstItem="hb2-nC-dXf" firstAttribute="centerX" secondItem="Uwz-k5-xLh" secondAttribute="centerX" id="UBh-2k-taA"/>
+                            <constraint firstItem="VI0-yy-AJN" firstAttribute="top" secondItem="Aak-NF-gjP" secondAttribute="bottom" constant="51" id="9EI-g2-L82"/>
                             <constraint firstItem="bU2-fu-v1u" firstAttribute="centerX" secondItem="Uwz-k5-xLh" secondAttribute="centerX" id="UXs-Cq-P0J"/>
                             <constraint firstItem="VI0-yy-AJN" firstAttribute="leading" secondItem="9tP-WX-gRS" secondAttribute="leading" constant="25" id="Voe-qj-j0i"/>
                             <constraint firstItem="9tP-WX-gRS" firstAttribute="trailing" secondItem="VI0-yy-AJN" secondAttribute="trailing" constant="25" id="bg3-NL-a5x"/>
+                            <constraint firstItem="Aak-NF-gjP" firstAttribute="top" secondItem="9tP-WX-gRS" secondAttribute="top" constant="123" id="oYa-KV-rH0"/>
+                            <constraint firstItem="Aak-NF-gjP" firstAttribute="centerX" secondItem="Uwz-k5-xLh" secondAttribute="centerX" id="zKk-7N-YAK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="doneCheckVideo" destination="Aak-NF-gjP" id="T3m-JK-RCE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eh3-Lg-I8t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1468,10 +1473,8 @@
     </scenes>
     <resources>
         <image name="Vectorarrow" width="10.666666984558105" height="18.666666030883789"/>
-        <image name="Vectorcart" width="26.333333969116211" height="24.666666030883789"/>
         <image name="VectorpickupIcon" width="68" height="78"/>
         <image name="backnegro" width="64" height="64"/>
-        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
         <image name="cocoFinal" width="257.33334350585938" height="62.666667938232422"/>
         <image name="cocoIcon" width="73.333335876464844" height="96"/>
         <image name="icono_canastanaranjav2" width="150" height="139"/>

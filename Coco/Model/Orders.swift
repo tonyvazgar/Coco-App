@@ -18,14 +18,14 @@ class Order: Decodable {
   public var imageURL: String?
   public var date: String?
   public var status: String?
-  public var comments: String?
   public var tipPercentage: String?
-  public var cocopoints: Int?
   public var tipoDeCompra: String?
   public var totalCocopoints: String?
-  public var tiempoEstimado: Int?
+  public var tiempoEstimado: String?
   public var cocopointsOtorgados: String?
-  
+  public var longitud : String?
+    public var latitud : String?
+    public var fecha_aceptado : String?
   enum CodingKeys: String, CodingKey {
     case id = "Id"
     case amount = "monto"
@@ -35,15 +35,16 @@ class Order: Decodable {
     case imageURL = "imagen"
     case date = "fecha"
     case status = "estatus"
-    case comments = "comentarios"
-    case tipPercentage = "procentaje_propina"
-    case cocopoints = "cocopoints"
     case tipoDeCompra = "tipo_compra"
     case totalCocopoints = "monto_cocopoints"
     case tiempoEstimado = "tiempo_estimado"
     case cocopointsOtorgados = "cocopoints_otorgados"
-    
+    case longitud = "longitud"
+    case latitud = "latitud"
+    case fecha_aceptado = "fecha_aceptado"
   }
+    
+    
 }
 
 class Orders: Decodable {

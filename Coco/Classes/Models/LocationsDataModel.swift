@@ -17,6 +17,7 @@ final class LocationsDataModel: Codable {
     public var address: String?
     public var distance: String?
     public var rating: String?
+    public var propina : String?
     
     public init(id: String = "",
                 name: String = "",
@@ -24,7 +25,8 @@ final class LocationsDataModel: Codable {
                 address: String = "",
                 distance: String = "",
                 rating: String = "",
-                imgURL: String = "") {
+                imgURL: String = "",
+                propina:String = "true") {
         self.id = id
         self.name = name
         self.schedule = schedule
@@ -32,6 +34,7 @@ final class LocationsDataModel: Codable {
         self.distance = distance
         self.rating = rating
         self.imgURL = imgURL
+        self.propina = propina
     }
     
     enum CodingKeys: String, CodingKey {
@@ -42,5 +45,6 @@ final class LocationsDataModel: Codable {
         case distance = "distancia"
         case rating = "valoracion"
         case imgURL = "imagen"
+        case propina = "propina"
     }
 }

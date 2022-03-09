@@ -91,7 +91,7 @@ final class LocationsListViewController: UITableViewController, SearchBarDelegat
         */
         
         
-        
+        Constatns.LocalData.aceptaPropina = location.propina ?? "true"
         let viewController = UIStoryboard.home.instantiate(CategoriesV2ViewController.self)
         viewController.businessId = businessId
         viewController.locationId = location.id

@@ -27,6 +27,8 @@ struct Routes {
     static let getPayments = "getPayments"
     static let getCocoCards = "getCocoCards"
     static let redeemCocoCard = "ChangeFolioCocoCard"
+    static let deleteCard = "deleteCard"
+    static let ya_llegue = "ya_llegue"
     
     static let getSchools = "getColleges"
     
@@ -56,5 +58,7 @@ struct Routes {
     
     /** 2022 */
     static let getCodeVerification = "getCodeVerification"
+    
+    static let addCardV2 = "addNewCard"
 }
 
