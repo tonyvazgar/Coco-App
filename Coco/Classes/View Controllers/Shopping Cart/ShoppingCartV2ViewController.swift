@@ -120,7 +120,10 @@ extension ShoppingCartV2ViewController : UITableViewDataSource, UITableViewDeleg
         cell.btnRestar.tag = indexPath.row
         cell.btnAumentar.tag = indexPath.row
         cell.lblCantidad.text = "\(item.cantidad)"
-        cell.lblTotal.text = "$\(calcularTotalPedido(pedido: item))"
+        let calculo = calcularTotalPedido(pedido: item)
+        let calculoround = round(calculo * 100) / 100.0
+            
+        cell.lblTotal.text = "$\(calculoround)"
         var seleccion : [String] = [String]()
         for item in item.Configuracion {
             for val in item.valores {

@@ -17,6 +17,7 @@ class DetallePedidoViewController: UIViewController {
     @IBOutlet weak var imgRestaurante: UIImageView!
     
     
+    @IBOutlet weak var tituloOtrosMetodosPago: UILabel!
     @IBOutlet weak var vistaMetodoPago: UIView!
     @IBOutlet weak var vistaImagenMetodoDePago: UIView!
     @IBOutlet weak var btnPagar: UIButton!
@@ -179,6 +180,8 @@ class DetallePedidoViewController: UIViewController {
         lblTotal.text = "$\(totalRound)"
         self.total = totalRound
         
+        vistaOtrosMetodosPago.visibility = .gone
+        tituloOtrosMetodosPago.visibility = .gone
         
         if Constatns.LocalData.aceptaPropina == "false" {
             self.vistaPropina1.visibility = .gone
@@ -249,8 +252,10 @@ class DetallePedidoViewController: UIViewController {
             case "cocopoints":
                 lblTituloPago.text = "Pago por coco points"
                 imgtarjeta.image = #imageLiteral(resourceName: "iconotarjetacoco_v2")
-                lblnombreTarjeta.text = ""
-                lblNUmerotarjeta.text = ""
+                let user = UserManagement.shared.user
+                lblnombreTarjeta.text = "Disponible"
+                lblNUmerotarjeta.text = "\(user!.cocopoints_balance ?? "0")"
+                
                 
                 vistaOtrosMetodosPago.backgroundColor = #colorLiteral(red: 0.9408374429, green: 0.5762616992, blue: 0.1545717418, alpha: 1)
                 vistaCocoPoints.layer.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -359,7 +364,6 @@ class DetallePedidoViewController: UIViewController {
         
     }
     func recalcularTotal(){
-        
         let subTotalRound = round(self.subTotal * 100) / 100.0
         self.subTotal = subTotalRound
         lblSubTotal.text = "$\(self.subTotal)"

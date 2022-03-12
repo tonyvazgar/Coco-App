@@ -88,8 +88,9 @@ final class OrdersFetcher {
             "funcion": Routes.ya_llegue,
             "id_order": id_order
         ]
-        
+        print(data)
         Alamofire.request(General.endpoint, method: .post, parameters: data).responseJSON { (response) in
+            print(response.debugDescription)
             guard let data = response.result.value else {
                 completion(.failure(FetcherErrors.invalidResponse))
                 return
@@ -100,6 +101,39 @@ final class OrdersFetcher {
                 return
             }
             
+            guard dictionary["state"] == "200" else {
+                let error = dictionary["status_msg"]?.string
+                completion(.failure(FetcherErrors.statusCode(error)))
+                return
+            }
+            
+            completion(.success(()))
+        }
+    }
+    
+    static func realizarencuesta(id_pedido: String,opcion_1 : String,opcion_2:String,opcion_3:String, opcion_4:String, completion: @escaping (Swift.Result<Void,Error>) -> Void) {
+        let data = [
+            "funcion": Routes.sendValoration,
+            "id_pedido": id_pedido,
+            "opcion_1":opcion_1,
+            "opcion_2":opcion_2,
+            "opcion_3":opcion_3,
+            "opcion_4":opcion_4
+        ]
+        print(data)
+        Alamofire.request(General.endpoint, method: .post, parameters: data).responseData { (response) in
+            print(response.debugDescription)
+            
+            guard let data = response.result.value else {
+                completion(.failure(FetcherErrors.invalidResponse))
+                return
+            }
+            print(data)
+            guard let dictionary = JSON(data).dictionary else {
+                completion(.failure(FetcherErrors.jsonMapping))
+                return
+            }
+            print(dictionary)
             guard dictionary["state"] == "200" else {
                 let error = dictionary["status_msg"]?.string
                 completion(.failure(FetcherErrors.statusCode(error)))

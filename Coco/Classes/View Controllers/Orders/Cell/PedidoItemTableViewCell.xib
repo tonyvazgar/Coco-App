@@ -75,11 +75,21 @@
                                         <color key="textColor" red="0.91764705879999997" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Código: #12345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSc-PO-tBc">
+                                        <rect key="frame" x="193" y="106" width="117" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="21z-6l-VGD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="XCl-D3-o3Y" firstAttribute="top" secondItem="qHz-3u-8mr" secondAttribute="bottom" constant="28" id="1tR-Yc-10i"/>
                                     <constraint firstItem="XCl-D3-o3Y" firstAttribute="leading" secondItem="wQ8-nW-KiL" secondAttribute="leading" constant="15" id="1z8-Ee-wvY"/>
+                                    <constraint firstItem="qHz-3u-8mr" firstAttribute="top" secondItem="gSc-PO-tBc" secondAttribute="bottom" constant="4" id="4OE-Z6-Fig"/>
                                     <constraint firstItem="qHz-3u-8mr" firstAttribute="leading" secondItem="wQ8-nW-KiL" secondAttribute="leading" constant="15" id="4zj-oF-sPC"/>
                                     <constraint firstItem="Gop-4C-U8N" firstAttribute="top" secondItem="wQ8-nW-KiL" secondAttribute="top" constant="46" id="7HH-yF-dlk"/>
                                     <constraint firstItem="qHz-3u-8mr" firstAttribute="top" secondItem="wQ8-nW-KiL" secondAttribute="top" constant="130" id="Ao6-B3-Oyb"/>
@@ -90,6 +100,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Gop-4C-U8N" secondAttribute="trailing" constant="14" id="Qc7-Kr-3aC"/>
                                     <constraint firstItem="ONW-kJ-cHZ" firstAttribute="leading" secondItem="wQ8-nW-KiL" secondAttribute="leading" constant="15" id="UvG-nk-Sa8"/>
                                     <constraint firstAttribute="bottom" secondItem="qHz-3u-8mr" secondAttribute="bottom" constant="129" id="bMJ-Cz-KWT"/>
+                                    <constraint firstAttribute="trailing" secondItem="gSc-PO-tBc" secondAttribute="trailing" constant="15" id="gk0-X8-f9C"/>
                                     <constraint firstAttribute="trailing" secondItem="qHz-3u-8mr" secondAttribute="trailing" constant="15" id="jQE-bm-eei"/>
                                     <constraint firstItem="2Pb-zx-QpG" firstAttribute="leading" secondItem="XCl-D3-o3Y" secondAttribute="trailing" constant="9" id="pi0-Uq-uVB"/>
                                     <constraint firstItem="2Pb-zx-QpG" firstAttribute="top" secondItem="qHz-3u-8mr" secondAttribute="bottom" constant="45" id="zST-M6-YpL"/>
@@ -134,6 +145,7 @@
                 <outlet property="btnOCmoLLegar" destination="cja-SW-fQB" id="Ao4-gL-taT"/>
                 <outlet property="imgStatus" destination="XCl-D3-o3Y" id="Dam-c6-Obo"/>
                 <outlet property="imgStore" destination="wit-WN-97Y" id="ac7-TF-Dkr"/>
+                <outlet property="lblCodigo" destination="gSc-PO-tBc" id="uE0-DJ-U8G"/>
                 <outlet property="lblNombreStore" destination="Gop-4C-U8N" id="JBu-eu-gCZ"/>
                 <outlet property="lblStatus" destination="2Pb-zx-QpG" id="Bew-nk-nBh"/>
                 <outlet property="vistaImagen" destination="ONW-kJ-cHZ" id="IJO-cB-cGH"/>

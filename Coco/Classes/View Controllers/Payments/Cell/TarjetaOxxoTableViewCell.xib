@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,13 +21,13 @@
                         <rect key="frame" x="20" y="10" width="335" height="210"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saldo disponible:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQz-91-od3">
-                                <rect key="frame" x="8" y="25" width="319" height="17"/>
+                                <rect key="frame" x="8" y="41" width="319" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$100.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x67-VO-VJB">
-                                <rect key="frame" x="8" y="50" width="319" height="17"/>
+                                <rect key="frame" x="8" y="66" width="319" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="xS6-CW-nDx"/>
                                 </constraints>
@@ -70,14 +69,24 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoOxxo" translatesAutoresizingMaskIntoConstraints="NO" id="bRH-Km-SPj">
-                                <rect key="frame" x="70" y="92" width="195" height="52"/>
+                                <rect key="frame" x="70" y="96" width="195" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="195" id="yLK-zX-8dH"/>
                                     <constraint firstAttribute="height" constant="52" id="zkR-R8-9pL"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OXXO" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8i-bb-gZE">
+                                <rect key="frame" x="12" y="9" width="121" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="UeN-AX-iOB"/>
+                                    <constraint firstAttribute="width" constant="121" id="cJN-UW-l38"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <color key="backgroundColor" red="0.81671434639999996" green="0.2005984485" blue="0.1807650328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="x67-VO-VJB" secondAttribute="trailing" constant="8" id="7Vu-i4-u4T"/>
                             <constraint firstAttribute="trailing" secondItem="oQz-91-od3" secondAttribute="trailing" constant="8" id="7bc-dJ-OxT"/>
@@ -85,11 +94,13 @@
                             <constraint firstItem="x67-VO-VJB" firstAttribute="leading" secondItem="5qW-Su-WiF" secondAttribute="leading" constant="8" id="Env-o5-F79"/>
                             <constraint firstItem="x67-VO-VJB" firstAttribute="top" secondItem="oQz-91-od3" secondAttribute="bottom" constant="8" id="Gji-WA-QXv"/>
                             <constraint firstItem="bRH-Km-SPj" firstAttribute="centerX" secondItem="5qW-Su-WiF" secondAttribute="centerX" id="KLX-qB-jSX"/>
-                            <constraint firstItem="oQz-91-od3" firstAttribute="top" secondItem="5qW-Su-WiF" secondAttribute="top" constant="25" id="LsG-aG-7J9"/>
+                            <constraint firstItem="W8i-bb-gZE" firstAttribute="leading" secondItem="5qW-Su-WiF" secondAttribute="leading" constant="12" id="LEf-T1-6V1"/>
+                            <constraint firstItem="oQz-91-od3" firstAttribute="top" secondItem="5qW-Su-WiF" secondAttribute="top" constant="41" id="LsG-aG-7J9"/>
                             <constraint firstItem="oQz-91-od3" firstAttribute="leading" secondItem="5qW-Su-WiF" secondAttribute="leading" constant="8" id="bHZ-om-aUC"/>
-                            <constraint firstItem="w6h-P7-SQm" firstAttribute="top" secondItem="bRH-Km-SPj" secondAttribute="bottom" constant="14" id="mH2-vb-YHw"/>
+                            <constraint firstItem="w6h-P7-SQm" firstAttribute="top" secondItem="bRH-Km-SPj" secondAttribute="bottom" constant="10" id="mH2-vb-YHw"/>
+                            <constraint firstItem="W8i-bb-gZE" firstAttribute="top" secondItem="5qW-Su-WiF" secondAttribute="top" constant="9" id="ngL-h3-4bv"/>
                             <constraint firstAttribute="height" constant="210" id="v7O-Y3-ttc"/>
-                            <constraint firstItem="bRH-Km-SPj" firstAttribute="top" secondItem="x67-VO-VJB" secondAttribute="bottom" constant="25" id="yif-AK-vmF"/>
+                            <constraint firstItem="bRH-Km-SPj" firstAttribute="top" secondItem="x67-VO-VJB" secondAttribute="bottom" constant="13" id="yif-AK-vmF"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -111,8 +122,5 @@
     <resources>
         <image name="imageoxxo" width="70.666664123535156" height="40"/>
         <image name="logoOxxo" width="968" height="236"/>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
     </resources>
 </document>

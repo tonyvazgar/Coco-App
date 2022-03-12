@@ -1370,14 +1370,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXR-wp-vZ5">
-                                <rect key="frame" x="20" y="114" width="374" height="218"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="20" y="154" width="374" height="218"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="218" id="x27-eT-o4I"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zes-3B-r0m">
-                                <rect key="frame" x="25" y="458" width="364" height="40"/>
+                                <rect key="frame" x="25" y="498" width="364" height="40"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ivk-Vg-d1U"/>
@@ -1392,17 +1392,26 @@
                                     <action selector="registrarTarjetaActipn:" destination="xPP-fd-aU6" eventType="touchUpInside" id="fYS-4y-ZhU"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icono_variastarjetasv2" translatesAutoresizingMaskIntoConstraints="NO" id="e8z-gF-JQM">
+                                <rect key="frame" x="97" y="96" width="220" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="JRS-c2-2R6"/>
+                                    <constraint firstAttribute="width" constant="220" id="dXF-W8-mms"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="B3L-7U-j0X"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2lT-F4-MlE" firstAttribute="top" secondItem="B3L-7U-j0X" secondAttribute="top" id="GPB-bB-Qjs"/>
+                            <constraint firstItem="e8z-gF-JQM" firstAttribute="centerX" secondItem="ckq-nS-EJp" secondAttribute="centerX" id="GrG-Cq-ahv"/>
                             <constraint firstItem="B3L-7U-j0X" firstAttribute="trailing" secondItem="zes-3B-r0m" secondAttribute="trailing" constant="25" id="KGy-nT-x89"/>
                             <constraint firstItem="zes-3B-r0m" firstAttribute="top" secondItem="lXR-wp-vZ5" secondAttribute="bottom" constant="126" id="MmC-Zn-dOK"/>
                             <constraint firstItem="B3L-7U-j0X" firstAttribute="trailing" secondItem="lXR-wp-vZ5" secondAttribute="trailing" constant="20" id="Q9s-7E-yIc"/>
                             <constraint firstItem="2lT-F4-MlE" firstAttribute="leading" secondItem="ckq-nS-EJp" secondAttribute="leading" id="QD6-gE-iUK"/>
+                            <constraint firstItem="e8z-gF-JQM" firstAttribute="top" secondItem="2lT-F4-MlE" secondAttribute="bottom" constant="12" id="XfX-0e-Nz1"/>
                             <constraint firstItem="B3L-7U-j0X" firstAttribute="trailing" secondItem="2lT-F4-MlE" secondAttribute="trailing" id="lyx-GC-Hol"/>
-                            <constraint firstItem="lXR-wp-vZ5" firstAttribute="top" secondItem="2lT-F4-MlE" secondAttribute="bottom" constant="30" id="nTh-wY-4YG"/>
+                            <constraint firstItem="lXR-wp-vZ5" firstAttribute="top" secondItem="2lT-F4-MlE" secondAttribute="bottom" constant="70" id="nTh-wY-4YG"/>
                             <constraint firstItem="zes-3B-r0m" firstAttribute="leading" secondItem="B3L-7U-j0X" secondAttribute="leading" constant="25" id="spc-KP-3HB"/>
                             <constraint firstItem="lXR-wp-vZ5" firstAttribute="leading" secondItem="B3L-7U-j0X" secondAttribute="leading" constant="20" id="upe-gM-UVh"/>
                         </constraints>

@@ -144,6 +144,15 @@ struct Constatns {
                 UserDefaults.standard.synchronize()
             }
         }
+        static var tipoPickUpAceptados : String {
+            get {
+                return UserDefaults.standard.string(forKey: "tipoPickUpAceptados") ?? ""
+            }
+            set(pickup){
+                UserDefaults.standard.set(pickup, forKey: "tipoPickUpAceptados")
+                UserDefaults.standard.synchronize()
+            }
+        }
     }
     
     

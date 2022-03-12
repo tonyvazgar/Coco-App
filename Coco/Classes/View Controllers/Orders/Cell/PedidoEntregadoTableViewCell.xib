@@ -75,6 +75,15 @@
                                         <color key="textColor" red="0.24705882352941178" green="0.55686274509803924" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Código: #12345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3l-tI-U0t">
+                                        <rect key="frame" x="193" y="106" width="117" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="1I5-OD-1tH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -82,11 +91,13 @@
                                     <constraint firstAttribute="bottom" secondItem="cL1-Xf-AZw" secondAttribute="bottom" constant="129" id="TwI-QV-hb6"/>
                                     <constraint firstItem="cL1-Xf-AZw" firstAttribute="top" secondItem="rcl-MH-T7x" secondAttribute="top" constant="130" id="V3x-sZ-elV"/>
                                     <constraint firstItem="1Ij-zj-S7M" firstAttribute="leading" secondItem="rcl-MH-T7x" secondAttribute="leading" constant="15" id="VHX-JG-4k0"/>
+                                    <constraint firstItem="cL1-Xf-AZw" firstAttribute="top" secondItem="n3l-tI-U0t" secondAttribute="bottom" constant="4" id="c1A-Rn-ueY"/>
                                     <constraint firstItem="cL1-Xf-AZw" firstAttribute="leading" secondItem="rcl-MH-T7x" secondAttribute="leading" constant="15" id="dNR-On-2B5"/>
                                     <constraint firstItem="zXk-at-eVx" firstAttribute="leading" secondItem="1Ij-zj-S7M" secondAttribute="trailing" constant="8" id="dyd-D1-Owz"/>
                                     <constraint firstAttribute="trailing" secondItem="dPA-1c-Atd" secondAttribute="trailing" constant="14" id="frR-Bs-rZL"/>
                                     <constraint firstItem="dPA-1c-Atd" firstAttribute="leading" secondItem="JLT-4W-uJ7" secondAttribute="trailing" constant="9" id="hOD-p4-YLx"/>
                                     <constraint firstItem="JLT-4W-uJ7" firstAttribute="top" secondItem="cL1-Xf-AZw" secondAttribute="bottom" constant="28" id="i4x-8e-yQj"/>
+                                    <constraint firstAttribute="trailing" secondItem="n3l-tI-U0t" secondAttribute="trailing" constant="15" id="ijH-Dx-0nL"/>
                                     <constraint firstItem="dPA-1c-Atd" firstAttribute="top" secondItem="cL1-Xf-AZw" secondAttribute="bottom" constant="38" id="lIU-kE-fkr"/>
                                     <constraint firstAttribute="height" constant="262" id="lPu-cQ-MaG"/>
                                     <constraint firstAttribute="trailing" secondItem="zXk-at-eVx" secondAttribute="trailing" constant="14" id="oqP-u1-4mw"/>
@@ -133,12 +144,13 @@
             <connections>
                 <outlet property="btnCalificar" destination="jGP-1W-7dT" id="3je-La-8Nc"/>
                 <outlet property="imgStore" destination="NYh-W3-Gha" id="DBU-zT-wkK"/>
+                <outlet property="lblCodigo" destination="n3l-tI-U0t" id="Ngn-hF-PQa"/>
                 <outlet property="lblNombreStore" destination="zXk-at-eVx" id="Xg9-D7-nf5"/>
                 <outlet property="vistaImagen" destination="1Ij-zj-S7M" id="qug-ka-vv5"/>
                 <outlet property="vistaTarjeta" destination="oFa-49-Eus" id="EWo-2v-rtb"/>
                 <outlet property="vistaTop" destination="rcl-MH-T7x" id="WOL-QJ-K4q"/>
             </connections>
-            <point key="canvasLocation" x="-1.4492753623188408" y="117.85714285714285"/>
+            <point key="canvasLocation" x="-2.1739130434782612" y="117.85714285714285"/>
         </tableViewCell>
     </objects>
     <resources>

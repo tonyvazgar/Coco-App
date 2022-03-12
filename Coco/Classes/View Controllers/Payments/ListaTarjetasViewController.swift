@@ -23,6 +23,7 @@ class ListaTarjetasViewController: UIViewController {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "TarjetaNuevaTableViewCell", bundle: nil), forCellReuseIdentifier: "CellTarjeta")
         tableView.register(UINib(nibName: "TarjetaOxxoTableViewCell", bundle: nil), forCellReuseIdentifier: "CellOxxo")
+        tableView.register(UINib(nibName: "TarjetaCocoPointsTableViewCell", bundle: nil), forCellReuseIdentifier: "CellCoco")
         paymentForms = PaymentForms()
         
         
@@ -63,17 +64,17 @@ class ListaTarjetasViewController: UIViewController {
                 
                 self?.arrTarjetas = paymentMethods
                 
-                /*
+                
                 let tar : PaymentForm = PaymentForm()
                 tar.id = "0"
                 tar.digits = "0"
-                tar.type = "oxxo"
+                tar.type = "cocopoints"
                 tar.methodCustomer = ""
                 tar.customer_id = ""
-                tar.banco = "oxxo"
+                tar.banco = "cocopoints"
                 tar.token_card = ""
                 self?.arrTarjetas.append(tar)
- */
+                
                 self?.tableView.reloadData()
                 print("lista tarjetas")
                 break
@@ -141,6 +142,12 @@ extension ListaTarjetasViewController : UITableViewDataSource, UITableViewDelega
             cell.lblSaldo.text = "$\(saldo)"
             return cell
             break
+        case "cocopoints":
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellCoco", for: indexPath) as! TarjetaCocoPointsTableViewCell
+            let user = UserManagement.shared.user
+            cell.lblCocoPoints.text = "\(user!.cocopoints_balance ?? "0")"
+            return cell
+            break
         default:
             break
         }
@@ -164,13 +171,24 @@ extension ListaTarjetasViewController : UITableViewDataSource, UITableViewDelega
                 Constatns.LocalData.paymentCanasta.numeroTarjeta = "\(saldo)"
             }
             else {
-                Constatns.LocalData.paymentCanasta.tipoTarjeta = item.type ?? ""
-                //Nuevatarjeta
-                Constatns.LocalData.paymentCanasta.forma_pago = 1
-                Constatns.LocalData.paymentCanasta.token_id = ""
-                Constatns.LocalData.paymentCanasta.token_cliente = "\(item.customer_id ?? "")"
-                Constatns.LocalData.paymentCanasta.token_card = "\(item.token_card ?? "")"
-                Constatns.LocalData.paymentCanasta.numeroTarjeta = "\(item.digits ?? "")"
+                if item.type == "cocopoints" {
+                    Constatns.LocalData.paymentCanasta.tipoTarjeta = "cocopoints"
+                    //Nuevatarjeta
+                    Constatns.LocalData.paymentCanasta.forma_pago = 4
+                    Constatns.LocalData.paymentCanasta.token_id = ""
+                    Constatns.LocalData.paymentCanasta.token_cliente = ""
+                    Constatns.LocalData.paymentCanasta.token_card = ""
+                    Constatns.LocalData.paymentCanasta.numeroTarjeta = ""
+                }
+                else {
+                    Constatns.LocalData.paymentCanasta.tipoTarjeta = item.type ?? ""
+                    //Nuevatarjeta
+                    Constatns.LocalData.paymentCanasta.forma_pago = 1
+                    Constatns.LocalData.paymentCanasta.token_id = ""
+                    Constatns.LocalData.paymentCanasta.token_cliente = "\(item.customer_id ?? "")"
+                    Constatns.LocalData.paymentCanasta.token_card = "\(item.token_card ?? "")"
+                    Constatns.LocalData.paymentCanasta.numeroTarjeta = "\(item.digits ?? "")"
+                }
             }
             
             self.navigationController?.popViewController(animated: true)
@@ -179,7 +197,7 @@ extension ListaTarjetasViewController : UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if self.arrTarjetas[indexPath.row].type != "oxxo" {
+        if self.arrTarjetas[indexPath.row].type != "oxxo"  && self.arrTarjetas[indexPath.row].type != "cocopoints" {
             return true
         }
         return false
@@ -188,6 +206,17 @@ extension ListaTarjetasViewController : UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completionHandler) in
                     // delete the item here
+            
+           
+                Constatns.LocalData.paymentCanasta.tipoTarjeta = ""
+                //Nuevatarjeta
+                Constatns.LocalData.paymentCanasta.forma_pago = 0
+                Constatns.LocalData.paymentCanasta.token_id = ""
+                Constatns.LocalData.paymentCanasta.token_cliente = ""
+                Constatns.LocalData.paymentCanasta.token_card = ""
+                Constatns.LocalData.paymentCanasta.numeroTarjeta = ""
+            
+            
             self.eliminaTarjeta(token_cliente: self.arrTarjetas[indexPath.row].customer_id ?? "", token_card: self.arrTarjetas[indexPath.row].token_card ?? "")
                     completionHandler(true)
                 }

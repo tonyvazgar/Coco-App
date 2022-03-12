@@ -604,7 +604,7 @@
                                                                     <constraint firstAttribute="height" constant="43" id="ejw-ek-aoj"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no"/>
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BR1-Sj-gJt">
                                                                 <rect key="frame" x="0.0" y="70" width="324" height="1"/>

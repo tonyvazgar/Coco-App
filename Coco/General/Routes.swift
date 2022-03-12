@@ -29,6 +29,7 @@ struct Routes {
     static let redeemCocoCard = "ChangeFolioCocoCard"
     static let deleteCard = "deleteCard"
     static let ya_llegue = "ya_llegue"
+    static let sendValoration = "sendValoration"
     
     static let getSchools = "getColleges"
     

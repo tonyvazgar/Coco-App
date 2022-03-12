@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -84,13 +85,42 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="61G-vo-48a">
+                                        <rect key="frame" x="18" y="154" width="80" height="80"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="AXS-L3-744"/>
+                                            <constraint firstAttribute="width" constant="80" id="V1Q-3f-cgV"/>
+                                        </constraints>
+                                    </view>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="En breve estará listo tu pedido" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wb5-uG-6tK">
+                                        <rect key="frame" x="117" y="181" width="193" height="49"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="49" id="GT8-v1-wfA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Código: #12345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdr-eL-e7G">
+                                        <rect key="frame" x="193" y="106" width="117" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="xQf-pV-YrP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="AdR-bX-fik" firstAttribute="top" secondItem="tt8-4W-1KX" secondAttribute="top" constant="10" id="184-rg-khX"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wb5-uG-6tK" secondAttribute="trailing" constant="15" id="4Bf-LK-Z5o"/>
                                     <constraint firstAttribute="trailing" secondItem="eqd-ei-Plx" secondAttribute="trailing" constant="15" id="7fU-li-LTz"/>
                                     <constraint firstItem="eqd-ei-Plx" firstAttribute="top" secondItem="5d4-DZ-c6b" secondAttribute="bottom" constant="17" id="BML-Py-Pei"/>
+                                    <constraint firstItem="7hY-6J-SQM" firstAttribute="top" secondItem="Gdr-eL-e7G" secondAttribute="bottom" constant="4" id="BW6-4h-mJC"/>
                                     <constraint firstAttribute="bottom" secondItem="7hY-6J-SQM" secondAttribute="bottom" constant="129" id="CQW-nT-9rT"/>
+                                    <constraint firstItem="61G-vo-48a" firstAttribute="leading" secondItem="tt8-4W-1KX" secondAttribute="leading" constant="18" id="E1o-0R-ijQ"/>
                                     <constraint firstItem="uTZ-kl-jNR" firstAttribute="top" secondItem="tt8-4W-1KX" secondAttribute="top" constant="46" id="Efd-Ld-iQm"/>
                                     <constraint firstItem="5d4-DZ-c6b" firstAttribute="top" secondItem="7hY-6J-SQM" secondAttribute="bottom" constant="18" id="H2B-vH-ksx"/>
                                     <constraint firstItem="7hY-6J-SQM" firstAttribute="leading" secondItem="tt8-4W-1KX" secondAttribute="leading" constant="15" id="IN5-YI-FlB"/>
@@ -103,7 +133,11 @@
                                     <constraint firstItem="eqd-ei-Plx" firstAttribute="leading" secondItem="xen-Ss-jea" secondAttribute="trailing" constant="27" id="gqM-Du-XhW"/>
                                     <constraint firstItem="xen-Ss-jea" firstAttribute="leading" secondItem="tt8-4W-1KX" secondAttribute="leading" constant="15" id="iwB-zJ-8Zq"/>
                                     <constraint firstItem="uTZ-kl-jNR" firstAttribute="leading" secondItem="AdR-bX-fik" secondAttribute="trailing" constant="8" id="lVa-F7-RQA"/>
+                                    <constraint firstItem="61G-vo-48a" firstAttribute="top" secondItem="7hY-6J-SQM" secondAttribute="bottom" constant="21" id="qp4-9k-UZA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Gdr-eL-e7G" secondAttribute="trailing" constant="15" id="qtb-Wr-u1c"/>
+                                    <constraint firstItem="Wb5-uG-6tK" firstAttribute="top" secondItem="7hY-6J-SQM" secondAttribute="bottom" constant="48" id="ujA-xX-twc"/>
                                     <constraint firstAttribute="height" constant="262" id="uqR-i1-NVB"/>
+                                    <constraint firstItem="Wb5-uG-6tK" firstAttribute="leading" secondItem="61G-vo-48a" secondAttribute="trailing" constant="19" id="yxb-qc-7Tb"/>
                                     <constraint firstAttribute="trailing" secondItem="5d4-DZ-c6b" secondAttribute="trailing" constant="15" id="zcl-wf-b7s"/>
                                 </constraints>
                             </view>
@@ -144,10 +178,14 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="btnComoLLegar" destination="tI2-8q-TPa" id="Hdn-zz-IQ1"/>
+                <outlet property="contenedorAnimacion" destination="61G-vo-48a" id="kxP-nw-NYX"/>
                 <outlet property="imgStatus" destination="xen-Ss-jea" id="gIG-GE-Jd9"/>
                 <outlet property="imgStore" destination="1rP-Xm-U8D" id="wN4-Ug-HnO"/>
+                <outlet property="lblCodigo" destination="Gdr-eL-e7G" id="zw7-9c-kas"/>
                 <outlet property="lblNombreStore" destination="uTZ-kl-jNR" id="D7K-w0-H3C"/>
                 <outlet property="lblTiempo" destination="eqd-ei-Plx" id="VYb-Se-sXZ"/>
+                <outlet property="lblTiempoCero" destination="Wb5-uG-6tK" id="cyW-4x-KTP"/>
+                <outlet property="tituloTiempo" destination="5d4-DZ-c6b" id="mnX-Se-CHv"/>
                 <outlet property="vistaImagen" destination="AdR-bX-fik" id="bFD-kl-6TQ"/>
                 <outlet property="vistaTarjeta" destination="q4a-yI-a6e" id="u64-QP-5YZ"/>
                 <outlet property="vistaTop" destination="tt8-4W-1KX" id="8VZ-A3-NAj"/>
@@ -158,5 +196,8 @@
     <resources>
         <image name="cafe1" width="2480" height="1660"/>
         <image name="preparacion" width="120" height="158.66667175292969"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

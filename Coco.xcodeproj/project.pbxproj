@@ -21,6 +21,7 @@
 		7C0A092027D7B97B0092E89A /* PedidoEntregadoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A091E27D7B97B0092E89A /* PedidoEntregadoTableViewCell.swift */; };
 		7C0A092127D7B97B0092E89A /* PedidoEntregadoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A091F27D7B97B0092E89A /* PedidoEntregadoTableViewCell.xib */; };
 		7C0A092727D833D00092E89A /* lf30_editor_xv20qsja.json in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A092627D833CF0092E89A /* lf30_editor_xv20qsja.json */; };
+		7C0A092927D8829C0092E89A /* YaLLegueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A092827D8829C0092E89A /* YaLLegueViewController.swift */; };
 		7C32F4C427CE71FD00C3A33C /* FinPedidoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4C327CE71FD00C3A33C /* FinPedidoViewController.swift */; };
 		7C32F4C727D030B300C3A33C /* ListaTarjetasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4C627D030B300C3A33C /* ListaTarjetasViewController.swift */; };
 		7C32F4C927D030C000C3A33C /* AgregarTarjetaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4C827D030C000C3A33C /* AgregarTarjetaViewController.swift */; };
@@ -28,6 +29,8 @@
 		7C32F4CE27D155FB00C3A33C /* OrdenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4CD27D155FB00C3A33C /* OrdenRequest.swift */; };
 		7C32F4D027D1862300C3A33C /* Wrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4CF27D1862300C3A33C /* Wrap.swift */; };
 		7C32F4D227D3A23F00C3A33C /* ListaPedidosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4D127D3A23F00C3A33C /* ListaPedidosViewController.swift */; };
+		7C8221CC27DC58380093F9C0 /* PedidoCanceladoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8221CA27DC58380093F9C0 /* PedidoCanceladoTableViewCell.swift */; };
+		7C8221CD27DC58380093F9C0 /* PedidoCanceladoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C8221CB27DC58380093F9C0 /* PedidoCanceladoTableViewCell.xib */; };
 		7CABECC927C1127800C6FFF9 /* CategoriesV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CABECC827C1127800C6FFF9 /* CategoriesV2ViewController.swift */; };
 		7CABECCB27C37C0500C6FFF9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7CABECCA27C37C0500C6FFF9 /* GoogleService-Info.plist */; };
 		7CCAB78B27C63ADA00DC9961 /* ProductosV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAB78A27C63AD900DC9961 /* ProductosV2ViewController.swift */; };
@@ -43,9 +46,15 @@
 		7CCAB7A127CCC96A00DC9961 /* ProductCartV2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAB79F27CCC96A00DC9961 /* ProductCartV2TableViewCell.swift */; };
 		7CCAB7A227CCC96A00DC9961 /* ProductCartV2TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CCAB7A027CCC96A00DC9961 /* ProductCartV2TableViewCell.xib */; };
 		7CCAB7A427CD907C00DC9961 /* DetallePedidoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAB7A327CD907B00DC9961 /* DetallePedidoViewController.swift */; };
+		7CDDFFA927D9527400FD61A3 /* EncuestaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDDFFA827D9527400FD61A3 /* EncuestaViewController.swift */; };
+		7CDDFFAB27D977DF00FD61A3 /* EncuestaSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDDFFAA27D977DF00FD61A3 /* EncuestaSuccessViewController.swift */; };
+		7CDDFFAD27D9791800FD61A3 /* like.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CDDFFAC27D9791800FD61A3 /* like.json */; };
+		7CDDFFB427D9BF9600FD61A3 /* cooking.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CDDFFB327D9BF9500FD61A3 /* cooking.json */; };
 		7CE5362B27BF1CD100C52F85 /* PaymentsCounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE5362A27BF1CD100C52F85 /* PaymentsCounterViewController.swift */; };
 		7CE5362E27C10D7A00C52F85 /* CategoryV2CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE5362C27C10D7900C52F85 /* CategoryV2CollectionViewCell.swift */; };
 		7CE5362F27C10D7A00C52F85 /* CategoryV2CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE5362D27C10D7A00C52F85 /* CategoryV2CollectionViewCell.xib */; };
+		7CE9E66127DB3EA600988DC9 /* TarjetaCocoPointsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE9E65F27DB3EA600988DC9 /* TarjetaCocoPointsTableViewCell.swift */; };
+		7CE9E66227DB3EA600988DC9 /* TarjetaCocoPointsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE9E66027DB3EA600988DC9 /* TarjetaCocoPointsTableViewCell.xib */; };
 		7CF7B72E27CE55A800323E1F /* PickUpListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF7B72D27CE55A800323E1F /* PickUpListViewController.swift */; };
 		7CF7B73027CE55BA00323E1F /* Pickups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CF7B72F27CE55BA00323E1F /* Pickups.storyboard */; };
 		7CF7B73227CE592C00323E1F /* RestaurantePickupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF7B73127CE592C00323E1F /* RestaurantePickupViewController.swift */; };
@@ -341,6 +350,7 @@
 		7C0A091E27D7B97B0092E89A /* PedidoEntregadoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedidoEntregadoTableViewCell.swift; sourceTree = "<group>"; };
 		7C0A091F27D7B97B0092E89A /* PedidoEntregadoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PedidoEntregadoTableViewCell.xib; sourceTree = "<group>"; };
 		7C0A092627D833CF0092E89A /* lf30_editor_xv20qsja.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lf30_editor_xv20qsja.json; sourceTree = "<group>"; };
+		7C0A092827D8829C0092E89A /* YaLLegueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YaLLegueViewController.swift; sourceTree = "<group>"; };
 		7C32F4C327CE71FD00C3A33C /* FinPedidoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinPedidoViewController.swift; sourceTree = "<group>"; };
 		7C32F4C627D030B300C3A33C /* ListaTarjetasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaTarjetasViewController.swift; sourceTree = "<group>"; };
 		7C32F4C827D030C000C3A33C /* AgregarTarjetaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarTarjetaViewController.swift; sourceTree = "<group>"; };
@@ -348,6 +358,8 @@
 		7C32F4CD27D155FB00C3A33C /* OrdenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdenRequest.swift; sourceTree = "<group>"; };
 		7C32F4CF27D1862300C3A33C /* Wrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wrap.swift; sourceTree = "<group>"; };
 		7C32F4D127D3A23F00C3A33C /* ListaPedidosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaPedidosViewController.swift; sourceTree = "<group>"; };
+		7C8221CA27DC58380093F9C0 /* PedidoCanceladoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedidoCanceladoTableViewCell.swift; sourceTree = "<group>"; };
+		7C8221CB27DC58380093F9C0 /* PedidoCanceladoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PedidoCanceladoTableViewCell.xib; sourceTree = "<group>"; };
 		7CABECC827C1127800C6FFF9 /* CategoriesV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesV2ViewController.swift; sourceTree = "<group>"; };
 		7CABECCA27C37C0500C6FFF9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7CCAB78A27C63AD900DC9961 /* ProductosV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductosV2ViewController.swift; sourceTree = "<group>"; };
@@ -363,9 +375,15 @@
 		7CCAB79F27CCC96A00DC9961 /* ProductCartV2TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCartV2TableViewCell.swift; sourceTree = "<group>"; };
 		7CCAB7A027CCC96A00DC9961 /* ProductCartV2TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCartV2TableViewCell.xib; sourceTree = "<group>"; };
 		7CCAB7A327CD907B00DC9961 /* DetallePedidoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetallePedidoViewController.swift; sourceTree = "<group>"; };
+		7CDDFFA827D9527400FD61A3 /* EncuestaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncuestaViewController.swift; sourceTree = "<group>"; };
+		7CDDFFAA27D977DF00FD61A3 /* EncuestaSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncuestaSuccessViewController.swift; sourceTree = "<group>"; };
+		7CDDFFAC27D9791800FD61A3 /* like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like.json; sourceTree = "<group>"; };
+		7CDDFFB327D9BF9500FD61A3 /* cooking.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cooking.json; sourceTree = "<group>"; };
 		7CE5362A27BF1CD100C52F85 /* PaymentsCounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsCounterViewController.swift; sourceTree = "<group>"; };
 		7CE5362C27C10D7900C52F85 /* CategoryV2CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryV2CollectionViewCell.swift; sourceTree = "<group>"; };
 		7CE5362D27C10D7A00C52F85 /* CategoryV2CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryV2CollectionViewCell.xib; sourceTree = "<group>"; };
+		7CE9E65F27DB3EA600988DC9 /* TarjetaCocoPointsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TarjetaCocoPointsTableViewCell.swift; sourceTree = "<group>"; };
+		7CE9E66027DB3EA600988DC9 /* TarjetaCocoPointsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TarjetaCocoPointsTableViewCell.xib; sourceTree = "<group>"; };
 		7CF7B72D27CE55A800323E1F /* PickUpListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickUpListViewController.swift; sourceTree = "<group>"; };
 		7CF7B72F27CE55BA00323E1F /* Pickups.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Pickups.storyboard; sourceTree = "<group>"; };
 		7CF7B73127CE592C00323E1F /* RestaurantePickupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantePickupViewController.swift; sourceTree = "<group>"; };
@@ -1153,6 +1171,8 @@
 				7C0A090F27D41D530092E89A /* TarjetaNuevaTableViewCell.xib */,
 				7C0A091227D44C2E0092E89A /* TarjetaOxxoTableViewCell.swift */,
 				7C0A091327D44C2E0092E89A /* TarjetaOxxoTableViewCell.xib */,
+				7CE9E65F27DB3EA600988DC9 /* TarjetaCocoPointsTableViewCell.swift */,
+				7CE9E66027DB3EA600988DC9 /* TarjetaCocoPointsTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1238,6 +1258,9 @@
 				C38696B1253D6959006FE5C1 /* OrderListViewController.swift */,
 				C394ACA3253D71EF00066E96 /* OrderDetailViewController.swift */,
 				7C32F4D127D3A23F00C3A33C /* ListaPedidosViewController.swift */,
+				7C0A092827D8829C0092E89A /* YaLLegueViewController.swift */,
+				7CDDFFA827D9527400FD61A3 /* EncuestaViewController.swift */,
+				7CDDFFAA27D977DF00FD61A3 /* EncuestaSuccessViewController.swift */,
 			);
 			path = Orders;
 			sourceTree = "<group>";
@@ -1257,6 +1280,8 @@
 				7C0A091B27D72CBA0092E89A /* PedidoListoTableViewCell.xib */,
 				7C0A091E27D7B97B0092E89A /* PedidoEntregadoTableViewCell.swift */,
 				7C0A091F27D7B97B0092E89A /* PedidoEntregadoTableViewCell.xib */,
+				7C8221CA27DC58380093F9C0 /* PedidoCanceladoTableViewCell.swift */,
+				7C8221CB27DC58380093F9C0 /* PedidoCanceladoTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1390,7 +1415,9 @@
 			isa = PBXGroup;
 			children = (
 				C34CF08B25ACDB4400C9E99B /* 4964-check-mark-success-animation.json */,
+				7CDDFFAC27D9791800FD61A3 /* like.json */,
 				7C0A092627D833CF0092E89A /* lf30_editor_xv20qsja.json */,
+				7CDDFFB327D9BF9500FD61A3 /* cooking.json */,
 				CFD9D35923ECBD0300DACF9E /* checkmark.mp4 */,
 				9DF017FC249D0D1B003F14BF /* gift.mp4 */,
 				C3A161DE22B9B38900076DD8 /* Coco */,
@@ -1870,15 +1897,18 @@
 				C35572BA22CA946D00FC5C89 /* SettingsVC.xib in Resources */,
 				C348F13722CB7F76000F185C /* OrderTableViewCell.xib in Resources */,
 				7C0A091127D41D530092E89A /* TarjetaNuevaTableViewCell.xib in Resources */,
+				7CDDFFB427D9BF9600FD61A3 /* cooking.json in Resources */,
 				9D8DF17824A19AAE00774361 /* giftDetailImagesTableViewCell.xib in Resources */,
 				C3890C3C2521AA2B0055C7A3 /* Poppins-SemiBold.ttf in Resources */,
 				C35572BF22CAB7DD00FC5C89 /* BusinessTableViewCell.xib in Resources */,
+				7C8221CD27DC58380093F9C0 /* PedidoCanceladoTableViewCell.xib in Resources */,
 				C3890C372521AA2B0055C7A3 /* Poppins-Light.ttf in Resources */,
 				EF36114D2799257300FE9335 /* BusinessesCollectionViewCell.xib in Resources */,
 				C3DD1FC0255A3E6A002A5B5C /* Help.storyboard in Resources */,
 				CFBC53AB2407134300D4FF95 /* storedCardsViewController.xib in Resources */,
 				C3A1622D22B9BD4200076DD8 /* MyriadPro-Bold.otf in Resources */,
 				C329B73522E226D8005F579D /* OrderProductTableViewCell.xib in Resources */,
+				7CE9E66227DB3EA600988DC9 /* TarjetaCocoPointsTableViewCell.xib in Resources */,
 				C3222BB122E04EAB00E63F38 /* ShoppingCartProductCellTableViewCell.xib in Resources */,
 				EFDDF6CA279D09C900E5698F /* Banner.storyboard in Resources */,
 				C3890C342521AA2B0055C7A3 /* Poppins-ExtraLight.ttf in Resources */,
@@ -1903,6 +1933,7 @@
 				C3890C312521AA2B0055C7A3 /* Poppins-BoldItalic.ttf in Resources */,
 				C355729A22CA80C200FC5C89 /* loader.json in Resources */,
 				7CCAB79827C7BEB100DC9961 /* ProductCheckBoxTableViewCell.xib in Resources */,
+				7CDDFFAD27D9791800FD61A3 /* like.json in Resources */,
 				9DD30B27249983FE009C7FD0 /* giftsViewController.xib in Resources */,
 				9D9EB1D0242D787B00FE1E2C /* codeSharingTableViewCell.xib in Resources */,
 				C3890C3B2521AA2B0055C7A3 /* Poppins-Regular.ttf in Resources */,
@@ -2048,6 +2079,7 @@
 				CFD9D35523EC949C00DACF9E /* doneModalViewController.swift in Sources */,
 				7C32F4D027D1862300C3A33C /* Wrap.swift in Sources */,
 				C3EB42EC25E09CC00021BA85 /* CocoCardsViewController.swift in Sources */,
+				7C0A092927D8829C0092E89A /* YaLLegueViewController.swift in Sources */,
 				C329B72D22E2173C005F579D /* UITextFieldExtensions.swift in Sources */,
 				C3A1622122B9BBB300076DD8 /* UILabelExtensions.swift in Sources */,
 				EF21E2812798BDF100A84382 /* CounterViewController.swift in Sources */,
@@ -2081,10 +2113,12 @@
 				9DF017F8249BF95B003F14BF /* giftDetailViewController.swift in Sources */,
 				C3415F4E2532D29300D0CD2B /* ProductDetailViewControlller.swift in Sources */,
 				7CCAB79B27C7C6D800DC9961 /* ProductStepperTableViewCell.swift in Sources */,
+				7CDDFFAB27D977DF00FD61A3 /* EncuestaSuccessViewController.swift in Sources */,
 				9D9EB1CF242D787B00FE1E2C /* codeSharingTableViewCell.swift in Sources */,
 				C36553D1252EC04300733EEE /* SideMenuTableViewCell.swift in Sources */,
 				C34466ED22CAE65400A11433 /* FavoritesTableViewCell.swift in Sources */,
 				C3A1622322B9BC4700076DD8 /* General.swift in Sources */,
+				7CDDFFA927D9527400FD61A3 /* EncuestaViewController.swift in Sources */,
 				C34466E222CAC4BA00A11433 /* RegisterVC.swift in Sources */,
 				C3890C2D2521A7D80055C7A3 /* UIStoryboard+Extensions.swift in Sources */,
 				CFBC53A52406EADB00D4FF95 /* addNewPromoCodeViewController.swift in Sources */,
@@ -2103,6 +2137,7 @@
 				C36553CD252EBDF400733EEE /* SideMenuViewController.swift in Sources */,
 				7CCAB79127C7B1C200DC9961 /* ProducDetailV2ViewController.swift in Sources */,
 				C394ACA4253D71EF00066E96 /* OrderDetailViewController.swift in Sources */,
+				7CE9E66127DB3EA600988DC9 /* TarjetaCocoPointsTableViewCell.swift in Sources */,
 				EFDDF6C8279D09B600E5698F /* BannerViewController.swift in Sources */,
 				C3C0F37E22D3D73400B03F62 /* Cards.swift in Sources */,
 				C355E54A253EA8E400DDE1DE /* AddPaymentMethodViewController.swift in Sources */,
@@ -2163,6 +2198,7 @@
 				7C32F4C927D030C000C3A33C /* AgregarTarjetaViewController.swift in Sources */,
 				C3A1622522B9BC8B00076DD8 /* Routes.swift in Sources */,
 				C36553DB252ECFB000733EEE /* FetcherErrors.swift in Sources */,
+				7C8221CC27DC58380093F9C0 /* PedidoCanceladoTableViewCell.swift in Sources */,
 				C348F13222CB7CE3000F185C /* Orders.swift in Sources */,
 				C3415F4125302EAF00D0CD2B /* ProductTableViewCell.swift in Sources */,
 				C3415F492532C78400D0CD2B /* LocationHeaderView.swift in Sources */,
@@ -2393,7 +2429,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Coco/Coco.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = CGP7LW6Y94;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Coco/Info.plist;
@@ -2424,7 +2460,7 @@
 				CODE_SIGN_ENTITLEMENTS = Coco/Coco.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = CGP7LW6Y94;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Coco/Info.plist;

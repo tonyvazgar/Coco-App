@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import  Kingfisher
+import Lottie
 protocol PedidoPreparacionDelegate {
     func comoLLegarPreparacion(index : Int)
 }
@@ -21,8 +22,16 @@ class PedidoPreparacionTableViewCell: UITableViewCell {
     @IBOutlet weak var imgStatus: UIImageView!
     @IBOutlet weak var lblTiempo: UILabel!
     @IBOutlet weak var btnComoLLegar: UIButton!
+    @IBOutlet weak var tituloTiempo: UILabel!
+    @IBOutlet weak var lblTiempoCero: UILabel!
     
     var delegate : PedidoPreparacionDelegate?
+    
+    @IBOutlet weak var contenedorAnimacion: UIView!
+    public var loaderAnimation: AnimationView!
+    
+    @IBOutlet weak var lblCodigo: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -50,8 +59,43 @@ class PedidoPreparacionTableViewCell: UITableViewCell {
         vistaImagen.layer.shadowOffset = CGSize(width: 3, height: 3)
         vistaImagen.layer.shadowOpacity = 0.5
         vistaImagen.layer.shadowRadius = 3
+        
+     
+        
+        
+        contenedorAnimacion.clipsToBounds = true
+        
+        loaderAnimation = AnimationView(name: "cooking")
+        loaderAnimation.frame = CGRect(origin: .zero, size: contenedorAnimacion.frame.size)
+        loaderAnimation.backgroundColor = .clear
+        loaderAnimation.loopMode = .loop
+        loaderAnimation.animationSpeed = 0.7
+        contenedorAnimacion.addSubview(loaderAnimation)
+        
+        loaderAnimation.play()
+        
     }
-
+    
+    func countDownTest(minutes: Int, seconds: Int) {
+        var minutesRemaining = minutes
+        var secondsRemaining = seconds
+        Timer.scheduledTimer(withTimeInterval: 6, repeats: true) { [weak self] timer in
+            if secondsRemaining < 6 {
+                secondsRemaining = (60 + secondsRemaining) - 6
+                minutesRemaining -= 1
+                if minutesRemaining <= 0 {
+                    //self?.currentEstimatedTime.isHidden = true
+                    timer.invalidate()
+                } else {
+                    //self?.estimatedTimeText.text = "\(minutesRemaining) Minutos"
+                    self!.lblTiempo.text = "\(minutesRemaining) Minutos"
+                }
+            } else {
+                secondsRemaining -= 6
+            }
+        }
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -22,6 +22,8 @@ class PedidoListoTableViewCell: UITableViewCell {
     @IBOutlet weak var lblStatus: UILabel!
     @IBOutlet weak var btnOCmoLLegar: UIButton!
     @IBOutlet weak var btnYaLLegue: UIButton!
+    @IBOutlet weak var lblCodigo: UILabel!
+    @IBOutlet weak var btnComoLLegarGrande: UIButton!
     
     var delegate : PedidoListoDelegate?
     
@@ -53,6 +55,7 @@ class PedidoListoTableViewCell: UITableViewCell {
         vistaImagen.layer.shadowOffset = CGSize(width: 3, height: 3)
         vistaImagen.layer.shadowOpacity = 0.5
         vistaImagen.layer.shadowRadius = 3
+        btnComoLLegarGrande.layer.cornerRadius = 20
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -67,5 +70,8 @@ class PedidoListoTableViewCell: UITableViewCell {
     
     @IBAction func yaLLegueListoDelegate(_ sender: UIButton) {
         delegate?.yaLLegueListo(index: sender.tag)
+    }
+    @IBAction func comoLlegarGrandeAction(_ sender: UIButton) {
+        delegate?.comoLLegarListo(index: sender.tag)
     }
 }

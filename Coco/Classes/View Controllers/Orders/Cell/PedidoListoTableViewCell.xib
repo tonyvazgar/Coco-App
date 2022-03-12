@@ -75,10 +75,21 @@
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Código: #12345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2D-eU-2ta">
+                                        <rect key="frame" x="194" y="106" width="117" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="NJX-Eh-XYb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="ZHh-1o-UVm" secondAttribute="trailing" constant="14" id="6C9-gk-oDw"/>
+                                    <constraint firstAttribute="trailing" secondItem="R2D-eU-2ta" secondAttribute="trailing" constant="14" id="6Se-wi-HzD"/>
+                                    <constraint firstItem="n8o-HP-K9k" firstAttribute="top" secondItem="R2D-eU-2ta" secondAttribute="bottom" constant="4" id="8BM-NO-rRK"/>
                                     <constraint firstAttribute="bottom" secondItem="n8o-HP-K9k" secondAttribute="bottom" constant="129" id="AKe-V8-jHx"/>
                                     <constraint firstAttribute="trailing" secondItem="n8o-HP-K9k" secondAttribute="trailing" constant="15" id="KTu-9c-FMX"/>
                                     <constraint firstItem="Z6T-F6-o2q" firstAttribute="leading" secondItem="qCt-Dr-U9B" secondAttribute="leading" constant="15" id="UDC-Zt-OlF"/>
@@ -123,10 +134,23 @@
                                     <action selector="yaLLegueListoDelegate:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZrK-vZ-mdY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hSX-yg-Rfz">
+                                <rect key="frame" x="20" y="292" width="285" height="40"/>
+                                <color key="backgroundColor" red="0.91764705879999997" green="0.50196078430000002" blue="0.1215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="kKN-ys-xHa"/>
+                                </constraints>
+                                <state key="normal" title="Como llegar"/>
+                                <connections>
+                                    <action selector="comoLlegarGrandeAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="WCj-Cy-cvh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="hSX-yg-Rfz" firstAttribute="leading" secondItem="PaI-D1-7DG" secondAttribute="leading" constant="20" id="5Ie-T9-SOf"/>
                             <constraint firstAttribute="height" constant="344" id="A8U-Rh-a2f"/>
+                            <constraint firstItem="hSX-yg-Rfz" firstAttribute="top" secondItem="qCt-Dr-U9B" secondAttribute="bottom" constant="30" id="DOY-Gd-gC3"/>
                             <constraint firstAttribute="trailing" secondItem="qCt-Dr-U9B" secondAttribute="trailing" id="H6N-VB-RgU"/>
                             <constraint firstItem="24H-eI-sLt" firstAttribute="top" secondItem="qCt-Dr-U9B" secondAttribute="bottom" constant="30" id="Hn2-aJ-vDq"/>
                             <constraint firstAttribute="trailing" secondItem="24H-eI-sLt" secondAttribute="trailing" constant="8" id="IRo-ke-Kv0"/>
@@ -135,6 +159,7 @@
                             <constraint firstItem="24H-eI-sLt" firstAttribute="leading" secondItem="Ttw-Lm-5pr" secondAttribute="trailing" constant="11" id="bQV-TH-HxF"/>
                             <constraint firstItem="Ttw-Lm-5pr" firstAttribute="width" secondItem="24H-eI-sLt" secondAttribute="width" id="l8S-A4-4SU"/>
                             <constraint firstItem="qCt-Dr-U9B" firstAttribute="top" secondItem="PaI-D1-7DG" secondAttribute="top" id="qpt-gb-ahp"/>
+                            <constraint firstAttribute="trailing" secondItem="hSX-yg-Rfz" secondAttribute="trailing" constant="20" id="uDW-Mw-G0q"/>
                             <constraint firstItem="Ttw-Lm-5pr" firstAttribute="top" secondItem="qCt-Dr-U9B" secondAttribute="bottom" constant="30" id="zTd-8F-NJ0"/>
                         </constraints>
                     </view>
@@ -148,9 +173,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnComoLLegarGrande" destination="hSX-yg-Rfz" id="uNt-JS-8s4"/>
                 <outlet property="btnOCmoLLegar" destination="Ttw-Lm-5pr" id="TLv-gL-cu7"/>
                 <outlet property="btnYaLLegue" destination="24H-eI-sLt" id="nVh-VI-LmJ"/>
                 <outlet property="imgStore" destination="adW-TP-xQk" id="v4C-RS-Pko"/>
+                <outlet property="lblCodigo" destination="R2D-eU-2ta" id="569-Xd-lIr"/>
                 <outlet property="lblNombreStore" destination="oDH-Oy-2Mk" id="Hya-mj-pIX"/>
                 <outlet property="lblStatus" destination="ZHh-1o-UVm" id="EKa-3w-2JW"/>
                 <outlet property="vistaImagen" destination="6ha-kj-niv" id="YF4-aF-sJS"/>

@@ -45,8 +45,16 @@ class AutoPickupViewController: UIViewController {
         txtMarca.text = Constatns.LocalData.marcaCarro
         txtColor.text = Constatns.LocalData.colorCarro
         txtPlacas.text = Constatns.LocalData.placasCarro
+        
+        
+        txtPlacas.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: UIControl.Event.editingChanged)
+        
+        
     }
     
+    @objc func textFieldDidChange(textField: UITextField) {
+        textField.text = textField.text?.uppercased()
+    }
 
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -79,4 +87,7 @@ class AutoPickupViewController: UIViewController {
         
         
     }
+    
+    
+    
 }

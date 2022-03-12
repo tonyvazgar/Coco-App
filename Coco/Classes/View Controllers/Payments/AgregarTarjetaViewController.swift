@@ -12,24 +12,26 @@ import Alamofire
 import SwiftyJSON
 class AgregarTarjetaViewController: UIViewController, CreditCardDataDelegate {
     func beganEditing(in textFieldType: TextFieldType) {
-        
+        print("beganEditing")
     }
     
     func cardNumberChanged(_ number: String) {
-        
+        print("cardNumberChanged")
     }
     
     func cardholderNameChanged(_ name: String) {
-        
+        print("cardholderNameChanged")
     }
     
     func validityDateChanged(_ date: String) {
-        
+        print("validityDateChanged")
     }
     
     func CVVNumberChanged(_ cvv: String) {
-        
+        print("CVVNumberChanged")
     }
+    
+    
     
 
     @IBOutlet weak var vistaTarjeta: UIView!
@@ -39,6 +41,15 @@ class AgregarTarjetaViewController: UIViewController, CreditCardDataDelegate {
     var cardView : CardView?
     var loader: LoaderVC!
     var isFromOrder : Bool = false
+    
+    
+    private let inputsView: CardInputsView = {
+            let view = CardInputsView(cardNumberDigitLimit: 16)
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.isSecureInput = true
+            return view
+        }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,20 +66,44 @@ class AgregarTarjetaViewController: UIViewController, CreditCardDataDelegate {
         cardView!.validityDateTitle = "Fecha"
         //cardView!.CVVNumberEmptyCharacter
         vistaTarjeta.addSubview(cardView!)
-        cardView!.creditCardDataDelegate = self
+        
         NSLayoutConstraint.activate([
-                    cardView!.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+                    cardView!.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
                     cardView!.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
                     cardView!.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
 
                    
                 ])
+        
+        
+        self.view.addSubview(inputsView)
+        
+        NSLayoutConstraint.activate([
+                   
+
+            inputsView.topAnchor.constraint(equalTo: vistaTarjeta!.bottomAnchor, constant: 24),
+            inputsView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            inputsView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+
+                  
+               ])
+        cardView!.creditCardDataDelegate = inputsView
+        inputsView.creditCardDataDelegate = cardView!
+        inputsView.cardNumberTitle = "Número tarjeta"
+        inputsView.cardholderNameTitle = "Nombre"
+        inputsView.validityDateTitle = "Fecha"
+        inputsView.cvvNumberTitle = "CVV"
     }
 
     @IBAction func backAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        cardView!.currentInput = .cardNumber
+    }
   
     @IBAction func registrarTarjetaActipn(_ sender: UIButton) {
         let data = cardView!.creditCardData

@@ -40,7 +40,28 @@ class PickUpListViewController: UIViewController {
         vistaLugar.layer.shadowOffset = CGSize(width: 0, height: 15)
         vistaLugar.layer.shadowOpacity = 0.7
         vistaLugar.layer.shadowRadius = 15
+        
+        let pickSttring = Constatns.LocalData.tipoPickUpAceptados
+        let arrPickups = pickSttring.components(separatedBy: ",")
+        
+        vistaRestaurante.visibility = .gone
+        vistaAuto.visibility = .gone
+        vistaLugar.visibility = .gone
+        for item in arrPickups{
+            if item == "1" {
+                vistaRestaurante.visibility = .visible
+            }
+            if item == "2" {
+                vistaAuto.visibility = .visible
+            }
+            if item == "3" {
+                vistaLugar.visibility = .visible
+            }
+        }
+        
     }
+    
+   
 
     @IBAction func backAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)

@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import BottomPopup
 
 class ListaPedidosViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     private var loader = LoaderVC()
     private(set) var orders: [Order] = []
+    
+    var gameTimer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,20 +27,49 @@ class ListaPedidosViewController: UIViewController {
         tableView.register(UINib(nibName: "PedidoListoTableViewCell", bundle: nil), forCellReuseIdentifier: "CellListo")
         tableView.register(UINib(nibName: "PedidoEntregadoTableViewCell", bundle: nil), forCellReuseIdentifier: "CellEntregado")
         
+        tableView.register(UINib(nibName: "PedidoCanceladoTableViewCell", bundle: nil), forCellReuseIdentifier: "CellCancelado")
+        
+        
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(callPullToRefresh), for: .valueChanged)
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,selector: #selector(appMovedToForeground),name: UIApplication.willEnterForegroundNotification, object: nil)
+        notificationCenter.addObserver(self,selector: #selector(appMovedToBackground),name: UIApplication.willResignActiveNotification, object: nil)
     }
     
     @objc func callPullToRefresh(){
         requestData()
     }
+    @objc func appMovedToBackground() {
+        print("se fue a background")
+        gameTimer?.invalidate()
+    }
+    
+    @objc func appMovedToForeground() {
+        print("App moved to ForeGround!")
+        requestData()
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         requestData()
+        
+        if let tabItems = tabBarController?.tabBar.items {
+            // In this case we want to modify the badge number of the third tab:
+            let tabItem = tabItems[2]
+            tabItem.badgeValue = nil
+        }
     }
-
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        gameTimer?.invalidate()
+    }
+    @objc func runTimedCode(){
+        print("refrescando informacion")
+        tableView.reloadData()
+    }
+    
     func requestData() {
         OrdersFetcher.fetchOrders { [weak self] result in
             switch result {
@@ -48,14 +80,56 @@ class ListaPedidosViewController: UIViewController {
                 DispatchQueue.main.asyncAfter(deadline: .now()){
                    self?.tableView.refreshControl?.endRefreshing()
                     self?.orders = []
+                    
+                    
                     for item in orders {
-                        if item.status == "1" || item.status == "2" || item.status == "3" || item.status == "4" {
                             self?.orders.append(item)
-                        }
                     }
-                    self?.orders = orders
+                    
+                    
+                    if (self?.orders.count)! > 5 {
+                        self?.orders = Array((self?.orders[0...4])!)
+                    }
+                    
+                    var arrOrdenesPendientes : [Order] = [Order]()
+                    
+                    for item in self?.orders ?? [] {
+                       // if item.status == "1" || item.status == "2" || item.status == "3" || item.status == "4" {
+                            arrOrdenesPendientes.append(item)
+                        //}
+                    }
+                    
+                    self?.orders = arrOrdenesPendientes
+                    
                     self?.requestInitialData()
                     self?.tableView.reloadData()
+                    
+                    
+                    
+                    var numeroPendientes : Int = 0
+                    for item in self?.orders ?? [] {
+                        if item.status == "1" || item.status == "2" || item.status == "3" {
+                            numeroPendientes = numeroPendientes + 1
+                        }
+                    }
+                    if let tabItems = self?.tabBarController?.tabBar.items {
+                        // In this case we want to modify the badge number of the third tab:
+                        let tabItem = tabItems[2]
+                        if (self?.orders.count)! > 0 {
+                            tabItem.badgeValue = "\((numeroPendientes))"
+                        }
+                        else {
+                            tabItem.badgeValue = nil
+                        }
+                        
+                    }
+                    
+                    if self?.gameTimer != nil {
+                        self?.gameTimer?.invalidate()
+                    }
+                        self?.gameTimer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self?.runTimedCode), userInfo: nil, repeats: true)
+                    
+                    
                }
                 
                 
@@ -92,9 +166,21 @@ class ListaPedidosViewController: UIViewController {
                 self?.throwError(str: "Ocurrió un error al avisar que ya llegue")
             case .success:
                 //lanzamos el modal de que ya llego
+                self?.presentarModal()
                 break
             }
         }
+    }
+    
+    func presentarModal(){
+        guard let popupViewController = storyboard?.instantiateViewController(withIdentifier: "YaLLegueViewController") as? YaLLegueViewController else { return }
+        popupViewController.height = 350
+        popupViewController.topCornerRadius = 35
+        popupViewController.presentDuration = 0.5
+        popupViewController.dismissDuration = 0.5
+        popupViewController.shouldDismissInteractivelty = true
+        //popupViewController.popupDelegate = self
+        present(popupViewController, animated: true, completion: nil)
     }
 }
 
@@ -112,6 +198,7 @@ extension ListaPedidosViewController : UITableViewDataSource, UITableViewDelegat
             cell.lblNombreStore.text = item.business ?? ""
             cell.btnOCmoLLegar.tag = indexPath.row
             cell.delegate = self
+            cell.lblCodigo.text = "#\(item.codigo ?? "")"
             if let image = item.imageURL {
                 cell.imgStore.kf.setImage(with: URL(string: image),
                                           placeholder: nil,
@@ -131,7 +218,23 @@ extension ListaPedidosViewController : UITableViewDataSource, UITableViewDelegat
                                           completionHandler: nil)
             }
             cell.btnComoLLegar.tag = indexPath.row
+            //cell.countDownTest(minutes: 5, seconds: 30)
+            cell.loaderAnimation.play()
             cell.delegate = self
+            cell.lblCodigo.text = "#\(item.codigo ?? "")"
+            let tiempo = self.getHoursAndMinutes(minutosAsumar: Int(item.tiempoEstimado ?? "0")!, fechaAceptacion: "\(item.fecha_aceptado ?? "")")
+            if tiempo == 0 {
+                cell.lblTiempo.visibility = .gone
+                cell.tituloTiempo.visibility = .gone
+                cell.lblTiempoCero.visibility = .visible
+            }
+            else {
+                cell.lblTiempo.visibility = .visible
+                cell.tituloTiempo.visibility = .visible
+                cell.lblTiempoCero.visibility = .gone
+                cell.lblTiempo.text = "\(tiempo):00"
+            }
+            
             return cell
         case "3":
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellListo", for: indexPath) as! PedidoListoTableViewCell
@@ -143,14 +246,27 @@ extension ListaPedidosViewController : UITableViewDataSource, UITableViewDelegat
                                           progressBlock: nil,
                                           completionHandler: nil)
             }
+            cell.lblCodigo.text = "#\(item.codigo ?? "")"
             cell.btnYaLLegue.tag = indexPath.row
             cell.btnOCmoLLegar.tag = indexPath.row
+            cell.btnComoLLegarGrande.tag = indexPath.row
+            
+            if item.pickup! == "2" {
+                cell.btnComoLLegarGrande.visibility = .gone
+                cell.btnYaLLegue.visibility = .visible
+                cell.btnOCmoLLegar.visibility = .visible
+            }
+            else {
+                cell.btnComoLLegarGrande.visibility = .visible
+                cell.btnYaLLegue.visibility = .gone
+                cell.btnOCmoLLegar.visibility = .gone
+            }
             cell.delegate = self
             return cell
         case "4":
             let cell = tableView.dequeueReusableCell(withIdentifier: "CellEntregado", for: indexPath) as! PedidoEntregadoTableViewCell
             cell.lblNombreStore.text = item.business ?? ""
-            
+            cell.lblCodigo.text = "#\(item.codigo ?? "")"
             if let image = item.imageURL {
                 cell.imgStore.kf.setImage(with: URL(string: image),
                                           placeholder: nil,
@@ -159,7 +275,27 @@ extension ListaPedidosViewController : UITableViewDataSource, UITableViewDelegat
                                           completionHandler: nil)
             }
             cell.btnCalificar.tag = indexPath.row
+            let valorado = item.valorado ?? "0"
+            if valorado == "1" {
+                cell.btnCalificar.setTitle("Pedido calificado", for: .normal)
+            }
+            else {
+                cell.btnCalificar.setTitle("Califica tu experiencia", for: .normal)
+            }
             cell.delegate = self
+            return cell
+        case "5":
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellCancelado", for: indexPath) as! PedidoCanceladoTableViewCell
+            cell.lblNombreStore.text = item.business ?? ""
+           
+            cell.lblCodigo.text = "#\(item.codigo ?? "")"
+            if let image = item.imageURL {
+                cell.imgStore.kf.setImage(with: URL(string: image),
+                                          placeholder: nil,
+                                          options: [.transition(.fade(0.4))],
+                                          progressBlock: nil,
+                                          completionHandler: nil)
+            }
             return cell
         default:
             return UITableViewCell()
@@ -173,6 +309,13 @@ extension ListaPedidosViewController : UITableViewDataSource, UITableViewDelegat
 extension ListaPedidosViewController : PedidoPendienteDelegate, PedidoPreparacionDelegate, PedidoListoDelegate,PedidoEntregadoDelegate {
     func calificarPedido(index: Int) {
         
+        let valorado = orders[index].valorado ?? "0"
+        if valorado == "0" {
+            let nextViewController = UIStoryboard.orders.instantiate(EncuestaViewController.self)
+            nextViewController.modalPresentationStyle = .fullScreen
+            nextViewController.idOrden = orders[index].id!
+            self.present(nextViewController, animated:true, completion:nil)
+        }
     }
     
     func comoLLegarListo(index: Int) {
@@ -180,7 +323,8 @@ extension ListaPedidosViewController : PedidoPendienteDelegate, PedidoPreparacio
     }
     
     func yaLLegueListo(index: Int) {
-        
+        print("id:\(self.orders[index].id!)")
+        self.yaLlegueService(id_order: self.orders[index].id!)
     }
     
     func comoLLegarPreparacion(index: Int) {
@@ -242,4 +386,79 @@ extension ListaPedidosViewController : PedidoPendienteDelegate, PedidoPreparacio
             }
            
         }
+}
+
+
+extension ListaPedidosViewController {
+    func getHoursAndMinutes(minutosAsumar: Int, fechaAceptacion:String) -> Int{
+        if fechaAceptacion != "" {
+            let isoDate = fechaAceptacion
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "es_MX")
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            if let date = dateFormatter.date(from: isoDate) {
+              // do something with date...
+                var calendar = Calendar.current
+                let currentdate = Date()
+                let currenthour = calendar.component(.hour, from: currentdate)
+                let currentminute = calendar.component(.minute, from: currentdate)
+                let currentsecond = calendar.component(.second, from: currentdate)
+                let currentday = calendar.component(.day, from: currentdate)
+                
+                
+                let addminutes = date.addingTimeInterval(TimeInterval(minutosAsumar) * 60)
+                
+                
+                let hour = calendar.component(.hour, from: addminutes)
+                let minute = calendar.component(.minute, from: addminutes)
+                let second = calendar.component(.second, from: addminutes)
+                let dia = calendar.component(.day, from: addminutes)
+                
+                print("dia entrega:\(dia)")
+                print("dia actual:\(currentday)")
+                if dia == currentday {
+                    print("hora de entrega:\(hour)")
+                    print("Hora actual:\(currenthour)")
+                    let horasRestantes = hour - currenthour
+                    var tiempoRestante = 0
+                    if horasRestantes >= 0 {
+                        if horasRestantes == 0 {
+                            let minutosFaltantes = minute - currentminute
+                            if minutosFaltantes <= 0 {
+                                return 0
+                            }
+                            else {
+                                return minutosFaltantes
+                            }
+                        }
+                        else {
+                            let horasMinutos = horasRestantes * 60
+                            let minutosFaltantes = minute - currentminute
+                            let suma = minutosFaltantes + horasMinutos
+                            if suma <= 0 {
+                                return 0
+                            }
+                            else {
+                                return suma
+                            }
+                        }
+                    }
+                    else {
+                        return 0
+                    }
+                }
+                else {
+                    return 0
+                }
+                
+            }
+            else {
+                return 0
+            }
+        }
+        else {
+            return 0
+        }
+        
+    }
 }

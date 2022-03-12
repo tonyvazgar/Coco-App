@@ -24,6 +24,8 @@ PODS:
     - FBSDKCoreKit (~> 8.0.0)
   - Firebase (4.13.0):
     - Firebase/Core (= 4.13.0)
+  - Firebase/Analytics (4.13.0):
+    - Firebase/Core
   - Firebase/Core (4.13.0):
     - FirebaseAnalytics (= 4.2.0)
     - FirebaseCore (= 4.0.20)
@@ -95,6 +97,7 @@ DEPENDENCIES:
   - FBSDKLoginKit (~> 8.0.0)
   - FBSDKShareKit (~> 8.0.0)
   - Firebase (~> 4.0)
+  - Firebase/Analytics
   - Firebase/Core
   - Firebase/Messaging
   - GoogleSignIn (~> 6.0.2)
@@ -191,6 +194,6 @@ SPEC CHECKSUMS:
   UIWindowTransitions: cb662e2ae9e2d1060fcdbe3eb3de9232bedb7612
   YPImagePicker: 15aed8bcaa4dad976e11b6114126d731a2f9f3c9
 
-PODFILE CHECKSUM: 1ffd09d9d609bf39845d4a7f32f39ca8c79a97f3
+PODFILE CHECKSUM: a788b088c21dc9ef5a03f4c322e0d4a26d3c9ce1
 
 COCOAPODS: 1.11.2

@@ -31,6 +31,7 @@ class ProducDetailV2ViewController: UIViewController {
     
     @IBOutlet weak var btnVerCanasta: UIButton!
     
+    @IBOutlet weak var tituloComentarios: UILabel!
     
     
     
@@ -101,7 +102,8 @@ class ProducDetailV2ViewController: UIViewController {
         lblProductosCanasta.clipsToBounds = true
         vistaCanasta.visibility = .gone
         //________
-        
+        vistaComentario.visibility = .gone
+        tituloComentarios.visibility = .gone
         requestData()
         
     }
@@ -271,7 +273,9 @@ class ProducDetailV2ViewController: UIViewController {
                 if extras.count > 0 {
                     var arrRows : [rowItem] = [rowItem]()
                     for i in extras {
-                        let row = rowItem(nombre: "\(i.name!) ($\(i.price!) extra)", id: i.id_extra!, seleccionado: false, tipo: "extras", precio: i.price ?? "0", cantidad: 0)
+                        let precioDouble = Double(i.price ?? "0")!
+                        let precioround = round(precioDouble * 100) / 100.0
+                        let row = rowItem(nombre: "\(i.name!) ($\(precioround) extra)", id: i.id_extra!, seleccionado: false, tipo: "extras", precio: i.price ?? "0", cantidad: 0)
                         arrRows.append(row)
                     }
                     
@@ -496,11 +500,11 @@ extension ProducDetailV2ViewController : UITableViewDataSource, UITableViewDeleg
         let view = UIView()
         view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 50)
         view.backgroundColor = .white
-        let label = UILabel(frame: CGRect(x: 20, y: 0, width: self.view.frame.width - 40, height: 21))
+        let label = UILabel(frame: CGRect(x: 20, y: 3, width: self.view.frame.width - 40, height: 21))
         label.font = UIFont.systemFont(ofSize: 18)
         label.text = self.arrDetalle[section].titulo
         view.addSubview(label)
-        let label2 = UILabel(frame: CGRect(x: 20, y: 22, width: self.view.frame.width - 40, height: 10))
+        let label2 = UILabel(frame: CGRect(x: 20, y: 26, width: self.view.frame.width - 40, height: 15))
         label2.font = UIFont.systemFont(ofSize: 12)
         label2.textColor = UIColor(red: 123/255, green: 123/255, blue: 123/255, alpha: 1)
         label2.text = self.arrDetalle[section].tituloTotal

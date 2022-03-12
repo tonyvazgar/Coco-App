@@ -80,7 +80,7 @@ enum Menu: String {
 enum SideMenu: String {
     case profile = "Mi Perfil"
     case favorite = "Favoritos"
-    case orders = "Pedidos"
+    case orders = "Historial de pedidos"
     case deposits = "Depósitos"
     case help = "Soporte"
     case settings = "Configuración"

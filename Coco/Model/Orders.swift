@@ -26,6 +26,9 @@ class Order: Decodable {
   public var longitud : String?
     public var latitud : String?
     public var fecha_aceptado : String?
+    public var codigo : String?
+    public var pickup : String?
+    public var valorado : String?
   enum CodingKeys: String, CodingKey {
     case id = "Id"
     case amount = "monto"
@@ -42,6 +45,9 @@ class Order: Decodable {
     case longitud = "longitud"
     case latitud = "latitud"
     case fecha_aceptado = "fecha_aceptado"
+    case codigo = "codigo"
+    case pickup = "pickup"
+    case valorado = "valorado"
   }
     
     

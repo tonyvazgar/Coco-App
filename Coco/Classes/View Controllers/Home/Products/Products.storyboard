@@ -862,6 +862,7 @@
                         <outlet property="lblProductosCanasta" destination="Vcn-7R-cQ6" id="Q3e-En-WbH"/>
                         <outlet property="lblSubTotal" destination="qDG-fU-s0F" id="Koi-h0-IRd"/>
                         <outlet property="tableView" destination="cS3-LO-vzH" id="Sq5-xS-pbJ"/>
+                        <outlet property="tituloComentarios" destination="xxE-kh-F8e" id="jnH-Rf-OkZ"/>
                         <outlet property="txtComentarios" destination="rKt-hC-eTu" id="9S1-GE-ELH"/>
                         <outlet property="viewProduct" destination="PjI-Wd-Web" id="eDb-Fb-gD1"/>
                         <outlet property="vistaCanasta" destination="wSv-go-dQv" id="rSH-dI-pp9"/>

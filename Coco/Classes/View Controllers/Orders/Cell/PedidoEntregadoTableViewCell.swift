@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AVKit
 
 protocol PedidoEntregadoDelegate {
     func calificarPedido(index : Int)
@@ -20,7 +20,17 @@ class PedidoEntregadoTableViewCell: UITableViewCell {
     @IBOutlet weak var imgStore: UIImageView!
     @IBOutlet weak var lblNombreStore: UILabel!
     @IBOutlet weak var btnCalificar: UIButton!
+    @IBOutlet weak var lblCodigo: UILabel!
     var delegate : PedidoEntregadoDelegate?
+    
+    var player : AVPlayer?
+    
+    
+   
+        var videoPlayerLayer:AVPlayerLayer?
+        var playerLooper:NSObject?
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -48,6 +58,9 @@ class PedidoEntregadoTableViewCell: UITableViewCell {
         vistaImagen.layer.shadowOffset = CGSize(width: 3, height: 3)
         vistaImagen.layer.shadowOpacity = 0.5
         vistaImagen.layer.shadowRadius = 3
+        
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

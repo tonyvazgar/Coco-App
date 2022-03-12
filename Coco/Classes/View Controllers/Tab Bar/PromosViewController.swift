@@ -49,7 +49,7 @@ final class PromosViewController: UIViewController{
     
     func endEvent(currentdate: Date, eventdate: Date){
         if (currentdate >= eventdate){
-            labelCountDown.text = "Lanzamiento en unos momentos!"
+            labelCountDown.text = ""
             timer.invalidate()
         }
     }
