@@ -115,7 +115,7 @@ class ListaPedidosViewController: UIViewController {
                     if let tabItems = self?.tabBarController?.tabBar.items {
                         // In this case we want to modify the badge number of the third tab:
                         let tabItem = tabItems[2]
-                        if (self?.orders.count)! > 0 {
+                        if numeroPendientes > 0 {
                             tabItem.badgeValue = "\((numeroPendientes))"
                         }
                         else {

@@ -168,7 +168,7 @@ class AgregarTarjetaViewController: UIViewController, CreditCardDataDelegate {
         let conekta = Conekta()
         
         conekta.delegate = self
-        conekta.publicKey = Constatns.Conekta.publickKeyDevelop
+        conekta.publicKey = Constatns.Conekta.publickKeyProductive
         conekta.collectDevice()
         guard let card = conekta.card(), let token = conekta.token() else {
           throwError(str: "No se pudo procesar la tarjeta.")
