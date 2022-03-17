@@ -43,9 +43,14 @@ final class CitiesFetcher {
     }
     
     static func updateCity(id_city: String, completion: @escaping (Swift.Result<Void,Error>) -> Void) {
+        
+        
+        let id = UserManagement.shared.id_user ?? ""
+        
+        
         let data = [
             "funcion": Routes.updateCity,
-            "id_user": UserManagement.shared.id_user!,
+            "id_user": id == "" ? "525" : id,
             "id_city": id_city
         ]
         

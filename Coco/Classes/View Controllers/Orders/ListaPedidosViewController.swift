@@ -51,15 +51,26 @@ class ListaPedidosViewController: UIViewController {
         requestData()
     }
     
+  
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        requestData()
         
-        if let tabItems = tabBarController?.tabBar.items {
-            // In this case we want to modify the badge number of the third tab:
-            let tabItem = tabItems[2]
-            tabItem.badgeValue = nil
+        let id = UserManagement.shared.id_user ?? ""
+        if id == "" {
+            self.sessionEnd()
         }
+        else {
+            requestData()
+            
+            if let tabItems = tabBarController?.tabBar.items {
+                // In this case we want to modify the badge number of the third tab:
+                let tabItem = tabItems[2]
+                tabItem.badgeValue = nil
+            }
+        }
+        
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

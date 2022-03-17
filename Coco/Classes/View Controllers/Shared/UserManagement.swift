@@ -34,5 +34,20 @@ final class UserManagement {
         UserDefaults.standard.removeObject(forKey: "email_user")
         UserDefaults.standard.removeObject(forKey: "token")
         UserDefaults.standard.removeObject(forKey: "token_saved")
+        
+        Constatns.LocalData.paymentCanasta.numeroTarjeta = ""
+        Constatns.LocalData.paymentCanasta.forma_pago = 0
+        Constatns.LocalData.paymentCanasta.token_cliente = ""
+        Constatns.LocalData.paymentCanasta.token_card = ""
+        Constatns.LocalData.paymentCanasta.token_id = ""
+        Constatns.LocalData.paymentCanasta.tipoTarjeta = ""
+        Constatns.LocalData.canasta = nil
+        Constatns.LocalData.metodoPickup = 0
+        Constatns.LocalData.marcaCarro = ""
+        Constatns.LocalData.colorCarro = ""
+        Constatns.LocalData.placasCarro = ""
+        Constatns.LocalData.comentarios = ""
+        Constatns.LocalData.aceptaPropina = ""
+        Constatns.LocalData.tipoPickUpAceptados = ""
     }
 }

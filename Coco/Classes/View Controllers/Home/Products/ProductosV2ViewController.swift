@@ -88,7 +88,13 @@ class ProductosV2ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getProductosCanasta()
+        let id = UserManagement.shared.id_user ?? ""
+        if id == "" {
+            self.vistaCanasta.visibility = .gone
+        }
+        else {
+            getProductosCanasta()
+        }
     }
     
     @IBAction func backAction(_ sender: UIButton) {

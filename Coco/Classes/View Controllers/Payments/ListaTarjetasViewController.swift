@@ -39,9 +39,15 @@ class ListaTarjetasViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard let user = UserManagement.shared.user else { return }
-        saldo = "\(user.current_balance ?? "0")"
-        requestData()
+        let id = UserManagement.shared.id_user ?? ""
+        if id == "" {
+            self.sessionEnd()
+        }
+        else {
+            guard let user = UserManagement.shared.user else { return }
+            saldo = "\(user.current_balance ?? "0")"
+            requestData()
+        }
     }
     
     @IBAction func agregarTarjetaAction(_ sender: UIButton) {

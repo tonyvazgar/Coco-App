@@ -77,6 +77,10 @@ final class SignInViewController: UIViewController {
         wnd?.setRootViewController(vc, options: options)
     }
     
+    @IBAction func entrarInvitadoAction(_ sender: UIButton) {
+        performSuccessLogin()
+    }
+    
     private func performFBLogin(email: String, name: String, last_name: String, fb_id: String) {
         user = User(name: name, last_name: last_name, email: email, password: fb_id, facebook_login: true)
         requestSchools()

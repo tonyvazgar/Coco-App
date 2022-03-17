@@ -91,5 +91,20 @@ extension UIViewController {
         options.style = .easeOut
         wnd?.setRootViewController(navigationController, options: options)
     }
+    
+    func muestraMensajeAlert(mensaje : String){
+        // Create new Alert
+        var dialogMessage = UIAlertController(title: "", message: mensaje, preferredStyle: .alert)
+        
+        // Create OK button with action handler
+        let ok = UIAlertAction(title: "Cerrar", style: .default, handler: { (action) -> Void in
+            print("Ok button tapped")
+         })
+        
+        //Add OK button to a dialog message
+        dialogMessage.addAction(ok)
+        // Present Alert to
+        self.present(dialogMessage, animated: true, completion: nil)
+    }
 }
 

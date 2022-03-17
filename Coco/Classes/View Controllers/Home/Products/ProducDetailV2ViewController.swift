@@ -110,7 +110,14 @@ class ProducDetailV2ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getProductosCanasta()
+        
+        let id = UserManagement.shared.id_user ?? ""
+        if id == "" {
+            self.vistaCanasta.visibility = .gone
+        }
+        else {
+            getProductosCanasta()
+        }
     }
     
     func getProductosCanasta(){
@@ -332,35 +339,62 @@ class ProducDetailV2ViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
         */
-        
-        let pedido : pedidoObject = pedidoObject(cantidad: self.numeroProductos, producto: self.product!, Configuracion: self.arrDetalle, negocioId: Int((self.location?.id!)!)!, comentario: txtComentarios.text!)
-        
-        
-        print("json de lo que se va agregar a la canasta")
-        do {
-        print("json de lo que se va agregar a la canasta")
-        let dictionary: [String : Any] = try wrap(pedido)
-        print(dictionary)
-        } catch {
-            print("Unable to Encode request (\(error))")
-        }
-        
-        
-        
-        Constatns.LocalData.comentarios = txtComentarios.text!
-        var data = Constatns.LocalData.canasta
-        if data != nil {
+        let id = UserManagement.shared.id_user ?? ""
+        if id == "" {
+            self.sessionEnd()
+        }else {
+            let pedido : pedidoObject = pedidoObject(cantidad: self.numeroProductos, producto: self.product!, Configuracion: self.arrDetalle, negocioId: Int((self.location?.id!)!)!, comentario: txtComentarios.text!)
+            
+            
+            print("json de lo que se va agregar a la canasta")
             do {
-                // Create JSON Decoder
-                let decoder = JSONDecoder()
+            print("json de lo que se va agregar a la canasta")
+            let dictionary: [String : Any] = try wrap(pedido)
+            print(dictionary)
+            } catch {
+                print("Unable to Encode request (\(error))")
+            }
+            
+            
+            
+            Constatns.LocalData.comentarios = txtComentarios.text!
+            var data = Constatns.LocalData.canasta
+            if data != nil {
+                do {
+                    // Create JSON Decoder
+                    let decoder = JSONDecoder()
 
-                // Decode Note
-                var canasta = try decoder.decode([pedidoObject].self, from: data!)
-                
+                    // Decode Note
+                    var canasta = try decoder.decode([pedidoObject].self, from: data!)
+                    
+                    canasta.append(pedido)
+                    
+                    
+                    //actualizamos el userdefault
+                    
+                    do {
+                        // Create JSON Encoder
+                        let encoder = JSONEncoder()
+
+                        // Encode Note
+                        let dataCanasta = try encoder.encode(canasta)
+
+                        // Write/Set Data
+                        Constatns.LocalData.canasta = dataCanasta
+                        print("pedido agregado")
+                        self.getProductosCanasta()
+                        self.btnVerCanasta.visibility = .visible
+                    } catch {
+                        print("Unable to Encode Array of canasta (\(error))")
+                    }
+
+                } catch {
+                    print("Unable to Decode pedido (\(error))")
+                }
+            }
+            else {
+                var canasta : [pedidoObject] = [pedidoObject]()
                 canasta.append(pedido)
-                
-                
-                //actualizamos el userdefault
                 
                 do {
                     // Create JSON Encoder
@@ -371,39 +405,18 @@ class ProducDetailV2ViewController: UIViewController {
 
                     // Write/Set Data
                     Constatns.LocalData.canasta = dataCanasta
-                    print("pedido agregado")
                     self.getProductosCanasta()
                     self.btnVerCanasta.visibility = .visible
+                   
+                    print("producto agregado")
+
                 } catch {
                     print("Unable to Encode Array of canasta (\(error))")
                 }
-
-            } catch {
-                print("Unable to Decode pedido (\(error))")
             }
         }
-        else {
-            var canasta : [pedidoObject] = [pedidoObject]()
-            canasta.append(pedido)
-            
-            do {
-                // Create JSON Encoder
-                let encoder = JSONEncoder()
-
-                // Encode Note
-                let dataCanasta = try encoder.encode(canasta)
-
-                // Write/Set Data
-                Constatns.LocalData.canasta = dataCanasta
-                self.getProductosCanasta()
-                self.btnVerCanasta.visibility = .visible
-               
-                print("producto agregado")
-
-            } catch {
-                print("Unable to Encode Array of canasta (\(error))")
-            }
-        }
+        
+        
             
         
         

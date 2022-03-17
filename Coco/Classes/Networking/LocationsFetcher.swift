@@ -11,9 +11,12 @@ import SwiftyJSON
 
 final class LocationsFetcher {
     static func fetchLocations(businessId: String, completion: @escaping (Swift.Result<[LocationsDataModel],Error>) -> Void) {
+        
+        let id = UserManagement.shared.id_user ?? ""
+        
         let data = [
             "funcion": Routes.getLocationsList,
-            "id_user": UserManagement.shared.id_user!,
+            "id_user": id == "" ? "525" : id,
             "id_establishment": businessId,
             "latitude": LocationManager.shared.latitude,
             "longitude": LocationManager.shared.longitude

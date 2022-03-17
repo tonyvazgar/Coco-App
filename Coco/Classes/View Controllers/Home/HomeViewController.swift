@@ -38,7 +38,12 @@ final class HomeViewController: UIViewController, UIPopoverPresentationControlle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        requestInitialData()
+        let id = UserManagement.shared.id_user ?? ""
+        
+        if id != "" {
+            requestInitialData()
+        }
+        
         mainData = Main()
 //        getGiftState()
         AppEvents.logEvent(.viewedContent)
@@ -256,10 +261,17 @@ final class HomeViewController: UIViewController, UIPopoverPresentationControlle
     // MARK: - IBActions
     
     @IBAction private func menuAction(_ sender: Any) {
-        let vc = UIStoryboard.sideMenu.instantiate(SideMenuViewController.self)
-        vc.delegate = self
-        addChild(vc)
-        vc.showInView(aView: view)
+        let id = UserManagement.shared.id_user ?? ""
+        if id == "" {
+            self.sessionEnd()
+        }
+        else {
+            let vc = UIStoryboard.sideMenu.instantiate(SideMenuViewController.self)
+            vc.delegate = self
+            addChild(vc)
+            vc.showInView(aView: view)
+        }
+        
     }
 }
 // MARK: - Initial setup

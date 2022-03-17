@@ -11,9 +11,11 @@ import SwiftyJSON
 
 final class CategoriesFetcher {
     static func fetchCategories(locationId: String, completion: @escaping (Swift.Result<[Category],Error>) -> Void) {
+        
+        let id = UserManagement.shared.id_user ?? ""
         let data = [
             "funcion": Routes.getCategories,
-            "id_user": UserManagement.shared.id_user!,
+            "id_user": id == "" ? "525" : id,
             "id_provider": locationId,
             "latitude": "0.0",
             "longitude": "0.0"

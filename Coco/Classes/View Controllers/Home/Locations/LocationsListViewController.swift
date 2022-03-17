@@ -33,6 +33,10 @@ final class LocationsListViewController: UITableViewController, SearchBarDelegat
         configureTableView()
         configureTableHeaderView()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         guard let headerView = tableView.tableHeaderView else { return }
@@ -62,7 +66,14 @@ final class LocationsListViewController: UITableViewController, SearchBarDelegat
         cell.locationName.text = location.name
         //cell.locationAddress.text = location.address
         cell.locationDistanceLabel.text = location.distance
-        cell.locationScheduleLabel.text = location.schedule
+        let estaAbierto = self.estaAbierto(horaInicio: location.horario_apertura ?? "", horaFin: location.horario_cierre ?? "")
+        cell.locationScheduleLabel.text = estaAbierto == true ? "Abierto" : "Cerrado"
+        if estaAbierto == true {
+            cell.locationScheduleLabel.textColor = .black
+        }
+        else {
+            cell.locationScheduleLabel.textColor = .red
+        }
         cell.locationRatingLabel.text = location.rating
         
         if let image = location.imgURL {
@@ -89,16 +100,74 @@ final class LocationsListViewController: UITableViewController, SearchBarDelegat
         viewController.location = location
         navigationController?.pushViewController(viewController, animated: true)
         */
+        let estaAbierto = self.estaAbierto(horaInicio: location.horario_apertura ?? "", horaFin: location.horario_cierre ?? "")
+        
+        if estaAbierto == true {
+            Constatns.LocalData.aceptaPropina = location.propina ?? "true"
+            Constatns.LocalData.tipoPickUpAceptados = location.pickups ?? ""
+            let viewController = UIStoryboard.home.instantiate(CategoriesV2ViewController.self)
+            viewController.businessId = businessId
+            viewController.locationId = location.id
+            viewController.location = location
+            navigationController?.pushViewController(viewController, animated: true)
+        }
+        else {
+            muestraMensajeAlert(mensaje: "Fuera de horario de servicio")
+        }
         
         
-        Constatns.LocalData.aceptaPropina = location.propina ?? "true"
-        Constatns.LocalData.tipoPickUpAceptados = location.pickups ?? ""
-        let viewController = UIStoryboard.home.instantiate(CategoriesV2ViewController.self)
-        viewController.businessId = businessId
-        viewController.locationId = location.id
-        viewController.location = location
-        navigationController?.pushViewController(viewController, animated: true)
+        
          
+    }
+    
+    
+    func estaAbierto(horaInicio : String , horaFin : String) -> Bool{
+        
+        if horaInicio == ""{
+            return false
+        }
+        if horaFin == "" {
+            return false
+        }
+        
+        let arrInicio = horaInicio.split(separator: ":")
+        let arrFin = horaFin.split(separator: ":")
+        var horaI : Int = 0
+        var minutoI : Int = 0
+        var horaF : Int = 0
+        var minutoF : Int = 0
+        
+        if arrInicio.count == 2 {
+            horaI = Int(arrInicio[0])!
+            minutoI = Int(arrInicio[1])!
+        }
+        if arrFin.count == 2 {
+            horaF = Int(arrFin[0])!
+            minutoF = Int(arrFin[1])!
+        }
+        
+        
+        var timeExist:Bool
+        let calendar = Calendar.current
+        let startTimeComponent = DateComponents(calendar: calendar, hour:horaI, minute: minutoI)
+        let endTimeComponent   = DateComponents(calendar: calendar, hour: horaF, minute: minutoF)
+
+        let now = Date()
+        let startOfToday = calendar.startOfDay(for: now)
+        let startTime    = calendar.date(byAdding: startTimeComponent, to:
+        startOfToday)!
+        let endTime      = calendar.date(byAdding: endTimeComponent, to:
+        startOfToday)!
+
+         if startTime <= now && now <= endTime {
+            print("between 10 AM and 6:00 PM")
+            timeExist = true
+         } else {
+            print("not between 10 AM and 6:00 PM")
+            timeExist = false
+         }
+        
+        return timeExist
     }
 }
 

@@ -11,9 +11,12 @@ import SwiftyJSON
 
 final class BusinessesFetcher {
     static func fetchBusinesses(completion: @escaping (Swift.Result<[Business],Error>) -> Void) {
+        
+        let id = UserManagement.shared.id_user ?? ""
+        
         let data = [
             "funcion": Routes.getBusinessesList,
-            "id_user": UserManagement.shared.id_user!,
+            "id_user": id == "" ? "525" : id,
             "latitude": LocationManager.shared.latitude,
             "longitude": LocationManager.shared.longitude
         ]
@@ -43,9 +46,11 @@ final class BusinessesFetcher {
             guard let dataDictionary = dictionary["data"],
               let object = try? dataDictionary.rawData(),
               let decoded = try? JSONDecoder().decode(BusinessesResponseModel.self, from: object) else {
+                  print("errorrrr")
                 completion(.failure(FetcherErrors.jsonDecode))
                 return
             }
+            print("successsss")
             completion(.success(decoded.businesses))
         }
     }

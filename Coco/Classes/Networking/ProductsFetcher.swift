@@ -13,9 +13,12 @@ import Foundation
 final class ProductsFetcher {
     
     static func fetchProducts(locationId: String, categoryId: String, completion: @escaping (Swift.Result<[Product],Error>) -> Void) {
+        
+        let id = UserManagement.shared.id_user ?? ""
+        
         let data = [
             "funcion": Routes.getProducts,
-            "id_user": UserManagement.shared.id_user!,
+            "id_user": id == "" ? "525" : id,
             "id_store": locationId,
             "id_category": categoryId
         ]
@@ -54,9 +57,12 @@ final class ProductsFetcher {
     
     
     static func fetchProductDetail(productId: String, completion: @escaping (Swift.Result<Product,Error>) -> Void) {
+        
+        let id = UserManagement.shared.id_user ?? ""
+        
         let data = [
             "funcion": Routes.getProductDetail,
-            "id_user": UserManagement.shared.id_user!,
+            "id_user": id == "" ? "525" : id,
             "id_product": productId
         ]
         
@@ -89,9 +95,12 @@ final class ProductsFetcher {
     }
     
     static func fetchFavorites(completion: @escaping (Swift.Result<[FavoriteProduct],Error>) -> Void) {
+        
+        let id = UserManagement.shared.id_user ?? ""
+        
         let data = [
             "funcion": Routes.getFavorites,
-            "id_user": UserManagement.shared.id_user!
+            "id_user": id == "" ? "525" : id
         ]
         
         Alamofire.request(General.endpoint, method: .post, parameters: data).responseJSON { (response) in
@@ -122,9 +131,11 @@ final class ProductsFetcher {
     }
     
     static func updateFavorite(id_product: String, status: String, completion: @escaping(Result) -> Void){
+        let id = UserManagement.shared.id_user ?? ""
+        
         let data = [
             "funcion": Routes.adminFavorite,
-            "id_user": UserManagement.shared.id_user!,
+            "id_user": id == "" ? "525" : id,
             "id_product": id_product,
             "active": status
         ]
@@ -150,9 +161,10 @@ final class ProductsFetcher {
     }
     
     static func getProducts(locationId: String, categoryId: String, completion: @escaping (ProducListresponse) -> Void) {
+        let id = UserManagement.shared.id_user ?? ""
         let data = [
             "funcion": Routes.getProducts,
-            "id_user": UserManagement.shared.id_user!,
+            "id_user": id == "" ? "525" : id,
             "id_store": locationId,
             "id_category": categoryId
         ]
@@ -176,9 +188,10 @@ final class ProductsFetcher {
     }
     
     static func fetchProductDetailV2(productId: String, completion: @escaping (Swift.Result<ProducDetailResponse,Error>) -> Void) {
+        let id = UserManagement.shared.id_user ?? ""
         let data = [
             "funcion": Routes.getProductDetail,
-            "id_user": UserManagement.shared.id_user!,
+            "id_user": id == "" ? "525" : id,
             "id_product": productId
         ]
         print("Request:\(data)")
