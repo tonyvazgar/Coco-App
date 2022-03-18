@@ -78,6 +78,7 @@ final class SignInViewController: UIViewController {
     }
     
     @IBAction func entrarInvitadoAction(_ sender: UIButton) {
+
         performSuccessLogin()
     }
     
@@ -202,6 +203,8 @@ private extension SignInViewController {
         configureButtons()
         configureRegisterTextView()
         configureTextFields()
+       
+
         configurePasswordTextField()
         guard #available(iOS 13.0,*) else { return }
         appleSignIn.isHidden = true

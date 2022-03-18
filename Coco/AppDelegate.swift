@@ -210,19 +210,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate : MessagingDelegate{
-    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-            print("Firebase registration token: \(fcmToken)")
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+            print("Firebase registration token: \(fcmToken ?? "")")
             Messaging.messaging().subscribe(toTopic: "all") { error in
               print("Subscribed to all topic")
             }
-        let dataDict:[String: String] = ["token": fcmToken]
+        let dataDict:[String: String] = ["token": fcmToken ?? ""]
         DispatchQueue.main.async {
             NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
         }
     }
-    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        print("notification 6")
-    }
+   
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
         print("notification7")
     }

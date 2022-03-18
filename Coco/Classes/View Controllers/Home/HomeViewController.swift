@@ -109,7 +109,7 @@ final class HomeViewController: UIViewController, UIPopoverPresentationControlle
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
-        let postString = "funcion=getUserMain&id_user="+userID!
+        let postString = "funcion=getUserMain&id_user=\(userID ?? "525")"
         request.httpBody = postString.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
@@ -145,7 +145,7 @@ final class HomeViewController: UIViewController, UIPopoverPresentationControlle
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
-        let postString = "funcion=getUserMain&id_user="+userID!
+        let postString = "funcion=getUserMain&id_user=\(userID ?? "525")"
         request.httpBody = postString.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {

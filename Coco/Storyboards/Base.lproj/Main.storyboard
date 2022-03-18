@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a5t-bI-LM1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="a5t-bI-LM1">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -213,7 +213,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="166" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Saldo: $ --" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQ4-eK-L4o">
-                                                <rect key="frame" x="54.333333333333329" y="18" width="57.333333333333329" height="14"/>
+                                                <rect key="frame" x="49.666666666666664" y="17" width="66.666666666666686" height="16.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -239,7 +239,7 @@
                                         <rect key="frame" x="183" y="0.0" width="166" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cocopoints: $ --" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6GK-1A-IAK">
-                                                <rect key="frame" x="37.666666666666657" y="18" width="91" height="14"/>
+                                                <rect key="frame" x="31.666666666666657" y="17" width="103" height="16.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -452,7 +452,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detalle de Producto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSo-kX-AU7">
-                                        <rect key="frame" x="48" y="12.666666666666664" width="132.66666666666666" height="15"/>
+                                        <rect key="frame" x="48" y="11.333333333333334" width="132.66666666666666" height="17.666666666666664"/>
                                         <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="15"/>
                                         <color key="textColor" name="Black"/>
                                         <nil key="highlightedColor"/>
@@ -889,7 +889,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regresar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMk-PL-okF">
-                                        <rect key="frame" x="48" y="12.666666666666664" width="59.666666666666657" height="15"/>
+                                        <rect key="frame" x="48" y="11.333333333333334" width="59.666666666666657" height="17.666666666666664"/>
                                         <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="15"/>
                                         <color key="textColor" name="Black"/>
                                         <nil key="highlightedColor"/>
@@ -1034,7 +1034,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regresar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Im-fM-fGb">
-                                        <rect key="frame" x="48" y="12.666666666666664" width="59.666666666666657" height="15"/>
+                                        <rect key="frame" x="48" y="11.333333333333334" width="59.666666666666657" height="17.666666666666664"/>
                                         <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="15"/>
                                         <color key="textColor" name="Black"/>
                                         <nil key="highlightedColor"/>
@@ -1241,7 +1241,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLu-V1-moy">
-                                                <rect key="frame" x="53" y="9.6666666666666288" width="281" height="26"/>
+                                                <rect key="frame" x="53" y="8" width="281" height="29"/>
                                                 <fontDescription key="fontDescription" name="MyriadPro-Regular" family="Myriad Pro" pointSize="14"/>
                                                 <state key="normal" title="Acepto términos y condiciones">
                                                     <color key="titleColor" name="Black"/>
@@ -1509,7 +1509,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Regresar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ye2-Vr-OW1">
-                                        <rect key="frame" x="48" y="12.666666666666664" width="59.333333333333343" height="15"/>
+                                        <rect key="frame" x="48" y="11.333333333333334" width="59.333333333333343" height="17.666666666666664"/>
                                         <fontDescription key="fontDescription" name="MyriadPro-Bold" family="Myriad Pro" pointSize="15"/>
                                         <color key="textColor" name="Black"/>
                                         <nil key="highlightedColor"/>
@@ -1602,31 +1602,31 @@
     </scenes>
     <designables>
         <designable name="17M-eC-JBm">
-            <size key="intrinsicContentSize" width="350" height="38.513671875"/>
+            <size key="intrinsicContentSize" width="350" height="41.153671875000001"/>
         </designable>
         <designable name="2Nb-VH-FOf">
-            <size key="intrinsicContentSize" width="350" height="38.513671875"/>
+            <size key="intrinsicContentSize" width="350" height="41.153671875000001"/>
         </designable>
         <designable name="2yC-0c-IwK">
-            <size key="intrinsicContentSize" width="350" height="38.513671875"/>
+            <size key="intrinsicContentSize" width="350" height="41.153671875000001"/>
         </designable>
         <designable name="Th2-2K-UbH">
-            <size key="intrinsicContentSize" width="350" height="38.513671875"/>
+            <size key="intrinsicContentSize" width="350" height="41.153671875000001"/>
         </designable>
         <designable name="j1V-jS-XsO">
-            <size key="intrinsicContentSize" width="350" height="38.513671875"/>
+            <size key="intrinsicContentSize" width="350" height="41.153671875000001"/>
         </designable>
         <designable name="oBu-8L-c5H">
-            <size key="intrinsicContentSize" width="350" height="38.513671875"/>
+            <size key="intrinsicContentSize" width="350" height="41.153671875000001"/>
         </designable>
         <designable name="oen-HK-56b">
-            <size key="intrinsicContentSize" width="350" height="38.513671875"/>
+            <size key="intrinsicContentSize" width="350" height="41.153671875000001"/>
         </designable>
         <designable name="vTh-B2-sM7">
-            <size key="intrinsicContentSize" width="350" height="38.513671875"/>
+            <size key="intrinsicContentSize" width="350" height="41.153671875000001"/>
         </designable>
         <designable name="w6i-IV-Jxc">
-            <size key="intrinsicContentSize" width="350" height="38.513671875"/>
+            <size key="intrinsicContentSize" width="350" height="41.153671875000001"/>
         </designable>
     </designables>
     <resources>

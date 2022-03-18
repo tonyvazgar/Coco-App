@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '10.1'
 
 target 'Coco' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -12,9 +12,12 @@ target 'Coco' do
     # Pods for testing
   end
 
-  pod 'Firebase', '~> 4.0'
+  pod 'Firebase'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+  pod 'Firebase/Analytics'
+pod 'Firebase/Crashlytics'
+
   pod 'SPStorkController', '~> 1.6.5'
   pod 'Kingfisher', '~> 4.0'
   pod 'Alamofire', '~> 4.8.2'
@@ -37,7 +40,7 @@ pod 'FBSDKShareKit', '~> 8.0.0'
   pod 'JWTDecode', '~> 2.4.1'
   pod 'GoogleSignIn', '~> 6.0.2'
 pod 'BottomPopup'
-pod 'Firebase/Analytics'
+
 pod 'AnimatedCardInput'
   target 'CocoUITests' do
     inherit! :search_paths

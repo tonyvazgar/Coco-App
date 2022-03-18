@@ -1730,12 +1730,15 @@
 				C3A161D922B9B38900076DD8 /* Frameworks */,
 				C3A161DA22B9B38900076DD8 /* Resources */,
 				A8512433F110CC8DA3F17AA2 /* [CP] Embed Pods Frameworks */,
+				7C21B1E127E3EC780029D1E5 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Coco;
+			packageProductDependencies = (
+			);
 			productName = Coco;
 			productReference = C3A161DC22B9B38900076DD8 /* Coco.app */;
 			productType = "com.apple.product-type.application";
@@ -1819,6 +1822,8 @@
 				Base,
 			);
 			mainGroup = C3A161D322B9B38900076DD8;
+			packageReferences = (
+			);
 			productRefGroup = C3A161DD22B9B38900076DD8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -2012,6 +2017,25 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		7C21B1E127E3EC780029D1E5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
 		A8512433F110CC8DA3F17AA2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2429,7 +2453,8 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Coco/Coco.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = CGP7LW6Y94;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Coco/Info.plist;
@@ -2460,7 +2485,7 @@
 				CODE_SIGN_ENTITLEMENTS = Coco/Coco.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = CGP7LW6Y94;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Coco/Info.plist;
