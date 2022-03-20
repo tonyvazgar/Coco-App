@@ -10,6 +10,9 @@ import UIKit
 import FBSDKCoreKit
 import AuthenticationServices
 import JWTDecode
+import CryptoKit
+import FirebaseCore
+import FirebaseAuth
 
 final class SignInViewController: UIViewController {
     @IBOutlet private var emailTextField: UITextField!
@@ -29,7 +32,13 @@ final class SignInViewController: UIViewController {
     var schools: Schools!
     
     var user: User!
+    enum ProviderType : String {
+        case basic
+        case google
+        case apple
+    }
     
+    var currentNonce : String?
     private var eyeButton: UIButton = {
         let eyeButton = UIButton()
         let templateImage = UIImage(named: "password_eye")?.withRenderingMode(.alwaysTemplate)
@@ -150,6 +159,7 @@ final class SignInViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Click", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
     @IBAction private func facebookSignInAction(_ sender: Any) {
         
     }
@@ -159,21 +169,66 @@ final class SignInViewController: UIViewController {
         navigationController?.pushViewController(forgotPasswordVC, animated: true)
     }
     
+    @available(iOS 13.0, *)
     @IBAction private func didTapAppleButton(_ sender: Any) {
-        if #available(iOS 13.0, *) {
-            let provider = ASAuthorizationAppleIDProvider()
-            let request = provider.createRequest()
-            request.requestedScopes = [.fullName, .email]
-            let controller = ASAuthorizationController(authorizationRequests: [request])
-            controller.delegate = self
-            controller.presentationContextProvider = self
-            controller.performRequests()
-            
-            
-//            VER LOGICA PARA LOGIN CON APPLE
-            
-        }
+        currentNonce = randomNonceString()
+        let appleIdProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIdProvider.createRequest()
+        request.requestedScopes = [.email,.fullName]
+        request.nonce = sha256(currentNonce!)
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
     }
+    
+    
+    private func randomNonceString(length: Int = 32) -> String {
+      precondition(length > 0)
+      let charset: [Character] =
+        Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+      var result = ""
+      var remainingLength = length
+
+      while remainingLength > 0 {
+        let randoms: [UInt8] = (0 ..< 16).map { _ in
+          var random: UInt8 = 0
+          let errorCode = SecRandomCopyBytes(kSecRandomDefault, 1, &random)
+          if errorCode != errSecSuccess {
+            fatalError(
+              "Unable to generate nonce. SecRandomCopyBytes failed with OSStatus \(errorCode)"
+            )
+          }
+          return random
+        }
+
+        randoms.forEach { random in
+          if remainingLength == 0 {
+            return
+          }
+
+          if random < charset.count {
+            result.append(charset[Int(random)])
+            remainingLength -= 1
+          }
+        }
+      }
+
+      return result
+    }
+    
+    @available(iOS 13, *)
+    private func sha256(_ input: String) -> String {
+      let inputData = Data(input.utf8)
+      let hashedData = SHA256.hash(data: inputData)
+      let hashString = hashedData.compactMap {
+        String(format: "%02x", $0)
+      }.joined()
+
+      return hashString
+    }
+
+        
 }
 
 // MARK: - Network Requests
@@ -206,10 +261,20 @@ private extension SignInViewController {
        
 
         configurePasswordTextField()
-        guard #available(iOS 13.0,*) else { return }
-        appleSignIn.isHidden = true
-        facebookSignIn.isHidden = true
-        googleSignIn.isHidden = true
+        
+        if #available(iOS 13, *) {
+            print("This code only runs on iOS 15 and up")
+            appleSignIn.isHidden = false
+            facebookSignIn.isHidden = false
+            googleSignIn.isHidden = false
+        } else {
+            print("This code only runs on iOS 14 and lower")
+            appleSignIn.isHidden = true
+            facebookSignIn.isHidden = true
+            googleSignIn.isHidden = true
+        }
+        
+        
     }
     
     func configureButtons() {
@@ -276,6 +341,30 @@ extension SignInViewController: SchoolModalDelegate {
 extension SignInViewController: ASAuthorizationControllerDelegate {
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        
+        
+        if let nonce = currentNonce,let appleIdCredentials = authorization.credential as? ASAuthorizationAppleIDCredential, let appleIdToken = appleIdCredentials.identityToken,let appleIdTokenString = String(data: appleIdToken, encoding: .utf8){
+            
+            let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: appleIdTokenString, rawNonce: nonce)
+            
+            
+            print("El AppleIDTokenString es: ")
+            print(appleIdTokenString)
+            let jwt = try? decode(jwt: appleIdTokenString)
+            print("El jwt es: ")
+            print(jwt)
+            let userMail = jwt?.claim(name: "email").string
+            let userName = jwt?.claim(name: "fullName").string
+            print("Email:\(userMail)")
+            print("nombrecompleto :\(appleIdCredentials.fullName)")
+            print("nombre:\(appleIdCredentials.fullName?.givenName ?? "")")
+            print("apellidos:\(appleIdCredentials.fullName?.familyName ?? "")")
+            Auth.auth().signIn(with: credential){ (resutl, error) in
+                print("todo jalo bien con el login de apple")
+            }
+        }
+        
+        /*
         switch authorization.credential {
         case let credentials as ASAuthorizationAppleIDCredential:
             let idToken = String(data: credentials.identityToken!, encoding: .utf8)
@@ -323,6 +412,7 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
             print(passwordCredential.password)
         default:break
         }
+ */
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {

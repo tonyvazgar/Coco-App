@@ -17,6 +17,7 @@ target 'Coco' do
   pod 'Firebase/Messaging'
   pod 'Firebase/Analytics'
 pod 'Firebase/Crashlytics'
+pod 'Firebase/Auth'
 
   pod 'SPStorkController', '~> 1.6.5'
   pod 'Kingfisher', '~> 4.0'
