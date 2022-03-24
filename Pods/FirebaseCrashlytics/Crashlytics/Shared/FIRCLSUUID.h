@@ -17,10 +17,11 @@
 
 /**
  * Generates and returns a UUID
+ * This is also used by used by Answers to generate UUIDs.
  */
 NSString *FIRCLSGenerateUUID(void);
 
 /**
- * Converts the input uint8_t UUID to String
+ * Converts the input uint8_t UUID to NSString
  */
 NSString *FIRCLSUUIDToNSString(const uint8_t *uuid);

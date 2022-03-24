@@ -8,6 +8,8 @@
 
 struct Routes {
     static let login = "login"
+    static let loginGoogle = "loginGoogle"
+    static let loginApple = "loginApple"
     static let newUser = "newUser"
     static let getMainData = "getUserMain"
     

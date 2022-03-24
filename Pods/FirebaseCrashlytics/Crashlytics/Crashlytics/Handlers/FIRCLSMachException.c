@@ -339,7 +339,7 @@ static bool FIRCLSMachExceptionUnregister(FIRCLSMachExceptionOriginalPorts* orig
 }
 
 #pragma mark - Recording
-void FIRCLSMachExceptionNameLookup(exception_type_t number,
+static void FIRCLSMachExceptionNameLookup(exception_type_t number,
                                           mach_exception_data_type_t code,
                                           const char** name,
                                           const char** codeName) {

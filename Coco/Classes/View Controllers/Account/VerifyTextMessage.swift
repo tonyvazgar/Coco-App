@@ -17,7 +17,8 @@ class VerifyTextMessage: UIViewController {
     
     var loader: LoaderVC!
     var user: User!
-    
+    var email : String = ""
+    var passwor : String = ""
     @IBAction func verifyButtonAction(_ sender: Any) {
         
         guard let code = validateField(textMessageField) else {
@@ -27,7 +28,9 @@ class VerifyTextMessage: UIViewController {
         
         view.resignFirstResponder()
         showLoader(&loader, view: view)
-        
+        print("Datos reciidos")
+        print("Email:\(email)")
+        print("password:\(passwor)")
         user = User()
         
         user.verifyTextMessage(textMessage: code) { [weak self] result in
@@ -62,6 +65,9 @@ class VerifyTextMessage: UIViewController {
     }
     
     private func performSuccessVerification() {
+        
+        signIn(with: self.email, password: self.passwor)
+        /*
         let alert = UIAlertController()
         alert.title = "Cuenta creada con éxito"
         alert.message = "¡Inicia sesión con tu correo y contraseña!"
@@ -78,6 +84,34 @@ class VerifyTextMessage: UIViewController {
             
         })
         present(alert, animated: true)
+        */
         
+        //metemos el login por email
+    }
+    
+    func signIn(with email: String, password: String) {
+        showLoader(&loader, view: view)
+        let user = User()
+        user.email = email
+        user.password = password
+        user.loginRequest { [weak self] result in
+            self?.loader.removeAnimate()
+            switch result {
+            case .failure(let error):
+                self?.throwError(str: error)
+            case .success(_):
+                self?.performSuccessLogin()
+            }
+        }
+    }
+    
+    private func performSuccessLogin() {
+        let vc = UIStoryboard.tabBar.instantiate(MainTabBarController.self)
+        let wnd = UIApplication.shared.keyWindow
+        var options = UIWindow.TransitionOptions()
+        options.direction = .fade
+        options.duration = 0.4
+        options.style = .easeOut
+        wnd?.setRootViewController(vc, options: options)
     }
 }

@@ -32,11 +32,7 @@ final class SignInViewController: UIViewController {
     var schools: Schools!
     
     var user: User!
-    enum ProviderType : String {
-        case basic
-        case google
-        case apple
-    }
+    
     
     var currentNonce : String?
     private var eyeButton: UIButton = {
@@ -89,6 +85,10 @@ final class SignInViewController: UIViewController {
     @IBAction func entrarInvitadoAction(_ sender: UIButton) {
 
         performSuccessLogin()
+    }
+    
+    @IBAction func backAction(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func performFBLogin(email: String, name: String, last_name: String, fb_id: String) {

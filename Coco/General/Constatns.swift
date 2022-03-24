@@ -153,6 +153,15 @@ struct Constatns {
                 UserDefaults.standard.synchronize()
             }
         }
+        static var tipoLogin : String {
+            get {
+                return UserDefaults.standard.string(forKey: "tipoLogin") ?? ""
+            }
+            set(login){
+                UserDefaults.standard.set(login, forKey: "tipoLogin")
+                UserDefaults.standard.synchronize()
+            }
+        }
     }
     
     

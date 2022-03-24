@@ -39,7 +39,7 @@ pod 'FBSDKShareKit', '~> 8.0.0'
   pod 'SDWebImage', '~> 5.6.1'
   pod 'iOSDropDown'
   pod 'JWTDecode', '~> 2.4.1'
-  pod 'GoogleSignIn', '~> 6.0.2'
+  pod 'GoogleSignIn'
 pod 'BottomPopup'
 
 pod 'AnimatedCardInput'

@@ -29,6 +29,8 @@
 		7C32F4CE27D155FB00C3A33C /* OrdenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4CD27D155FB00C3A33C /* OrdenRequest.swift */; };
 		7C32F4D027D1862300C3A33C /* Wrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4CF27D1862300C3A33C /* Wrap.swift */; };
 		7C32F4D227D3A23F00C3A33C /* ListaPedidosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4D127D3A23F00C3A33C /* ListaPedidosViewController.swift */; };
+		7C6213B927E80DC400E3A37F /* TiposLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6213B827E80DC400E3A37F /* TiposLogInViewController.swift */; };
+		7C6213BB27E94E1C00E3A37F /* OtrosMetodosLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6213BA27E94E1C00E3A37F /* OtrosMetodosLoginViewController.swift */; };
 		7C8221CC27DC58380093F9C0 /* PedidoCanceladoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8221CA27DC58380093F9C0 /* PedidoCanceladoTableViewCell.swift */; };
 		7C8221CD27DC58380093F9C0 /* PedidoCanceladoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C8221CB27DC58380093F9C0 /* PedidoCanceladoTableViewCell.xib */; };
 		7CABECC927C1127800C6FFF9 /* CategoriesV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CABECC827C1127800C6FFF9 /* CategoriesV2ViewController.swift */; };
@@ -358,6 +360,8 @@
 		7C32F4CD27D155FB00C3A33C /* OrdenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdenRequest.swift; sourceTree = "<group>"; };
 		7C32F4CF27D1862300C3A33C /* Wrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wrap.swift; sourceTree = "<group>"; };
 		7C32F4D127D3A23F00C3A33C /* ListaPedidosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaPedidosViewController.swift; sourceTree = "<group>"; };
+		7C6213B827E80DC400E3A37F /* TiposLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiposLogInViewController.swift; sourceTree = "<group>"; };
+		7C6213BA27E94E1C00E3A37F /* OtrosMetodosLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtrosMetodosLoginViewController.swift; sourceTree = "<group>"; };
 		7C8221CA27DC58380093F9C0 /* PedidoCanceladoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedidoCanceladoTableViewCell.swift; sourceTree = "<group>"; };
 		7C8221CB27DC58380093F9C0 /* PedidoCanceladoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PedidoCanceladoTableViewCell.xib; sourceTree = "<group>"; };
 		7CABECC827C1127800C6FFF9 /* CategoriesV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesV2ViewController.swift; sourceTree = "<group>"; };
@@ -1329,6 +1333,8 @@
 				C3890C0E252197E90055C7A3 /* SignInViewController.swift */,
 				C3890C402522CEC30055C7A3 /* RegisterViewController.swift */,
 				EF0CDB2D27AA22A900FE6952 /* VerifyTextMessage.swift */,
+				7C6213B827E80DC400E3A37F /* TiposLogInViewController.swift */,
+				7C6213BA27E94E1C00E3A37F /* OtrosMetodosLoginViewController.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -2035,7 +2041,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		A8512433F110CC8DA3F17AA2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2101,6 +2107,7 @@
 				C36553ED2530182100733EEE /* LocationsTableViewCell.swift in Sources */,
 				C35572B922CA946D00FC5C89 /* SettingsVC.swift in Sources */,
 				CFD9D35523EC949C00DACF9E /* doneModalViewController.swift in Sources */,
+				7C6213BB27E94E1C00E3A37F /* OtrosMetodosLoginViewController.swift in Sources */,
 				7C32F4D027D1862300C3A33C /* Wrap.swift in Sources */,
 				C3EB42EC25E09CC00021BA85 /* CocoCardsViewController.swift in Sources */,
 				7C0A092927D8829C0092E89A /* YaLLegueViewController.swift in Sources */,
@@ -2121,6 +2128,7 @@
 				C3B06FEA23033B8200E03EC2 /* ForgotPasswordVC.swift in Sources */,
 				C35572BE22CAB7DD00FC5C89 /* BusinessTableViewCell.swift in Sources */,
 				7C0A092027D7B97B0092E89A /* PedidoEntregadoTableViewCell.swift in Sources */,
+				7C6213B927E80DC400E3A37F /* TiposLogInViewController.swift in Sources */,
 				C386700B256F694500C967CB /* SearchBarTableHeaderView.swift in Sources */,
 				C348F16022CBCBD5000F185C /* PaymentForms.swift in Sources */,
 				C348F15022CB991D000F185C /* ProductsVC.swift in Sources */,
@@ -2453,7 +2461,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Coco/Coco.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = CGP7LW6Y94;
 				EXCLUDED_ARCHS = "";
@@ -2463,7 +2471,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7.2;
+				MARKETING_VERSION = 1.7.3;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Easycode.Coco;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2485,7 +2493,7 @@
 				CODE_SIGN_ENTITLEMENTS = Coco/Coco.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 22;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CGP7LW6Y94;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Coco/Info.plist;
@@ -2494,7 +2502,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7.2;
+				MARKETING_VERSION = 1.7.3;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Easycode.Coco;
 				PRODUCT_NAME = "$(TARGET_NAME)";

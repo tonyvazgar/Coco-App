@@ -168,6 +168,7 @@ class AgregarTarjetaViewController: UIViewController, CreditCardDataDelegate {
         let conekta = Conekta()
         
         conekta.delegate = self
+        // MARK: clave conekta
         conekta.publicKey = Constatns.Conekta.publickKeyDevelop
         conekta.collectDevice()
         guard let card = conekta.card(), let token = conekta.token() else {

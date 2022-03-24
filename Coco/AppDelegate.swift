@@ -13,6 +13,7 @@ import FirebaseMessaging
 import FBSDKCoreKit
 import IQKeyboardManagerSwift
 import FBSDKCoreKit
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -32,7 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Settings.setAdvertiserTrackingEnabled(true)
     Settings.isAdvertiserIDCollectionEnabled = true
     Messaging.messaging().delegate = self
-    
       if #available(iOS 10.0, *) {
         // For iOS 10 display notification (sent via APNS)
         UNUserNotificationCenter.current().delegate = self
@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let _ = UserManagement.shared.id_user {
             initialViewController = UIStoryboard.tabBar.instantiate(MainTabBarController.self)
         } else {
-            initialViewController = UIStoryboard.accounts.instantiate(SignInViewController.self)
+            initialViewController = UIStoryboard.accounts.instantiate(TiposLogInViewController.self)
         }
     }
     
@@ -77,12 +77,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-    let isFBOpenUrl = ApplicationDelegate.shared.application(app,
+    /*let isFBOpenUrl = ApplicationDelegate.shared.application(app,
                                                              open: url,
                                                              sourceApplication: options[.sourceApplication] as? String,
                                                              annotation: options[.annotation])
     if isFBOpenUrl { return true }
-    return false
+    */
+      return GIDSignIn.sharedInstance.handle(url) ?? false
+    //return false
   }
 
   func applicationWillResignActive(_ application: UIApplication) {

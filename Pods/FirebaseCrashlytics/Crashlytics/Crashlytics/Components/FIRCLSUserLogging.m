@@ -41,8 +41,7 @@ const uint32_t FIRCLSUserLoggingMaxKVEntries = 64;
 #pragma mark - Prototypes
 static void FIRCLSUserLoggingWriteKeysAndValues(NSDictionary *keysAndValues,
                                                 FIRCLSUserLoggingKVStorage *storage,
-                                                uint32_t *counter,
-                                                BOOL containsNullValue);
+                                                uint32_t *counter);
 static void FIRCLSUserLoggingCheckAndSwapABFiles(FIRCLSUserLoggingABStorage *storage,
                                                  const char **activePath,
                                                  off_t fileSize);
@@ -76,7 +75,7 @@ void FIRCLSUserLoggingWriteInternalKeyValue(NSString *key, NSString *value) {
   NSDictionary *keysAndValues = key ? @{key : value ?: [NSNull null]} : nil;
   FIRCLSUserLoggingWriteKeysAndValues(keysAndValues,
                                       &_firclsContext.readonly->logging.internalKVStorage,
-                                      &_firclsContext.writable->logging.internalKVCount, NO);
+                                      &_firclsContext.writable->logging.internalKVCount);
 }
 
 void FIRCLSUserLoggingRecordUserKeyValue(NSString *key, id value) {
@@ -251,8 +250,6 @@ void FIRCLSUserLoggingRecordKeysAndValues(NSDictionary *keysAndValues,
   }
 
   NSMutableDictionary *sanitizedKeysAndValues = [keysAndValues mutableCopy];
-  BOOL containsNullValue = NO;
-
   for (NSString *key in keysAndValues) {
     if (!FIRCLSIsValidPointer(key)) {
       FIRCLSSDKLogWarn("User provided bad key\n");
@@ -267,26 +264,23 @@ void FIRCLSUserLoggingRecordKeysAndValues(NSDictionary *keysAndValues,
       sanitizedKeysAndValues[key] = [NSNull null];
     }
 
-    if ([value respondsToSelector:@selector(description)] && ![value isEqual:[NSNull null]]) {
+    if ([value respondsToSelector:@selector(description)]) {
       sanitizedKeysAndValues[key] = [value description];
     } else {
       // passing nil will result in a JSON null being written, which is deserialized as [NSNull
       // null], signaling to remove the key during compaction
       sanitizedKeysAndValues[key] = [NSNull null];
-      containsNullValue = YES;
     }
   }
 
   dispatch_sync(FIRCLSGetLoggingQueue(), ^{
-    FIRCLSUserLoggingWriteKeysAndValues(sanitizedKeysAndValues, storage, counter,
-                                        containsNullValue);
+    FIRCLSUserLoggingWriteKeysAndValues(sanitizedKeysAndValues, storage, counter);
   });
 }
 
 static void FIRCLSUserLoggingWriteKeysAndValues(NSDictionary *keysAndValues,
                                                 FIRCLSUserLoggingKVStorage *storage,
-                                                uint32_t *counter,
-                                                BOOL containsNullValue) {
+                                                uint32_t *counter) {
   FIRCLSFile file;
 
   if (!FIRCLSIsValidPointer(storage) || !FIRCLSIsValidPointer(counter)) {
@@ -303,7 +297,7 @@ static void FIRCLSUserLoggingWriteKeysAndValues(NSDictionary *keysAndValues,
   FIRCLSFileClose(&file);
 
   *counter += keysAndValues.count;
-  if (*counter >= storage->maxIncrementalCount || containsNullValue) {
+  if (*counter >= storage->maxIncrementalCount) {
     dispatch_async(FIRCLSGetLoggingQueue(), ^{
       FIRCLSUserLoggingCompactKVEntries(storage);
       *counter = 0;

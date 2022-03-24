@@ -18,7 +18,7 @@
 @protocol FIRAnalyticsInteropListener <NSObject>
 
 /// Triggers when an Analytics event happens for the registered origin with
-/// FirebaseAnalyticsInterop`s `registerAnalyticsListener(_:withOrigin:)`.
+/// `FIRAnalyticsInterop`s `registerAnalyticsListener:withOrigin:`.
 - (void)messageTriggered:(NSString *)name parameters:(NSDictionary *)parameters;
 
 @end

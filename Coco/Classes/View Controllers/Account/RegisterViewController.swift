@@ -202,6 +202,15 @@ class RegisterViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Aceptar", style: .default) { [weak self] _ in
             
             let viewController = UIStoryboard.accounts.instantiate(VerifyTextMessage.self)
+            
+            
+            
+            let email = self?.emailField.text ?? ""
+            let password = self?.passwordField.text ?? ""
+                
+            viewController.email = email
+            viewController.passwor = password
+            
             self?.navigationController?.present(viewController, animated: true, completion: nil)
             
         })

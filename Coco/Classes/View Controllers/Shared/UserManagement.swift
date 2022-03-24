@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import FirebaseAuth
+import GoogleSignIn
 
 final class UserManagement {
     static let shared = UserManagement()
@@ -49,5 +51,35 @@ final class UserManagement {
         Constatns.LocalData.comentarios = ""
         Constatns.LocalData.aceptaPropina = ""
         Constatns.LocalData.tipoPickUpAceptados = ""
+        
+        let tipo = ProviderType(rawValue: Constatns.LocalData.tipoLogin)
+        switch tipo {
+        case .email:
+            break
+        case .invitado :
+            break
+        case .google:
+            do {
+                GIDSignIn.sharedInstance.signOut()
+                try Auth.auth().signOut()
+            }
+            catch {
+                print("error al hacer logout")
+            }
+            break
+        case .apple :
+            do {
+                try Auth.auth().signOut()
+            }
+            catch {
+                print("error al hacer logout")
+            }
+            break
+        default :
+            break
+        }
+        //aca cerra la sesion dependiendo el tipo de login
+        
+        
     }
 }

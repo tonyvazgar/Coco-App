@@ -81,7 +81,7 @@ extension UIViewController {
     
     func sessionEnd() {
         UserManagement.shared.sessionEnd()
-        let vc = UIStoryboard.accounts.instantiate(SignInViewController.self)
+        let vc = UIStoryboard.accounts.instantiate(TiposLogInViewController.self)
         let navigationController = UINavigationController(rootViewController: vc)
         navigationController.setNavigationBarHidden(true, animated: false)
         let wnd = UIApplication.shared.keyWindow

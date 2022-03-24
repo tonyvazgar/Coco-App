@@ -17,7 +17,14 @@ struct General {
     
     static let url_connection: String = General.endpoint
 //    static let endpoint: String = "https://easycode.mx/sistema_coco/webservice_v2/controller_last.php"
-    static let endpoint: String = "http://cocosinfilas.com/webservice_v2/controller_last.php"
+    
+    
+    //productivo
+    //static let endpoint: String = "http://cocosinfilas.com/webservice_v2/controller_last.php"
+    
+    //pruebas
+    static let endpoint: String = "http://cocosinfilas.com/sandbox/webservice_v2/controller_last.php"
+    
     //  static let image_url: String = "https://easycode.mx/trimedicals/app_images/"
     
     static func configurationImagePicker(ratio: Double = 1) -> YPImagePickerConfiguration {

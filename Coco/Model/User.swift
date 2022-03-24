@@ -95,6 +95,101 @@ class User: Decodable {
             
             UserDefaults.standard.set(self.id, forKey: "id_user")
             UserDefaults.standard.set(self.email, forKey: "email_user")
+            Constatns.LocalData.tipoLogin = ProviderType.email.rawValue
+            completion(.success(nil))
+        }
+    }
+    
+    func loginRequestGoogle(email : String, nombre : String, apellidos : String, completion: @escaping(Result) -> Void) {
+        let data = [
+            "funcion": Routes.loginGoogle,
+            "email": email,
+            "nombre": nombre,
+            "apellidos" : apellidos]
+        
+        Alamofire.request(General.endpoint, method: .post, parameters: data).responseJSON { (response) in
+            print(response.debugDescription)
+            print("--------------------------------------------")
+            print(data)
+            print("--------------------------------------------")
+            print(response)
+            print("--------------------------------------------")
+            guard let data = response.result.value else {
+                completion(.failure("Error de conexión"))
+                return
+            }
+            
+            guard let dictionary = JSON(data).dictionary else {
+                completion(.failure("Error al obtener los datos"))
+                return
+            }
+            
+            if dictionary["state"] != "200" {
+                completion(.failure(dictionary["status_msg"]?.string ?? ""))
+                return
+            }
+            
+            guard let dataDictionary = dictionary["data"],
+                  let object = try? dataDictionary.rawData(),
+                  let decoded = try? JSONDecoder().decode(User.self, from: object) else {
+                completion(.failure("Error al leer los datos"))
+                return
+            }
+            self.id = decoded.id
+            self.email = decoded.email
+            self.name = decoded.name
+            self.last_name = decoded.last_name
+            
+            UserDefaults.standard.set(self.id, forKey: "id_user")
+            UserDefaults.standard.set(self.email, forKey: "email_user")
+            Constatns.LocalData.tipoLogin = ProviderType.google.rawValue
+            completion(.success(nil))
+        }
+    }
+    
+    func loginRequestApple(email : String, nombre : String, apellidos : String, completion: @escaping(Result) -> Void) {
+        let data = [
+            "funcion": Routes.loginGoogle,
+            "email": email,
+            "nombre": nombre,
+            "apellidos" : apellidos]
+        
+        Alamofire.request(General.endpoint, method: .post, parameters: data).responseJSON { (response) in
+            print(response.debugDescription)
+            print("--------------------------------------------")
+            print(data)
+            print("--------------------------------------------")
+            print(response)
+            print("--------------------------------------------")
+            guard let data = response.result.value else {
+                completion(.failure("Error de conexión"))
+                return
+            }
+            
+            guard let dictionary = JSON(data).dictionary else {
+                completion(.failure("Error al obtener los datos"))
+                return
+            }
+            
+            if dictionary["state"] != "200" {
+                completion(.failure(dictionary["status_msg"]?.string ?? ""))
+                return
+            }
+            
+            guard let dataDictionary = dictionary["data"],
+                  let object = try? dataDictionary.rawData(),
+                  let decoded = try? JSONDecoder().decode(User.self, from: object) else {
+                completion(.failure("Error al leer los datos"))
+                return
+            }
+            self.id = decoded.id
+            self.email = decoded.email
+            self.name = decoded.name
+            self.last_name = decoded.last_name
+            
+            UserDefaults.standard.set(self.id, forKey: "id_user")
+            UserDefaults.standard.set(self.email, forKey: "email_user")
+            Constatns.LocalData.tipoLogin = ProviderType.apple.rawValue
             completion(.success(nil))
         }
     }
@@ -133,7 +228,7 @@ class User: Decodable {
             self.email = decoded.email
             self.name = decoded.name
             self.last_name = decoded.last_name
-            
+            Constatns.LocalData.tipoLogin = ProviderType.apple.rawValue
             UserDefaults.standard.set(self.id, forKey: "id_user")
             completion(.success(nil))
         }
