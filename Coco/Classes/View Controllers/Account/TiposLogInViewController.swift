@@ -63,6 +63,8 @@ class TiposLogInViewController: UIViewController {
     // MARK: - Login apple
     @available(iOS 13.0, *)
     @IBAction func loginAppleAction(_ sender: UIButton) {
+        
+        
         currentNonce = randomNonceString()
         let appleIdProvider = ASAuthorizationAppleIDProvider()
         let request = appleIdProvider.createRequest()
@@ -72,6 +74,7 @@ class TiposLogInViewController: UIViewController {
         authorizationController.delegate = self
         authorizationController.presentationContextProvider = self
         authorizationController.performRequests()
+        
     }
     
     
@@ -93,11 +96,32 @@ class TiposLogInViewController: UIViewController {
           else {
             return
           }
+            
+            guard let usera = user else { return }
 
+                let emailAddress = usera.profile?.email
+
+                let fullName = usera.profile?.name
+                let givenName = usera.profile?.givenName
+                let familyName = usera.profile?.familyName
+            
+            
+            self.user = User(name: givenName ?? "", last_name: familyName ?? "", email: emailAddress ?? "", password: "", facebook_login: false)
+            print("fullName: \(fullName)")
+            print("givenName: \(givenName)")
+            print("emailAddress: \(emailAddress)")
+            Constatns.LocalData.emailgoogle = emailAddress ?? ""
+            Constatns.LocalData.nombregoogle = givenName ?? ""
+            Constatns.LocalData.apellidogoogle = familyName ?? ""
+            self.mostrarTeminos(tipoLogin: "google")
+            
+            
+            /*
           let credential = GoogleAuthProvider.credential(withIDToken: idToken,
                                                          accessToken: authentication.accessToken)
 
             entrarConFirebase(credential: credential)
+             */
         }
     }
     
@@ -119,7 +143,7 @@ class TiposLogInViewController: UIViewController {
                 
                 let email = resutl?.user.email ?? ""
                 let nombre = resutl?.user.displayName ?? "Google"
-                let apellidos = "Google"
+                let apellidos = ""
                 user = User(name: nombre, last_name: apellidos, email: email, password: "", facebook_login: false)
                 signInGoogle(email: email, nombre: nombre, apellidos: apellidos)
             }
@@ -136,6 +160,17 @@ class TiposLogInViewController: UIViewController {
             let registerVC = UIStoryboard.accounts.instantiate(RegisterViewController.self)
             self.navigationController?.pushViewController(registerVC, animated: true)
         }
+    }
+    
+    @IBAction func unwindFromLoginAppple( _ seg: UIStoryboardSegue) {
+        user = User(name: Constatns.LocalData.nombreapple, last_name: "", email: Constatns.LocalData.emailapple, password: "", facebook_login: false)
+        
+        
+        signInApple(email: Constatns.LocalData.emailapple, nombre: Constatns.LocalData.nombreapple, apellidos: "")
+    }
+    
+    @IBAction func unwindFromLoginGoogle( _ seg: UIStoryboardSegue) {
+        signInGoogle(email: Constatns.LocalData.emailgoogle, nombre: Constatns.LocalData.nombregoogle, apellidos: Constatns.LocalData.apellidogoogle)
     }
     
     func signInGoogle(email email: String, nombre : String, apellidos : String) {
@@ -219,6 +254,7 @@ class TiposLogInViewController: UIViewController {
       return hashString
     }
     
+    // MARK: Otros metodos action
     @IBAction func otrosMetodosAction(_ sender: UIButton) {
         guard let popupViewController = storyboard?.instantiateViewController(withIdentifier: "OtrosMetodosLoginViewController") as? OtrosMetodosLoginViewController else { return }
         popupViewController.height = 350
@@ -230,6 +266,19 @@ class TiposLogInViewController: UIViewController {
         present(popupViewController, animated: true, completion: nil)
     }
     
+    
+    //MARK: Terminos method
+    func mostrarTeminos(tipoLogin : String){
+        guard let popupViewController = storyboard?.instantiateViewController(withIdentifier: "TerminosPopUpViewController") as? TerminosPopUpViewController else { return }
+        popupViewController.tipoLogin = tipoLogin
+        popupViewController.height = 350
+        popupViewController.topCornerRadius = 35
+        popupViewController.presentDuration = 0.5
+        popupViewController.dismissDuration = 0.5
+        popupViewController.shouldDismissInteractivelty = true
+        //popupViewController.popupDelegate = self
+        present(popupViewController, animated: true, completion: nil)
+    }
     
 }
 
@@ -246,15 +295,18 @@ extension TiposLogInViewController: ASAuthorizationControllerDelegate {
 
                 if let userEmail = appleIDCredential.email {
                   print("Email: \(userEmail)")
+                    Constatns.LocalData.emailapple = userEmail
                 }
 
                 if let userGivenName = appleIDCredential.fullName?.givenName,
                   let userFamilyName = appleIDCredential.fullName?.familyName {
                   print("Given Name: \(userGivenName)")
                   print("Family Name: \(userFamilyName)")
+                    
                 }
             
             let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: appleIdTokenString, rawNonce: nonce)
+            
             print("El AppleIDTokenString es: ")
             print(appleIdTokenString)
             let jwt = try? decode(jwt: appleIdTokenString)
@@ -264,21 +316,37 @@ extension TiposLogInViewController: ASAuthorizationControllerDelegate {
             let userName = jwt?.claim(name: "fullName").string
             print("nombre jwt:\(userName)")
             print("Email:\(userMail)")
+            
+            if Constatns.LocalData.emailapple == "" {
+                Constatns.LocalData.emailapple = userMail ?? ""
+            }
+            else {
+                let mailnuevo = userMail ?? ""
+                if mailnuevo != "" {
+                    if Constatns.LocalData.emailapple != userMail {
+                        Constatns.LocalData.emailapple = mailnuevo
+                    }
+                }
+                
+            }
             print("nombrecompleto :\(appleIdCredentials.fullName)")
             print("nombre:\(appleIdCredentials.fullName?.givenName ?? "")")
             print("apellidos:\(appleIdCredentials.fullName?.familyName ?? "")")
+            
+            let givName : String = appleIdCredentials.fullName?.givenName ?? ""
+            
+            if givName != "" {
+                Constatns.LocalData.nombreapple = "\(appleIdCredentials.fullName?.givenName ?? "") \(appleIdCredentials.fullName?.familyName ?? "")"
+            }
+            
+            
+            
             Auth.auth().signIn(with: credential){ [self] (resutl, error) in
                 
                 if error == nil {
                     print("todo jalo bien con el login de apple")
-                    print("\(resutl?.user.displayName ?? "")")
-                    print("\(resutl?.user.email ?? "")")
+                    mostrarTeminos(tipoLogin: "apple")
                     
-                    let email = resutl?.user.email ?? ""
-                    let nombre = resutl?.user.displayName ?? "Apple"
-                    let apellidos = "Apple"
-                    user = User(name: nombre, last_name: apellidos, email: email, password: "", facebook_login: false)
-                    signInApple(email: email, nombre: nombre, apellidos: apellidos)
                 }
                 else{
                     throwError(str: "Ocurrio un error mediante el login con Apple")

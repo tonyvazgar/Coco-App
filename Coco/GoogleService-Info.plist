@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>4899968219-am0plvgd6192puee9utapsqd7c3cpbmu.apps.googleusercontent.com</string>
+	<string>4899968219-36j7srntqp2s2ec37kjvk3r523ik817b.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.4899968219-am0plvgd6192puee9utapsqd7c3cpbmu</string>
+	<string>com.googleusercontent.apps.4899968219-36j7srntqp2s2ec37kjvk3r523ik817b</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>4899968219-pc0hvl05bh0j3g8ia4ljm6h2e05sn8mt.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -21,15 +21,15 @@
 	<key>STORAGE_BUCKET</key>
 	<string>cocoapp-fdb5b.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:4899968219:ios:df7eeec53e9ded1116e8fe</string>
 </dict>

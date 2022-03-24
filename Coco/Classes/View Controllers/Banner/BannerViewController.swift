@@ -28,7 +28,7 @@ class BannerViewController: UIViewController, UIScrollViewDelegate {
         if let _ = UserManagement.shared.id_user {
             initialViewController = UIStoryboard.tabBar.instantiate(MainTabBarController.self)
         } else {
-            initialViewController = UIStoryboard.accounts.instantiate(SignInViewController.self)
+            initialViewController = UIStoryboard.accounts.instantiate(TiposLogInViewController.self)
         }
           
         let navigationController = UINavigationController(rootViewController: initialViewController)

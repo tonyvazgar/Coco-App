@@ -12,9 +12,10 @@ import SwiftyJSON
 class Notifications: Decodable {
   
   func updateRequest(completion: @escaping(Result) -> Void) {
+    let id = UserManagement.shared.id_user ?? ""
     let data = [
       "funcion": Routes.sendToken,
-      "id_user": UserManagement.shared.id_user ?? "",
+      "id_user": id == "" ? "525" : id,
       "type_device": "1",
       "token": UserManagement.shared.token ?? ""]
     

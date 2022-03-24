@@ -31,6 +31,7 @@
 		7C32F4D227D3A23F00C3A33C /* ListaPedidosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C32F4D127D3A23F00C3A33C /* ListaPedidosViewController.swift */; };
 		7C6213B927E80DC400E3A37F /* TiposLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6213B827E80DC400E3A37F /* TiposLogInViewController.swift */; };
 		7C6213BB27E94E1C00E3A37F /* OtrosMetodosLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6213BA27E94E1C00E3A37F /* OtrosMetodosLoginViewController.swift */; };
+		7C6686D227EC61CF008F1848 /* TerminosPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6686D127EC61CF008F1848 /* TerminosPopUpViewController.swift */; };
 		7C8221CC27DC58380093F9C0 /* PedidoCanceladoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8221CA27DC58380093F9C0 /* PedidoCanceladoTableViewCell.swift */; };
 		7C8221CD27DC58380093F9C0 /* PedidoCanceladoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C8221CB27DC58380093F9C0 /* PedidoCanceladoTableViewCell.xib */; };
 		7CABECC927C1127800C6FFF9 /* CategoriesV2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CABECC827C1127800C6FFF9 /* CategoriesV2ViewController.swift */; };
@@ -362,6 +363,7 @@
 		7C32F4D127D3A23F00C3A33C /* ListaPedidosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListaPedidosViewController.swift; sourceTree = "<group>"; };
 		7C6213B827E80DC400E3A37F /* TiposLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TiposLogInViewController.swift; sourceTree = "<group>"; };
 		7C6213BA27E94E1C00E3A37F /* OtrosMetodosLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtrosMetodosLoginViewController.swift; sourceTree = "<group>"; };
+		7C6686D127EC61CF008F1848 /* TerminosPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TerminosPopUpViewController.swift; sourceTree = "<group>"; };
 		7C8221CA27DC58380093F9C0 /* PedidoCanceladoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedidoCanceladoTableViewCell.swift; sourceTree = "<group>"; };
 		7C8221CB27DC58380093F9C0 /* PedidoCanceladoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PedidoCanceladoTableViewCell.xib; sourceTree = "<group>"; };
 		7CABECC827C1127800C6FFF9 /* CategoriesV2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesV2ViewController.swift; sourceTree = "<group>"; };
@@ -1335,6 +1337,7 @@
 				EF0CDB2D27AA22A900FE6952 /* VerifyTextMessage.swift */,
 				7C6213B827E80DC400E3A37F /* TiposLogInViewController.swift */,
 				7C6213BA27E94E1C00E3A37F /* OtrosMetodosLoginViewController.swift */,
+				7C6686D127EC61CF008F1848 /* TerminosPopUpViewController.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -2137,6 +2140,7 @@
 				C38696AD253D694E006FE5C1 /* OrdersContainerViewController.swift in Sources */,
 				C36BE120253D35000058F3CE /* SettingsViewController.swift in Sources */,
 				C35572A022CA81B900FC5C89 /* MenuTableViewCell.swift in Sources */,
+				7C6686D227EC61CF008F1848 /* TerminosPopUpViewController.swift in Sources */,
 				C3415F442530B02900D0CD2B /* CategoriesFetcher.swift in Sources */,
 				C3DD1FEB255A701C002A5B5C /* CitiesFetcher.swift in Sources */,
 				7CCAB79727C7BEB100DC9961 /* ProductCheckBoxTableViewCell.swift in Sources */,
@@ -2461,7 +2465,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Coco/Coco.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = CGP7LW6Y94;
 				EXCLUDED_ARCHS = "";
@@ -2493,7 +2497,7 @@
 				CODE_SIGN_ENTITLEMENTS = Coco/Coco.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = CGP7LW6Y94;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = Coco/Info.plist;

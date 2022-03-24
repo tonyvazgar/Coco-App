@@ -149,7 +149,7 @@ class User: Decodable {
     
     func loginRequestApple(email : String, nombre : String, apellidos : String, completion: @escaping(Result) -> Void) {
         let data = [
-            "funcion": Routes.loginGoogle,
+            "funcion": Routes.loginApple,
             "email": email,
             "nombre": nombre,
             "apellidos" : apellidos]

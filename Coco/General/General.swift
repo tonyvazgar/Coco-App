@@ -20,10 +20,10 @@ struct General {
     
     
     //productivo
-    //static let endpoint: String = "http://cocosinfilas.com/webservice_v2/controller_last.php"
+    static let endpoint: String = "http://cocosinfilas.com/webservice_v2/controller_last.php"
     
     //pruebas
-    static let endpoint: String = "http://cocosinfilas.com/sandbox/webservice_v2/controller_last.php"
+    //static let endpoint: String = "http://cocosinfilas.com/sandbox/webservice_v2/controller_last.php"
     
     //  static let image_url: String = "https://easycode.mx/trimedicals/app_images/"
     

@@ -14,7 +14,51 @@ struct Constatns {
         static let publickKeyDevelop = "key_CLYZkCgpss3hHwqp1k5XfCw"
     }
     struct LocalData {
-        
+        static var emailgoogle : String {
+            get {
+                return UserDefaults.standard.string(forKey: "emailgoogle") ?? ""
+            }
+            set(login){
+                UserDefaults.standard.set(login, forKey: "emailgoogle")
+                UserDefaults.standard.synchronize()
+            }
+        }
+        static var nombregoogle : String {
+            get {
+                return UserDefaults.standard.string(forKey: "nombregoogle") ?? ""
+            }
+            set(login){
+                UserDefaults.standard.set(login, forKey: "nombregoogle")
+                UserDefaults.standard.synchronize()
+            }
+        }
+        static var apellidogoogle : String {
+            get {
+                return UserDefaults.standard.string(forKey: "apellidogoogle") ?? ""
+            }
+            set(login){
+                UserDefaults.standard.set(login, forKey: "apellidogoogle")
+                UserDefaults.standard.synchronize()
+            }
+        }
+        static var emailapple : String {
+            get {
+                return UserDefaults.standard.string(forKey: "emailapple") ?? ""
+            }
+            set(login){
+                UserDefaults.standard.set(login, forKey: "emailapple")
+                UserDefaults.standard.synchronize()
+            }
+        }
+        static var nombreapple : String {
+            get {
+                return UserDefaults.standard.string(forKey: "nombreapple") ?? ""
+            }
+            set(login){
+                UserDefaults.standard.set(login, forKey: "nombreapple")
+                UserDefaults.standard.synchronize()
+            }
+        }
         struct paymentCanasta {
             static var numeroTarjeta : String {
                 get {

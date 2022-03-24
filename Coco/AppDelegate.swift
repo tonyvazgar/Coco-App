@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
   var gcmMessageIDKey = "gcm.message_id"
+    let signInConfig = GIDConfiguration.init(clientID: "4899968219-36j7srntqp2s2ec37kjvk3r523ik817b.apps.googleusercontent.com")
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
