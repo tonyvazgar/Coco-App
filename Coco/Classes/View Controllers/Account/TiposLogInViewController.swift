@@ -14,7 +14,7 @@ import CryptoKit
 import FirebaseCore
 import FirebaseAuth
 import GoogleSignIn
-
+import FirebaseAnalytics
 
 
 
@@ -80,10 +80,15 @@ class TiposLogInViewController: UIViewController {
     
     // MARK: login google
     @IBAction func loginGoogleAction(_ sender: UIButton) {
-        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
-        let config = GIDConfiguration(clientID: clientID)
+       // guard let clientID = FirebaseApp.app()?.options.clientID else { return }
         
-        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
+        
+        
+        let signInConfig = GIDConfiguration.init(clientID: "4899968219-36j7srntqp2s2ec37kjvk3r523ik817b.apps.googleusercontent.com")
+
+        //let config = GIDConfiguration(clientID: signInConfig)
+        
+        GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { [unowned self] user, error in
 
           if let error = error {
             // ...
@@ -110,6 +115,7 @@ class TiposLogInViewController: UIViewController {
             print("fullName: \(fullName)")
             print("givenName: \(givenName)")
             print("emailAddress: \(emailAddress)")
+            
             Constatns.LocalData.emailgoogle = emailAddress ?? ""
             Constatns.LocalData.nombregoogle = givenName ?? ""
             Constatns.LocalData.apellidogoogle = familyName ?? ""
@@ -175,6 +181,7 @@ class TiposLogInViewController: UIViewController {
     
     func signInGoogle(email email: String, nombre : String, apellidos : String) {
         showLoader(&loader, view: view)
+        Analytics.logEvent("Login google", parameters: [AnalyticsParameterItemID:"\(email)",AnalyticsParameterItemName:"\(nombre) \(apellidos)", AnalyticsParameterContentType:"ios google"])
         user.loginRequestGoogle(email: email, nombre: nombre, apellidos: apellidos) { [weak self] result in
             self?.loader.removeAnimate()
             switch result {
